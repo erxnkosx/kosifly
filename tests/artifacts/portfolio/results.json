@@ -1,0 +1,3156 @@
+{
+  "pages": [
+    {
+      "route": "/",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/services",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/prijzen",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/contact",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/webdesign",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/lokale-seo",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/web-apps",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/ai-automatisaties",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/onderhoud-hosting",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/taxi-bornem",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/primelabs",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/over-ons",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/privacy",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/algemene-voorwaarden",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          272,
+          138
+        ],
+        [
+          24,
+          644,
+          272,
+          313
+        ],
+        [
+          24,
+          1005,
+          272,
+          792
+        ],
+        [
+          24,
+          1838,
+          272,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/services",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/prijzen",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/contact",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/webdesign",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/lokale-seo",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/web-apps",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/ai-automatisaties",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/onderhoud-hosting",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/taxi-bornem",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/primelabs",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/over-ons",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/algemene-voorwaarden",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 375,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          24,
+          105,
+          327,
+          138
+        ],
+        [
+          24,
+          622,
+          327,
+          287
+        ],
+        [
+          24,
+          957,
+          327,
+          771
+        ],
+        [
+          24,
+          1768,
+          327,
+          78
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/services",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/prijzen",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/contact",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/webdesign",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/lokale-seo",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/web-apps",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/ai-automatisaties",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/onderhoud-hosting",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0.00999999999999801,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/taxi-bornem",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0.00999999999999801,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/primelabs",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0.00999999999999801,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/over-ons",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0.00999999999999801,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/privacy",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0.00999999999999801,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/algemene-voorwaarden",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 753,
+      "edgeSpread": 0.00999999999999801,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          38,
+          105,
+          676,
+          121
+        ],
+        [
+          38,
+          471,
+          676,
+          177
+        ],
+        [
+          38,
+          697,
+          676,
+          663
+        ],
+        [
+          38,
+          1399,
+          676,
+          43
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/services",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/prijzen",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/contact",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/webdesign",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/lokale-seo",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/web-apps",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/ai-automatisaties",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/onderhoud-hosting",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/taxi-bornem",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/primelabs",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/over-ons",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/privacy",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/algemene-voorwaarden",
+      "width": 1280,
+      "viewport": 1280,
+      "scrollWidth": 1265,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          307,
+          88,
+          651,
+          140
+        ],
+        [
+          174,
+          442,
+          917,
+          84
+        ],
+        [
+          64,
+          563,
+          1137,
+          220
+        ],
+        [
+          64,
+          819,
+          1137,
+          48
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/services",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/prijzen",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/contact",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/webdesign",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/lokale-seo",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/web-apps",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/ai-automatisaties",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/onderhoud-hosting",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/taxi-bornem",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/primelabs",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/over-ons",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/privacy",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/algemene-voorwaarden",
+      "width": 1920,
+      "viewport": 1920,
+      "scrollWidth": 1905,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          462,
+          133,
+          981,
+          210
+        ],
+        [
+          262,
+          666,
+          1381,
+          126
+        ],
+        [
+          96,
+          849,
+          1713,
+          331
+        ],
+        [
+          96,
+          1234,
+          1713,
+          72
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/services",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/prijzen",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/contact",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/webdesign",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/lokale-seo",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/web-apps",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/ai-automatisaties",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/diensten/onderhoud-hosting",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/taxi-bornem",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/projecten/primelabs",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/over-ons",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/privacy",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    },
+    {
+      "route": "/algemene-voorwaarden",
+      "width": 2560,
+      "viewport": 2560,
+      "scrollWidth": 2545,
+      "edgeSpread": 0,
+      "clipped": [],
+      "footerGeometry": [
+        [
+          465,
+          134,
+          990,
+          212
+        ],
+        [
+          263,
+          672,
+          1393,
+          127
+        ],
+        [
+          96,
+          856,
+          1728,
+          334
+        ],
+        [
+          96,
+          1244,
+          1728,
+          73
+        ]
+      ],
+      "h1Count": 1
+    }
+  ],
+  "interactions": "passed",
+  "errors": []
+}

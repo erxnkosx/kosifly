@@ -1,0 +1,603 @@
+{
+  "webdesign": {
+    "heroSize": {
+      "width": 920,
+      "height": 760
+    },
+    "difference": {
+      "label": "------------   VOOR & NA ------------",
+      "heading": [
+        "De meeste websites zijn een visitekaartje.",
+        "De jouwe  verkoopt."
+      ],
+      "description": "Zelfde bedrijf, een heel andere eerste indruk. Klik op voor en na en zie wat een doordacht ontwerp verandert.",
+      "width": 1240,
+      "height": 500
+    },
+    "features": {
+      "heading": "Alles wat je website nodig heeft om te verkopen .",
+      "description": "Geen losse onderdelen, maar één geheel dat klopt: van de eerste schets tot het formulier dat de aanvraag bij jou aflevert."
+    },
+    "showcase": {
+      "heading": "Zo ziet een site eruit die verkoopt .",
+      "description": "Taxi Bornem, gebouwd door Kosifly. Dit zit erin."
+    },
+    "related": [
+      {
+        "title": "Lokale SEO",
+        "description": "Je nieuwe site bovenaan in Google, in je eigen regio."
+      },
+      {
+        "title": "Onderhoud & hosting",
+        "description": "Snel, veilig en up-to-date, voor één vast bedrag per maand."
+      },
+      {
+        "title": "AI & automatisaties",
+        "description": "Laat aanvragen via je site automatisch opvolgen."
+      }
+    ],
+    "process": {
+      "heading": "Je ziet vooraf wanneer je live gaat.",
+      "description": "Vijf fases over vijf weken. Dit gebeurt er in welke week — en dit hebben we op dat moment van jou nodig.",
+      "note": "De SEO-basis zit standaard in elk webpakket: een snelle site, een duidelijke structuur en alles wat Google nodig heeft om je te begrijpen.",
+      "badge": "LIVE IN 5 WEKEN",
+      "steps": [
+        {
+          "duur": "WEEK 1",
+          "jij": "vertelt wat je wil bereiken",
+          "nummer": "1",
+          "tekst": "We bespreken je doelen, je klanten en je concurrenten, en leggen een plan met vaste prijs voor.",
+          "titel": "Kennismaking & strategie"
+        },
+        {
+          "duur": "WEEK 1",
+          "jij": "levert foto's, logo en input aan",
+          "nummer": "2",
+          "tekst": "We bouwen de structuur van elke pagina en schrijven mee aan de teksten.",
+          "titel": "Structuur & teksten"
+        },
+        {
+          "duur": "WEEK 2",
+          "jij": "geeft feedback in één gebundelde ronde",
+          "nummer": "3",
+          "tekst": "Je krijgt het ontwerp van elke pagina, op desktop en op gsm.",
+          "titel": "Design"
+        },
+        {
+          "duur": "WEEK 3–4",
+          "jij": "test mee op een privélink",
+          "nummer": "4",
+          "tekst": "We bouwen je site, koppelen formulieren en analytics en zetten de SEO-basis op.",
+          "titel": "Bouwen & SEO-basis"
+        },
+        {
+          "duur": "WEEK 5",
+          "jij": "krijgt de sleutels van je site",
+          "nummer": "5",
+          "tekst": "We zetten je site live, geven een korte training en volgen 30 dagen mee op.",
+          "titel": "Livegang"
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "Wat kost een website bij Kosifly?",
+        "a": "Dat hangt af van het aantal pagina's en de functies die je nodig hebt. Na een gratis kennismakingsgesprek krijg je een vaste prijs, zonder verrassingen achteraf."
+      },
+      {
+        "q": "Schrijven jullie ook de teksten?",
+        "a": "Ja, als je dat wil. We schrijven mee of nemen de teksten volledig over, zodat elke pagina duidelijk is en goed scoort in Google."
+      },
+      {
+        "q": "Hoelang duurt het voordat mijn site live gaat?",
+        "a": "Meestal vijf weken, van kennismaking tot livegang. Dat lukt als je feedback binnen twee werkdagen terugkomt. De exacte planning leggen we samen vast."
+      },
+      {
+        "q": "Is de website daarna volledig van mij?",
+        "a": "Ja. Na de oplevering zijn je website, je domein en je inhoud volledig van jou. Je zit nergens aan vast."
+      },
+      {
+        "q": "Kan ik de website nadien zelf aanpassen?",
+        "a": "Zeker. Teksten, foto's en projecten pas je zelf aan, we tonen je hoe. Liever dat wij het doen? Dat kan met een onderhoudspakket."
+      },
+      {
+        "q": "Is mijn site meteen vindbaar in Google?",
+        "a": "De SEO-basis zit standaard in elk webpakket: snelheid, structuur en alles wat Google nodig heeft. Wil je bovenaan staan in je regio, dan is lokale SEO de volgende stap."
+      },
+      {
+        "q": "Doen jullie ook hosting en onderhoud?",
+        "a": "Ja. Met een onderhoudspakket zorgen we voor snelle hosting, updates, back-ups en kleine aanpassingen, voor één vast bedrag per maand."
+      },
+      {
+        "q": "Wat als het ontwerp me niet overtuigt?",
+        "a": "Dan passen we het aan. Je geeft feedback in één gebundelde ronde en we werken het ontwerp bij, nog voor we beginnen te bouwen."
+      }
+    ]
+  },
+  "lokale-seo": {
+    "heroSize": {
+      "width": 860,
+      "height": 760
+    },
+    "difference": {
+      "label": "------------   JOUW REGIO ------------",
+      "heading": [
+        "Niet gevonden worden kost je klanten.",
+        "Wij maken je  vindbaar."
+      ],
+      "description": "Voor elke dienst en elke gemeente waar je werkt, bouwen we een eigen pagina. Zo vinden ze je ook buiten je eigen dorp.",
+      "width": 1347,
+      "height": 622
+    },
+    "features": {
+      "heading": "Van onvindbaar naar eerste keuze .",
+      "description": "Lokale SEO is geen trucje, maar een aanpak in zes onderdelen die elkaar versterken. Wij doen ze allemaal, jij ziet het resultaat."
+    },
+    "showcase": {
+      "heading": "Zo word je gevonden in je regio.",
+      "description": "Zo staat Taxi Bornem in Google. Dit hebben we opgezet."
+    },
+    "related": [
+      {
+        "title": "Webdesign & development",
+        "description": "Een site die bezoekers uit Google omzet in klanten."
+      },
+      {
+        "title": "AI & automatisaties",
+        "description": "Reviews vragen en klanten opvolgen, helemaal vanzelf."
+      },
+      {
+        "title": "Onderhoud & hosting",
+        "description": "Een snelle, veilige site. Ook dat telt mee voor Google."
+      }
+    ],
+    "process": {
+      "heading": "Je ziet vooraf wat er wanneer gebeurt.",
+      "description": "Opgestart in twee weken. Daarna werken we elke maand verder aan je vindbaarheid.",
+      "note": "Is je site door ons gebouwd? Dan zit de SEO-basis al in je webpakket en starten we meteen met je Google-profiel en je lokale pagina's.",
+      "badge": "OPSTART IN 2 WEKEN",
+      "steps": [
+        {
+          "duur": "WEEK 1",
+          "jij": "vertelt welke diensten en regio's tellen",
+          "nummer": "1",
+          "tekst": "We bekijken je site, je Google Bedrijfsprofiel en je concurrenten, en tonen waar de kansen liggen.",
+          "titel": "SEO-check"
+        },
+        {
+          "duur": "WEEK 1",
+          "jij": "bevestigt je profiel bij Google",
+          "nummer": "2",
+          "tekst": "We optimaliseren je Google Bedrijfsprofiel en zetten een vaste flow voor reviews klaar.",
+          "titel": "Google-profiel & reviews"
+        },
+        {
+          "duur": "WEEK 2",
+          "jij": "keurt de teksten goed",
+          "nummer": "3",
+          "tekst": "We maken een pagina per dienst en per gemeente waar je gevonden wil worden.",
+          "titel": "Lokale pagina's"
+        },
+        {
+          "duur": "DOORLOPEND",
+          "jij": "stuurt na elke klus de reviewlink door",
+          "nummer": "4",
+          "tekst": "Nieuwe reviews, vermeldingen en content, en bijsturen waar het nodig is.",
+          "titel": "Elke maand verder"
+        },
+        {
+          "duur": "ELKE MAAND",
+          "jij": "leest je rapport in vijf minuten",
+          "nummer": "5",
+          "tekst": "Je ziet in gewone taal hoe je scoort, hoeveel mensen belden en wat we volgende maand doen.",
+          "titel": "Maandrapport"
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "Wat kost lokale SEO bij Kosifly?",
+        "a": "Je betaalt een vast bedrag per maand, afhankelijk van het aantal diensten en gemeenten. Na een gratis SEO-check weet je precies wat het kost."
+      },
+      {
+        "q": "Hoe snel zie ik resultaat in Google?",
+        "a": "De opstart duurt twee weken. De eerste resultaten zie je meestal na zes tot twaalf weken, en daarna bouwt het verder op zolang je profiel actief blijft."
+      },
+      {
+        "q": "Garanderen jullie een plek in de top drie?",
+        "a": "Nee, en wantrouw wie dat wel doet: niemand bepaalt de volgorde in Google. Wat we wel beloven: een aanpak die werkt en elke maand cijfers die tonen waar je staat."
+      },
+      {
+        "q": "Moet mijn site door jullie gebouwd zijn?",
+        "a": "Nee. We starten dan met een gratis check van je huidige site. Is je site door ons gebouwd, dan zit de SEO-basis er al in en gaan we meteen verder."
+      },
+      {
+        "q": "Wat is het verschil met Google Ads?",
+        "a": "Met Google Ads betaal je per klik, en stopt het zodra je stopt met betalen. Lokale SEO bouwt vindbaarheid op die blijft. Beide kunnen elkaar ook perfect aanvullen."
+      },
+      {
+        "q": "Wat doen jullie elke maand concreet?",
+        "a": "We verzamelen reviews, houden je Google-profiel actief, werken je lokale pagina's bij en sturen bij op basis van de cijfers. Elke maand krijg je daarover een helder rapport."
+      },
+      {
+        "q": "Hoe zorgen jullie voor meer reviews?",
+        "a": "Na elke klus krijgt je klant automatisch een vriendelijke vraag om een review, met een directe link. Zo groeit je aantal reviews zonder dat jij eraan moet denken."
+      },
+      {
+        "q": "Zit ik vast aan een lang contract?",
+        "a": "Je weet vooraf precies wat de looptijd en de opzegtermijn zijn. Die leggen we samen vast, zonder kleine lettertjes."
+      }
+    ]
+  },
+  "ai-automatisaties": {
+    "heroSize": {
+      "width": 860,
+      "height": 760
+    },
+    "difference": {
+      "label": "------------   REKEN HET ZELF UIT ------------",
+      "heading": [
+        "Handwerk kost je elke week uren.",
+        "Dat kan  slimmer."
+      ],
+      "description": "Vul in hoeveel aanvragen je per week krijgt en hoeveel handwerk elke aanvraag vraagt. Zo zie je wat het je kost.",
+      "width": 1240,
+      "height": 490
+    },
+    "features": {
+      "heading": "Wat we voor je automatiseren .",
+      "description": "We starten bij de taken die je het meeste tijd kosten. Elke automatisatie die we bouwen, moet zichzelf terugverdienen."
+    },
+    "showcase": {
+      "heading": "Zo maakt een offerte zichzelf .",
+      "description": "Een voorbeeldproject: offertes op autopilot voor een installateur."
+    },
+    "related": [
+      {
+        "title": "Web apps & maatwerksoftware",
+        "description": "Volstaat een standaardtool niet? Dan bouwen we het op maat."
+      },
+      {
+        "title": "Webdesign & development",
+        "description": "Formulieren die meteen in je automatisaties landen."
+      },
+      {
+        "title": "Lokale SEO",
+        "description": "Meer aanvragen via Google om te automatiseren."
+      }
+    ],
+    "process": {
+      "heading": "Je ziet vooraf wanneer alles draait.",
+      "description": "Vijf fases over zes weken. De eerste automatisatie draait meestal al vanaf week drie.",
+      "note": "Waarom we eerst parallel testen: zo loopt er niets mis met echte klanten, en zie je zwart op wit wat het oplevert voor je volledig overschakelt.",
+      "badge": "LIVE IN 6 WEKEN",
+      "steps": [
+        {
+          "duur": "WEEK 1",
+          "jij": "toont hoe je vandaag werkt",
+          "nummer": "1",
+          "tekst": "We zoeken de taken die je het meeste tijd kosten en berekenen wat automatiseren oplevert.",
+          "titel": "Procesanalyse"
+        },
+        {
+          "duur": "WEEK 1–2",
+          "jij": "geeft toegang tot je tools",
+          "nummer": "2",
+          "tekst": "We tekenen uit wat er gebeurt, wanneer en voor wie.",
+          "titel": "Ontwerp van de flows"
+        },
+        {
+          "duur": "WEEK 2–3",
+          "jij": "bezorgt voorbeelden van mails en documenten",
+          "nummer": "3",
+          "tekst": "We bouwen de automatisaties en koppelen je tools aan elkaar.",
+          "titel": "Bouw & koppelingen"
+        },
+        {
+          "duur": "WEEK 3–5",
+          "jij": "meldt wat opvalt",
+          "nummer": "4",
+          "tekst": "Alles draait eerst naast je huidige werkwijze, met echte aanvragen.",
+          "titel": "Parallel testen"
+        },
+        {
+          "duur": "WEEK 5–6",
+          "jij": "krijgt een korte training",
+          "nummer": "5",
+          "tekst": "We schakelen over en meten hoeveel tijd het je bespaart.",
+          "titel": "Live & opvolging"
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "Welke taken kan ik automatiseren?",
+        "a": "Alles wat repetitief is: leads opvolgen, offertes en facturen opmaken, herinneringen sturen of gegevens overzetten tussen tools. In de procesanalyse zoeken we waar de meeste winst zit."
+      },
+      {
+        "q": "Wat kost een automatisatie?",
+        "a": "Dat hangt af van het aantal stappen en koppelingen. Je krijgt vooraf een vaste prijs, en met de rekentool op deze pagina zie je al wat handwerk je vandaag kost."
+      },
+      {
+        "q": "Met welke tools kunnen jullie koppelen?",
+        "a": "Met de meeste gangbare tools: mail, agenda, CRM, boekhouding, formulieren en webshops. Heeft een tool een koppeling, dan kunnen we er meestal mee werken."
+      },
+      {
+        "q": "Heb ik technische kennis nodig?",
+        "a": "Nee. Wij bouwen en onderhouden alles. Jij krijgt een korte training en ziet in één overzicht wat er automatisch gebeurt."
+      },
+      {
+        "q": "Is een AI-chatbot wel betrouwbaar?",
+        "a": "Een chatbot is zo goed als de info die hij krijgt. We trainen hem op jouw diensten en prijzen, testen hem grondig en laten hem doorverwijzen naar jou als hij het antwoord niet zeker weet."
+      },
+      {
+        "q": "Wat gebeurt er met mijn gegevens?",
+        "a": "Je gegevens blijven van jou. We werken GDPR-conform en gebruiken alleen de gegevens die nodig zijn om de automatisatie te laten werken."
+      },
+      {
+        "q": "Hoe snel verdien ik het terug?",
+        "a": "Dat hangt af van hoeveel tijd je vandaag verliest. Met de rekentool zie je meteen wat handwerk je per jaar kost; in de analyse rekenen we het samen door."
+      },
+      {
+        "q": "Wat als een automatisatie hapert?",
+        "a": "Dan krijgen wij een melding en lossen we het op. We bouwen elke automatisatie met een terugvaloptie, zodat er geen aanvraag verloren gaat."
+      }
+    ]
+  },
+  "onderhoud-hosting": {
+    "heroSize": {
+      "width": 860,
+      "height": 760
+    },
+    "difference": {
+      "label": "------------   ÉÉN MAAND ONDERHOUD ------------",
+      "heading": [
+        "Een website zonder onderhoud veroudert.",
+        "De jouwe blijft  scherp."
+      ],
+      "description": "Dit doen we elke maand voor je site, zonder dat je erom moet vragen. Op het einde krijg je een kort rapport.",
+      "width": 1240,
+      "height": 500
+    },
+    "features": {
+      "heading": "Alles inbegrepen. Niets om aan te denken .",
+      "description": "Eén vast bedrag per maand, zonder kleine lettertjes. Wij houden je site snel, veilig en up-to-date, jij focust op je zaak."
+    },
+    "showcase": {
+      "heading": "Zo ziet je maandrapport eruit.",
+      "description": "Een voorbeeld van het rapport dat je elke maand krijgt."
+    },
+    "related": [
+      {
+        "title": "Webdesign & development",
+        "description": "Toe aan een nieuwe site? We bouwen hem en houden hem scherp."
+      },
+      {
+        "title": "Lokale SEO",
+        "description": "Een snelle site is de basis, lokale SEO doet de rest."
+      },
+      {
+        "title": "AI & automatisaties",
+        "description": "Laat ook het werk achter je site vanzelf lopen."
+      }
+    ],
+    "process": {
+      "heading": "Overstappen is in één week geregeld.",
+      "description": "Vijf stappen en je site staat veilig bij ons. Daarna merk je er niets meer van — behalve dat alles werkt.",
+      "note": "Een site die niet door ons gebouwd is? Geen probleem. We starten met een gratis check en zeggen eerlijk of overstappen de moeite waard is.",
+      "badge": "OVERGESTAPT IN 5 WERKDAGEN",
+      "steps": [
+        {
+          "duur": "DAG 1",
+          "jij": "geeft toegang tot je site en domein",
+          "nummer": "1",
+          "tekst": "We controleren snelheid, beveiliging en de staat van je site.",
+          "titel": "Gratis check"
+        },
+        {
+          "duur": "DAG 2",
+          "jij": "hoeft niets te doen",
+          "nummer": "2",
+          "tekst": "We verhuizen je site naar onze hosting, zonder dat hij offline gaat.",
+          "titel": "Verhuis"
+        },
+        {
+          "duur": "DAG 3",
+          "jij": "krijgt een overzicht van wat er verbeterd is",
+          "nummer": "3",
+          "tekst": "We stellen SSL, een firewall en dagelijkse back-ups in.",
+          "titel": "Beveiligen"
+        },
+        {
+          "duur": "DAG 4–5",
+          "jij": "kijkt mee op een testlink als je wil",
+          "nummer": "4",
+          "tekst": "We testen alles op elk toestel en zetten de monitoring aan.",
+          "titel": "Testen & monitoring"
+        },
+        {
+          "duur": "DOORLOPEND",
+          "jij": "leest je rapport",
+          "nummer": "5",
+          "tekst": "Updates, back-ups, kleine aanpassingen en je maandrapport.",
+          "titel": "Elke maand"
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "Wat kost onderhoud en hosting?",
+        "a": "Je betaalt één vast bedrag per maand, afhankelijk van de grootte van je site. Updates, back-ups, monitoring en kleine aanpassingen zitten erin."
+      },
+      {
+        "q": "Wat zit er precies in het onderhoud?",
+        "a": "Snelle hosting met SSL, wekelijkse updates en controles, dagelijkse back-ups, 24/7 monitoring, kleine aanpassingen op vraag en een maandrapport."
+      },
+      {
+        "q": "Kan ik overstappen met een bestaande site?",
+        "a": "Ja. We starten met een gratis check en zeggen eerlijk of overstappen de moeite waard is. Daarna ben je in vijf werkdagen overgestapt."
+      },
+      {
+        "q": "Gaat mijn site offline bij de verhuis?",
+        "a": "Nee. We verhuizen je site zonder dat hij offline gaat. Je bezoekers merken er niets van."
+      },
+      {
+        "q": "Hoe snel helpen jullie bij problemen?",
+        "a": "Dankzij de monitoring weten we het vaak nog voor jij het merkt. Je krijgt gemiddeld binnen 24 uur antwoord."
+      },
+      {
+        "q": "Zijn kleine aanpassingen inbegrepen?",
+        "a": "Ja. Een tekst wijzigen, een foto vervangen of een pagina toevoegen? Stuur een berichtje en wij regelen het. Grotere aanpassingen bespreken we vooraf."
+      },
+      {
+        "q": "Is er een minimale looptijd?",
+        "a": "Je weet vooraf precies wat de looptijd en de opzegtermijn zijn. Die leggen we samen vast, zonder kleine lettertjes."
+      },
+      {
+        "q": "Blijft mijn site van mij als ik stop?",
+        "a": "Ja. Stop je, dan krijg je een volledige kopie van je site en helpen we je bij de verhuis. Je zit nergens aan vast."
+      }
+    ]
+  },
+  "web-apps": {
+    "heroSize": {
+      "width": 860,
+      "height": 760
+    },
+    "difference": {
+      "label": "------------   ALLES OP ÉÉN PLEK ------------",
+      "heading": [
+        "Excel en losse tools houden je klein.",
+        "Maatwerk laat je  groeien."
+      ],
+      "description": "Vandaag zit je werk verspreid over mail, Excel en losse apps. Wij brengen alles samen in één platform op maat.",
+      "width": 1240,
+      "height": 500
+    },
+    "features": {
+      "heading": "Gebouwd rond hoe jouw bedrijf werkt .",
+      "description": "Van een eenvoudig klantenportaal tot een volledig planningssysteem: we bouwen wat je nodig hebt, niet meer en niet minder."
+    },
+    "showcase": {
+      "heading": "Zo kan jouw software eruitzien.",
+      "description": "Een voorbeeldproject: een werfplanning voor een aannemer."
+    },
+    "related": [
+      {
+        "title": "AI & automatisaties",
+        "description": "Koppel je software aan slimme automatisaties."
+      },
+      {
+        "title": "Onderhoud & hosting",
+        "description": "Updates, back-ups en monitoring voor je platform."
+      },
+      {
+        "title": "Webdesign & development",
+        "description": "Een website die naadloos aansluit op je portaal."
+      }
+    ],
+    "process": {
+      "heading": "Je weet vooraf waar je aan toe bent.",
+      "description": "Vijf fases over twaalf weken. Na week vier klik je al door een werkend prototype van je software.",
+      "note": "Kleine tools staan er vaak sneller. Grote platformen bouwen we in fases, zodat je snel kan starten en later uitbreidt.",
+      "badge": "LIVE IN 12 WEKEN",
+      "steps": [
+        {
+          "duur": "WEEK 1–2",
+          "jij": "toont hoe je vandaag werkt",
+          "nummer": "1",
+          "tekst": "We brengen je werkproces in kaart en leveren een functioneel plan, een planning en een vaste prijs.",
+          "titel": "Analyse & scope"
+        },
+        {
+          "duur": "WEEK 3–4",
+          "jij": "geeft feedback op het prototype",
+          "nummer": "2",
+          "tekst": "Je klikt door de belangrijkste schermen, nog voor er code geschreven is.",
+          "titel": "Klikbaar prototype"
+        },
+        {
+          "duur": "WEEK 5–10",
+          "jij": "test om de twee weken mee",
+          "nummer": "3",
+          "tekst": "We bouwen in sprints van twee weken. Na elke sprint zie je een werkend stuk software.",
+          "titel": "Bouw in sprints"
+        },
+        {
+          "duur": "WEEK 11–12",
+          "jij": "krijgt een training voor je team",
+          "nummer": "4",
+          "tekst": "We testen grondig, zetten je gegevens over en gaan live.",
+          "titel": "Testen & livegang"
+        },
+        {
+          "duur": "DAARNA",
+          "jij": "laat weten wat je nog nodig hebt",
+          "nummer": "5",
+          "tekst": "Nieuwe functies plannen we in wanneer je bedrijf groeit.",
+          "titel": "Doorontwikkeling"
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "Wat kost software op maat?",
+        "a": "Dat hangt af van wat de software moet kunnen. Na de analyse krijg je een functioneel plan met een vaste prijs, zodat je vooraf weet waar je aan toe bent."
+      },
+      {
+        "q": "Is maatwerk niet duurder dan een pakket?",
+        "a": "Bij de start soms wel, maar je betaalt geen licenties voor functies die je niet gebruikt en je werkt niet langer rond je software heen. Op termijn is maatwerk vaak voordeliger."
+      },
+      {
+        "q": "Hoelang duurt het bouwen van een web app?",
+        "a": "Een gemiddeld traject duurt ongeveer twaalf weken. Na week vier klik je al door een werkend prototype, en kleine tools staan er vaak sneller."
+      },
+      {
+        "q": "Kunnen jullie koppelen met mijn tools?",
+        "a": "Meestal wel. We koppelen met boekhoudpakketten, CRM's, agenda's en webshops, zolang die een koppeling toelaten. Dat bekijken we tijdens de analyse."
+      },
+      {
+        "q": "Wie is eigenaar van de software?",
+        "a": "Jij. Na de oplevering zijn de software en de broncode van jou, zodat je nooit vastzit aan één partij."
+      },
+      {
+        "q": "Hoe zit het met veiligheid en GDPR?",
+        "a": "Veiligheid zit in de basis: rollen en rechten per gebruiker, versleutelde verbindingen en dagelijkse back-ups. We bouwen GDPR-conform en bewaren alleen wat nodig is."
+      },
+      {
+        "q": "Wat gebeurt er na de livegang?",
+        "a": "Je team krijgt een training en je krijgt 30 dagen nazorg. Daarna kies je voor onderhoud en doorontwikkeling, zodat je software meegroeit."
+      },
+      {
+        "q": "Kunnen we klein starten en uitbreiden?",
+        "a": "Ja, dat raden we zelfs aan. We starten met wat je nu nodig hebt en bouwen uit wanneer je groeit, zonder opnieuw te moeten beginnen."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Klantenportalen",
+        "description": "Een veilige omgeving waar klanten documenten opladen, de status van hun dossier volgen en facturen terugvinden."
+      },
+      {
+        "title": "Dashboards",
+        "description": "Al je cijfers live op één scherm, rechtstreeks uit je bestaande tools. Geen exports en Excel-lijsten meer."
+      },
+      {
+        "title": "Boeking & planning",
+        "description": "Afspraken, ritten of reservaties die klanten zelf inplannen, gekoppeld aan je agenda en je team."
+      },
+      {
+        "title": "Koppelingen",
+        "description": "We verbinden je software met je boekhouding, CRM of webshop, zodat je gegevens maar één keer ingeeft."
+      },
+      {
+        "title": "Veilig & GDPR-proof",
+        "description": "Rollen en rechten per gebruiker, versleutelde verbindingen en dagelijkse back-ups. Je data blijft van jou."
+      },
+      {
+        "title": "Groeit mee",
+        "description": "Je start met wat je vandaag nodig hebt en breidt uit wanneer je groeit, zonder opnieuw te moeten beginnen."
+      }
+    ]
+  }
+}

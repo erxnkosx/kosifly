@@ -1,0 +1,11 @@
+.frame {
+  container-type: inline-size;
+  max-width: 1920px;
+  margin-inline: auto;
+  overflow-x: clip;
+}
+
+.canvas {
+  width: 1920px;
+  zoom: calc(100cqw / 1920px);
+}

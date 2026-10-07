@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Design tokens, overgenomen uit het Figma-bestand */
+@theme {
+  --color-brand: #810012; /* Rood (primair) */
+  --color-brand-bright: #e8334f; /* Bright rood */
+  --color-brand-soft: #f24a63; /* Accent op donker */
+  --color-ink: #111111; /* Donker */
+  --color-grey: #6b6b6b; /* Grijs */
+  --color-pink: #f2d2d6; /* Pink */
+  --color-night: #050505; /* Donkere hero-achtergrond */
+
+  --font-geist: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif; /* hero H1 */
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif; /* koppen */
+  --font-michroma: "Michroma", ui-sans-serif, system-ui, sans-serif; /* FAQ, footer */
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif; /* body, knoppen */
+  --font-orbitron: "Orbitron", ui-sans-serif, system-ui, sans-serif; /* chips, labels */
+  --font-milonga: "Milonga", ui-serif, serif; /* decoratief */
+}
+
+html {
+  background: #050505;
+}
+body {
+  font-family: var(--font-inter);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Verloopstops van de prijzenpagina; de hoek verschilt per element, dus gebruik ze via var() of bg-brand-gradient (135deg). */
+:root {
+  --brand-gradient-stops: #e8334f 14.286%, #7e0c1e 85.714%;
+  --dark-card-gradient-stops: #000 14.286%, #970303 50%, #000 85.714%;
+}
+
+@utility bg-accent-gradient {
+  background-image: linear-gradient(135deg, #e8334f 0%, #7e0c1e 100%);
+}
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, var(--brand-gradient-stops));
+}
+@utility bg-cta-gradient {
+  background-image: linear-gradient(
+    96.083deg,
+    rgb(167, 0, 0) 2.2569%,
+    rgb(142, 0, 0) 23.184%,
+    rgb(138, 0, 0) 54.981%,
+    rgb(92, 0, 0) 82.375%
+  );
+}
+@utility text-accent-gradient {
+  background-image: linear-gradient(90deg, #f24a63 0%, #c4122e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

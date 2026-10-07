@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1920" height="1410" viewBox="0 0 1920 1410" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Achtergrond (donker)" d="M0 0H1920V1410H0V0Z" fill="url(#paint0_linear_0_17)"/>
+<defs>
+<linearGradient id="paint0_linear_0_17" x1="1915" y1="15.6667" x2="-212.813" y2="922.251" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="0.09"/>
+<stop offset="0.290764" stop-color="#2A0808"/>
+<stop offset="0.500891" stop-color="#47000A"/>
+<stop offset="0.75" stop-color="#180202"/>
+<stop offset="1"/>
+</linearGradient>
+</defs>
+</svg>

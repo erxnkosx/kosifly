@@ -1,0 +1,37 @@
+{
+  "environment": "jsdom; no browser layout engine",
+  "results": [
+    {
+      "name": "Every service FAQ opens one question at a time and can close it",
+      "passed": true
+    },
+    {
+      "name": "Calculator defaults, live changes, annual totals and contact handoff",
+      "passed": true
+    },
+    {
+      "name": "Website makeover switches both ways and exposes its selected state",
+      "passed": true
+    },
+    {
+      "name": "All six software modules work with click and arrow keys",
+      "passed": true
+    },
+    {
+      "name": "Services menu exposes five correct routes and closes with Escape",
+      "passed": true
+    },
+    {
+      "name": "Contact form receives calculator values, validates required fields and shows server errors",
+      "passed": true
+    },
+    {
+      "name": "Homepage FAQ retains its eight questions and starts closed",
+      "passed": true
+    },
+    {
+      "name": "Mobile navigation closes with outside interaction",
+      "passed": true
+    }
+  ]
+}

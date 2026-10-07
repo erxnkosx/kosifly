@@ -1,0 +1,101 @@
+{
+  "environment": "built HTML and source files; no layout engine",
+  "pages": [
+    {
+      "route": "/",
+      "h1": "Websites, softwareen AI die je bedrijflaten groeien.",
+      "mainSections": 12,
+      "status": "passed"
+    },
+    {
+      "route": "/services",
+      "h1": "Alles om je bedrijfte laten groeien.",
+      "mainSections": 0,
+      "status": "passed"
+    },
+    {
+      "route": "/contact",
+      "h1": "Laten wekennismaken.",
+      "mainSections": 4,
+      "status": "passed"
+    },
+    {
+      "route": "/prijzen",
+      "h1": "Een vaste prijs,vooraf en zonderverrassingen.",
+      "mainSections": 9,
+      "status": "passed"
+    },
+    {
+      "route": "/projecten",
+      "h1": "Gebouwd voorechte bedrijven.",
+      "mainSections": 2,
+      "status": "passed"
+    },
+    {
+      "route": "/projecten/taxi-bornem",
+      "h1": "Van telefoontjes naaronline ritaanvragen.",
+      "mainSections": 5,
+      "status": "passed"
+    },
+    {
+      "route": "/projecten/primelabs",
+      "h1": "Drone-inspecties,helder in beeld.",
+      "mainSections": 5,
+      "status": "passed"
+    },
+    {
+      "route": "/over-ons",
+      "h1": "We bouwen wat jebedrijf vooruit helpt.",
+      "mainSections": 5,
+      "status": "passed"
+    },
+    {
+      "route": "/privacy",
+      "h1": "Privacy",
+      "mainSections": 9,
+      "status": "passed"
+    },
+    {
+      "route": "/algemene-voorwaarden",
+      "h1": "Algemene voorwaarden",
+      "mainSections": 10,
+      "status": "passed"
+    },
+    {
+      "route": "/diensten/webdesign",
+      "h1": "Een website diebezoekers omzet inklanten.",
+      "mainSections": 7,
+      "status": "passed"
+    },
+    {
+      "route": "/diensten/lokale-seo",
+      "h1": "Wie in je regiozoekt, vindtjou eerst.",
+      "mainSections": 7,
+      "status": "passed"
+    },
+    {
+      "route": "/diensten/ai-automatisaties",
+      "h1": "Minder handwerk.Meer tijd om tegroeien.",
+      "mainSections": 7,
+      "status": "passed"
+    },
+    {
+      "route": "/diensten/onderhoud-hosting",
+      "h1": "Snel, veiligen altijdonline.",
+      "mainSections": 7,
+      "status": "passed"
+    },
+    {
+      "route": "/diensten/web-apps",
+      "h1": "Software diepast bij hoe jijwerkt.",
+      "mainSections": 7,
+      "status": "passed"
+    }
+  ],
+  "localAssets": 234,
+  "knownMissingContent": [
+    "Legal pages are drafts; official company details, retention and processing providers need confirmation",
+    "Case request metrics and customer quotes are not supplied in Figma"
+  ],
+  "browserVerification": "See portfolio/results.json, layout-verification.json and visual-audit.json for browser checks"
+}

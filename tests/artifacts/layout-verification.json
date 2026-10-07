@@ -1,0 +1,2330 @@
+[
+  {
+    "width": 320,
+    "route": "/",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 24
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 24
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 320,
+    "route": "/services",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 320,
+    "route": "/contact",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 24
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 320,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 320,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 320,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 320,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 320,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0,
+    "viewport": 320,
+    "scrollWidth": 320,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 390,
+    "route": "/",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 24
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 24
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 390,
+    "route": "/contact",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 24
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 390,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 390,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 390,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 390,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 390,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0,
+    "viewport": 390,
+    "scrollWidth": 375,
+    "padding": {
+      "nav": 24,
+      "footer": 24,
+      "hero": 24,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 24
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 24
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 768,
+    "route": "/",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": 38.4,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 38.3906
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 38.3906
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 768,
+    "route": "/services",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 768,
+    "route": "/contact",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": 38.4,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 768,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": 38.4,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 768,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": 38.4,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 768,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": 38.4,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 768,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": 38.4,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 768,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0.00999999999999801,
+    "viewport": 768,
+    "scrollWidth": 753,
+    "padding": {
+      "nav": 38.4,
+      "footer": 38.4,
+      "hero": 38.4,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 38.3906
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 38.3906
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1024,
+    "route": "/",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": 51.2,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 51.1875
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 51.1875
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1024,
+    "route": "/services",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 1024,
+    "route": "/contact",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": 51.2,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1024,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": 51.2,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1024,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": 51.2,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1024,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": 51.2,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1024,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": 51.2,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1024,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0.010000000000005116,
+    "viewport": 1024,
+    "scrollWidth": 1009,
+    "padding": {
+      "nav": 51.2,
+      "footer": 51.2,
+      "hero": 51.2,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 51.1875
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 51.1875
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1280,
+    "route": "/",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": 64,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 64
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 64
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1280,
+    "route": "/services",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 1280,
+    "route": "/contact",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": 64,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 64
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1280,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": 64,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1280,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": 64,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1280,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": 64,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1280,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": 64,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1280,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0,
+    "viewport": 1280,
+    "scrollWidth": 1265,
+    "padding": {
+      "nav": 64,
+      "footer": 64,
+      "hero": 64,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 64
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 64
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1440,
+    "route": "/",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": 72,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 72
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 72
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 1440,
+    "route": "/contact",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": 72,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 72
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1440,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": 72,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1440,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": 72,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1440,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": 72,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1440,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": 72,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1440,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0,
+    "viewport": 1440,
+    "scrollWidth": 1425,
+    "padding": {
+      "nav": 72,
+      "footer": 72,
+      "hero": 72,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 72
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 72
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1920,
+    "route": "/",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 96
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 96
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1920,
+    "route": "/services",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 1920,
+    "route": "/contact",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 96
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1920,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1920,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 1920,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1920,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 1920,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0,
+    "viewport": 1920,
+    "scrollWidth": 1905,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 96
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 96
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 2560,
+    "route": "/",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section light-section home-problems",
+          "padding": 408.5
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section home-difference",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section home-services",
+          "padding": 408.5
+        },
+        {
+          "name": "home-visual legacy-home",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section home-reviews",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section faq-section home-faq",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 2560,
+    "route": "/services",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": null,
+      "sections": [
+        {
+          "name": "service-section light-section services-index",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": []
+  },
+  {
+    "width": 2560,
+    "route": "/contact",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section light-section contact-next-steps",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section contact-location",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 2560,
+    "route": "/diensten/webdesign",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 2560,
+    "route": "/diensten/lokale-seo",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0.01
+  },
+  {
+    "width": 2560,
+    "route": "/diensten/web-apps",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 2560,
+    "route": "/diensten/ai-automatisaties",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section features-section ",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  },
+  {
+    "width": 2560,
+    "route": "/diensten/onderhoud-hosting",
+    "edgeSpread": 0,
+    "viewport": 2560,
+    "scrollWidth": 2545,
+    "padding": {
+      "nav": 96,
+      "footer": 96,
+      "hero": 96,
+      "sections": [
+        {
+          "name": "service-section difference-section light-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section features-section receipt-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section process-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section showcase-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section related-section",
+          "padding": 408.5
+        },
+        {
+          "name": "service-section light-section faq-section",
+          "padding": 408.5
+        }
+      ]
+    },
+    "clipped": [],
+    "heroCenterError": 0
+  }
+]

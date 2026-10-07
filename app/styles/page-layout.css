@@ -1,0 +1,219 @@
+/* A single content edge; section backgrounds still span the whole screen. */
+:root {
+  --page-max-width: 1920px;
+  --page-gutter: clamp(24px, 5vw, 96px);
+  --page-inset: max(
+    var(--page-gutter),
+    calc((100% - var(--page-max-width)) / 2 + var(--page-gutter))
+  );
+  --content-gutter: var(--page-gutter);
+  --hero-space: clamp(40px, 5svh, 64px);
+}
+
+.nav-inner,
+.hero-grid,
+.footer-inner,
+.contact-section > div:last-child {
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+.service-section,
+.home-reviews,
+.receipt-section {
+  padding-inline: var(--page-inset);
+}
+.features-content,
+.related-grid,
+.home-problem-grid,
+.home-comparison-grid,
+.home-services-grid {
+  width: 100%;
+  max-width: none;
+}
+.showcase-section .section-heading {
+  padding-inline: 0;
+}
+.showcase-links {
+  margin-inline: 0;
+}
+
+/* Fixed-size illustration canvases scale inside the same content edges. */
+.home-visual.legacy-home {
+  max-width: none;
+  padding-inline: var(--page-inset);
+  background: linear-gradient(65deg, #000, #3a0006 48%, #000);
+}
+
+.services-menu > button {
+  background: transparent;
+}
+.services-chevron {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: -4px 3px 0 4px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  background: transparent;
+  transform: rotate(45deg);
+  transition: transform 0.22s ease;
+}
+.services-menu > button[aria-expanded="true"] .services-chevron {
+  transform: rotate(225deg);
+}
+
+.service-hero {
+  padding-top: var(--nav-height);
+}
+.hero-grid {
+  min-height: calc(min(100svh, 1080px) - var(--nav-height));
+  padding-block: var(--hero-space);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 58px);
+  align-items: center;
+  align-content: center;
+}
+.service-hero h1 {
+  width: 100%;
+  font-size: clamp(40px, 4.65vw, 90px);
+}
+.home-hero h1 {
+  font-size: clamp(40px, 4.375vw, 84px);
+}
+.hero-art,
+.home-hero .hero-art {
+  width: 100%;
+  max-width: min(
+    100%,
+    calc((min(100svh, 1080px) - var(--nav-height) - 2 * var(--hero-space)) * 1.05)
+  );
+  margin: 0;
+  justify-self: center;
+  align-self: center;
+}
+.hero-copy > .button-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.hero-copy > p {
+  max-width: 100%;
+}
+
+.contact-section > div:last-child {
+  min-height: calc(100svh - var(--nav-height));
+  padding-block: var(--hero-space);
+  align-items: start;
+}
+.contact-copy {
+  padding-top: 0;
+}
+.contact-copy > h1 {
+  margin-top: 26px;
+}
+.contact-copy > h1 + p {
+  margin-top: 0;
+}
+.services-index {
+  min-height: 100svh;
+  padding-top: calc(var(--nav-height) + var(--hero-space));
+  padding-bottom: var(--hero-space);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The footer follows the shared edges instead of its former 72px inset. */
+.footer-inner {
+  --footer-scale: min(1px, calc((min(100cqw, 1920px) - 2 * var(--page-gutter)) / 1776));
+}
+.site-footer .footer-columns,
+.site-footer .footer-bottom {
+  width: 100%;
+}
+.site-footer .footer-bottom {
+  margin-left: 0;
+}
+.site-footer .footer-divider {
+  transform: scaleX(calc((min(100cqw, 1920px) - 2 * var(--page-gutter)) / 1750px));
+}
+.site-footer .footer-invitation .button-row {
+  transform: none;
+}
+.site-footer .footer-call {
+  width: min(100%, calc(1432 * var(--footer-scale)));
+}
+
+@media (max-width: 1000px) {
+  .services-index .related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .footer-inner {
+    --footer-scale: 1px;
+  }
+  .service-hero h1 {
+    font-size: clamp(33px, 4.65vw, 47px);
+  }
+  .home-hero h1 {
+    font-size: clamp(31px, 4.2vw, 42px);
+  }
+  .hero-grid {
+    min-height: calc(min(100svh, 1080px) - var(--nav-height));
+  }
+  .hero-art,
+  .home-hero .hero-art {
+    max-width: 100%;
+  }
+  .site-footer .footer-call {
+    width: 100%;
+  }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .nav-inner {
+    position: relative;
+    gap: 14px;
+  }
+  .nav-links {
+    gap: 12px;
+    font-size: 12px;
+  }
+  .services-menu {
+    position: static;
+  }
+  .services-dropdown {
+    left: var(--page-gutter);
+    right: var(--page-gutter);
+    top: 100%;
+    width: auto;
+  }
+}
+@media (max-width: 760px) {
+  .services-index .related-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+  .service-hero h1 {
+    font-size: clamp(33px, 7.8vw, 58px);
+  }
+  .home-hero h1 {
+    font-size: clamp(31px, 7vw, 53px);
+  }
+  .hero-art,
+  .home-hero .hero-art {
+    width: 100%;
+    max-width: 580px;
+    align-self: center;
+  }
+  .contact-section > div:last-child {
+    padding-block: var(--hero-space);
+  }
+  .services-index {
+    padding-top: calc(var(--nav-height) + var(--hero-space));
+  }
+}

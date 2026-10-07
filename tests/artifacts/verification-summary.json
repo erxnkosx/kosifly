@@ -1,0 +1,19 @@
+{
+  "productionBuild": "passed",
+  "typeScript": "passed",
+  "interactionTests": 9,
+  "builtPages": 8,
+  "localAssetReferences": 190,
+  "browserTests": {
+    "status": "blocked before execution",
+    "reason": "Chromium executable unavailable",
+    "configuredCases": 56,
+    "visualFigmaComparison": "not verified"
+  },
+  "intentionalDesignChanges": [
+    "Navbar reduced to 72–96 px",
+    "Navbar and heroes share one background",
+    "Responsive content flow on smaller widths",
+    "Scroll and hover animations respecting reduced motion"
+  ]
+}

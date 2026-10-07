@@ -1,0 +1,10 @@
+export { AnchorBar } from "./anchor-bar/AnchorBar";
+export { PriceCalculator } from "./calculator/PriceCalculator";
+export { Comparison } from "./comparison/Comparison";
+export { CustomWork } from "./custom/CustomWork";
+export { Extras } from "./extras/Extras";
+export { PricingFaq } from "./faq/PricingFaq";
+export { PricingHero } from "./hero/PricingHero";
+export { HowItWorks } from "./how-it-works/HowItWorks";
+export { MonthlyPlans } from "./monthly/MonthlyPlans";
+export { Websites } from "./websites/Websites";

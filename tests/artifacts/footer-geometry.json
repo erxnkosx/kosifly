@@ -1,0 +1,167 @@
+{
+  "height": 1348.265625,
+  "width": 1905,
+  "geometry": [
+    {
+      "selector": "tiny-label",
+      "x": 96,
+      "y": 81.98,
+      "width": 1713,
+      "height": 27.02
+    },
+    {
+      "selector": "H2",
+      "x": 462.03,
+      "y": 133.11,
+      "width": 980.92,
+      "height": 210.25
+    },
+    {
+      "selector": "P",
+      "x": 589.36,
+      "y": 377.11,
+      "width": 726.28,
+      "height": 52.06
+    },
+    {
+      "selector": "button-row",
+      "x": 96,
+      "y": 484.14,
+      "width": 1713,
+      "height": 61.72
+    },
+    {
+      "selector": "STRONG",
+      "x": 96,
+      "y": 587.33,
+      "width": 1713,
+      "height": 26.03
+    },
+    {
+      "selector": "footer-call",
+      "x": 261.91,
+      "y": 666.41,
+      "width": 1381.19,
+      "height": 126.34
+    },
+    {
+      "selector": "footer-columns",
+      "x": 96,
+      "y": 848.69,
+      "width": 1713,
+      "height": 331.13
+    },
+    {
+      "selector": "footer-brand",
+      "x": 96,
+      "y": 848.69,
+      "width": 483.22,
+      "height": 331.13
+    },
+    {
+      "selector": "IMG",
+      "x": 96,
+      "y": 857.36,
+      "width": 337.58,
+      "height": 225.05
+    },
+    {
+      "selector": "DIV",
+      "x": 579.22,
+      "y": 848.69,
+      "width": 248.84,
+      "height": 331.13
+    },
+    {
+      "selector": "DIV",
+      "x": 828.06,
+      "y": 848.69,
+      "width": 358.81,
+      "height": 331.13
+    },
+    {
+      "selector": "footer-contact",
+      "x": 1186.88,
+      "y": 848.69,
+      "width": 447.53,
+      "height": 331.13
+    },
+    {
+      "selector": "footer-follow",
+      "x": 1634.41,
+      "y": 848.69,
+      "width": 174.58,
+      "height": 331.13
+    },
+    {
+      "selector": "IMG",
+      "x": 1591.97,
+      "y": 909.45,
+      "width": 46.3,
+      "height": 46.3
+    },
+    {
+      "selector": "IMG",
+      "x": 1669.13,
+      "y": 910.41,
+      "width": 46.3,
+      "height": 46.3
+    },
+    {
+      "selector": "IMG",
+      "x": 1737.61,
+      "y": 909.45,
+      "width": 46.3,
+      "height": 46.3
+    },
+    {
+      "selector": "footer-social-mark",
+      "x": 1737.61,
+      "y": 973.58,
+      "width": 46.3,
+      "height": 23.15
+    },
+    {
+      "selector": "footer-bottom",
+      "x": 96,
+      "y": 1233.5,
+      "width": 1713,
+      "height": 72.33
+    }
+  ],
+  "clipped": [],
+  "text": "KLAAR OM TE GROEIEN?Let's build a website that works for you.Een gesprek van 30 minuten. Je vertelt wat je wil bereiken, wij zeggen wat het kost en hoe lang het duurt. Daarna beslis jij.Start your project →Plan een gesprek van 30 minGemiddeld antwoord binnen 24 uur · gratis website-audit · geen verplichtingenLiever meteen iemand aan de lijn?Je spreekt de persoon die je site ook effectief bouwt.Start your project →+32 483 69 04 26Digital solutions for KMO’s.From website’s to AI automation.NavigatieHomeServicesProjectsPricingAboutContactServicesWebdesignLokale SEOWeb apps & maatwerkAI & automatisatiesOnderhoud & hostingContactinfo@kosifly.com+32 (0)483 69 04 26Puurs Sint-amands, BelgiëMa–zo, 9–18uBTW BE 0000.000.000Volg ons© 2026　 K O S I F L YAlgemene voorwaardenPrivacy",
+  "assets": [
+    {
+      "src": "/figma/footer/43147.png",
+      "naturalWidth": 1536,
+      "width": 337.578125,
+      "height": 225.046875
+    },
+    {
+      "src": "/figma/footer/f3cd6.svg",
+      "naturalWidth": 48,
+      "width": 46.2972412109375,
+      "height": 46.2972412109375
+    },
+    {
+      "src": "/figma/footer/1eb49.svg",
+      "naturalWidth": 48,
+      "width": 46.2972412109375,
+      "height": 46.2972412109375
+    },
+    {
+      "src": "/figma/footer/d3c6e.svg",
+      "naturalWidth": 48,
+      "width": 46.2972412109375,
+      "height": 46.2972412109375
+    },
+    {
+      "src": "/figma/footer/aaff3.svg",
+      "naturalWidth": 48,
+      "width": 46.29736328125,
+      "height": 23.148681640625
+    }
+  ],
+  "overflow": false
+}

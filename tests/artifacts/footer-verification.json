@@ -1,0 +1,242 @@
+[
+  {
+    "route": "/",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/services",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/contact",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/webdesign",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/lokale-seo",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/web-apps",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/ai-automatisaties",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/onderhoud-hosting",
+    "width": 1920,
+    "height": 1348.265625,
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/services",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/contact",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/webdesign",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/lokale-seo",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/web-apps",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/ai-automatisaties",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/onderhoud-hosting",
+    "width": 1440,
+    "height": 1008.21875,
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/services",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/contact",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/webdesign",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/lokale-seo",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/web-apps",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/ai-automatisaties",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/onderhoud-hosting",
+    "width": 768,
+    "height": 1499.1875,
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/services",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/contact",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/webdesign",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/lokale-seo",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/web-apps",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/ai-automatisaties",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/onderhoud-hosting",
+    "width": 390,
+    "height": 1929.15625,
+    "status": "passed"
+  },
+  {
+    "route": "/",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  },
+  {
+    "route": "/services",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  },
+  {
+    "route": "/contact",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/webdesign",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/lokale-seo",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/web-apps",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/ai-automatisaties",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  },
+  {
+    "route": "/diensten/onderhoud-hosting",
+    "width": 320,
+    "height": 2026.3125,
+    "status": "passed"
+  }
+]
