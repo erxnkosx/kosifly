@@ -29,7 +29,7 @@ function Visual0() {
           ))}
           <div className="absolute left-[-1px] top-[31px] h-[284px] w-[500px] overflow-hidden">
             <Image
-              src="/images/taxibornem-home.png"
+              src="/images/taxibornem-home.webp"
               alt="Taxi Bornem"
               width={10164}
               height={5548}
