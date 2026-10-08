@@ -1,0 +1,362 @@
+/* Mobile layouts use real CSS pixels: controls must remain readable and tappable. */
+@media (max-width: 760px) {
+  html {
+    scrollbar-gutter: auto;
+  }
+  .nav-inner {
+    gap: 8px;
+  }
+  .site-logo {
+    flex-shrink: 0;
+    gap: 10px;
+  }
+  .mobile-toggle {
+    min-height: 44px;
+    flex-shrink: 0;
+  }
+  .nav-links {
+    color: #fff;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-links > a,
+  .services-menu > button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .services-menu > button {
+    width: 100%;
+  }
+  .service-menu-items > a > span {
+    min-width: 0;
+  }
+  .service-menu-items strong,
+  .service-menu-items small {
+    overflow-wrap: anywhere;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+  }
+  .contact-form button {
+    min-height: 44px;
+  }
+  .contact-form .flex.gap-\[16px\] {
+    flex-direction: column;
+  }
+  .hero-line {
+    white-space: normal;
+  }
+  .hero-trust li {
+    white-space: normal;
+  }
+  .hero-copy > .button-row .button {
+    max-width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  .module-picker {
+    grid-template-columns: 1fr;
+  }
+  .module-picker [role="tab"] > span {
+    min-width: 0;
+  }
+  .module-picker [role="tab"] strong,
+  .module-picker [role="tab"] small {
+    overflow-wrap: anywhere;
+  }
+  .pricing-canvas {
+    width: 100%;
+    zoom: 1;
+  }
+  .pricing-canvas > section {
+    width: 100%;
+    height: auto !important;
+    min-height: 0;
+    padding: 56px 20px;
+    overflow: clip;
+  }
+  .pricing-canvas > section > :not(.absolute) {
+    width: 100%;
+    margin-inline: 0;
+  }
+  .pricing-canvas [data-reveal],
+  .pricing-canvas [data-reveal-group] {
+    max-width: 100%;
+  }
+  .pricing-canvas section > [data-reveal]:first-child {
+    padding-top: 0;
+  }
+  .pricing-canvas h2 {
+    width: 100%;
+    font-size: clamp(30px, 7vw, 44px);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-inline: 0;
+  }
+  .pricing-canvas h2 br {
+    display: none;
+  }
+  .pricing-canvas section > [data-reveal]:first-child > p {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+  .pricing-canvas section > [data-reveal]:first-child > p:first-child {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .pricing-canvas section > [data-reveal]:first-child > p:first-child [aria-hidden] {
+    display: none;
+  }
+  .pricing-canvas [data-reveal-group] {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-left: 0;
+  }
+  .pricing-canvas [data-reveal-group] > :is(li, article) {
+    width: 100%;
+    height: auto;
+    padding: 24px;
+    min-width: 0;
+  }
+  .pricing-canvas :is(h3, h4) {
+    white-space: normal;
+  }
+  .pricing-canvas .whitespace-nowrap {
+    white-space: normal;
+  }
+  .pricing-canvas [data-reveal-group] > :is(li, article) > .absolute:not(svg) {
+    position: static;
+    order: -1;
+    align-self: flex-start;
+  }
+  .pricing-canvas #maandpakketten > div:last-child {
+    gap: 48px;
+  }
+  .pricing-canvas #maandpakketten [data-reveal] {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .pricing-canvas #maatwerk article > div:not(:first-child) {
+    padding: 18px;
+  }
+  .pricing-canvas #maatwerk article > div > div {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pricing-canvas #extras > div:last-child {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    border-radius: 20px;
+  }
+  .pricing-canvas #zo-werkt-het > div:nth-child(2) {
+    height: auto;
+  }
+  .pricing-canvas #zo-werkt-het > div:nth-child(2) > span {
+    display: none;
+  }
+  .pricing-canvas #zo-werkt-het ol > li {
+    padding: 0;
+  }
+  .pricing-canvas #zo-werkt-het > ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .pricing-canvas #zo-werkt-het > ul > li {
+    width: auto;
+    padding: 12px 18px;
+  }
+  .pricing-canvas #vergelijking > div:last-child {
+    height: auto;
+    overflow-x: auto;
+    border: 1px solid #ead5d8;
+  }
+  .pricing-canvas #vergelijking table {
+    width: 900px;
+  }
+  .pricing-canvas #vergelijking col {
+    width: 210px;
+  }
+  .pricing-canvas #vergelijking col:first-child {
+    width: 270px;
+  }
+  .pricing-canvas #vergelijking > div > div[aria-hidden] {
+    display: none;
+  }
+  .pricing-canvas #vergelijking :is(th, td) {
+    padding-inline: 12px;
+  }
+  .pricing-canvas #vergelijking th > span {
+    font-size: 18px;
+  }
+  .pricing-canvas #faq {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .pricing-canvas #faq > div {
+    width: 100%;
+    margin: 0;
+  }
+  .pricing-canvas #faq > div:first-child > p {
+    height: auto;
+    margin: 0 0 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .pricing-canvas #faq > div:first-child > p [aria-hidden],
+  .pricing-canvas #faq h2 img {
+    display: none;
+  }
+  .pricing-canvas #faq > div:first-child > div {
+    width: 100%;
+    height: auto;
+    margin-top: 28px;
+    padding: 20px;
+  }
+  .pricing-canvas #faq > div:first-child > div > span {
+    display: none;
+  }
+  .pricing-canvas #faq p {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+  .pricing-canvas #faq a {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+  .pricing-canvas #faq button {
+    font-size: 16px;
+    line-height: 1.6;
+    gap: 12px;
+  }
+  .pricing-canvas #bereken-je-prijs > div:last-child > div {
+    width: 100%;
+    flex-direction: column;
+  }
+  .pricing-canvas #bereken-je-prijs > div:last-child > div > div {
+    width: 100%;
+    padding: 20px 8px;
+  }
+  .pricing-canvas #bereken-je-prijs aside {
+    width: 100%;
+    padding: 24px;
+  }
+  .pricing-canvas #bereken-je-prijs aside output {
+    font-size: 32px;
+  }
+  .pricing-canvas #bereken-je-prijs fieldset {
+    min-width: 0;
+    width: 100%;
+  }
+  .pricing-canvas #bereken-je-prijs fieldset > div {
+    flex-wrap: wrap;
+  }
+  .pricing-canvas #bereken-je-prijs fieldset > div > label {
+    flex-basis: 100%;
+  }
+  .pricing-canvas #bereken-je-prijs fieldset fieldset > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .pricing-canvas #bereken-je-prijs fieldset fieldset label {
+    padding-inline: 8px;
+    text-align: center;
+    min-height: 44px;
+  }
+  .pricing-canvas #bereken-je-prijs fieldset > div > div.relative {
+    width: 100%;
+    height: auto;
+    min-height: 52px;
+    flex-wrap: wrap;
+  }
+  .pricing-canvas #bereken-je-prijs fieldset > div > div.relative > label {
+    flex-basis: 100%;
+  }
+  .pricing-canvas #bereken-je-prijs button {
+    min-height: 44px;
+  }
+  .pricing-canvas > nav {
+    width: 100%;
+    height: auto;
+    padding: 12px 20px;
+  }
+  .pricing-canvas > nav ul {
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+    padding-block: 4px;
+  }
+  .pricing-canvas > nav li {
+    flex-shrink: 0;
+  }
+  .pricing-canvas > nav a {
+    font-size: 14px;
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+}
+@media (max-width: 360px) {
+  .nav-inner {
+    padding-inline: 16px;
+  }
+  .site-logo img:last-child {
+    width: 125px;
+  }
+  .mobile-toggle {
+    padding-inline: 8px;
+  }
+  .hero-copy > .button-row {
+    align-items: stretch;
+  }
+  .hero-copy > .button-row .button {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .button,
+  .pricing-canvas a,
+  .mobile-toggle {
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+  }
+  .button:active,
+  .pricing-canvas a:active,
+  .mobile-toggle:active {
+    transform: scale(0.97);
+  }
+  .nav-links.mobile-open {
+    animation: mobile-menu-in 220ms ease-out;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover,
+    .pricing-canvas [data-reveal-group] > article:hover {
+      translate: 0 -4px;
+    }
+    .project-card,
+    .pricing-canvas [data-reveal-group] > article {
+      transition: translate 240ms ease;
+    }
+  }
+}
+@keyframes mobile-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

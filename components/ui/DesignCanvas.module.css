@@ -9,3 +9,10 @@
   width: 1920px;
   zoom: calc(100cqw / 1920px);
 }
+
+@media (max-width: 1000px) {
+  .canvas {
+    width: 100%;
+    zoom: 1;
+  }
+}

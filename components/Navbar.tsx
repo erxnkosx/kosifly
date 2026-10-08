@@ -16,6 +16,7 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
     [mobile, setMobile] = useState(false);
   const ref = useRef<HTMLElement>(null),
     trigger = useRef<HTMLButtonElement>(null),
+    mobileTrigger = useRef<HTMLButtonElement>(null),
     pathname = usePathname();
   useEffect(() => {
     setOpen(false);
@@ -31,6 +32,16 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
     document.addEventListener("pointerdown", close);
     return () => document.removeEventListener("pointerdown", close);
   }, []);
+  useEffect(() => {
+    if (!window.matchMedia) return;
+    const query = window.matchMedia("(max-width: 760px)");
+    const reset = () => {
+      setMobile(false);
+      setOpen(false);
+    };
+    query.addEventListener("change", reset);
+    return () => query.removeEventListener("change", reset);
+  }, []);
   return (
     <header
       ref={ref}
@@ -39,7 +50,8 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
         if (e.key === "Escape") {
           setOpen(false);
           setMobile(false);
-          trigger.current?.focus();
+          if (mobile) mobileTrigger.current?.focus();
+          else trigger.current?.focus();
         }
       }}
     >
@@ -49,14 +61,25 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
           <img src="/figma/26ebd.png" alt="Kosifly" width="217" height="26" />
         </Link>
         <button
+          ref={mobileTrigger}
+          type="button"
           className="mobile-toggle"
           aria-expanded={mobile}
           aria-controls="main-navigation"
-          onClick={() => setMobile(!mobile)}
+          onClick={() => {
+            setMobile(!mobile);
+            setOpen(false);
+          }}
         >
           {mobile ? "Sluiten ×" : "Menu ☰"}
         </button>
         <nav
+          onClick={(e) => {
+            if ((e.target as HTMLElement).closest("a")) {
+              setMobile(false);
+              setOpen(false);
+            }
+          }}
           id="main-navigation"
           aria-label="Hoofdnavigatie"
           className={mobile ? "nav-links mobile-open" : "nav-links"}

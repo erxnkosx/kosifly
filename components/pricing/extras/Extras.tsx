@@ -37,8 +37,7 @@ export function Extras() {
         title={
           <>
             Extra&apos;s, wanneer
-            <br />
-            je ze <Accent>nodig</Accent> hebt.
+            <br /> je ze <Accent>nodig</Accent> hebt.
           </>
         }
         titleLines={2}

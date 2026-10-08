@@ -98,8 +98,7 @@ export function Websites() {
         title={
           <>
             Kies het pakket
-            <br />
-            dat bij je <Accent>past</Accent>.
+            <br /> dat bij je <Accent>past</Accent>.
           </>
         }
         titleLines={2}

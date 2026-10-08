@@ -8,7 +8,7 @@ import styles from "./DesignCanvas.module.css";
 export function DesignCanvas({ children }: { children: ReactNode }) {
   return (
     <div className={styles.frame}>
-      <div className={styles.canvas}>{children}</div>
+      <div className={`${styles.canvas} pricing-canvas`}>{children}</div>
     </div>
   );
 }

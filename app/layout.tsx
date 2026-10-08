@@ -25,6 +25,7 @@ import "./styles/service-details.css";
 import "./styles/portfolio.css";
 import "./styles/reviews.css";
 import "./styles/website-comparison.css";
+import "./styles/mobile.css";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };

@@ -142,3 +142,43 @@ for (const width of [390, 1440]) {
     }
   });
 }
+
+for (const width of [320, 360, 430, 768]) {
+  test(`mobile routes and readable pricing at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 740 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    for (const route of routes) {
+      const response = await page.goto(route);
+      expect(response?.status()).toBe(200);
+      await expect(page.locator("h1")).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true,
+      );
+    }
+    await page.goto("/prijzen");
+    await expect(page.locator(".pricing-canvas")).toHaveCSS("zoom", "1");
+    const packages = page.locator('#bereken-je-prijs input[name="pakket"]');
+    await packages.last().locator("..").click();
+    await expect(packages.last()).toBeChecked();
+    await expect(page.locator("#prijsindicatie-titel")).toBeVisible();
+    const summaryLink = page.locator("#bereken-je-prijs aside a");
+    await summaryLink.click();
+    await expect(page).toHaveURL(/tab=offerte/);
+    await expect(page.getByRole("heading", { name: "Stel je offerte samen" })).toBeVisible();
+  });
+}
+
+test("mobile navigation closes on selection and restores focus with Escape", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto("/privacy");
+  const toggle = page.locator(".mobile-toggle");
+  await toggle.click();
+  await page.locator(".services-menu > button").click();
+  await page.keyboard.press("Escape");
+  await expect(toggle).toBeFocused();
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await toggle.click();
+  await page.locator('.nav-links > a[href="/contact"]').click();
+  await expect(page).toHaveURL(/\/contact$/);
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+});

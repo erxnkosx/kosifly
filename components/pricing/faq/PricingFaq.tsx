@@ -33,9 +33,7 @@ export function PricingFaq() {
           id="faq-title"
           className="relative ml-[23px] font-manrope text-[86px] font-extrabold leading-[90px] tracking-[-0.8704px] text-[#2b2929]"
         >
-          Alles wat je wil <br />
-          weten voor <br />
-          we starten.
+          Alles wat je wil <br /> weten voor <br /> we starten.
           <img
             src="/figma/pricing/faq/a1a9d.svg"
             alt=""
@@ -60,9 +58,8 @@ export function PricingFaq() {
           </span>
           <p className="w-[524px] font-manrope text-[24px] font-extrabold leading-[40px] tracking-[-0.8704px] text-black">
             Staat jouw vraag er niet bij?
-            <br />
-            Stel ze gerust — je krijgt binnen 24 uur antwoord van iemand die het project zelf zou
-            bouwen.
+            <br /> Stel ze gerust — je krijgt binnen 24 uur antwoord van iemand die het project zelf
+            zou bouwen.
           </p>
           <ul className="mt-[26px]">
             {contactLinks.map(({ href, label, icon, className, labelClassName }) => (
