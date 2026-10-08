@@ -20,7 +20,7 @@ function StepButton({ label, disabled, onClick, children }: StepButtonProps) {
       aria-label={label}
       disabled={disabled}
       onClick={onClick}
-      className="-m-[6px] p-[6px] font-inter text-[14px] font-semibold leading-[17px] text-ink disabled:cursor-not-allowed"
+      className="quote-step-button -m-[6px] p-[6px] font-inter text-[14px] font-semibold leading-[17px] text-ink disabled:cursor-not-allowed"
     >
       {children}
     </button>
@@ -37,7 +37,7 @@ type StepperProps = {
 
 function Stepper({ value, max, caption, noun, onStep }: StepperProps) {
   return (
-    <span className="flex shrink-0 items-center gap-[10px] rounded-[14px] border border-[#e0e0e0] bg-white px-[10px] py-[4px]">
+    <span className="quote-stepper flex shrink-0 items-center gap-[10px] rounded-[14px] border border-[#e0e0e0] bg-white px-[10px] py-[4px]">
       <StepButton label={`Minder ${noun}`} disabled={value <= 0} onClick={() => onStep(-1)}>
         −
       </StepButton>
@@ -64,7 +64,7 @@ function ExtraRow({ extra, checked, stepper, onToggle }: ExtraRowProps) {
 
   return (
     <div
-      className={`relative flex h-[52px] w-[440px] items-center gap-[12px] rounded-[14px] border px-[16px] py-[14px] transition-colors ${
+      className={`quote-extra relative flex h-[52px] w-[440px] items-center gap-[12px] rounded-[14px] border px-[16px] py-[14px] transition-colors ${
         checked
           ? "border-brand/50 bg-[#fff2f5]"
           : "border-[#e0e0e0] bg-white hover:border-[#bfbfbf]"

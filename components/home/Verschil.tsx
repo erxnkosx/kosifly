@@ -19,8 +19,7 @@ export function Verschil() {
         <span className="section-eyebrow">HET VERSCHIL</span>
         <h2>
           De meeste websites zijn een visitekaartje.
-          <br />
-          De jouwe{" "}
+          <br /> De jouwe{" "}
           <span className="highlight-title">
             <span>verkoopt.</span>
           </span>

@@ -201,6 +201,7 @@ async function check(name, fn) {
           .querySelector("form")
           .dispatchEvent(new Event("submit", { bubbles: true, cancelable: true })),
       );
+      assert.equal(payload.name, "Testpersoon");
       assert.deepEqual(payload.calculation, { aanvragen: 24, minuten: 25, uurtarief: 45 });
       assert(payload.topics.includes("Automatisatie"));
       assert.match(

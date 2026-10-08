@@ -12,7 +12,7 @@ type PriceRowProps = {
 /** Regel "omschrijving ... bedrag" van een prijsvoorstel; hoort in een `<dl>`. */
 export function PriceRow({ label, price, tag, labelClassName }: PriceRowProps) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="quote-price-row flex items-center justify-between">
       <dt
         className={`flex items-center gap-[8px] font-inter text-[15px] leading-[18px] ${labelClassName}`}
       >

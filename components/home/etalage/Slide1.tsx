@@ -1,3 +1,4 @@
+import { MobileSlide } from "./MobileSlide";
 import { Anchor, Shell } from "./Shell";
 
 /** Etalage 1 (Taxi Bornem): mockup-beelden `image 14` en `image 22` komen uit public/images (export uit Figma). */
@@ -34,7 +35,31 @@ const anchors = [
 
 export function Slide1() {
   return (
-    <Shell id="taxi-bornem">
+    <Shell
+      id="taxi-bornem"
+      mobile={
+        <MobileSlide
+          title={
+            <>
+              Zo ziet een site eruit die <span>verkoopt</span>.
+            </>
+          }
+          intro="Taxi Bornem, gebouwd door Kosifly. Dit zit erin."
+          visual={
+            <img
+              src="/images/etalage-laptop.png"
+              width={716}
+              height={533}
+              alt="Taxi Bornem op laptop"
+              loading="lazy"
+            />
+          }
+          points={callouts.map((c) => ({ title: c.t, text: c.d }))}
+          href="/projecten/taxi-bornem"
+          cta="Bekijk de case"
+        />
+      }
+    >
       <h2 className="absolute left-[432.5px] top-[120px] whitespace-nowrap font-manrope text-[64px] font-extrabold leading-[0] tracking-[-0.5568px] text-white">
         <span className="leading-[76px]">Zo ziet een site eruit die </span>
         <span className="leading-[76px] text-brand-soft">verkoopt</span>

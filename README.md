@@ -90,7 +90,7 @@ npm run test:browser
 npm run test:browser:report
 ```
 
-De suite bevat 56 browserchecks: acht pagina’s plus de offerteweergave op 1280×800, 1366×768, 1440×900, 1536×864, 1920×1080 en 390×844, plus navigatie en reduced motion. De checks meten horizontale overloop, tekstcontainers, navbarhoogte/transparantie, afstand tot de H1, foutieve afbeeldingen en JavaScript-fouten. Ze maken volledige screenshots per route en formaat. Die screenshots moeten nog naast Figma worden beoordeeld: structurele tests bewijzen geen pixel-perfecte overeenkomst.
+Playwright start automatisch een lokale server voor de statische export in `out/` op poort 3100. De suite controleert alle vijftien pagina’s plus de offerteweergave op desktop- en mobiele schermformaten, met controles voor overloop, tekstcontainers, navigatie, afbeeldingen, JavaScript-fouten en verminderde beweging. De aanvullende mobiele suite test zeven schermformaten en aanraking voor onder meer de carrousel, calculator, formulieren, filters en menu’s. Dekking en resultaten staan in [de mobiele audit](docs/mobile-audit.md). Structurele tests bewijzen geen pixel-perfecte overeenkomst met Figma.
 
 De aanvullende controles die in deze sessie zijn uitgevoerd gebruiken de lokaal geïnstalleerde Chrome:
 

@@ -37,6 +37,15 @@ function Field({
       <input
         name={name}
         type={type}
+        autoComplete={
+          {
+            naam: "name",
+            bedrijf: "organization",
+            email: "email",
+            telefoon: "tel",
+            website: "url",
+          }[name]
+        }
         required={name === "naam" || name === "email"}
         placeholder={placeholder}
         className={input}
@@ -58,6 +67,7 @@ function Chip({
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={on}
       className={`flex items-center gap-[6px] rounded-[24px] py-[10px] pr-[16px] font-inter text-[14px] font-semibold leading-[normal] ${on ? "bg-ink pl-[12px] text-white" : "border border-[#e6e6e6] bg-white pl-[16px] text-ink"}`}
     >
       {on && <CheckSmall />}
@@ -100,6 +110,7 @@ function Segmented<T extends string>({
           key={i.id}
           type="button"
           onClick={() => onChange(i.id)}
+          aria-pressed={value === i.id}
           style={{ paddingTop: py, paddingBottom: py, fontSize: size }}
           className={`flex-1 rounded-[10px] font-inter leading-[normal] ${value === i.id ? "bg-white font-semibold text-brand shadow-[0_2px_8px_rgba(0,0,0,0.12)]" : "text-ink"}`}
         >
@@ -173,6 +184,7 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
+          name: data.naam,
           type: tab,
           topics,
           budget,
@@ -180,10 +192,10 @@ export function ContactForm() {
           quote: tab === "offerte" ? { ...q, ...quote } : undefined,
         }),
       });
-      const result = await response.json();
+      const result = await response.json().catch(() => null);
       if (!response.ok)
         throw new Error(
-          result.error ||
+          result?.error ||
             "Je aanvraag kon niet verstuurd worden. Probeer opnieuw of mail info@kosifly.com.",
         );
       setStatus("Bedankt! Je aanvraag is verstuurd. We nemen contact met je op.");
@@ -229,6 +241,7 @@ export function ContactForm() {
             key={id}
             type="button"
             onClick={() => setTab(id)}
+            aria-pressed={tab === id}
             className={`flex-1 rounded-[10px] py-[13px] font-inter text-[15px] leading-[normal] ${tab === id ? "bg-white font-semibold text-brand shadow-[0_2px_8px_rgba(0,0,0,0.12)]" : "text-ink"}`}
           >
             {text}
@@ -249,11 +262,11 @@ export function ContactForm() {
 
       {tab === "bericht" ? (
         <TabBody key="bericht">
-          <div className="flex gap-[16px]">
+          <div className="contact-field-row flex gap-[16px]">
             <Field name="naam" text="Naam *" placeholder="Je naam" />
             <Field name="bedrijf" text="Bedrijf" placeholder="Je bedrijf" />
           </div>
-          <div className="flex gap-[16px]">
+          <div className="contact-field-row flex gap-[16px]">
             <Field name="email" type="email" text="E-mail *" placeholder="jij@bedrijf.be" />
             <Field name="telefoon" type="tel" text="Telefoon" placeholder="Optioneel" />
           </div>
@@ -441,11 +454,11 @@ export function ContactForm() {
             </span>
           </div>
 
-          <div className="flex gap-[14px]">
+          <div className="contact-field-row flex gap-[14px]">
             <Field name="naam" text="Naam *" placeholder="Je naam" />
             <Field name="email" type="email" text="E-mail *" placeholder="jij@bedrijf.be" />
           </div>
-          <div className="flex gap-[14px]">
+          <div className="contact-field-row flex gap-[14px]">
             <Field name="bedrijf" text="Bedrijf" placeholder="Je bedrijf" />
             <Field name="telefoon" type="tel" text="Telefoon" placeholder="Optioneel" />
           </div>
@@ -460,7 +473,7 @@ export function ContactForm() {
         </TabBody>
       )}
 
-      <label className="flex items-center gap-[10px]">
+      <label className="contact-consent flex items-center gap-[10px]">
         <input
           type="checkbox"
           required
@@ -492,9 +505,12 @@ export function ContactForm() {
             : "Vraag je offerte aan →"}
       </button>
       {status && (
-        <p role="status" className="submission-status">
-          {status}
-        </p>
+        <div className="submission-status" role="status">
+          <p>{status}</p>
+          {!status.startsWith("Bedankt!") && (
+            <a href="mailto:info@kosifly.com">Mail naar info@kosifly.com →</a>
+          )}
+        </div>
       )}
       <p className="flex items-center justify-center gap-[8px] font-inter text-[13px] leading-[normal] text-grey">
         <LockIcon />

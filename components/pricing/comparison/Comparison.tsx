@@ -88,7 +88,11 @@ export function Comparison() {
         }
         titleId="vergelijking-kop"
       />
+      <p className="comparison-scroll-hint">Veeg opzij om alle pakketten te vergelijken →</p>
       <div
+        role="region"
+        aria-label="Pakketten vergelijken"
+        tabIndex={0}
         data-reveal
         className="relative mx-[182px] mt-[70px] h-[1090px] w-[1556px] overflow-clip rounded-[24px] bg-white drop-shadow-[0_0_40px_rgba(130,0,18,0.22)] after:pointer-events-none after:absolute after:inset-0 after:rounded-[24px] after:border after:border-brand/18"
       >

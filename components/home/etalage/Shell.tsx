@@ -20,15 +20,24 @@ export function Anchor({ x, y }: { x: number; y: number }) {
   );
 }
 
-export function Shell({ children, id }: { children: ReactNode; id: string }) {
+export function Shell({
+  children,
+  id,
+  mobile,
+}: {
+  children: ReactNode;
+  id: string;
+  mobile?: ReactNode;
+}) {
   return (
     <section
-      className="relative h-[1120px] w-[1920px] shrink-0 snap-start overflow-hidden"
+      className="etalage-slide relative h-[1120px] w-[1920px] shrink-0 snap-start overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(242deg, #000 0%, #000 9%, #2a0808 29.0764%, #47000a 50.0891%, #180202 75%, #000 100%)",
       }}
     >
+      {mobile}
       <p className="absolute left-[960px] top-[80px] h-[27px] w-[490px] -translate-x-1/2 whitespace-pre-wrap text-center font-manrope text-[20px] font-extrabold uppercase leading-[0] tracking-[1.98px] text-brand-soft [word-break:break-word]">
         <span className="font-extralight leading-[16.5px] tracking-[-3.2px]">------------</span>
         <span className="font-extralight leading-[16.5px]"> </span>

@@ -141,7 +141,10 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   const colors = TONES[tone];
   return (
-    <div data-reveal className="relative flex flex-col items-center pt-[96px]">
+    <div
+      data-reveal
+      className={`pricing-section-heading pricing-section-heading-${tone} relative flex flex-col items-center pt-[96px]`}
+    >
       <Eyebrow label={eyebrow} variant={eyebrowVariant} tone={tone} />
       <h2
         id={titleId}

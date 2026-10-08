@@ -229,7 +229,7 @@
   gap: calc(50 * var(--footer-scale));
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .footer-inner {
     --footer-scale: 1px;
   }

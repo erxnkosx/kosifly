@@ -69,15 +69,24 @@ for (const viewport of viewports) {
       expect(geometry.clipped).toEqual([]);
       // Trigger lazy assets before collecting screenshots and image failures.
       await page.evaluate(async () => {
+        for (const img of document.images) {
+          if (img.getBoundingClientRect().width > 0 && !img.closest("[inert]"))
+            img.loading = "eager";
+        }
         for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight) {
           window.scrollTo(0, y);
           await new Promise((resolve) => requestAnimationFrame(resolve));
         }
-        await Promise.all(Array.from(document.images).map((img) => img.decode().catch(() => {})));
+        await Promise.all(
+          Array.from(document.images)
+            .filter((img) => img.getBoundingClientRect().width > 0 && !img.closest("[inert]"))
+            .map((img) => img.decode().catch(() => {})),
+        );
         window.scrollTo(0, 0);
       });
       const broken = await page.evaluate(() =>
         Array.from(document.images)
+          .filter((img) => img.getBoundingClientRect().width > 0 && !img.closest("[inert]"))
           .filter((img) => !img.complete || !img.naturalWidth)
           .map((img) => img.currentSrc),
       );

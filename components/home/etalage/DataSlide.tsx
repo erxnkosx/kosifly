@@ -1,3 +1,4 @@
+import { DataMobileSlide } from "./MobileSlide";
 import { Fig, type FigNode } from "../Fig";
 import { Anchor, Shell } from "./Shell";
 
@@ -14,7 +15,7 @@ export type EtalageData = {
 /** Etalage 2 t/m 5: volledig gerenderd uit de Figma-lagen (data/etalage-N.json). */
 export function DataSlide({ data, id }: { data: EtalageData; id: string }) {
   return (
-    <Shell id={id}>
+    <Shell id={id} mobile={<DataMobileSlide data={data} id={id} />}>
       <Fig node={data.kop} />
       <Fig node={data.intro} />
       <Fig node={data.beeld} />

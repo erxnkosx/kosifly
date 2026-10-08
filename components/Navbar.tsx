@@ -57,8 +57,8 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
     >
       <div className="nav-inner">
         <Link className="site-logo" href="/" aria-label="Kosifly — home">
-          <img src="/figma/452bf.png" alt="" width="58" height="31" />
-          <img src="/figma/26ebd.png" alt="Kosifly" width="217" height="26" />
+          <img src="/brand/wing.png" alt="" width="58" height="31" />
+          <img src="/brand/kosifly-logo-text.png" alt="Kosifly" width="217" height="26" />
         </Link>
         <button
           ref={mobileTrigger}
