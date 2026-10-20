@@ -44,7 +44,14 @@ export function MonthlyChoices({ values, onChange }: MonthlyChoicesProps) {
                       onChange={() => onChange(field, option.id)}
                       className="sr-only"
                     />
-                    {option.price > 0 ? `${option.name} · € ${fmt(option.price)}` : option.name}
+                    <span className="quote-option-text">
+                      {option.name}
+                      {option.price > 0 && (
+                        <span className="quote-option-price">
+                          <span className="quote-option-sep"> · </span>€ {fmt(option.price)}
+                        </span>
+                      )}
+                    </span>
                   </label>
                 );
               })}

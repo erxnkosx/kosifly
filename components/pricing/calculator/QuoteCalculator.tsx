@@ -12,6 +12,7 @@ import {
   toggleExtra,
   toggleService,
 } from "./QuoteState";
+import { QuoteMobileBar } from "./QuoteMobileBar";
 import { QuoteSummary } from "./QuoteSummary";
 import { ServiceChips } from "./ServiceChips";
 
@@ -38,6 +39,7 @@ export function QuoteCalculator({ preset = DEFAULT_QUOTE }: { preset?: QuoteInpu
             setQuote((q) => normalizeQuote({ ...q, [field]: optionId }))
           }
         />
+        <QuoteMobileBar result={result} />
       </div>
       <QuoteSummary quote={quote} result={result} />
     </div>

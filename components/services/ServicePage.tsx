@@ -10,6 +10,13 @@ import { BeforeAfter, ModulePicker, SavingsCalculator, ServiceFaq } from "./Inte
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { scaleIn } from "@/components/motion/presets";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
+import { MobileHero } from "./MobileHero";
+import { FigmaHeroMobile, hasFigmaHeroMobile } from "./FigmaHeroMobile";
+import { MobileDifference } from "./MobileDifference";
+import { MobileShowcase } from "./MobileShowcase";
+import { SwipeDots } from "./SwipeDots";
+import { ServiceCtaBar } from "./ServiceCtaBar";
+import { ServicePricing } from "./ServicePricing";
 import Hero0 from "./art/Hero0";
 import Hero1 from "./art/Hero1";
 import Hero2 from "./art/Hero2";
@@ -42,6 +49,7 @@ import RelatedIcon3_2 from "./art/RelatedIcon3_2";
 import RelatedIcon4_0 from "./art/RelatedIcon4_0";
 import RelatedIcon4_1 from "./art/RelatedIcon4_1";
 import RelatedIcon4_2 from "./art/RelatedIcon4_2";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 const relatedIcons = [
   [RelatedIcon0_0, RelatedIcon0_1, RelatedIcon0_2],
   [RelatedIcon1_0, RelatedIcon1_1, RelatedIcon1_2],
@@ -52,11 +60,11 @@ const relatedIcons = [
 const heroes = [Hero0, Hero1, Hero2, Hero3, Hero4],
   showcases = [Showcase0, Showcase1, Showcase2, Showcase3, Showcase4];
 const processSuffixes = [
-  "wanneer je live gaat.",
+  "live gaat.",
   "wanneer gebeurt.",
-  "waar je aan toe bent.",
-  "wanneer alles draait.",
-  "in één week geregeld.",
+  "aan toe bent.",
+  "alles draait.",
+  "één week geregeld.",
 ];
 function ProcessHeading({ text, suffix }: { text: string; suffix: string }) {
   const start = text.lastIndexOf(suffix);
@@ -135,7 +143,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
                   href={"/contact?dienst=" + encodeURIComponent(service.short)}
                   className="button primary"
                 >
-                  {service.cta} →
+                  {service.cta} <BtnArrow />
                 </Link>
                 <a className="projects-link" href="#etalage">
                   <span className="projects-link-label">Bekijk projecten</span>
@@ -172,11 +180,29 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               </Artwork>
               {index === 4 && <small className="example-label">Voorbeeld van monitoring</small>}
             </Reveal>
+            <Reveal className="smh-wrap" variants={scaleIn} onMount delay={0.25}>
+              {hasFigmaHeroMobile(slug) ? (
+                <FigmaHeroMobile slug={slug} />
+              ) : (
+                <MobileHero slug={slug} />
+              )}
+            </Reveal>
           </div>
         </section>
         <section className="service-section difference-section light-section">
           <div className="section-heading">
-            <span className="section-eyebrow">{d.difference.label.replace(/-/g, "").trim()}</span>
+            <span className="section-eyebrow">
+              {index === 0 ? (
+                <>
+                  <span className="only-desktop">
+                    {d.difference.label.replace(/-/g, "").trim()}
+                  </span>
+                  <span className="only-mobile">ONDER DE MOTORKAP</span>
+                </>
+              ) : (
+                d.difference.label.replace(/-/g, "").trim()
+              )}
+            </span>
             <h2>
               {d.difference.heading[0]}
               <br />
@@ -184,7 +210,19 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
                 <Emphasis text={d.difference.heading[1]} word={diffWord} />
               </span>
             </h2>
-            <p>{d.difference.description}</p>
+            <p>
+              {index === 0 ? (
+                <>
+                  <span className="only-desktop">{d.difference.description}</span>
+                  <span className="only-mobile">
+                    Een mooie site is niet genoeg. Kijk mee onder de motorkap: vijf keuzes die van
+                    een bezoeker een klant maken.
+                  </span>
+                </>
+              ) : (
+                d.difference.description
+              )}
+            </p>
           </div>
           <div
             className={
@@ -206,6 +244,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               </Artwork>
             )}
           </div>
+          <MobileDifference slug={slug} />
         </section>
         <section
           className={
@@ -221,7 +260,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <p>{d.features.description}</p>
             {index === 4 && (
               <Link className="button primary" href="/contact?dienst=Onderhoud">
-                Plan een gesprek →
+                Plan een gesprek <BtnArrow />
               </Link>
             )}
           </div>
@@ -237,6 +276,9 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             ) : (
               <Receipt />
             )}
+            {(index === 0 || index === 3) && (
+              <SwipeDots selector=".bento-grid, .feature-grid" label="Onderdeel" />
+            )}
           </div>
         </section>
         <section className="service-section light-section process-section">
@@ -248,7 +290,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <p>{d.process.description}</p>
           </div>
           <ol className="process-steps">
-            {d.process.steps.map((s, i) => (
+            {d.process.steps.map((s) => (
               <li key={s.nummer}>
                 <span className="step-number">{s.nummer}</span>
                 <div className="step-card">
@@ -283,7 +325,9 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <Showcase />
           </Artwork>
           <ShowcaseLinks slug={slug} />
+          <MobileShowcase slug={slug} />
         </section>
+        <ServicePricing slug={slug} />
         <section className="service-section light-section related-section">
           <div className="section-heading">
             <span className="section-eyebrow">PAST GOED BIJ</span>
@@ -306,6 +350,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               );
             })}
           </div>
+          <SwipeDots selector=".related-grid" label="Dienst" />
         </section>
         <section className="service-section light-section faq-section">
           <FaqIntro />
@@ -313,6 +358,14 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
         </section>
       </main>
       <Footer />
+      <ServiceCtaBar
+        title={service.short}
+        subtitle="Antwoord binnen 24 uur"
+        action={index === 0 ? "Gratis audit" : "Plan een gesprek"}
+        href={
+          index === 0 ? "/website-audit" : "/contact?dienst=" + encodeURIComponent(service.short)
+        }
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

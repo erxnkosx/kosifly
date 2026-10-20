@@ -4,7 +4,7 @@
     {
       "route": "/",
       "h1": "Websites, softwareen AI die je bedrijflaten groeien.",
-      "mainSections": 12,
+      "mainSections": 11,
       "status": "passed"
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "route": "/prijzen",
-      "h1": "Een vaste prijs,vooraf en zonderverrassingen.",
+      "h1": "Een vaste prijs, vooraf en zonder verrassingen.",
       "mainSections": 9,
       "status": "passed"
     },
@@ -44,6 +44,12 @@
       "status": "passed"
     },
     {
+      "route": "/projecten/psc-open-huis",
+      "h1": "Ledenbeheer en activiteiten,op één plek.",
+      "mainSections": 5,
+      "status": "passed"
+    },
+    {
       "route": "/over-ons",
       "h1": "We bouwen wat jebedrijf vooruit helpt.",
       "mainSections": 5,
@@ -62,37 +68,43 @@
       "status": "passed"
     },
     {
+      "route": "/website-audit",
+      "h1": "Ontdek wat jewebsite laatliggen.",
+      "mainSections": 5,
+      "status": "passed"
+    },
+    {
       "route": "/diensten/webdesign",
       "h1": "Een website diebezoekers omzet inklanten.",
-      "mainSections": 7,
+      "mainSections": 8,
       "status": "passed"
     },
     {
       "route": "/diensten/lokale-seo",
       "h1": "Wie in je regiozoekt, vindtjou eerst.",
-      "mainSections": 7,
+      "mainSections": 8,
       "status": "passed"
     },
     {
       "route": "/diensten/ai-automatisaties",
       "h1": "Minder handwerk.Meer tijd om tegroeien.",
-      "mainSections": 7,
+      "mainSections": 8,
       "status": "passed"
     },
     {
       "route": "/diensten/onderhoud-hosting",
       "h1": "Snel, veiligen altijdonline.",
-      "mainSections": 7,
+      "mainSections": 8,
       "status": "passed"
     },
     {
       "route": "/diensten/web-apps",
       "h1": "Software diepast bij hoe jijwerkt.",
-      "mainSections": 7,
+      "mainSections": 8,
       "status": "passed"
     }
   ],
-  "localAssets": 234,
+  "localAssets": 223,
   "knownMissingContent": [
     "Legal pages are drafts; official company details, retention and processing providers need confirmation",
     "Case request metrics and customer quotes are not supplied in Figma"

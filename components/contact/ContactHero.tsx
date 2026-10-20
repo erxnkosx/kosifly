@@ -1,23 +1,25 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { Badge } from "@/components/ui/Badge";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
+import { SITE } from "@/lib/site";
 import { ArrowRight, CalendarIcon, CheckCircle, MailIcon, PhoneIcon } from "@/components/ui/icons";
 import { ContactForm } from "./ContactForm";
 
 const options = [
-  { icon: MailIcon, title: "Mail ons", sub: "info@kosifly.com", href: "mailto:info@kosifly.com" },
+  { icon: MailIcon, title: "Mail ons", sub: SITE.email, href: `mailto:${SITE.email}` },
   {
     icon: PhoneIcon,
     title: "Bel ons",
-    sub: "+32 (0)483 69 04 26  ·  ma–zo, 9–18u",
-    href: "tel:+32483690426",
+    sub: `${SITE.phone}  ·  ${SITE.hours}`,
+    href: SITE.phoneHref,
   },
   {
     icon: CalendarIcon,
     title: "Plan een gesprek van 30 minuten",
     sub: "Kies zelf een moment dat jou past",
-    href: "mailto:info@kosifly.com?subject=Gesprek%20van%2030%20minuten",
+    href: `mailto:${SITE.email}?subject=Gesprek%20van%2030%20minuten`,
   },
 ];
 
@@ -47,8 +49,7 @@ export function ContactHero() {
             as="p"
             className="font-inter text-[20px] leading-[32px] tracking-[0.02em] text-white/82"
           >
-            Vertel ons wat je wil bereiken. Je krijgt binnen 24 uur
-            <br />
+            Vertel ons wat je wil bereiken. Je krijgt binnen 24 uur <br className="desktop-break" />
             antwoord van de persoon die je project ook effectief bouwt.
           </RevealItem>
           <RevealItem className="mt-[44px] flex flex-col gap-[12px]">
@@ -66,7 +67,13 @@ export function ContactHero() {
                     {title}
                   </span>
                   <span className="font-inter text-[15px] leading-[normal] text-white/65">
-                    {sub}
+                    {/* Delen blijven heel bij het afbreken (mobiel: nummer en uren apart). */}
+                    {sub.split("  ·  ").map((part, i) => (
+                      <Fragment key={part}>
+                        {i > 0 && "  ·  "}
+                        <span className="whitespace-nowrap">{part}</span>
+                      </Fragment>
+                    ))}
                   </span>
                 </span>
                 <ArrowRight className="text-white/70" />

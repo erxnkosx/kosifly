@@ -11,6 +11,7 @@ import {
   SectionHeading,
 } from "../shared";
 import { type Cell, COMPARISON_ROWS } from "./Comparison.data";
+import { ComparisonMore } from "./ComparisonMore";
 
 /** Scheidingslijn bovenaan een rij; als schaduw getekend zodat de rijhoogte 58px blijft. */
 const ROW_LINE = "shadow-[inset_0_1px_0_#ebebeb]";
@@ -38,7 +39,10 @@ function CellValue({ cell }: { cell: Cell }) {
 
 function PackageHeading({ pkg }: { pkg: WebsitePackage }) {
   return (
-    <th scope="col" className="relative pt-[34px] text-center align-top">
+    <th
+      scope="col"
+      className={`${pkg.featured ? "is-featured " : ""}relative pt-[34px] text-center align-top`}
+    >
       {pkg.featured && (
         <MostChosen
           variant="popularCompact"
@@ -89,6 +93,8 @@ export function Comparison() {
         titleId="vergelijking-kop"
       />
       <p className="comparison-scroll-hint">Veeg opzij om alle pakketten te vergelijken →</p>
+      {/* Staat vóór de tabel zodat de tabletregels (div:last-child) blijven gelden; op mobiel zet CSS hem eronder. */}
+      <ComparisonMore sectionId="vergelijking" total={COMPARISON_ROWS.length} />
       <div
         role="region"
         aria-label="Pakketten vergelijken"

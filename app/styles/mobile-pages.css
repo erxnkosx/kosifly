@@ -1,0 +1,1147 @@
+/* Mobiele optimalisatie (max-width: 760px) van /over-ons, /contact, /privacy en /algemene-voorwaarden.
+   Zelfde taal als de mobiele homepage: donkere hero met glazen badge en markeerstreep, lichte en
+   donkere "sheets" die over elkaar schuiven, swipebare rijen en leesbare minimummaten. */
+
+/* Mobiele extra's: buiten de media query verborgen, zodat desktop ongewijzigd blijft. */
+.swipe-dots,
+.legal-jump,
+.legal-help {
+  display: none;
+}
+
+@media all /* was (max-width: 760px) */ {
+  /* ───────────── Gedeeld: hero voor /over-ons en de juridische pagina's ───────────── */
+  .legal-hero {
+    overflow: hidden;
+    padding-bottom: calc(var(--sheet-overlap) + 44px);
+    background:
+      radial-gradient(120% 60% at 100% 0%, #8a0a1f66 0%, transparent 60%),
+      radial-gradient(90% 50% at 0% 70%, #5c000f80 0%, transparent 70%), #070405;
+  }
+  .legal-hero .hero-backdrop,
+  .contact-section .hero-backdrop {
+    display: none;
+  }
+  .legal-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(#ffffff08 1px, transparent 1px),
+      linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(80% 45% at 50% 22%, #000 0%, transparent 100%);
+    mask-image: radial-gradient(80% 45% at 50% 22%, #000 0%, transparent 100%);
+  }
+  .legal-hero .portfolio-hero-copy {
+    min-height: 0;
+    align-items: flex-start;
+    gap: 0;
+    padding: 32px 20px 0;
+    text-align: left;
+  }
+
+  /* Badge: glas met vleugeltje i.p.v. de rode stip. */
+  .legal-hero .portfolio-hero-copy > div:first-child,
+  .contact-copy > div:first-child > div {
+    gap: 8px;
+    padding: 7px 14px 7px 12px;
+    border-color: #ffffff1f;
+    background: linear-gradient(180deg, #ffffff14, #ffffff05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 #ffffff1a;
+  }
+  .legal-hero .portfolio-hero-copy > div:first-child::before,
+  .contact-copy > div:first-child > div::before {
+    content: "";
+    width: 18px;
+    height: 10px;
+    background: linear-gradient(90deg, #a5a5a5, #fff);
+    -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
+    mask: url("/brand/wing.png") center / contain no-repeat;
+  }
+  .legal-hero .portfolio-hero-copy > div:first-child > span:first-child,
+  .contact-copy > div:first-child > div > span:first-child {
+    display: none;
+  }
+  .legal-hero .portfolio-hero-copy > div:first-child span,
+  .contact-copy > div:first-child > div span {
+    font-size: 12px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Titel: zilveren verloop; accent als rode markeerstreep met witte tekst. */
+  .legal-hero h1,
+  .contact-section .contact-copy > h1 {
+    margin: 22px 0 0;
+    font-size: clamp(31px, 9.2vw, 40px);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+    background: linear-gradient(180deg, #fff 30%, #c9c3c5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow-wrap: normal;
+  }
+  .contact-section .contact-copy > h1 .text-accent-gradient {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .contact-section .contact-copy > h1 .text-accent-gradient {
+      animation: marker-draw 0.9s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  }
+  .legal-hero .portfolio-hero-copy > p,
+  .contact-section .contact-copy > p {
+    max-width: 34em;
+    margin-top: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0;
+    color: #ffffffa6;
+  }
+  .contact-section .contact-copy > p br {
+    display: none;
+  }
+
+  /* Knoppen: volle breedte; primair rood met glans, secundair als glas. */
+  .about-work > .button,
+  .legal-help .button {
+    justify-content: center;
+    min-height: 56px;
+    font-size: 15px;
+    background: linear-gradient(180deg, #b0122f 0%, #810012 100%);
+    box-shadow:
+      inset 0 1px 0 #ffffff40,
+      0 10px 30px #a6122d59,
+      0 0 0 1px #ffffff14;
+  }
+
+  /* ───────────── /over-ons ───────────── */
+
+  /* Ritme + sheets: hero → wie (licht) → expertise (donker) → principes (licht) │ werk (licht). */
+  .about-who,
+  .about-expertise,
+  .about-principles,
+  .about-work {
+    position: relative;
+    padding: 72px 20px 64px;
+  }
+  .about-who,
+  .about-expertise,
+  .about-principles {
+    margin-top: calc(var(--sheet-overlap) * -1);
+    border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
+    box-shadow: 0 -12px 32px #0000002e;
+  }
+  .about-who {
+    z-index: 1;
+    padding-bottom: calc(64px + var(--sheet-overlap));
+  }
+  .about-expertise {
+    z-index: 2;
+    padding-bottom: calc(56px + var(--sheet-overlap));
+  }
+  .about-principles {
+    z-index: 3;
+  }
+  .about-work {
+    z-index: 4;
+    border-radius: 0 0 var(--sheet-radius) var(--sheet-radius);
+  }
+  .about-who,
+  .about-principles,
+  .about-work,
+  .legal-content {
+    background: linear-gradient(90deg, #c4c4c4 0%, #fff 30%, #fff 70%, #c4c4c4 100%);
+  }
+
+  /* Scheiding tussen principes en werk (twee lichte secties). */
+  .about-work::before,
+  .about-work::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    pointer-events: none;
+    translate: -50% 0;
+  }
+  .about-work::before {
+    top: 0;
+    width: calc(100% - 40px);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #81001259 30%,
+      #81001259 calc(50% - 34px),
+      transparent calc(50% - 34px),
+      transparent calc(50% + 34px),
+      #81001259 calc(50% + 34px),
+      #81001259 70%,
+      transparent
+    );
+  }
+  .about-work::after {
+    top: -11px;
+    width: 42px;
+    height: 22px;
+    background: #810012;
+    -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
+    mask: url("/brand/wing.png") center / contain no-repeat;
+    opacity: 0.9;
+  }
+
+  /* Koppen. */
+
+  .about-expertise .portfolio-heading,
+  .about-principles .portfolio-heading,
+  .about-work .portfolio-heading {
+    margin-bottom: 32px;
+  }
+  .about-expertise .portfolio-heading h2,
+  .about-principles .portfolio-heading h2,
+  .about-work .portfolio-heading h2 {
+    margin-top: 18px;
+    font-size: clamp(28px, 8.4vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .about-principles .portfolio-heading h2 span,
+  .about-work .portfolio-heading h2 span {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #810012;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 7px;
+    text-decoration-skip-ink: none;
+  }
+  .about-expertise .portfolio-heading h2 span {
+    color: #fff;
+    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 2px;
+  }
+
+  /* Eyebrows: pilletje met vleugeltje (licht) en glazen variant op donker. */
+  .about-who .portfolio-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px 7px 12px;
+    border: 1px solid #81001226;
+    border-radius: 999px;
+    background: #ffffffa6;
+    font: 700 12px/1.2 var(--font-inter);
+    letter-spacing: 0.18em;
+  }
+  .about-who .portfolio-eyebrow::before {
+    content: "";
+    flex-shrink: 0;
+    width: 18px;
+    height: 10px;
+    background: #810012;
+    -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
+    mask: url("/brand/wing.png") center / contain no-repeat;
+  }
+  .about-expertise .portfolio-heading .section-eyebrow,
+  .contact-location .tiny-label {
+    border-color: #ffffff26;
+    background: #ffffff0d;
+    color: #e6e6e6;
+  }
+  .about-expertise .portfolio-heading .section-eyebrow::before,
+  .contact-location .tiny-label::before {
+    background: linear-gradient(90deg, #a5a5a5, #fff);
+  }
+
+  /* Wie we zijn. De feitenlijst herhaalt de vier vertrouwenspunten uit de hero: op mobiel weg. */
+  .about-who-copy {
+    gap: 20px;
+  }
+  .about-who h2 {
+    margin-top: 18px;
+    font: 800 clamp(28px, 8.4vw, 34px) / 1.15 var(--font-manrope);
+    letter-spacing: -0.02em;
+    color: #111;
+  }
+  .about-who .about-who-copy p {
+    margin: 0;
+    font: 400 16px/1.65 var(--font-inter);
+    color: #4a4a4a;
+  }
+  .about-who .about-who-copy p + p {
+    margin-top: 14px;
+  }
+  .about-who h2 span {
+    text-decoration: underline;
+    text-decoration-color: #810012;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 7px;
+    text-decoration-skip-ink: none;
+  }
+  .about-who .about-facts {
+    display: none;
+  }
+
+  /* Expertise: swipebare glazen kaarten i.p.v. een stapel van vijf. */
+  .about-expertise .about-expertise-grid {
+    display: flex;
+    gap: 12px;
+    max-width: none;
+    margin: 0 -20px;
+    padding: 4px 20px 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .about-expertise .about-expertise-grid::-webkit-scrollbar,
+  .about-work .project-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .about-expertise .about-expertise-card,
+  .about-expertise .about-expertise-card:nth-last-child(2) {
+    flex: 0 0 calc(100% - 56px);
+    grid-column: auto;
+    scroll-snap-align: start;
+    padding: 22px;
+    border: 1px solid #ffffff1a;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #ffffff12, #ffffff05);
+    box-shadow: inset 0 1px 0 #ffffff0f;
+    color: #fff;
+    transform: none;
+  }
+  .about-expertise-card h3 {
+    margin: 20px 0 8px;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+  .about-expertise-card p {
+    margin-bottom: 18px;
+    font: 400 15px/1.55 var(--font-inter);
+    color: #ffffffa6;
+  }
+  .about-expertise-card .about-service-link {
+    align-items: center;
+    min-height: 44px;
+    padding-top: 12px;
+    border-top: 1px solid #ffffff14;
+    font: 600 14px/1.2 var(--font-inter);
+    color: #fff;
+  }
+  .about-icon-tile {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #b0122f, #810012);
+    box-shadow:
+      inset 0 1px 0 #ffffff40,
+      0 8px 20px #a6122d4d;
+  }
+
+  /* Bolletjes onder swipebare rijen. */
+  .swipe-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .swipe-dots button {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .swipe-dots button::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 8px;
+    background: #81001240;
+    transition:
+      width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      background 0.3s;
+  }
+  .swipe-dots button[aria-pressed="true"]::after {
+    width: 22px;
+    background: #810012;
+  }
+  .about-expertise .swipe-dots button::after {
+    background: #ffffff38;
+  }
+  .about-expertise .swipe-dots button[aria-pressed="true"]::after {
+    background: #fff;
+  }
+
+  /* Principes: compacte rijen met icoon links. */
+  .about-principles .about-principle-grid {
+    gap: 12px;
+  }
+  .about-principles .about-principle-card {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: 16px;
+    padding: 20px;
+    border: 1px solid #81001221;
+    border-radius: 20px;
+    box-shadow:
+      0 1px 2px #0000000a,
+      0 14px 32px #8100120f;
+  }
+  .about-principle-card > div {
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+  .about-principle-card .about-principle-number {
+    display: none;
+  }
+  .about-principle-card h3 {
+    margin: 2px 0 4px;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .about-principle-card p {
+    font: 400 15px/1.55 var(--font-inter);
+    color: #5b5b5b;
+  }
+
+  /* Werk: twee projectkaarten naast elkaar om te swipen. */
+  .about-work .project-grid {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    margin: 0 -20px;
+    padding: 4px 20px 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .about-work .project-grid > .project-card {
+    position: relative;
+    flex: 0 0 calc(100% - 28px);
+    scroll-snap-align: start;
+    border-color: #81001221;
+    border-radius: 22px;
+    box-shadow:
+      0 1px 2px #0000000a,
+      0 14px 32px #8100120f;
+  }
+  .about-work > .button {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* ───────────── /contact ───────────── */
+  .contact-section > div:last-child {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 36px;
+    min-height: 0;
+    padding: 32px 20px 0;
+  }
+  .contact-section .contact-copy {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  /* Contactopties: glazen kaarten over de volle breedte. */
+  .contact-copy > div:nth-child(4) {
+    width: 100%;
+    margin-top: 28px;
+    gap: 10px;
+  }
+  .contact-copy > div:nth-child(4) > a {
+    width: 100%;
+    min-height: 68px;
+    gap: 14px;
+    padding: 12px 14px 12px 12px;
+    border-color: #ffffff1a;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff12, #ffffff05);
+    box-shadow: inset 0 1px 0 #ffffff0f;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
+  }
+  .contact-copy > div:nth-child(4) > a:active {
+    border-color: #ffffff38;
+    background: #ffffff1a;
+  }
+  .contact-copy > div:nth-child(4) > a > span:first-child {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-image: linear-gradient(180deg, #b0122f, #810012);
+    box-shadow:
+      inset 0 1px 0 #ffffff40,
+      0 8px 20px #a6122d4d;
+  }
+  .contact-copy > div:nth-child(4) > a > span:nth-child(2) {
+    min-width: 0;
+  }
+  .contact-copy > div:nth-child(4) > a > span:nth-child(2) > span:first-child {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  .contact-copy > div:nth-child(4) > a > span:nth-child(2) > span:last-child {
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: #ffffffa6;
+    overflow-wrap: anywhere;
+  }
+
+  /* Vertrouwen: zelfde glazen kaart met drie kolommen als de andere hero's. */
+  .contact-section .contact-copy > ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px 4px;
+    border: 1px solid #ffffff14;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff0d, #ffffff03);
+    white-space: normal;
+  }
+  .contact-section .contact-copy > ul > li {
+    flex-direction: column;
+    gap: 7px;
+    padding: 0 6px;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+    color: #ffffffc7;
+  }
+  .contact-section .contact-copy > ul > li + li {
+    border-left: 1px solid #ffffff14;
+  }
+  .contact-section .contact-copy > ul svg circle {
+    fill: #a6122d;
+    fill-opacity: 1;
+  }
+  .contact-section .contact-copy > ul svg path {
+    stroke: #fff;
+  }
+
+  /* Formulier: witte kaart, 16px velden (geen iOS-zoom), duidelijke focus- en foutstaten. */
+  .contact-section .contact-form {
+    width: 100%;
+    gap: 20px;
+    padding: 22px 18px 24px !important;
+    border-radius: 24px;
+    box-shadow:
+      0 24px 60px #00000080,
+      0 0 0 1px #ffffff14;
+  }
+  .contact-form > div:has(> button[aria-pressed]) > button {
+    min-height: 48px;
+    padding: 8px 4px;
+    font-size: 13.5px;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  .contact-form h2 {
+    font-size: 25px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .contact-form label > span:first-child,
+  .contact-form span.font-semibold.text-ink.text-\[13px\] {
+    font-size: 14px;
+    color: #1d1d1d;
+  }
+  /* Stapnummers in de offerte. */
+  .contact-form .size-\[24px\].rounded-full {
+    width: 26px;
+    height: 26px;
+    background-image: linear-gradient(180deg, #b0122f, #810012);
+    font-size: 12px;
+  }
+  /* Maandelijkse keuzes passen op één rij. */
+  .contact-form .monthly-options .segmented-options {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+  .contact-form input:not([type="checkbox"]),
+  .contact-form textarea {
+    min-height: 52px;
+    border-color: #e3e3e3;
+    border-radius: 14px;
+    background: #f6f6f6;
+    font-size: 16px;
+    transition:
+      border-color 0.2s,
+      background 0.2s,
+      box-shadow 0.2s;
+  }
+  .contact-form textarea {
+    min-height: 120px;
+  }
+  .contact-form input:not([type="checkbox"]):focus,
+  .contact-form textarea:focus {
+    border-color: #810012;
+    background: #fff;
+    box-shadow: 0 0 0 4px #8100121f;
+  }
+  .contact-form input:not([type="checkbox"]):user-invalid,
+  .contact-form textarea:user-invalid {
+    border-color: #c4122e;
+    background: #fff7f8;
+    box-shadow: 0 0 0 4px #c4122e14;
+  }
+  .contact-form label:not(.contact-consent):has(> input:user-invalid)::after {
+    content: "Vul dit veld in.";
+    font: 500 13px/1.3 var(--font-inter);
+    color: #b0001c;
+  }
+  .contact-form label:not(.contact-consent):has(> input[type="email"]:user-invalid)::after {
+    content: "Vul een geldig e-mailadres in.";
+  }
+  .contact-form .contact-consent:has(input:user-invalid) > span:nth-of-type(1) {
+    border: 2px solid #c4122e;
+    background: #fff7f8;
+  }
+  .contact-form .contact-consent:has(input:user-invalid) > span:last-child {
+    color: #b0001c;
+  }
+
+  /* Keuzes: tikvlakken van 44px. */
+  .contact-form button[aria-pressed] {
+    min-height: 44px;
+  }
+  .contact-form .flex-wrap > button[aria-pressed] {
+    padding-block: 0;
+    font-size: 14px;
+  }
+  .contact-form .segmented-options button {
+    min-height: 44px;
+    font-size: 14px !important;
+  }
+  .contact-form .monthly-options .segmented-options button {
+    font-size: 13px !important;
+  }
+  .contact-form .package-options,
+  .contact-form .monthly-options {
+    flex-direction: column;
+  }
+  .contact-form .package-options > button {
+    flex: 1 1 auto;
+    min-height: 56px;
+  }
+  .contact-form .monthly-options > div {
+    flex: 1 1 auto;
+  }
+  .contact-form .monthly-options .font-inter.text-\[12px\] {
+    font-size: 13px;
+  }
+  .contact-form .package-options .text-\[12px\] {
+    font-size: 13px;
+  }
+
+  /* Prijsindicatie: rustige labels, bedragen die niet botsen. */
+  .contact-form .price-total {
+    gap: 14px 24px;
+  }
+  .contact-form .price-total > div:last-child {
+    align-items: flex-start;
+  }
+  .contact-form .price-total .font-geist {
+    font-size: 24px;
+  }
+  .contact-form .font-orbitron {
+    font: 700 12px/1.2 var(--font-inter);
+    letter-spacing: 0.14em;
+  }
+
+  /* Akkoord, verzendknop en status. */
+  .contact-form .contact-consent {
+    min-height: 48px;
+    align-items: center;
+  }
+  .contact-form .contact-consent > span:nth-of-type(1) {
+    width: 24px;
+    height: 24px;
+  }
+  .contact-form .contact-consent a {
+    padding-block: 12px;
+  }
+  .contact-section .contact-form button[type="submit"] {
+    min-height: 56px;
+    padding-block: 0;
+    background-image: linear-gradient(180deg, #b0122f 0%, #810012 100%);
+    box-shadow:
+      inset 0 1px 0 #ffffff40,
+      0 10px 30px #a6122d59;
+    font-size: 16px;
+  }
+  .contact-section .contact-form button[type="submit"]:disabled {
+    opacity: 0.7;
+  }
+  .contact-form .submission-status {
+    padding: 14px 16px;
+    border: 1px solid #1f7a3f40;
+    border-radius: 14px;
+    background: #f1faf4;
+    color: #17532c;
+    font-size: 14.5px;
+  }
+  .contact-form .submission-status:has(a) {
+    border-color: #c4122e40;
+    background: #fff5f6;
+    color: #7a0011;
+  }
+  .contact-form .submission-status a {
+    font-weight: 600;
+    color: #810012;
+  }
+  .contact-form .contact-context {
+    font-size: 14.5px;
+  }
+
+  /* Sheets: hero → stappen (licht) → locatie (donker) → FAQ (licht, afgerond boven de footer). */
+  .contact-next-steps,
+  .contact-location,
+  .contact-faq {
+    position: relative;
+    margin-top: calc(var(--sheet-overlap) * -1);
+    padding: 72px 20px 64px;
+    box-shadow: 0 -12px 32px #0000002e;
+  }
+  .contact-next-steps {
+    z-index: 1;
+    border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
+    padding-bottom: calc(64px + var(--sheet-overlap));
+  }
+  .contact-location {
+    z-index: 2;
+    border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
+    padding-bottom: calc(64px + var(--sheet-overlap));
+  }
+  .contact-faq {
+    z-index: 3;
+    border-radius: var(--sheet-radius);
+  }
+
+  /* Stappen: verticale tijdlijn met compacte kaarten. */
+  .contact-next-steps .section-heading {
+    margin-bottom: 32px;
+  }
+  .contact-next-steps .section-heading h2 {
+    font-size: clamp(28px, 8.4vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .contact-next-steps .section-heading h2 > span {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #810012;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 7px;
+    text-decoration-skip-ink: none;
+  }
+  .contact-next-steps .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0;
+  }
+  .contact-next-steps .process-steps li {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+    padding-bottom: 14px;
+  }
+  .contact-next-steps .process-steps li:last-child {
+    padding-bottom: 0;
+  }
+  .contact-next-steps .process-steps li::after {
+    content: "";
+    position: absolute;
+    top: 46px;
+    bottom: 6px;
+    left: 19px;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(#81001259, #81001214);
+  }
+  .contact-next-steps .process-steps li:last-child::after {
+    display: none;
+  }
+  .contact-next-steps .step-number {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #fff;
+    background: linear-gradient(180deg, #b0122f, #810012);
+    box-shadow: 0 6px 16px #a6122d40;
+    font-size: 16px;
+  }
+  .contact-next-steps .step-card {
+    gap: 8px;
+    min-height: 0;
+    padding: 18px;
+    border-color: #81001221;
+    border-radius: 20px;
+    box-shadow:
+      0 1px 2px #0000000a,
+      0 14px 32px #8100120f;
+    transform: none;
+  }
+  .contact-next-steps .step-duration {
+    padding: 5px 10px;
+    background: #8100120f;
+    font: 700 12px/1.2 var(--font-inter);
+    letter-spacing: 0.1em;
+  }
+  .contact-next-steps .step-card h3 {
+    font-size: 19px;
+    line-height: 1.25;
+    hyphens: manual;
+  }
+  .contact-next-steps .step-card > p {
+    font: 400 15px/1.55 var(--font-inter);
+    color: #5b5b5b;
+  }
+  .contact-next-steps .your-step {
+    align-items: center;
+    width: 100%;
+    margin-top: 4px;
+    padding-top: 12px;
+    font-size: 14px;
+    color: #3a3a3a;
+  }
+  .contact-next-steps .your-step > span {
+    flex-shrink: 0;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #810012;
+    font: 700 12px/1.3 var(--font-inter);
+    letter-spacing: 0.08em;
+    color: #fff;
+  }
+
+  /* Locatie: tekst eerst, gegevens als glazen kaart, kaartje eronder. Lege socials weg. */
+  .contact-location {
+    gap: 32px;
+  }
+  .contact-location > div:not(.artwork) {
+    order: -1;
+  }
+  .contact-location .tiny-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px 7px 12px;
+    border: 1px solid #ffffff26;
+    border-radius: 999px;
+    font: 700 12px/1.2 var(--font-inter);
+    letter-spacing: 0.18em;
+  }
+  .contact-location .tiny-label::before {
+    content: "";
+    flex-shrink: 0;
+    width: 18px;
+    height: 10px;
+    -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
+    mask: url("/brand/wing.png") center / contain no-repeat;
+  }
+  .contact-location h2 {
+    margin: 18px 0 24px;
+    font-size: clamp(28px, 8.4vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .contact-location h2 > span {
+    color: #fff;
+    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 2px;
+  }
+  .contact-location dl {
+    padding: 2px 16px;
+    border: 1px solid #ffffff1a;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #ffffff12, #ffffff05);
+  }
+  .contact-location dl > div {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 64px;
+    gap: 2px;
+    padding: 10px 0;
+  }
+  .contact-location dl > div:first-child {
+    border-top: 0;
+  }
+  .contact-location dt {
+    flex-shrink: 0;
+    font: 600 12px/1.3 var(--font-inter);
+    letter-spacing: 0.1em;
+    color: #ffffff8c;
+  }
+  .contact-location dd {
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: left;
+  }
+  .contact-location dd a {
+    min-height: 44px;
+    margin-block: -8px -6px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #ffffff4d;
+    text-underline-offset: 4px;
+  }
+  .contact-location .contact-social {
+    display: none;
+  }
+  .contact-location > .artwork {
+    border: 1px solid #ffffff14;
+    border-radius: 20px;
+  }
+
+  /* FAQ: leesbare vragen; het contactblok staat al bovenaan de pagina. */
+  .contact-faq {
+    gap: 28px;
+  }
+  .contact-faq .faq-intro h2 {
+    margin-top: 18px;
+    font-size: 34px;
+    line-height: 1.12;
+  }
+  .contact-faq .faq-contact {
+    display: none;
+  }
+  .contact-faq .faq-item h3 button {
+    align-items: center;
+    padding: 18px 0;
+    font: 600 16px/1.4 var(--font-manrope);
+    letter-spacing: -0.005em;
+  }
+  .contact-faq .faq-item h3 img {
+    margin-top: 0;
+  }
+  .contact-faq .faq-answer p {
+    padding-right: 0;
+    padding-bottom: 20px;
+    font: 400 15.5px/1.6 var(--font-inter);
+    color: #555;
+  }
+
+  /* ───────────── /privacy en /algemene-voorwaarden ───────────── */
+  .legal-hero {
+    padding-bottom: calc(var(--sheet-overlap) + 40px);
+  }
+  .legal-hero h1 {
+    overflow-wrap: normal;
+    hyphens: manual;
+  }
+  .legal-content {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-top: calc(var(--sheet-overlap) * -1);
+    padding: 40px 20px 56px;
+    border-radius: var(--sheet-radius);
+    box-shadow: 0 -12px 32px #0000002e;
+  }
+  .legal-content .legal-toc {
+    display: none;
+  }
+
+  /* Inklapbare inhoudstafel. */
+  .legal-content .legal-jump {
+    display: block;
+    margin-bottom: 24px;
+    border: 1px solid #81001221;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow:
+      0 1px 2px #0000000a,
+      0 14px 32px #8100120f;
+  }
+  .legal-jump summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 0 18px;
+    list-style: none;
+    cursor: pointer;
+    font: 700 16px/1.2 var(--font-manrope);
+    color: #111;
+  }
+  .legal-jump summary::-webkit-details-marker {
+    display: none;
+  }
+  .legal-jump summary small {
+    margin-left: auto;
+    font: 500 13px/1 var(--font-inter);
+    color: #6b6b6b;
+  }
+  .legal-jump summary::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin: -4px 2px 0 4px;
+    border-right: 2px solid #810012;
+    border-bottom: 2px solid #810012;
+    rotate: 45deg;
+    transition: rotate 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .legal-jump[open] summary::after {
+    margin-top: 4px;
+    rotate: 225deg;
+  }
+  .legal-jump nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px 8px;
+    border-top: 1px solid #8100121a;
+  }
+  .legal-jump nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font: 500 15px/1.35 var(--font-inter);
+    color: #810012;
+    text-decoration: none;
+  }
+  .legal-jump nav a:active {
+    background: #8100120f;
+  }
+
+  /* Leestekst: 16px/1.7, duidelijke koppen, rustige scheidingen. */
+  .legal-content .legal-article {
+    max-width: 38em;
+    margin-inline: auto;
+    font: 400 16px/1.7 var(--font-inter);
+    color: #3f3f3f;
+  }
+  .legal-article .legal-draft {
+    padding: 16px 18px;
+    border-radius: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .legal-article .legal-draft p {
+    margin-top: 6px;
+  }
+  .legal-article > section {
+    scroll-margin-top: calc(var(--nav-height) + 20px);
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid #8100121a;
+  }
+  .legal-article > section:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .legal-article h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+  .legal-article p {
+    margin-bottom: 14px;
+  }
+  .legal-article a {
+    overflow-wrap: anywhere;
+    text-decoration-color: #81001266;
+  }
+  .legal-article ul,
+  .legal-article ol {
+    margin: 0 0 14px;
+    padding-left: 20px;
+  }
+  .legal-article .legal-updated {
+    margin-top: 36px;
+    padding-top: 18px;
+    font-size: 13px;
+    color: #6b6b6b;
+  }
+  .legal-content .legal-help {
+    display: block;
+    margin-top: 24px;
+    padding: 20px;
+    border: 1px solid #81001221;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow:
+      0 1px 2px #0000000a,
+      0 14px 32px #8100120f;
+  }
+  .legal-help strong {
+    display: block;
+    font: 800 18px/1.25 var(--font-manrope);
+    color: #111;
+  }
+  .legal-content .legal-help p {
+    margin: 6px 0 16px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .legal-content .legal-help .button {
+    display: flex;
+    width: 100%;
+    min-height: 52px;
+    border: 1px solid #81001240;
+    background: #fff;
+    box-shadow: none;
+    color: #810012;
+    text-decoration: none;
+  }
+
+  /* Zachte scroll-reveal voor kaarten (alleen waar de browser het ondersteunt). */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .about-principle-card,
+      .contact-next-steps .process-steps li,
+      .legal-article > section {
+        animation: pages-rise linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+      }
+      .about-work::before,
+      .about-work::after {
+        animation: divider-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+      }
+    }
+  }
+}
+
+@keyframes pages-rise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+}

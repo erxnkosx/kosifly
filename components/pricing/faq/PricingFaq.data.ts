@@ -15,8 +15,7 @@ export const faqItems: readonly FaqItem[] = [
   },
   {
     question: "Hoe betaal ik een project?",
-    answer:
-      "De helft bij de start en de helft bij de livegang. Maandpakketten betaal je per maand.",
+    answer: "40 % bij de start en 60 % bij de livegang. Maandpakketten betaal je per maand.",
   },
   {
     question: "Waarom duurder dan een sitebouwer zoals Wix?",

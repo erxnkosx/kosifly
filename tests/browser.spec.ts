@@ -9,7 +9,9 @@ const routes = [
   "/projecten",
   "/projecten/taxi-bornem",
   "/projecten/primelabs",
+  "/projecten/psc-open-huis",
   "/over-ons",
+  "/website-audit",
   "/privacy",
   "/algemene-voorwaarden",
   "/diensten/webdesign",
@@ -45,7 +47,7 @@ for (const viewport of viewports) {
         const h1Rect = h1.getBoundingClientRect();
         const clipped = Array.from(
           document.querySelectorAll<HTMLElement>(
-            ".hero-copy h1, .hero-copy>p, .section-heading, .feature-copy, .step-card, .faq-item h3 button, .home-service-copy, .home-problem-card, .contact-form",
+            ".hero-copy h1, .hero-copy>p, .section-heading, .feature-copy, .step-card, .faq-item h3 button, .home-service-copy, .contact-form",
           ),
         )
           .filter((element) => element.scrollWidth > element.clientWidth + 2)

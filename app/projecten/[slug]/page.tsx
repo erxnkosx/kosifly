@@ -13,7 +13,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   return project
-    ? { title: `${project.name} — ${project.title} | Kosifly`, description: project.intro }
+    ? {
+        title: `${project.name} — ${project.title.replace(/\.$/, "")} | Kosifly`,
+        description: project.intro,
+        alternates: { canonical: `/projecten/${project.slug}` },
+      }
     : {};
 }
 export default async function ProjectPage({ params }: Props) {

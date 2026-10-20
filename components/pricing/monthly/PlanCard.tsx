@@ -65,7 +65,7 @@ export function PlanCard({ plan }: { plan: Plan }) {
 
   return (
     <article
-      className={`relative flex w-[500px] flex-col gap-[18px] rounded-[24px] p-[36px] leading-[normal] ${tone.card}`}
+      className={`pricing-plan pricing-plan-${plan.tone} relative flex w-[500px] flex-col gap-[18px] rounded-[24px] p-[36px] leading-[normal] ${tone.card}`}
     >
       <h4 className={`font-manrope text-[28px] font-extrabold tracking-[-0.2436px] ${tone.name}`}>
         {plan.name}

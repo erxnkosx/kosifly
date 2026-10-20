@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
+import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy | Kosifly",
   description: "Informatie over je contactgegevens, privacy en rechten bij Kosifly.",
@@ -13,8 +14,8 @@ const sections: LegalSection[] = [
       <>
         <p>
           Voor vragen over persoonsgegevens kan je Kosifly bereiken via{" "}
-          <a href="mailto:info@kosifly.com">info@kosifly.com</a> of{" "}
-          <a href="tel:+32483690426">+32 483 69 04 26</a>.
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a> of{" "}
+          <a href={SITE.phoneHref}>{SITE.phone}</a>.
         </p>
         <p>
           De volledige juridische naam, het ondernemingsnummer en het officiële adres van de
@@ -107,7 +108,7 @@ const sections: LegalSection[] = [
           Afhankelijk van de toepasselijke voorwaarden kan je inzage, correctie, verwijdering,
           beperking of overdracht van je gegevens vragen. Je kan bezwaar maken tegen bepaalde
           verwerkingen en eventuele toestemming intrekken. Contacteer ons via{" "}
-          <a href="mailto:info@kosifly.com">info@kosifly.com</a>.
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
         </p>
         <p>
           Je kan ook een klacht indienen bij de{" "}

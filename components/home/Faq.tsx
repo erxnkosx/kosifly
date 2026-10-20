@@ -2,9 +2,8 @@ import { FaqIntro } from "@/components/FaqIntro";
 import { ServiceFaq } from "@/components/services/Interactions";
 import design from "@/data/services-design.json";
 const questions = [
-  "Hoelang duurt het bouwen van een website?",
-  "Wat kost een website bij Kosifly?",
   "Hoelang duurt het voordat mijn website live gaat?",
+  "Wat kost een website bij Kosifly?",
   "Is de website daarna volledig van mij?",
   "Verzorgen jullie ook hosting en onderhoud?",
   "Bouwen jullie meer dan alleen websites?",
@@ -14,7 +13,6 @@ const questions = [
 const answers = [
   design.webdesign.faq[2].a,
   design.webdesign.faq[0].a,
-  design.webdesign.faq[2].a,
   design.webdesign.faq[3].a,
   design.webdesign.faq[6].a,
   "Ja. We bouwen ook web apps en maatwerksoftware en helpen met lokale SEO en automatisaties.",

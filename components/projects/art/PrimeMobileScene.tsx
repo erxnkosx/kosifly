@@ -1,5 +1,5 @@
 import { Artwork } from "@/components/ui/Artwork";
-const imgUitsnede = "/figma/projects/307cd.png";
+const imgUitsnede = "/figma/projects/307cd.webp";
 const imgGloed1 = "/figma/projects/7414f.svg";
 export function PrimeMobileScene() {
   return (

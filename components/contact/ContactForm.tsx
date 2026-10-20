@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { delayed, EASE, scaleIn } from "@/components/motion/presets";
 import { CheckSmall, LockIcon } from "@/components/ui/icons";
+import { Honeypot } from "@/components/ui/Honeypot";
+import { SITE } from "@/lib/site";
 import {
   EXTRAS,
   ONDERHOUD,
@@ -15,6 +17,7 @@ import {
   fmt,
   type QuoteInput,
 } from "@/lib/pricing";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 const label = "font-inter text-[13px] font-semibold leading-[normal] text-ink";
 const input =
@@ -68,7 +71,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={on}
-      className={`flex items-center gap-[6px] rounded-[24px] py-[10px] pr-[16px] font-inter text-[14px] font-semibold leading-[normal] ${on ? "bg-ink pl-[12px] text-white" : "border border-[#e6e6e6] bg-white pl-[16px] text-ink"}`}
+      className={`contact-chip flex items-center gap-[6px] rounded-[24px] py-[10px] pr-[16px] font-inter text-[14px] font-semibold leading-[normal] ${on ? "bg-ink pl-[12px] text-white" : "border border-[#e6e6e6] bg-white pl-[16px] text-ink"}`}
     >
       {on && <CheckSmall />}
       {children}
@@ -123,7 +126,7 @@ function Segmented<T extends string>({
 
 export function ContactForm() {
   const [tab, setTab] = useState<"bericht" | "offerte">("bericht");
-  const [budget, setBudget] = useState("2500-5000");
+  const [budget, setBudget] = useState("");
   const [topics, setTopics] = useState<string[]>([]);
   const [q, setQ] = useState<QuoteInput>({
     services: ["Website", "Lokale SEO", "Onderhoud & hosting"],
@@ -134,6 +137,8 @@ export function ContactForm() {
   });
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState("");
+  /** Querystring van de prijscalculator (zonder `tab`), of null als de bezoeker niet uit de calculator komt. */
+  const [calculatorQuery, setCalculatorQuery] = useState<string | null>(null);
   const [calculation, setCalculation] = useState<{
     aanvragen: number;
     minuten: number;
@@ -143,6 +148,12 @@ export function ContactForm() {
     const params = new URLSearchParams(window.location.search);
     if (params.get("tab") === "offerte") setTab("offerte");
     setQ((current) => applyQuoteParams(current, params));
+    const quoteKeys = ["diensten", "pakket", "extras", "onderhoud", "seo", "paginas", "talen"];
+    if (quoteKeys.some((key) => params.has(key))) {
+      const query = new URLSearchParams(params);
+      query.delete("tab");
+      setCalculatorQuery(query.toString());
+    }
     const service = params.get("dienst");
     const aliases: Record<string, string> = {
       Webdesign: "Website",
@@ -196,14 +207,14 @@ export function ContactForm() {
       if (!response.ok)
         throw new Error(
           result?.error ||
-            "Je aanvraag kon niet verstuurd worden. Probeer opnieuw of mail info@kosifly.com.",
+            `Je aanvraag kon niet verstuurd worden. Probeer opnieuw of mail ${SITE.email}.`,
         );
       setStatus("Bedankt! Je aanvraag is verstuurd. We nemen contact met je op.");
     } catch (error) {
       setStatus(
         error instanceof Error
           ? error.message
-          : "Versturen lukt momenteel niet. Mail gerust naar info@kosifly.com.",
+          : `Versturen lukt momenteel niet. Mail gerust naar ${SITE.email}.`,
       );
     } finally {
       setSaving(false);
@@ -230,7 +241,7 @@ export function ContactForm() {
         </div>
       )}
       {/* tabbladen */}
-      <div className="flex gap-[4px] rounded-[14px] bg-[#f2f2f2] p-[4px]">
+      <div className="contact-tabs flex gap-[4px] rounded-[14px] bg-[#f2f2f2] p-[4px]">
         {(
           [
             ["bericht", "Kort bericht"],
@@ -311,20 +322,22 @@ export function ContactForm() {
         </TabBody>
       ) : (
         <TabBody key="offerte">
-          <div className="flex items-center gap-[10px] rounded-[12px] bg-[#fff0f2] px-[14px] py-[11px]">
-            <span className="flex size-[20px] items-center justify-center rounded-full bg-brand text-white">
-              <CheckSmall size={12} />
-            </span>
-            <span className="flex-1 font-inter text-[14px] font-medium leading-[normal] text-brand">
-              Je keuzes uit de prijscalculator zijn overgenomen.
-            </span>
-            <button
-              type="button"
-              className="font-inter text-[14px] font-semibold text-brand underline"
-            >
-              Aanpassen
-            </button>
-          </div>
+          {calculatorQuery !== null && (
+            <div className="calculator-notice flex items-center gap-[10px] rounded-[12px] bg-[#fff0f2] px-[14px] py-[11px]">
+              <span className="flex size-[20px] items-center justify-center rounded-full bg-brand text-white">
+                <CheckSmall size={12} />
+              </span>
+              <span className="flex-1 font-inter text-[14px] font-medium leading-[normal] text-brand">
+                Je keuzes uit de prijscalculator zijn overgenomen.
+              </span>
+              <a
+                href={`/prijzen?${calculatorQuery}#bereken-je-prijs`}
+                className="font-inter text-[14px] font-semibold text-brand underline"
+              >
+                Aanpassen
+              </a>
+            </div>
+          )}
 
           <Step n={1} title="Wat heb je nodig?">
             <div className="flex flex-wrap gap-[8px]">
@@ -492,23 +505,31 @@ export function ContactForm() {
         </span>
       </label>
 
+      <Honeypot />
+
       <button
         type="submit"
         disabled={saving}
         aria-busy={saving}
         className="flex w-full items-center justify-center rounded-[40px] bg-accent-gradient py-[19px] font-inter text-[17px] font-semibold leading-[normal] text-white shadow-[0_8px_24px_rgba(232,51,79,0.45)]"
       >
-        {saving
-          ? "Even versturen…"
-          : tab === "bericht"
-            ? "Verstuur je aanvraag →"
-            : "Vraag je offerte aan →"}
+        {saving ? (
+          "Even versturen…"
+        ) : tab === "bericht" ? (
+          <>
+            Verstuur je aanvraag <BtnArrow />
+          </>
+        ) : (
+          <>
+            Vraag je offerte aan <BtnArrow />
+          </>
+        )}
       </button>
       {status && (
         <div className="submission-status" role="status">
           <p>{status}</p>
           {!status.startsWith("Bedankt!") && (
-            <a href="mailto:info@kosifly.com">Mail naar info@kosifly.com →</a>
+            <a href={`mailto:${SITE.email}`}>Mail naar {SITE.email} →</a>
           )}
         </div>
       )}

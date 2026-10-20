@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage, type LegalSection } from "@/components/legal/LegalPage";
+import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Algemene voorwaarden | Kosifly",
   description: "Conceptafspraken over offertes, projecten, oplevering en onderhoud bij Kosifly.",
@@ -13,8 +14,8 @@ const sections: LegalSection[] = [
       <>
         <p>
           Kosifly bouwt digitale oplossingen voor KMO&apos;s. Je bereikt ons via{" "}
-          <a href="mailto:info@kosifly.com">info@kosifly.com</a> of{" "}
-          <a href="tel:+32483690426">+32 483 69 04 26</a>.
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a> of{" "}
+          <a href={SITE.phoneHref}>{SITE.phone}</a>.
         </p>
         <p>
           De officiële juridische naam, het ondernemingsnummer en het adres worden nog toegevoegd.
@@ -98,10 +99,10 @@ const sections: LegalSection[] = [
     content: (
       <>
         <p>
-          Meld een probleem via <a href="mailto:info@kosifly.com">info@kosifly.com</a> met de
-          betrokken opdracht en een beschrijving. We bespreken eerst een oplossing.
-          Aansprakelijkheid, annulering, toepasselijk recht en geschillenregeling worden nog
-          uitgewerkt in de definitieve voorwaarden.
+          Meld een probleem via <a href={`mailto:${SITE.email}`}>{SITE.email}</a> met de betrokken
+          opdracht en een beschrijving. We bespreken eerst een oplossing. Aansprakelijkheid,
+          annulering, toepasselijk recht en geschillenregeling worden nog uitgewerkt in de
+          definitieve voorwaarden.
         </p>
         <p>
           Dwingende wettelijke rechten blijven van toepassing. Informatie over contractvoorwaarden

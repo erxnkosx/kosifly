@@ -206,9 +206,6 @@ html {
     border-color 0.2s,
     box-shadow 0.2s;
 }
-.module-desktop {
-  min-width: 0;
-}
 .module-panel {
   height: auto;
 }
@@ -295,76 +292,14 @@ html {
   margin-top: 8px;
 }
 /* Home: preserve the original compositions while allowing copy to grow. */
-.home-problems .section-heading {
-  max-width: 1108px;
-}
-.home-problems .section-heading h2,
 .home-services .section-heading h2 {
   font-size: clamp(34px, 3.65vw, 70px);
   line-height: 1.14;
-}
-.home-problem-grid {
-  max-width: 1404px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(28px, 4vw, 76px);
-}
-.home-problem-card {
-  text-align: center;
-  min-width: 0;
-}
-.home-problem-card > span {
-  font: 400 12px var(--font-manrope);
-  letter-spacing: 0.22em;
-  color: #aaa;
-}
-.problem-illustration {
-  height: clamp(140px, 10vw, 192px);
-  display: grid;
-  place-items: center;
-  margin-top: 22px;
-  margin-bottom: 20px;
-}
-.problem-illustration img {
-  width: clamp(140px, 10.94vw, 210px);
-  height: auto;
-  max-height: 100%;
-}
-.home-problem-card h3 {
-  font: 800 clamp(23px, 1.46vw, 28px)/1.28 var(--font-manrope);
-  max-width: 280px;
-  margin: auto auto 18px;
-  color: #111;
-  text-wrap: balance;
-}
-.home-problem-card > p {
-  font: 400 clamp(16px, 1.04vw, 20px)/1.5 var(--font-manrope);
-  color: #6b6b6b;
-}
-.home-problems-end {
-  max-width: 1040px;
-  margin: clamp(48px, 4vw, 76px) auto 0;
-  font: 800 clamp(24px, 1.77vw, 34px)/1.47 var(--font-manrope);
-  text-align: center;
-}
-.home-problems-end span {
-  color: #810012;
 }
 .home-difference {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-}
-.home-wing {
-  position: absolute;
-  width: min(64vw, 1228px);
-  aspect-ratio: 1264/686;
-  left: -33%;
-  top: 27%;
-  background: url("/images/wing-outline.png") center / contain no-repeat;
-  filter: drop-shadow(0 0 120px #81001233);
-  z-index: -1;
 }
 .home-difference .section-heading h2 {
   line-height: 1.5;
@@ -514,90 +449,6 @@ html {
   filter: drop-shadow(0.5px 0 0 #810012) drop-shadow(-0.5px 0 0 #810012)
     drop-shadow(0 0.35px 0 #810012) drop-shadow(0 -0.35px 0 #810012);
 }
-.reviews-source {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font: 500 14px var(--font-inter);
-  color: #6a7282;
-}
-.reviews-summary h3 {
-  font: 800 clamp(26px, 1.875vw, 36px) var(--font-manrope);
-  margin: 12px 0;
-}
-.reviews-rating {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  color: #6a7282;
-}
-.reviews-rating > div {
-  display: flex;
-}
-.reviews-rating strong {
-  color: #111;
-  font-size: 22px;
-}
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(24px, 5vw, 96px);
-  margin-top: clamp(36px, 4vw, 76px);
-}
-.review-card {
-  min-width: 0;
-  min-height: clamp(310px, 24.1vw, 463px);
-  padding: 20px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 0 20px #81001280;
-}
-.review-author {
-  display: flex;
-  align-items: start;
-  gap: 10px;
-}
-.review-avatar {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #2e7d32;
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-size: 13px;
-}
-.review-author > div {
-  min-width: 0;
-}
-.review-author strong {
-  display: block;
-  font: 600 14px/1.4 var(--font-inter);
-  color: #101828;
-}
-.review-author small {
-  display: block;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #99a1af;
-}
-.review-author > svg {
-  margin-left: auto;
-  flex-shrink: 0;
-}
-.review-stars {
-  display: flex;
-  margin-top: 12px;
-}
-.review-card p {
-  color: #364153;
-  font-size: 14px;
-  line-height: 1.57;
-  margin-top: 12px;
-}
 /* Contact can be taller than one screen: fields remain readable and scroll naturally. */
 .contact-section {
   padding-top: var(--nav-height);
@@ -685,7 +536,7 @@ html {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media (min-width: 1001px) and (max-width: 1500px) {
+@media not all /* was (min-width: 1001px) and (max-width: 1500px) */ {
   .hero-copy > .button-row .button {
     font-size: 14px;
     padding-inline: 20px;
@@ -708,16 +559,6 @@ html {
   .step-card {
     padding: 18px;
   }
-  .review-card {
-    padding: 16px;
-  }
-  .reviews-grid {
-    gap: 26px;
-  }
-  .review-author {
-    gap: 8px;
-    flex-wrap: wrap;
-  }
   .home-comparison-grid {
     width: 85%;
   }
@@ -725,7 +566,7 @@ html {
     width: 96%;
   }
 }
-@media (max-width: 1100px) {
+@media all /* was (max-width: 1100px) */ {
   .nav-inner {
     padding-inline: 4%;
     gap: 18px;
@@ -742,15 +583,11 @@ html {
   .home-comparison-grid {
     width: 100%;
   }
-  .reviews-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-  }
   .home-service-card-0 {
     display: flex;
   }
 }
-@media (max-width: 1000px) {
+@media all /* was (max-width: 1000px) */ {
   .hero-grid {
     min-height: auto;
     padding: 60px 6%;
@@ -769,9 +606,6 @@ html {
   }
   .hero-trust {
     font-size: 11px;
-  }
-  .home-problem-grid {
-    gap: 30px;
   }
   .home-services-grid {
     width: 100%;
@@ -795,7 +629,7 @@ html {
     font-size: 4.6vw;
   }
 }
-@media (max-width: 760px) {
+@media all /* was (max-width: 760px) */ {
   :root {
     --nav-height: 72px;
   }
@@ -866,22 +700,11 @@ html {
     padding: 12px;
     gap: 10px;
   }
-  .home-problem-grid,
   .home-comparison-grid,
   .home-services-grid {
     grid-template-columns: 1fr;
     width: 100%;
     gap: 28px;
-  }
-  .home-problem-card {
-    max-width: 430px;
-    margin: auto;
-  }
-  .home-problem-card h3 {
-    font-size: 25px;
-  }
-  .problem-illustration {
-    height: 160px;
   }
   .home-difference .section-heading h2 {
     font-size: 32px;
@@ -896,8 +719,7 @@ html {
   .home-comparison-card li {
     font-size: 15px;
   }
-  .home-services .section-heading h2,
-  .home-problems .section-heading h2 {
+  .home-services .section-heading h2 {
     font-size: 34px;
   }
   .home-service-card,
@@ -920,12 +742,6 @@ html {
   }
   .reviews-heading img {
     width: auto;
-  }
-  .reviews-grid {
-    grid-template-columns: 1fr;
-  }
-  .review-card {
-    min-height: 290px;
   }
   .contact-section > div:last-child {
     padding: 40px 24px 60px;
@@ -959,16 +775,13 @@ html {
 }
 /* No hidden initial state; scroll motion is added only after intersection and respects system preferences. */
 @media (prefers-reduced-motion: no-preference) {
-  .services-dropdown {
-    animation: menu-appear 0.22s ease-out;
-    transform-origin: top center;
-  }
+  /* Het dienstenmenu animeert via framer-motion (Navbar.tsx); een CSS-animatie op `translate` zou
+   * hier de centrering (translate: -50% 0) overschrijven en het menu laten verspringen. */
   .module-panel {
     animation: panel-appear 0.28s ease-out;
   }
   .home-service-card,
-  .home-comparison-card,
-  .review-card {
+  .home-comparison-card {
     transition:
       transform 0.25s,
       box-shadow 0.25s;
@@ -997,16 +810,6 @@ html {
     box-shadow: 0 10px 30px #e8334f80;
   }
 }
-@keyframes menu-appear {
-  from {
-    opacity: 0;
-    translate: 0 -6px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
 @keyframes panel-appear {
   from {
     opacity: 0.4;
@@ -1022,30 +825,6 @@ html {
     animation: none !important;
     transition: none !important;
   }
-}
-.reviews-summary {
-  position: relative;
-}
-.reviews-link {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  border: 1px solid #111;
-  border-radius: 30px;
-  padding: 12px 20px;
-  font: 500 clamp(14px, 0.94vw, 18px)/1.3 var(--font-inter);
-  color: #1e2939;
-}
-@media (max-width: 1000px) {
-  .reviews-link {
-    position: static;
-    display: inline-block;
-    margin-top: 24px;
-  }
-}
-.home-wing {
-  filter: brightness(0) invert(1) drop-shadow(0 0 120px #81001233);
-  opacity: 0.6;
 }
 .hero-copy > .inline-flex,
 .contact-copy > .inline-flex {

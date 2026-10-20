@@ -1,5 +1,5 @@
 /* Mobile layouts use real CSS pixels: controls must remain readable and tappable. */
-@media (max-width: 760px) {
+@media all /* was (max-width: 760px) */ {
   html {
     scrollbar-gutter: auto;
   }
@@ -55,7 +55,7 @@
     max-width: 100%;
   }
 }
-@media (max-width: 1100px) {
+@media all /* was (max-width: 1100px) */ {
   .module-picker {
     grid-template-columns: 1fr;
   }
@@ -375,7 +375,7 @@
 }
 
 /* Reflow content, while illustration canvases retain their intended composition. */
-@media (max-width: 1100px) {
+@media all /* was (max-width: 1100px) */ {
   .home-visual.legacy-home {
     padding-inline: 0;
   }
@@ -465,12 +465,6 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
-  }
-  .etalage-secondary {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    text-decoration: underline;
   }
   .etalage-carousel .etalage-arrow {
     top: auto;
@@ -652,7 +646,7 @@
     overflow-wrap: anywhere;
   }
 }
-@media (max-width: 760px) {
+@media all /* was (max-width: 760px) */ {
   .site-logo {
     min-height: 44px;
     align-items: center;
@@ -676,8 +670,6 @@
   .projects-link,
   .home-service-copy a,
   .portfolio-text-link,
-  .project-card-footer a,
-  .about-service-strip a,
   .faq-contact a,
   .showcase-links > a:last-child,
   .legal-toc a,
@@ -686,7 +678,7 @@
     display: inline-flex;
     align-items: center;
   }
-  .project-filters button {
+  .project-filters :is(button, a) {
     min-height: 44px;
   }
   .service-breadcrumb {
@@ -783,12 +775,11 @@
   .portfolio-hero-copy {
     min-height: 0;
   }
-  .overview-hero .portfolio-hero-copy,
-  .about-hero .portfolio-hero-copy {
+  .overview-hero .portfolio-hero-copy {
     padding-top: 48px;
   }
 }
-@media (max-width: 1100px) {
+@media all /* was (max-width: 1100px) */ {
   .footer-inner {
     --footer-scale: 1px;
   }
@@ -798,7 +789,7 @@
     overscroll-behavior: contain;
   }
 }
-@media (max-width: 760px) {
+@media all /* was (max-width: 760px) */ {
   .services-dropdown {
     max-height: none;
     overflow: visible;

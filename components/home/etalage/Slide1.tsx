@@ -1,5 +1,5 @@
 import { MobileSlide } from "./MobileSlide";
-import { Anchor, Shell } from "./Shell";
+import { Anchor, Shell, Slot } from "./Shell";
 
 /** Etalage 1 (Taxi Bornem): mockup-beelden `image 14` en `image 22` komen uit public/images (export uit Figma). */
 const callouts = [
@@ -41,13 +41,13 @@ export function Slide1() {
         <MobileSlide
           title={
             <>
-              Zo ziet een site eruit die <span>verkoopt</span>.
+              Zo ziet een site eruit die <span className="etalage-accent">verkoopt</span>.
             </>
           }
           intro="Taxi Bornem, gebouwd door Kosifly. Dit zit erin."
           visual={
             <img
-              src="/images/etalage-laptop.png"
+              src="/images/etalage-laptop.webp"
               width={716}
               height={533}
               alt="Taxi Bornem op laptop"
@@ -55,14 +55,13 @@ export function Slide1() {
             />
           }
           points={callouts.map((c) => ({ title: c.t, text: c.d }))}
-          href="/projecten/taxi-bornem"
-          cta="Bekijk de case"
+          primary={{ label: "Bekijk de case", href: "/projecten/taxi-bornem" }}
         />
       }
     >
       <h2 className="absolute left-[432.5px] top-[120px] whitespace-nowrap font-manrope text-[64px] font-extrabold leading-[0] tracking-[-0.5568px] text-white">
         <span className="leading-[76px]">Zo ziet een site eruit die </span>
-        <span className="leading-[76px] text-brand-soft">verkoopt</span>
+        <span className="etalage-accent leading-[76px]">verkoopt</span>
         <span className="leading-[76px]">.</span>
       </h2>
       <p className="absolute left-[747.5px] top-[210px] whitespace-nowrap font-manrope text-[20px] font-normal leading-[30px] text-white/70">
@@ -73,7 +72,7 @@ export function Slide1() {
         <div
           className="absolute left-0 top-[13.96px] h-[532.3px] w-[715.3px] bg-[length:100%_100%] bg-no-repeat"
           style={{
-            backgroundImage: "url(/images/etalage-laptop.png)",
+            backgroundImage: "url(/images/etalage-laptop.webp)",
             filter: "drop-shadow(0 0 109px rgba(0,0,0,0.3))",
           }}
           role="img"
@@ -81,7 +80,7 @@ export function Slide1() {
         />
         <div
           className="absolute left-[621.06px] top-0 h-[560px] w-[257.321px] bg-[length:100%_100%] bg-no-repeat"
-          style={{ backgroundImage: "url(/images/etalage-phone.png)" }}
+          style={{ backgroundImage: "url(/images/etalage-phone.webp)" }}
           role="img"
           aria-label="Taxi Bornem op gsm"
         />
@@ -123,10 +122,7 @@ export function Slide1() {
         >
           <span
             className="flex size-[28px] shrink-0 items-center justify-center rounded-[14px] font-inter text-[12px] font-bold leading-[normal] text-white"
-            style={{
-              backgroundImage:
-                "linear-gradient(135deg, rgb(232,51,79) 14.286%, rgb(126,12,30) 85.714%)",
-            }}
+            style={{ background: "var(--brand-fill)" }}
           >
             {c.n}
           </span>
@@ -141,26 +137,12 @@ export function Slide1() {
         </div>
       ))}
 
-      <div className="absolute left-[632px] top-[960px] flex items-center gap-[22px] overflow-hidden">
-        <div className="flex items-center gap-[10px] rounded-[30px] border border-white/16 bg-white/6 py-[12px] pl-[16px] pr-[18px]">
-          <span className="size-[8px] rounded-full bg-[#1fd959] shadow-[0_0_8px_rgba(31,217,89,0.9)]" />
-          <span className="whitespace-pre font-orbitron text-[11px] font-medium leading-[normal] tracking-[2.42px] text-white/90">
-            {"CASE  ·  TAXI BORNEM  ·  LIVE"}
-          </span>
-        </div>
-        <a
-          href="/projecten/taxi-bornem"
-          className="rounded-[40px] bg-white px-[28px] py-[16px] font-inter text-[16px] font-semibold leading-[normal] text-brand shadow-[0_0_24px_rgba(232,51,79,0.35)]"
-        >
-          Bekijk de case →
-        </a>
-        <a
-          href="/projecten"
-          className="font-inter text-[16px] font-semibold leading-[normal] text-white/75 underline"
-        >
-          Alle projecten
-        </a>
-      </div>
+      <Slot
+        label="Case · Taxi Bornem · Live"
+        live
+        primary={{ label: "Bekijk de case", href: "/projecten/taxi-bornem" }}
+        secondary={{ label: "Alle projecten", href: "/projecten" }}
+      />
     </Shell>
   );
 }

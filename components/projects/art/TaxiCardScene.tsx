@@ -1,6 +1,6 @@
 import { Artwork } from "@/components/ui/Artwork";
-const imgImage14 = "/figma/projects/8aa05.png";
-const imgImage22 = "/figma/projects/4cd9a.png";
+const imgImage14 = "/figma/projects/8aa05.webp";
+const imgImage22 = "/figma/projects/4cd9a.webp";
 const imgGloed = "/figma/projects/ba1f3.svg";
 const imgEllipse1 = "/figma/projects/193af.svg";
 export function TaxiCardScene() {

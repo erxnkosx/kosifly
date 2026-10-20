@@ -1,44 +1,26 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# Afhankelijkheden
 /node_modules
-/.pnp
-.pnp.js
 
-# testing
-/coverage
-
-# next.js
+# Build-uitvoer (next build schrijft de statische site naar out/)
 /.next/
 /out/
+*.tsbuildinfo
+next-env.d.ts
 
-# production
-/build
+# Tests (worden door de testscripts opnieuw aangemaakt)
+/coverage
+/test-results/
+/playwright-report/
+/tests/artifacts/
 
-# misc
-.DS_Store
+# Lokale omgeving en geheimen (CONTACT_WEBHOOK_URL hoort in Cloudflare Pages, niet in git)
+.env
+.env*.local
+.dev.vars
+/.wrangler/
 *.pem
 
-# debug
+# Overig
+.DS_Store
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env*.local
-.env
-
-# vercel
 .vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-node_modules
-.next
-.env*.local
-*.tsbuildinfo
-next-env.d.ts
-playwright-report
-test-results

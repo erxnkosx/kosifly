@@ -1,5 +1,5 @@
 import { Artwork } from "@/components/ui/Artwork";
-const imgFoto = "/figma/projects/68b77.png";
+const imgFoto = "/figma/projects/68b77.webp";
 const imgGloed1 = "/figma/projects/7414f.svg";
 const imgGroup1 = "/figma/projects/5427f.svg";
 const imgFrame4 = "/figma/projects/e5e62.svg";

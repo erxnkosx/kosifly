@@ -8,6 +8,7 @@ import {
   ORBITRON_LABEL,
   PillButton,
   SectionHeading,
+  SwipeDots,
 } from "../shared";
 import { calculatorHref } from "../calculator/calculatorHref";
 import { WEBSITE_PACKAGES, type WebsitePackage } from "./Websites.data";
@@ -51,7 +52,7 @@ function PackageCard({ pkg }: { pkg: WebsitePackage }) {
 
   return (
     <li
-      className={`relative flex w-[500px] shrink-0 flex-col items-start gap-[20px] rounded-[24px] p-[40px] ${tone.card}`}
+      className={`pricing-package${pkg.featured ? " is-featured" : ""} relative flex w-[500px] shrink-0 flex-col items-start gap-[20px] rounded-[24px] p-[40px] ${tone.card}`}
     >
       <h3 className={`font-manrope text-[30px] font-extrabold tracking-[-0.261px] ${tone.title}`}>
         {pkg.title}
@@ -104,11 +105,16 @@ export function Websites() {
         titleLines={2}
         intro="Alle prijzen zijn vanaf-prijzen, exclusief btw. Je vaste prijs krijg je na een gratis gesprek."
       />
-      <ul data-reveal-group className="mx-[182px] mt-[62px] flex items-start gap-[28px]">
+      <ul
+        id="websites-track"
+        data-reveal-group
+        className="pricing-swipe mx-[182px] mt-[62px] flex items-start gap-[28px]"
+      >
         {WEBSITE_PACKAGES.map((pkg) => (
           <PackageCard key={pkg.id} pkg={pkg} />
         ))}
       </ul>
+      <SwipeDots targetId="websites-track" labels={WEBSITE_PACKAGES.map((pkg) => pkg.title)} />
     </LightSection>
   );
 }

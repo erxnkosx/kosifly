@@ -5,6 +5,7 @@ import type { ProjectSummary } from "@/lib/projects";
 import { Badge } from "@/components/ui/Badge";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
 import { ProjectCard } from "./ProjectCard";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 const filters = [
   ["all", "Alle projecten"],
@@ -39,7 +40,11 @@ export function ProjectsOverview({ items }: { items: readonly ProjectSummary[] }
                 type="button"
                 aria-pressed={filter === value}
                 aria-controls="project-results"
-                onClick={() => setFilter(value)}
+                onClick={(e) => {
+                  setFilter(value);
+                  // Mobiel: de gekozen pil schuift volledig in beeld in de scrollbare rij.
+                  e.currentTarget.scrollIntoView({ block: "nearest", inline: "nearest" });
+                }}
               >
                 {label}
               </button>
@@ -47,7 +52,10 @@ export function ProjectsOverview({ items }: { items: readonly ProjectSummary[] }
           </div>
         </div>
       </section>
-      <section className="portfolio-light page-section" aria-label="Onze projecten">
+      <section
+        className="portfolio-light page-section projects-overview"
+        aria-label="Onze projecten"
+      >
         <p className="sr-only" role="status">
           {visible.length} {visible.length === 1 ? "project" : "projecten"} gevonden
         </p>
@@ -64,14 +72,16 @@ export function ProjectsOverview({ items }: { items: readonly ProjectSummary[] }
               kunnen bouwen?
             </p>
             <Link href="/contact" className="button primary">
-              Bespreek jouw project →
+              Bespreek jouw project <BtnArrow />
             </Link>
           </div>
         )}
         <div className="project-invitation">
           <div>
             <span className="tiny-label">VOLGENDE CASE</span>
-            <h2>Jouw project als volgende case?</h2>
+            <h2>
+              Jouw project als <span>volgende case</span>?
+            </h2>
             <p>
               Vertel ons wat je wil bouwen. Binnen twee werkdagen krijg je een voorstel met vaste
               prijs.
@@ -79,10 +89,10 @@ export function ProjectsOverview({ items }: { items: readonly ProjectSummary[] }
           </div>
           <div className="button-row">
             <Link href="/contact" className="button white">
-              Plan een gesprek →
+              Plan een gesprek <BtnArrow />
             </Link>
             <Link href="/prijzen" className="portfolio-text-link">
-              Bereken je prijs
+              Bereken je prijs <BtnArrow />
             </Link>
           </div>
         </div>

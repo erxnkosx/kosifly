@@ -1,29 +1,34 @@
-import { Accent, DarkSection, SectionHeading } from "../shared";
+import { Accent, DarkSection, SectionHeading, SwipeDots } from "../shared";
 import { MAINTENANCE_PLANS, SEO_PLANS, type Plan } from "./MonthlyPlans.data";
 import { PlanCard } from "./PlanCard";
+import { PlanGroupToggle, type PlanGroupId } from "./PlanGroupToggle";
 
 function PlanGroup({
+  id,
   title,
   note,
   plans,
 }: {
+  id: PlanGroupId;
   title: string;
   note: string;
   plans: readonly Plan[];
 }) {
+  const trackId = `plans-${id}-track`;
   return (
-    <div>
+    <div className="pricing-plan-group" data-group-id={id}>
       <div data-reveal className="mb-[27px] flex items-center justify-between">
         <h3 className="font-orbitron text-[13px] font-medium tracking-[2.86px] text-white">
           {title}
         </h3>
         <p className="font-inter text-[15px] leading-[18px] text-white/60">{note}</p>
       </div>
-      <div data-reveal-group className="flex gap-[28px]">
+      <div id={trackId} data-reveal-group className="pricing-swipe flex gap-[28px]">
         {plans.map((plan) => (
           <PlanCard key={plan.id} plan={plan} />
         ))}
       </div>
+      <SwipeDots targetId={trackId} labels={plans.map((plan) => plan.name)} tone="dark" />
     </div>
   );
 }
@@ -49,13 +54,20 @@ export function MonthlyPlans() {
         titleId="maandpakketten-kop"
         intro="Vaste maandprijzen voor onderhoud en lokale SEO, zonder kleine lettertjes. Alle bedragen zijn exclusief btw."
       />
-      <div className="relative mt-[49px] flex w-[1556px] flex-col gap-[99px]">
+      <PlanGroupToggle sectionId="maandpakketten" />
+      <div className="pricing-plan-groups relative mt-[49px] flex w-[1556px] flex-col gap-[99px]">
         <PlanGroup
+          id="onderhoud"
           title="ONDERHOUD & HOSTING"
           note="Maandelijks opzegbaar"
           plans={MAINTENANCE_PLANS}
         />
-        <PlanGroup title="LOKALE SEO" note="Minimale looptijd 6 maanden" plans={SEO_PLANS} />
+        <PlanGroup
+          id="seo"
+          title="LOKALE SEO"
+          note="Minimale looptijd 6 maanden"
+          plans={SEO_PLANS}
+        />
       </div>
     </DarkSection>
   );

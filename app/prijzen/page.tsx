@@ -19,13 +19,14 @@ export const metadata: Metadata = {
   title: "Prijzen | Websites, SEO, onderhoud en maatwerk | Kosifly",
   description:
     "Vaste prijzen voor websites, lokale SEO, onderhoud en maatwerk voor KMO's. Bereken in één minuut je eigen prijsindicatie.",
+  alternates: { canonical: "/prijzen" },
 };
 
 export default function PricingPage() {
   return (
     <>
       <Navbar active="Pricing" />
-      <main id="main-content">
+      <main id="main-content" className="pricing-page">
         <PricingHero />
         <DesignCanvas>
           <AnchorBar />

@@ -1,21 +1,20 @@
-const bad = [
-  { c: 663, t: 667, text: "Een online brochure zonder verkooplogica" },
-  { c: 733, t: 737, text: "Bezoekers zonder richting, dus zonder actie" },
-  { c: 793, t: 797, text: "Leads die blijven liggen in een inbox" },
-  { c: 853, t: 857, text: "Bezoek dat een kostenpost blijft" },
-];
-const good = [
-  { c: 662, k: 668, t: 666, text: "Een strategische laag op maat van uw aanbod" },
-  { c: 732, k: 738, t: 736, text: "Eén helder pad naar de volgende stap" },
-  { c: 792, k: 798, t: 796, text: "Een systeem dat elke lead opvangt en opvolgt" },
-  { c: 852, k: 858, t: 856, text: "Elke stap meetbaar, van klik tot klant" },
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { VerschilToggle } from "./VerschilToggle";
+
+const pairs = [
+  {
+    bad: "Mooi, maar niemand neemt contact op",
+    good: "Elke pagina leidt naar één duidelijke actie",
+  },
+  { bad: "Traag en onhandig op de gsm", good: "Snel en gebouwd voor de gsm" },
+  { bad: "Aanvragen blijven liggen in je inbox", good: "Elke aanvraag automatisch opgevolgd" },
+  { bad: "Geen idee wat je site oplevert", good: "Je ziet wat elke klik oplevert" },
 ];
 
 export function Verschil() {
   return (
     <section id="over-ons" className="service-section light-section home-difference">
-      <div className="home-wing" aria-hidden="true" />
-      <div className="section-heading">
+      <Reveal className="section-heading">
         <span className="section-eyebrow">HET VERSCHIL</span>
         <h2>
           De meeste websites zijn een visitekaartje.
@@ -24,37 +23,41 @@ export function Verschil() {
             <span>verkoopt.</span>
           </span>
         </h2>
-        <p>
-          Uw website hoort geen digitaal visitekaartje te zijn, maar een leadmachine. Het verschil
-          zit in de strategische laag die bezoekers feilloos aanzet tot actie.
+        <p className="verschil-intro-desktop">
+          Een goede website is geen digitaal visitekaartje, maar een systeem dat bezoekers omzet in
+          klanten.
         </p>
-      </div>
-      <div className="home-comparison-grid">
-        <article className="home-comparison-card">
+        <p className="verschil-intro-mobile">Schakel en zie het verschil.</p>
+      </Reveal>
+      <RevealGroup className="home-comparison-grid" stagger={0.15}>
+        <RevealItem as="article" className="home-comparison-card">
           <h3>De meeste websites</h3>
           <ul>
-            {bad.map((r) => (
-              <li key={r.text}>
+            {pairs.map((p) => (
+              <li key={p.bad}>
                 <span aria-hidden="true">×</span>
-                {r.text}
+                {p.bad}
               </li>
             ))}
           </ul>
-        </article>
-        <article className="home-comparison-card home-comparison-good">
+        </RevealItem>
+        <RevealItem as="article" className="home-comparison-card home-comparison-good">
           <h3>
             <img src="/brand/wing.png" width={44} height={24} alt="" />K O S I F L Y
           </h3>
           <ul>
-            {good.map((r) => (
-              <li key={r.text}>
+            {pairs.map((p) => (
+              <li key={p.good}>
                 <span aria-hidden="true">✓</span>
-                {r.text}
+                {p.good}
               </li>
             ))}
           </ul>
-        </article>
-      </div>
+        </RevealItem>
+      </RevealGroup>
+      <Reveal className="verschil-toggle-wrap">
+        <VerschilToggle pairs={pairs} />
+      </Reveal>
     </section>
   );
 }

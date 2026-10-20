@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,6 +11,7 @@ import NavIcon1 from "./services/art/NavIcon1";
 import NavIcon2 from "./services/art/NavIcon2";
 import NavIcon3 from "./services/art/NavIcon3";
 import NavIcon4 from "./services/art/NavIcon4";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 const icons = [NavIcon0, NavIcon1, NavIcon2, NavIcon3, NavIcon4];
 export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark" | "light" }) {
   const [open, setOpen] = useState(false),
@@ -57,8 +59,14 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
     >
       <div className="nav-inner">
         <Link className="site-logo" href="/" aria-label="Kosifly — home">
-          <img src="/brand/wing.png" alt="" width="58" height="31" />
-          <img src="/brand/kosifly-logo-text.png" alt="Kosifly" width="217" height="26" />
+          <Image src="/brand/wing.png" alt="" width={58} height={31} priority />
+          <Image
+            src="/brand/kosifly-logo-text.png"
+            alt="Kosifly"
+            width={217}
+            height={26}
+            priority
+          />
         </Link>
         <button
           ref={mobileTrigger}
@@ -106,7 +114,7 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
               aria-controls="services-dropdown"
               className={active === "Services" ? "nav-active" : ""}
             >
-              Services <span className="services-chevron" aria-hidden="true" />
+              Diensten <span className="services-chevron" aria-hidden="true" />
             </button>
             <AnimatePresence>
               {open && (
@@ -120,6 +128,14 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
                   style={{ transformOrigin: "50% 0" }}
                 >
                   <div className="service-menu-items">
+                    {/* Enkel mobiel: de knop "Diensten" klapt open, dus het overzicht krijgt hier een eigen link. */}
+                    <Link
+                      href="/services"
+                      className="menu-all"
+                      aria-current={pathname === "/services" ? "page" : undefined}
+                    >
+                      Alle diensten bekijken <BtnArrow />
+                    </Link>
                     {services.map((s, i) => {
                       const Icon = icons[i];
                       return (
@@ -143,7 +159,7 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
                     <h2>Niet zeker wat je nodig hebt?</h2>
                     <p>In een gesprek van 30 minuten zoeken we samen wat het meeste oplevert.</p>
                     <Link href="/contact" className="button white">
-                      Plan een gesprek →
+                      Plan een gesprek <BtnArrow />
                     </Link>
                   </aside>
                 </motion.div>
@@ -151,20 +167,24 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
             </AnimatePresence>
           </div>
           <Link href="/projecten" aria-current={active === "Projects" ? "page" : undefined}>
-            Projects
+            Projecten
           </Link>
           <Link href="/prijzen" aria-current={active === "Pricing" ? "page" : undefined}>
-            Pricing
+            Prijzen
           </Link>
           <Link href="/over-ons" aria-current={active === "About" ? "page" : undefined}>
-            About
+            Over ons
           </Link>
           <Link href="/contact" aria-current={active === "Contact" ? "page" : undefined}>
             Contact
           </Link>
+          {/* Enkel zichtbaar in het opengeklapte mobiele menu. */}
+          <Link href="/website-audit" className="button primary nav-menu-cta">
+            Vraag je gratis audit aan <BtnArrow />
+          </Link>
         </nav>
-        <Link className="button nav-cta" href="/contact">
-          Get started →
+        <Link className="button nav-cta" href="/website-audit">
+          Gratis audit <BtnArrow />
         </Link>
       </div>
     </header>

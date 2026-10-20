@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ServiceSlug } from "@/lib/services";
 
-const examples: Record<
+export const showcaseExamples: Record<
   ServiceSlug,
   {
     label: string;
@@ -49,7 +49,7 @@ const examples: Record<
 };
 
 export function ShowcaseLinks({ slug }: { slug: ServiceSlug }) {
-  const example = examples[slug];
+  const example = showcaseExamples[slug];
   return (
     <div className="showcase-links">
       <span className="live-badge">

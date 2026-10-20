@@ -1,18 +1,19 @@
+import { SITE } from "@/lib/site";
 import { Eyebrow, LightSection } from "../shared";
 import { faqItems } from "./PricingFaq.data";
 import { PricingFaqAccordion } from "./PricingFaqAccordion";
 
 const contactLinks = [
   {
-    href: "mailto:info@kosifly.com",
-    label: "info@kosifly.com",
+    href: `mailto:${SITE.email}`,
+    label: SITE.email,
     icon: "/figma/pricing/faq/2a629.svg",
     className: "-ml-px gap-[12px]",
     labelClassName: "mt-[9px]",
   },
   {
-    href: "tel:+32483690426",
-    label: "+32 (0)483 69 04 26",
+    href: SITE.phoneHref,
+    label: SITE.phone,
     icon: "/figma/pricing/faq/8996d.svg",
     className: "mt-px gap-[11px]",
     labelClassName: "mt-[11px]",
@@ -33,7 +34,8 @@ export function PricingFaq() {
           id="faq-title"
           className="relative ml-[23px] font-manrope text-[86px] font-extrabold leading-[90px] tracking-[-0.8704px] text-[#2b2929]"
         >
-          Alles wat je wil <br /> weten voor <br /> we starten.
+          Alles wat je wil <br /> weten voor <br />{" "}
+          <span className="pricing-faq-accent">we starten</span>.
           <img
             src="/figma/pricing/faq/a1a9d.svg"
             alt=""

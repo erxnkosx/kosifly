@@ -1,0 +1,74 @@
+/*
+ * Kleine, doelgerichte animaties bovenop de reveals van Reveal.tsx (laadt als laatste stylesheet).
+ * Zelfde curve als de rest van de site; alles valt weg bij "verminderde beweging".
+ * Scroll-animaties (animation-timeline) zijn een extraatje: zonder ondersteuning staat alles meteen goed.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Ankerlinks (#projecten, ankerbalk prijzen) scrollen vloeiend; Next.js zet dit uit bij paginawissels
+   * dankzij data-scroll-behavior="smooth" op <html>. */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ───────────── Werkwijze: de lijn tussen twee stappen tekent zich terwijl je scrolt ───────────── */
+  @supports (animation-timeline: view()) {
+    :is(
+      .process-step,
+      .service-page .process-steps > li,
+      .contact-next-steps .process-steps li
+    )::after {
+      transform-origin: 0 0;
+      animation: step-line linear both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 45%;
+    }
+  }
+
+  /* ───────────── Gekozen chip: veert kort op ───────────── */
+  :is(
+    .quote-chip:has(input:checked),
+    :is(.contact-chip, .audit-goals button, .project-filters button)[aria-pressed="true"]
+  ) {
+    animation: chip-pop 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ───────────── FAQ: plus draait mee naar min ───────────── */
+  .faq-item h3 button img {
+    transition: rotate 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .faq-item.is-open h3 button img {
+    rotate: 180deg;
+  }
+}
+
+/* ───────────── Kaarten: de bordeaux icoontegel kantelt even bij hover ───────────── */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :is(.related-card, .feature-card) [data-name="Icoon-tegel"],
+  .about-expertise-card .about-icon-tile,
+  .contact-copy a > span:first-child {
+    transition: transform 0.45s cubic-bezier(0.3, 1.45, 0.5, 1);
+  }
+  :is(.related-card, .feature-card):hover [data-name="Icoon-tegel"],
+  .about-expertise-card:hover .about-icon-tile,
+  .contact-copy a:hover > span:first-child {
+    transform: translateY(-2px) rotate(-6deg) scale(1.06);
+  }
+}
+
+@keyframes step-line {
+  from {
+    scale: 0 0;
+  }
+}
+@keyframes chip-pop {
+  0% {
+    scale: 0.94;
+  }
+  60% {
+    scale: 1.03;
+  }
+  100% {
+    scale: 1;
+  }
+}

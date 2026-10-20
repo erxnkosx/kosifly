@@ -590,7 +590,7 @@
     transform: translateY(0);
   }
 }
-@media (max-width: 1000px) {
+@media all /* was (max-width: 1000px) */ {
   .makeover-search-fields {
     width: 63%;
   }
@@ -617,7 +617,7 @@
     min-height: 535px;
   }
 }
-@media (max-width: 760px) {
+@media all /* was (max-width: 760px) */ {
   .makeover-toolbar {
     flex-direction: column;
     gap: 14px;

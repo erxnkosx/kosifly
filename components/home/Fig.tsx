@@ -42,13 +42,46 @@ const FAMILY: Record<string, string> = {
   Michroma: "var(--font-michroma)",
   Geist: "var(--font-geist)",
 };
-const IMAGES: Record<string, string> = { Foto: "url(/images/taxi-foto.jpg)" };
+const IMAGES: Record<string, string> = {
+  Foto: "url(/images/taxi-foto.jpg)",
+  "Google-resultaat": "url(/images/taxi-bornem-google-v2.webp)",
+};
 const ALIGN: Record<string, CSSProperties["textAlign"]> = {
   L: "left",
   C: "center",
   R: "right",
   J: "justify",
 };
+
+// These exported illustrations are used only in the homepage showcase.
+// Map their original accent palette at render time, preserving the Figma source data.
+const ACCENT_RGB = new Set([
+  "232,51,79",
+  "126,12,30",
+  "242,74,99",
+  "130,0,18",
+  "153,5,20",
+  "153,38,51",
+]);
+const NEUTRAL_RGB = new Map([
+  ["255,191,204", "#e6e6e6"],
+  ["255,245,246", "#fafafa"],
+  ["254,240,242", "#f5f5f5"],
+  ["255,240,242", "#f5f5f5"],
+  ["246,217,221", "#e6e6e6"],
+]);
+function homePaint(value: string): string {
+  return value
+    .replace(/#(?:e8334f|f24a63)\b/gi, "var(--home-accent)")
+    .replace(
+      /rgba?\(\s*(\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\s*\)/g,
+      (original, r, g, b, alpha) => {
+        const rgb = `${r},${g},${b}`;
+        if (ACCENT_RGB.has(rgb)) return alpha ? `rgba(129,0,18,${alpha})` : "var(--home-accent)";
+        return NEUTRAL_RGB.get(rgb) ?? original;
+      },
+    );
+}
 
 function boxStyle(n: FigNode): CSSProperties {
   const st: CSSProperties = { position: "absolute", left: n.x, top: n.y, width: n.w, height: n.h };
@@ -63,8 +96,8 @@ function boxStyle(n: FigNode): CSSProperties {
         l === "IMG"
           ? (IMAGES[n.n ?? ""] ?? "none")
           : l.startsWith("linear-gradient") || l.startsWith("radial-gradient")
-            ? l
-            : `linear-gradient(${l},${l})`,
+            ? homePaint(l)
+            : `linear-gradient(${homePaint(l)},${homePaint(l)})`,
       )
       .join(",");
     st.backgroundSize = n.f.map((l) => (l === "IMG" ? "cover" : "auto")).join(",");
@@ -72,7 +105,7 @@ function boxStyle(n: FigNode): CSSProperties {
     st.backgroundRepeat = "no-repeat";
   }
   if (n.k) {
-    st.border = `${n.k[1]}px ${n.k[2] ? "dashed" : "solid"} ${n.k[0]}`;
+    st.border = `${n.k[1]}px ${n.k[2] ? "dashed" : "solid"} ${homePaint(n.k[0])}`;
     st.boxSizing = "border-box";
   }
   if (n.c !== undefined)
@@ -83,8 +116,10 @@ function boxStyle(n: FigNode): CSSProperties {
     const fl: string[] = [];
     const bf: string[] = [];
     for (const e of n.e) {
-      if (e[0] === "d") sh.push(`${e[1]}px ${e[2]}px ${e[3]}px ${e[4]}px ${e[5]}`);
-      else if (e[0] === "i") sh.push(`inset ${e[1]}px ${e[2]}px ${e[3]}px ${e[4]}px ${e[5]}`);
+      if (e[0] === "d")
+        sh.push(`${e[1]}px ${e[2]}px ${e[3]}px ${e[4]}px ${homePaint(String(e[5]))}`);
+      else if (e[0] === "i")
+        sh.push(`inset ${e[1]}px ${e[2]}px ${e[3]}px ${e[4]}px ${homePaint(String(e[5]))}`);
       else if (e[0] === "b") fl.push(`blur(${(e[1] as number) / 2}px)`);
       else if (e[0] === "g") bf.push(`blur(${(e[1] as number) / 2}px)`);
     }
@@ -121,7 +156,7 @@ export function Fig({ node }: { node: FigNode }): ReactNode {
           overflow: "visible",
         }}
         viewBox={node.vb}
-        dangerouslySetInnerHTML={{ __html: node.v ?? "" }}
+        dangerouslySetInnerHTML={{ __html: homePaint(node.v ?? "") }}
       />
     );
   if (node.t === "T") {
@@ -146,11 +181,12 @@ export function Fig({ node }: { node: FigNode }): ReactNode {
         {node.s?.map((s, i) => (
           <span
             key={i}
+            className={typeof s[9] === "string" ? s[9] : undefined}
             style={{
               fontFamily: FAMILY[s[1] as string] ?? "inherit",
               fontWeight: WEIGHT[s[2] as string] ?? 400,
               fontSize: s[3] as number,
-              color: s[4] as string,
+              color: homePaint(s[4] as string),
               letterSpacing: s[5] ? `${s[5]}px` : undefined,
               lineHeight: s[6] ? `${s[6]}px` : "normal",
               textDecoration: s[7] ? "underline" : undefined,

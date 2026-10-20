@@ -1,9 +1,17 @@
-/** Prijzen = VOORLOPIG, te bevestigen (zie overdrachtsblad Pricing in Figma). Alle bedragen excl. btw. */
+/**
+ * Prijzen van de calculator. Ze volgen de bedragen die op /prijzen getoond worden (pakketkaarten, maandkaarten,
+ * extra's en maatwerk), zodat een berekening altijd klopt met wat de bezoeker ziet. Alle bedragen excl. btw.
+ */
 export const PACKAGES = [
-  { id: "starter", name: "Starter", price: 1490, pages: 1, weeks: 3, weeksMax: 3 },
-  { id: "bedrijfssite", name: "Bedrijfssite", price: 3450, pages: 6, weeks: 6, weeksMax: 6 },
-  { id: "groei", name: "Groei", price: 6900, pages: 12, weeks: 8, weeksMax: 10 },
+  { id: "starter", name: "Starter", price: 850, pages: 3, weeks: 3, weeksMax: 3 },
+  { id: "bedrijfssite", name: "Professioneel", price: 1250, pages: 8, weeks: 5, weeksMax: 5 },
+  { id: "groei", name: "Groei", price: 2500, pages: 20, weeks: 6, weeksMax: 8 },
 ] as const;
+
+/** Levertijd van een pakket zoals op de kaarten en in de vergelijking, bv. "5 weken" of "6–8 weken". */
+export function deliveryLabel(pkg: { weeks: number; weeksMax: number }) {
+  return pkg.weeks === pkg.weeksMax ? `${pkg.weeks} weken` : `${pkg.weeks}–${pkg.weeksMax} weken`;
+}
 export const ONDERHOUD = [
   { id: "geen", name: "Geen", price: 0 },
   { id: "basis", name: "Basis", price: 39 },
@@ -12,16 +20,16 @@ export const ONDERHOUD = [
 ] as const;
 export const SEO = [
   { id: "geen", name: "Geen", price: 0 },
-  { id: "lokaal", name: "Lokaal", price: 290 },
-  { id: "regio", name: "Regio", price: 490 },
+  { id: "lokaal", name: "Lokaal", price: 145 },
+  { id: "regio", name: "Regio", price: 290 },
 ] as const;
 export const EXTRAS = [
-  { id: "copywriting", name: "Copywriting", unit: 120, perPage: true },
-  { id: "taal", name: "Extra taal", unit: 490, perLanguage: true },
-  { id: "boeking", name: "Boekings- of offertemodule", unit: 890 },
-  { id: "logo", name: "Logo & huisstijl", unit: 790 },
-  { id: "chatbot", name: "AI-chatbot", unit: 990 },
-  { id: "nieuwsbrief", name: "Nieuwsbriefkoppeling", unit: 290 },
+  { id: "copywriting", name: "Copywriting", unit: 60, perPage: true },
+  { id: "taal", name: "Extra taal", unit: 175, perLanguage: true },
+  { id: "boeking", name: "Boekings- of offertemodule", unit: 300, from: true },
+  { id: "logo", name: "Logo & huisstijl", unit: 350, from: true },
+  { id: "chatbot", name: "AI-chatbot", unit: 400, from: true },
+  { id: "nieuwsbrief", name: "Nieuwsbriefkoppeling", unit: 90 },
 ] as const;
 export const SERVICES = [
   "Website",
@@ -34,7 +42,7 @@ export const SERVICES = [
 
 const WEBSHOP_PRICE = 1900;
 /** Lokale SEO-opstart; gratis als de website ook door Kosifly gebouwd wordt. */
-const SEO_SETUP_PRICE = 450;
+const SEO_SETUP_PRICE = 250;
 /** Vanaf-prijzen van maatwerk; een exact bedrag volgt pas na analyse. */
 const MAATWERK_FROM = { "Web app": 2500, Automatisatie: 1200 } as const;
 export const QUANTITY_LIMITS = { pages: 50, languages: 5 } as const;
@@ -132,11 +140,7 @@ export function calcQuote(q: QuoteInput) {
   const extraWeek = chosen.some((e) => e.id === "taal" || e.id === "boeking") ? 1 : 0;
   const weeks = hasSite ? pkg.weeks + extraWeek : 0;
   const weeksMax = pkg.weeksMax + extraWeek;
-  const delivery = !hasSite
-    ? ""
-    : weeks === weeksMax
-      ? `${weeks} weken`
-      : `${weeks}–${weeksMax} weken`;
+  const delivery = hasSite ? deliveryLabel({ weeks, weeksMax }) : "";
 
   return {
     once,

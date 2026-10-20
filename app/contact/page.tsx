@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Contact | Plan een gratis gesprek | Kosifly",
   description:
     "Vertel ons wat je wil bereiken en krijg binnen 24 uur antwoord. Plan een gratis gesprek of stel meteen je offerte samen.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

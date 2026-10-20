@@ -249,7 +249,43 @@ function Growth() {
   );
 }
 
-const previews = [null, Dashboards, Planning, Connections, Security, Growth];
+/** Klantenportaal (enkel gebruikt op mobiel; desktop toont hiervoor de illustratie AppDetail). */
+function Portal() {
+  return (
+    <Preview
+      title="Mijn dossier · Peeters"
+      footer="Sleep je documenten hierheen of klik om te uploaden"
+    >
+      <div className="preview-steps">
+        {["Ontvangen", "In behandeling", "Afgerond"].map((step, i) => (
+          <span key={step} className={i < 2 ? "done" : ""}>
+            {step}
+          </span>
+        ))}
+      </div>
+      <div className="preview-table">
+        <div>
+          <strong>Document</strong>
+          <strong>Status</strong>
+        </div>
+        <div>
+          <span>Offerte_badkamer.pdf</span>
+          <span className="preview-pill">Ondertekend</span>
+        </div>
+        <div>
+          <span>Grondplan.pdf</span>
+          <span className="preview-pill muted">Bekeken</span>
+        </div>
+        <div>
+          <span>Factuur_2026-041.pdf</span>
+          <span className="preview-pill">Te betalen</span>
+        </div>
+      </div>
+    </Preview>
+  );
+}
+
+const previews = [Portal, Dashboards, Planning, Connections, Security, Growth];
 export function ModulePreview({ index }: { index: number }) {
   const Component = previews[index];
   return Component ? <Component /> : null;

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { AnimatedNumber } from "@/components/motion/AnimatedNumber";
 import { EASE } from "@/components/motion/presets";
 import Difference0 from "./art/Difference0";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 export { ModulePicker } from "./ModulePicker";
 export function ServiceFaq({
   items,
@@ -148,7 +149,7 @@ export function SavingsCalculator() {
           className="button white"
           href={`/contact?dienst=Automatisatie&aanvragen=${requests}&minuten=${minutes}&uurtarief=${rate}`}
         >
-          Plan een gesprek →
+          Plan een gesprek <BtnArrow />
         </Link>
       </div>
     </div>

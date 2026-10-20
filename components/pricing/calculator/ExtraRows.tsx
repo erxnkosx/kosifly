@@ -57,7 +57,7 @@ function ExtraRow({ extra, checked, stepper, onToggle }: ExtraRowProps) {
   const unit = "perPage" in extra ? " / pagina" : "perLanguage" in extra ? " / taal" : "";
   const price = (
     <span className="shrink-0 whitespace-nowrap font-inter text-[14px] leading-[17px] text-grey">
-      € {fmt(extra.unit)}
+      {"from" in extra ? "vanaf " : ""}€ {fmt(extra.unit)}
       {unit}
     </span>
   );
@@ -73,7 +73,7 @@ function ExtraRow({ extra, checked, stepper, onToggle }: ExtraRowProps) {
       <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-[12px]">
         <input type="checkbox" checked={checked} onChange={onToggle} className="sr-only" />
         <span
-          className={`flex size-[22px] shrink-0 items-center justify-center rounded-[6px] border-[1.5px] ${checked ? "border-brand bg-brand" : "border-[#bfbfbf] bg-white"}`}
+          className={`flex size-[22px] shrink-0 items-center justify-center rounded-[6px] border-[1.5px] ${checked ? "border-brand bg-brand-gradient" : "border-[#bfbfbf] bg-white"}`}
         >
           {checked && <img src={CHECK_ICON} alt="" width={14} height={14} />}
         </span>

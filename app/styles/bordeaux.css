@@ -1,0 +1,118 @@
+/*
+ * Bordeaux voor de rode vlakken op de site: gekozen keuzes, icoontegels, nummers en accentwoorden.
+ * Het vlak is het verloop van de icoontegels in het dienstenmenu (--brand-fill in globals.css) met een
+ * lichtrand (--brand-rim-shadow). De rode knoppen zelf staan in buttons-luxe.css.
+ */
+
+/* ───────────── Gekozen keuzes en schakelaars ───────────── */
+:is(
+  .quote-chip:has(input:checked),
+  :is(.contact-chip, .audit-goals button)[aria-pressed="true"],
+  .case-steps-nav button[aria-pressed="true"],
+  .module-picker [role="tab"][aria-selected="true"],
+  .website-comparison-switch button[aria-pressed="true"]
+) {
+  border-color: #7e0c1e !important;
+  background: var(--brand-fill) !important;
+  color: #fff !important;
+  box-shadow: var(--brand-rim-shadow) !important;
+}
+
+/* ───────────── Iconen, nummers en badges ───────────── */
+:is(
+  .process-dot,
+  .step-number,
+  .about-icon-tile,
+  .about-hero .about-trust li > span,
+  .audit-check-icon,
+  .receipt-icon,
+  .pricing-hero-quote-icon,
+  .home-service-ai,
+  .hero-flow-orb,
+  .hero-flow-outputs li > span,
+  .etalage-mobile li > span,
+  .sms-points li > span,
+  .contact-next-steps .your-step > span,
+  .contact-form .size-\[24px\].rounded-full,
+  [data-name="Icoon-tegel"],
+  [data-name="Nummer"],
+  .service-menu-items [data-name="Icoon"]
+) {
+  background: var(--brand-fill) !important;
+  box-shadow: var(--brand-rim-shadow) !important;
+}
+
+/* Rode vlakken via de Tailwind-klassen (prijzen, contact): dezelfde lichtrand. Met een eigen schaduw-klasse
+ * gaat de rand via --tw-inset-shadow mee in de bestaande schaduw, anders wordt hij de schaduw. */
+:is(.bg-brand-gradient, .bg-accent-gradient):not([class*="shadow-"]) {
+  box-shadow: var(--brand-rim-shadow);
+}
+:is(.bg-brand-gradient, .bg-accent-gradient)[class*="shadow-"] {
+  --tw-inset-shadow: var(--brand-rim-shadow);
+}
+
+/* Contactkanalen in de hero van /contact (zelfde selector als mobile-pages.css). */
+.contact-copy > div:nth-child(4) > a > span:first-child {
+  background-image: var(--brand-fill) !important;
+  box-shadow: var(--brand-rim-shadow) !important;
+}
+
+/* "Met Kosifly" op de homepage. */
+.home-page .verschil-toggle.is-on .verschil-card {
+  background: var(--brand-fill);
+  box-shadow:
+    var(--brand-rim-shadow),
+    0 14px 32px rgb(0 0 0 / 0.12);
+}
+
+/* ───────────── Accentwoord in koppen op lichte secties ─────────────
+ * Geen onderlijning meer: het woord zelf krijgt een robijnrood verloop (--accent-text-fill).
+ * Donkere secties houden hun rode markeerstreep (het verloop is daar te donker om te lezen).
+ * Terwijl de kop in beeld schuift, veegt een zachte inktlaag weg en kleurt het woord bordeaux
+ * (--accent-fill 0% → 115%: de 15% zachte rand valt op het einde volledig buiten het woord);
+ * zonder scroll-animaties of bij verminderde beweging staat het meteen volledig in kleur.
+ */
+@property --accent-fill {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 115%;
+}
+@keyframes accent-fill {
+  from {
+    --accent-fill: 0%;
+  }
+}
+:is(
+  .light-section .section-heading :is(h1, h2) > span:not(.highlight-title),
+  .light-section .section-heading h2 > .highlight-title > span,
+  .faq-intro h2 > u,
+  .process-intro h2 > .process-emphasis,
+  .pricing-section-heading-light h2 > span,
+  .pricing-faq-accent,
+  .case-question h2 > span,
+  .portfolio-light .portfolio-heading h2 > span,
+  .about-who-copy h2 > span
+) {
+  text-decoration: none !important;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(17 17 17 / 0) calc(var(--accent-fill) - 15%),
+      #111 var(--accent-fill)
+    ),
+    var(--accent-text-fill) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: accent-fill linear both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 38%;
+    }
+  }
+}

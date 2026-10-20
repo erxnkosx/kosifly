@@ -1,3 +1,5 @@
+import { deliveryLabel, PACKAGES } from "@/lib/pricing";
+
 /**
  * Waarde van één cel, in de volgorde van de pakketten:
  * tekst, `true` (inbegrepen), `null` (niet inbegrepen) of een vinkje met toelichting.
@@ -27,5 +29,8 @@ export const COMPARISON_ROWS: readonly ComparisonRow[] = [
   { label: "Feedbackrondes", cells: ["1", "2", "3"] },
   { label: "Training", cells: [null, true, true] },
   { label: "Nazorg", cells: ["30 dagen", "30 dagen", "30 dagen"] },
-  { label: "Levertijd", cells: ["3 weken", "5 weken", "6-8 weken"] },
+  {
+    label: "Levertijd",
+    cells: [deliveryLabel(PACKAGES[0]), deliveryLabel(PACKAGES[1]), deliveryLabel(PACKAGES[2])],
+  },
 ];

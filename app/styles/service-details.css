@@ -628,7 +628,7 @@
   letter-spacing: 1.98px;
   color: #999;
 }
-@media (max-width: 1280px) {
+@media all /* was (max-width: 1280px) */ {
   .module-alternative {
     grid-template-columns: 1fr;
     aspect-ratio: auto;
@@ -648,7 +648,7 @@
     gap: 4px 12px;
   }
 }
-@media (max-width: 760px) {
+@media all /* was (max-width: 760px) */ {
   .contact-next-steps .process-steps li {
     grid-template-columns: 44px minmax(0, 1fr);
   }

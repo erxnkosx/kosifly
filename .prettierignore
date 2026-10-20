@@ -1,8 +1,13 @@
 .next
+out
 node_modules
 public
 data
 package-lock.json
 tests/artifacts
+test-results
+playwright-report
 tsconfig.tsbuildinfo
 next-env.d.ts
+.claude
+taxibornem.be-audit

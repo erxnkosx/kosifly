@@ -1,6 +1,6 @@
-import { Reveal } from "@/components/motion/Reveal";
-import { fadeIn } from "@/components/motion/presets";
-import { Artwork } from "@/components/ui/Artwork";
+"use client";
+
+import { useEffect, useRef } from "react";
 
 type Line = {
   left: number;
@@ -106,16 +106,45 @@ function BackdropArt() {
   );
 }
 
+/** Figma-canvas van de hero-achtergrond. */
+const CANVAS = { width: 1920, height: 1080 };
+
 /**
- * Gedeelde hero-achtergrond: gloed, puntraster, diagonale lijnen en de gebogen lijn linksboven.
- * Plaats hem als eerste kind in een `.service-hero`-sectie.
+ * Gedeelde hero-achtergrond (Figma 232:1228): diagonaal verloop met overlay (CSS op `.hero-backdrop`),
+ * daarboven gloed, puntraster, diagonale lijnen en de gebogen lijn linksboven.
+ * Desktop: het canvas vult de hero zoals `background-size: cover`. Smallere schermen: het canvas houdt
+ * minstens 75% van zijn ware grootte, zodat het puntraster niet uitvergroot wordt; het verloop vult de rest.
+ * Plaats hem als eerste kind in een hero-sectie.
  */
 export function HeroBackdrop() {
+  const root = useRef<HTMLDivElement>(null);
+  const canvas = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const box = root.current;
+    const art = canvas.current;
+    if (!box || !art) return;
+    const fit = () => {
+      const { width, height } = box.getBoundingClientRect();
+      const scale =
+        width >= 1100
+          ? Math.max(width / CANVAS.width, height / CANVAS.height)
+          : Math.max(width / CANVAS.width, 0.75);
+      // Verankerd op 70% van de breedte: gloed en puntraster rechts blijven in beeld.
+      const x = (width - CANVAS.width * scale) * 0.7;
+      art.style.transform = `translate3d(${x}px, 0, 0) scale(${scale})`;
+    };
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(box);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Reveal className="hero-backdrop" variants={fadeIn} onMount aria-hidden="true">
-      <Artwork width={1920} height={1080}>
+    <div ref={root} className="hero-backdrop" aria-hidden="true">
+      <div ref={canvas} className="hero-backdrop-canvas">
         <BackdropArt />
-      </Artwork>
-    </Reveal>
+      </div>
+    </div>
   );
 }

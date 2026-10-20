@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/site";
+
 export function FaqIntro() {
   return (
     <div className="faq-intro">
@@ -5,8 +7,7 @@ export function FaqIntro() {
       <h2>
         Alles wat je wil weten{" "}
         <u>
-          voor
-          <br />
+          voor <br />
           we starten.
         </u>
       </h2>
@@ -17,13 +18,13 @@ export function FaqIntro() {
           Stel ze gerust — je krijgt binnen 24 uur antwoord van iemand die het project zelf zou
           bouwen.
         </strong>
-        <a href="mailto:info@kosifly.com">
+        <a href={`mailto:${SITE.email}`}>
           <img src="/figma/2a629.svg" width="28" height="28" alt="" />
-          info@kosifly.com
+          {SITE.email}
         </a>
-        <a href="tel:+32483690426">
+        <a href={SITE.phoneHref}>
           <img src="/figma/8996d.svg" width="28" height="28" alt="" />
-          +32 (0)483 69 04 26
+          {SITE.phone}
         </a>
       </div>
     </div>

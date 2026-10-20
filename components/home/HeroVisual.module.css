@@ -460,7 +460,7 @@
   height: 1px;
   background: #a7586a;
 }
-@media (max-width: 760px) {
+@media all /* was (max-width: 760px) */ {
   .coordinates {
     font-size: 15px;
     letter-spacing: 1.5px;
@@ -499,5 +499,27 @@
   }
   .previewButton {
     font-size: 13px;
+  }
+}
+
+/* Mobiel: alleen de browser, recht en schermvullend; decoratie en zwevende kaarten weg. */
+@media all /* was (max-width: 760px) */ {
+  .orbit,
+  .orbitInner,
+  .coordinates,
+  .designNote,
+  .connector,
+  .workflow,
+  .signature {
+    display: none;
+  }
+  .browser {
+    left: 0;
+    top: 0;
+    transform: scale(1.176);
+    transform-origin: top left;
+    box-shadow:
+      0 40px 90px #000a,
+      0 0 0 1px #ffffff14 inset;
   }
 }

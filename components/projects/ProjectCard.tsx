@@ -1,22 +1,22 @@
 import Link from "next/link";
 import type { ProjectSummary } from "@/lib/projects";
-import { TaxiCardScene } from "./art/TaxiCardScene";
-import { PrimeCardScene } from "./art/PrimeCardScene";
+import { caseScenes } from "./scenes";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 export function ProjectCard({ project }: { project: ProjectSummary }) {
-  const Scene = project.slug === "taxi-bornem" ? TaxiCardScene : PrimeCardScene;
+  const Scene = caseScenes[project.slug].card;
   return (
     <article className="project-card">
       <div
         className="project-card-scene"
         role="img"
-        aria-label={`${project.name}: website op laptop en telefoon`}
+        aria-label={`${project.name}: ontwerp op laptop en telefoon`}
       >
         <Scene />
       </div>
       <div className="project-card-body">
         <p className="project-location">
-          {project.name} · {project.slug === "taxi-bornem" ? "Bornem" : "België"}
+          {project.name} · {project.place}
         </p>
         <h2>
           <Link href={`/projecten/${project.slug}`}>{project.title}</Link>
@@ -30,7 +30,7 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
         <div className="project-card-bottom">
           <span>{project.note}</span>
           <Link href={`/projecten/${project.slug}`}>
-            Bekijk de case <span aria-hidden="true">→</span>
+            Bekijk de case <BtnArrow />
             <span className="sr-only"> van {project.name}</span>
           </Link>
         </div>

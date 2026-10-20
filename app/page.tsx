@@ -7,11 +7,15 @@ import { DataSlide, type EtalageData } from "@/components/home/etalage/DataSlide
 import { Slide1 } from "@/components/home/etalage/Slide1";
 import { Faq } from "@/components/home/Faq";
 import { Hero } from "@/components/home/Hero";
+import { MobileCtaBar } from "@/components/home/MobileCtaBar";
 import { Reviews } from "@/components/home/Reviews";
 import { Verschil } from "@/components/home/Verschil";
 import { WatWeDoen } from "@/components/home/WatWeDoen";
+import { Werkwijze } from "@/components/home/Werkwijze";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+
+export const metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   return (
@@ -19,10 +23,6 @@ export default function Home() {
       <Navbar active="Home" />
       <main id="main-content" className="home-page">
         <Hero />
-        <div className="home-visual legacy-home">
-          <div className="legacy-canvas">
-          </div>
-        </div>
         <Verschil />
         <WatWeDoen />
         <div id="projecten" className="home-visual legacy-home">
@@ -38,10 +38,12 @@ export default function Home() {
             />
           </div>
         </div>
+        <Werkwijze />
         <Reviews />
         <Faq />
       </main>
       <Footer />
+      <MobileCtaBar />
     </>
   );
 }

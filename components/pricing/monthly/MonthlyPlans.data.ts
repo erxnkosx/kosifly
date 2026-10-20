@@ -2,8 +2,8 @@ import { fmt, ONDERHOUD, type SeoId } from "@/lib/pricing";
 import { calculatorHref } from "../calculator/calculatorHref";
 
 /**
- * Inhoud van de maandkaarten. De onderhoudsplannen lezen hun prijs uit `lib/pricing.ts`; de SEO-kaarten tonen de
- * bedragen uit het ontwerp (Figma), die los staan van de calculator. Pas die niet aan om ze gelijk te trekken.
+ * Inhoud van de maandkaarten. De onderhoudsplannen lezen hun prijs uit `lib/pricing.ts`; de SEO-bedragen hieronder
+ * zijn dezelfde als die in `lib/pricing.ts` (SEO en SEO_SETUP_PRICE); pas ze op beide plaatsen aan.
  */
 
 export type PlanTone = "light" | "featured" | "outline";

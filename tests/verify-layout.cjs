@@ -34,7 +34,7 @@ const fs = require("node:fs");
         ];
         const clipped = [
           ...document.querySelectorAll(
-            ".services-index .related-card h2,.hero-copy h1,.hero-copy>p,.contact-copy h1,.footer-columns>div,.feature-copy,.step-card,.faq-item h3 button,.home-service-copy,.home-problem-card",
+            ".services-index .related-card h2,.hero-copy h1,.hero-copy>p,.contact-copy h1,.footer-columns>div,.feature-copy,.step-card,.faq-item h3 button,.home-service-copy",
           ),
         ]
           .filter((e) => e.scrollWidth > e.clientWidth + 2)

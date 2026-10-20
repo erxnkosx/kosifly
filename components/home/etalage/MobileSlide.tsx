@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Artwork } from "@/components/ui/Artwork";
 import { Fig, type FigNode } from "../Fig";
 import type { EtalageData } from "./DataSlide";
+import type { SlotAction } from "./Shell";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 function textLayers(node: FigNode): string[] {
   return node.t === "T"
@@ -15,19 +17,14 @@ export function MobileSlide({
   intro,
   visual,
   points,
-  href,
-  cta,
-  secondaryHref = "/projecten",
-  secondaryLabel = "Alle projecten",
+  primary,
 }: {
   title: ReactNode;
   intro: string;
   visual: ReactNode;
   points: { title: string; text: string }[];
-  href: string;
-  cta: string;
-  secondaryHref?: string;
-  secondaryLabel?: string;
+  /** Hoofdknop, dezelfde als in de onderste balk op desktop. */
+  primary: SlotAction;
 }) {
   return (
     <div className="etalage-mobile">
@@ -46,26 +43,37 @@ export function MobileSlide({
           </li>
         ))}
       </ol>
-      <div className="button-row">
-        <Link href={href} className="button white">
-          {cta} →
+      <div className="sbtn-row etalage-sbtns">
+        <Link href={primary.href} className="sbtn sbtn-light sbtn-lg">
+          {primary.label} <BtnArrow />
         </Link>
-        <Link href={secondaryHref} className="etalage-secondary">
-          {secondaryLabel}
+        <Link href="/projecten" className="sbtn sbtn-outline-dark sbtn-lg">
+          Alle projecten
         </Link>
       </div>
     </div>
   );
 }
 
-export function DataMobileSlide({ data, id }: { data: EtalageData; id: string }) {
-  const slot = textLayers(data.slot);
-  const isCase = id === "project-2";
-  const isReport = id === "project-5";
+const isWhite = (color: unknown) =>
+  ["rgb(255,255,255)", "#fff", "#ffffff", "white"].includes(
+    String(color).replace(/\s/g, "").toLowerCase(),
+  );
+
+export function DataMobileSlide({
+  data,
+  visual,
+  primary,
+}: {
+  data: EtalageData;
+  /** Eigen beeld in plaats van de Figma-lagen van data.beeld (zelfde maat). */
+  visual?: ReactNode;
+  primary: SlotAction;
+}) {
   return (
     <MobileSlide
       title={data.kop.s?.map((segment, index) => (
-        <span key={index} style={{ color: String(segment[4]) }}>
+        <span key={index} className={isWhite(segment[4]) ? undefined : "etalage-accent"}>
           {segment[0]}
         </span>
       ))}
@@ -76,17 +84,14 @@ export function DataMobileSlide({ data, id }: { data: EtalageData; id: string })
           height={data.beeld.h}
           label={textLayers(data.intro).join(" ")}
         >
-          <Fig node={{ ...data.beeld, x: 0, y: 0 }} />
+          {visual ?? <Fig node={{ ...data.beeld, x: 0, y: 0 }} />}
         </Artwork>
       }
       points={data.call.map((call) => {
         const [, title, text] = textLayers(call);
         return { title, text };
       })}
-      href={isCase ? "/projecten/taxi-bornem" : isReport ? "/contact?dienst=Onderhoud" : "/contact"}
-      cta={slot[1].replace(" -->", "")}
-      secondaryHref={isReport ? "/prijzen#maandpakketten" : "/projecten"}
-      secondaryLabel={slot[2]}
+      primary={primary}
     />
   );
 }

@@ -42,7 +42,7 @@ export const EXTRAS: readonly Extra[] = [
     glyph: { src: CALENDAR_ICON, width: 16, height: 16.8, left: 1.6, top: 1.2 },
   },
   {
-    title: "API / CRM-koppeling",
+    title: "API- of CRM-koppeling op maat",
     price: "vanaf € 1.450",
     unit: "eenmalig",
     glyph: { src: `${ICON_DIR}/c39f1.svg`, width: 16, height: 16, left: 1.6, top: 1.6 },
@@ -54,7 +54,8 @@ export const EXTRAS: readonly Extra[] = [
     glyph: { src: `${ICON_DIR}/52e3f.svg`, width: 15.2, height: 14.8, left: 2.4, top: 2 },
   },
   {
-    title: "Nieuwsbriefkoppeling",
+    // Zacht afbreekstreepje: op smalle mobiele kaarten breekt het woord netjes af.
+    title: "Nieuwsbrief­koppeling",
     price: "€ 90",
     unit: "eenmalig",
     glyph: { src: `${ICON_DIR}/7f403.svg`, width: 16.8, height: 13.6, left: 1.2, top: 2.8 },

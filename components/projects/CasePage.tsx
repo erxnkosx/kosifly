@@ -2,23 +2,17 @@ import Link from "next/link";
 import { projects, type Project } from "@/lib/projects";
 import { Badge } from "@/components/ui/Badge";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
-import { TaxiHeroScene } from "./art/TaxiHeroScene";
-import { PrimeHeroScene } from "./art/PrimeHeroScene";
-import { TaxiBookingScene } from "./art/TaxiBookingScene";
-import { TaxiMailScene } from "./art/TaxiMailScene";
-import { TaxiSearchScene } from "./art/TaxiSearchScene";
-import { PrimeDesktopScene } from "./art/PrimeDesktopScene";
-import { PrimeInspectionScene } from "./art/PrimeInspectionScene";
-import { PrimeMobileScene } from "./art/PrimeMobileScene";
+import { CaseSteps } from "./CaseSteps";
+import { caseScenes } from "./scenes";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 export function CasePage({ project }: { project: Project }) {
-  const taxi = project.slug === "taxi-bornem";
-  const HeroScene = taxi ? TaxiHeroScene : PrimeHeroScene;
-  const scenes = taxi
-    ? [TaxiBookingScene, TaxiMailScene, TaxiSearchScene]
-    : [PrimeDesktopScene, PrimeInspectionScene, PrimeMobileScene];
-  const next = projects.find((p) => p.slug !== project.slug)!;
-  const NextScene = taxi ? PrimeHeroScene : TaxiHeroScene;
+  const scenes = caseScenes[project.slug];
+  const HeroScene = scenes.hero;
+  // Volgende case in een kring: de laatste verwijst terug naar de eerste.
+  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const NextScene = caseScenes[next.slug].hero;
+  const { link } = project;
   return (
     <>
       <section className="portfolio-hero case-hero">
@@ -26,19 +20,10 @@ export function CasePage({ project }: { project: Project }) {
         <div className="portfolio-hero-copy page-content">
           <Badge section="Projecten" page={project.name} />
           <h1>
-            {taxi ? (
-              <>
-                Van telefoontjes naar
-                <br />
-                <span>online</span> ritaanvragen.
-              </>
-            ) : (
-              <>
-                Drone-inspecties,
-                <br />
-                <span>helder</span> in beeld.
-              </>
-            )}
+            {project.headline.lead}
+            <br />
+            <span>{project.headline.accent}</span>
+            {project.headline.rest}
           </h1>
           <p>{project.intro}</p>
           <dl className="case-meta">
@@ -47,7 +32,7 @@ export function CasePage({ project }: { project: Project }) {
               ["Sector", project.sector],
               ["Regio", project.region],
               ["Diensten", project.tags.join(" · ")],
-              [taxi ? "Status" : "Platform", taxi ? "Live" : "Desktop en mobiel"],
+              [project.highlight.label, project.highlight.value],
             ].map(([label, value]) => (
               <div key={label} className={label === "Status" ? "case-meta-status" : undefined}>
                 <dt>{label}</dt>
@@ -56,17 +41,23 @@ export function CasePage({ project }: { project: Project }) {
             ))}
           </dl>
           <div className="button-row">
-            <a
-              className="button white"
-              href={project.website}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {taxi ? "Bezoek de live site" : "Bezoek de site"} ↗
-              <span className="sr-only"> (nieuw tabblad)</span>
-            </a>
+            {link.external ? (
+              <a
+                className="button white"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label} <BtnArrow glyph="↗" />
+                <span className="sr-only"> (nieuw tabblad)</span>
+              </a>
+            ) : (
+              <Link className="button white" href={link.href}>
+                {link.label} <BtnArrow />
+              </Link>
+            )}
             <Link href="/projecten" className="portfolio-text-link">
-              Alle projecten
+              Alle projecten <BtnArrow />
             </Link>
           </div>
         </div>
@@ -81,7 +72,19 @@ export function CasePage({ project }: { project: Project }) {
       <section className="portfolio-light page-section case-question">
         <div>
           <span className="portfolio-eyebrow">DE VRAAG</span>
-          <h2>{project.question}</h2>
+          <h2>
+            {(() => {
+              const at = project.question.indexOf(project.questionAccent);
+              if (at < 0) return project.question;
+              return (
+                <>
+                  {project.question.slice(0, at)}
+                  <span>{project.questionAccent}</span>
+                  {project.question.slice(at + project.questionAccent.length)}
+                </>
+              );
+            })()}
+          </h2>
         </div>
         <div>
           <span className="portfolio-eyebrow">DE SITUATIE</span>
@@ -97,29 +100,36 @@ export function CasePage({ project }: { project: Project }) {
             Drie onderdelen die het <span>verschil</span> maken.
           </h2>
         </div>
-        {project.steps.map((step, index) => {
-          const Scene = scenes[index];
-          return (
-            <div className={`case-step ${index % 2 ? "case-step-reverse" : ""}`} key={step.label}>
-              <div className="case-step-art" role="img" aria-label={`Voorbeeld: ${step.title}`}>
-                <Scene />
+        <CaseSteps
+          labels={project.steps.map((step) => {
+            const name = step.label.split("·").pop()!.trim().toLowerCase();
+            return name.charAt(0).toUpperCase() + name.slice(1);
+          })}
+        >
+          {project.steps.map((step, index) => {
+            const Scene = scenes.steps[index];
+            return (
+              <div className={`case-step ${index % 2 ? "case-step-reverse" : ""}`} key={step.label}>
+                <div className="case-step-art" role="img" aria-label={`Voorbeeld: ${step.title}`}>
+                  <Scene />
+                </div>
+                <div className="case-step-copy">
+                  <span className="portfolio-eyebrow">{step.label}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  <ul className="case-checks">
+                    {step.points.map((point) => (
+                      <li key={point}>
+                        <img src="/figma/e3d74.svg" width="22" height="22" alt="" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="case-step-copy">
-                <span className="portfolio-eyebrow">{step.label}</span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-                <ul className="case-checks">
-                  {step.points.map((point) => (
-                    <li key={point}>
-                      <img src="/figma/e3d74.svg" width="22" height="22" alt="" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </CaseSteps>
       </section>
       <section className="case-results page-section">
         <div className="portfolio-heading">
@@ -130,30 +140,24 @@ export function CasePage({ project }: { project: Project }) {
         </div>
         <dl className="case-metrics">
           {project.metrics.map((metric) => (
-            <div key={metric.value}>
+            <div key={metric.label} className={metric.note ? "is-pending" : undefined}>
               <dt>{metric.value}</dt>
-              <dd>{metric.label}</dd>
+              <dd>
+                {metric.label}
+                {metric.note && <small>{metric.note}</small>}
+              </dd>
             </div>
           ))}
-          <div>
-            <dt>—</dt>
-            <dd>
-              {taxi ? "aanvragen" : "inspectieaanvragen"} per maand<small>Metingen volgen</small>
-            </dd>
-          </div>
         </dl>
         <div className="case-result-note">
           <span className="portfolio-quote-mark" aria-hidden="true">
             “
           </span>
-          <p>
-            Een snelle, heldere website met een duidelijke weg naar{" "}
-            {taxi ? "een ritaanvraag" : "een inspectieaanvraag"}.
-          </p>
+          <p>{project.conclusion}</p>
           <span>KOSIFLY · {project.name}</span>
         </div>
       </section>
-      <section className="portfolio-light page-section">
+      <section className="portfolio-light page-section case-next">
         <Link href={`/projecten/${next.slug}`} className="next-case">
           <div>
             <span className="portfolio-eyebrow">VOLGENDE CASE</span>
@@ -161,10 +165,12 @@ export function CasePage({ project }: { project: Project }) {
               {next.name} · {next.sector}
             </p>
             <h2>{next.title}</h2>
-            <span className="button primary">Bekijk de case →</span>
+            <span className="button primary">
+              Bekijk de case <BtnArrow />
+            </span>
           </div>
           <div className="next-case-scene">
-            <NextScene />
+            <NextScene lazy />
           </div>
         </Link>
       </section>

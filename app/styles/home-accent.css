@@ -1,0 +1,121 @@
+/* Homepage palette: one brand red and neutral surfaces; buttons come from buttons-luxe.css, red fills from bordeaux.css.
+ * The route selector also scopes the shared navigation, footer and mobile CTA.
+ */
+html:has(main.home-page) {
+  --home-accent: #810012;
+  --color-brand-soft: var(--home-accent);
+  --sbtn-pearl: #fff;
+  --sbtn-ring: var(--home-accent);
+  --sbtn-ring-dark: #fff;
+
+  & .site-header .nav-links > a[aria-current="page"]::after,
+  & .site-header .services-menu > button.nav-active::after {
+    background: var(--home-accent);
+  }
+
+  & .home-hero h1 em,
+  & .home-page .etalage-slide .etalage-accent,
+  & .site-footer .footer-invitation h2 span {
+    background-image: linear-gradient(var(--home-accent), var(--home-accent));
+  }
+}
+
+/* Controls on light sections use white/grey instead of pale pink. */
+.home-page .verschil-switch {
+  border-color: #dedede;
+  background: #f5f5f5;
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.04);
+}
+.home-page .verschil-switch button:not([aria-pressed="true"]) {
+  color: #626262;
+}
+.home-page .verschil-switch button:not([aria-pressed="true"]) img {
+  filter: brightness(0) opacity(0.6);
+}
+.home-page .verschil-mark b:last-child {
+  box-shadow: none;
+}
+.home-page .home-service-card,
+.home-page .review-carousel-card {
+  border-color: #e3e3e3 !important;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.07);
+}
+.home-page .home-service-card .home-service-visual {
+  background:
+    radial-gradient(#d9d9d9 1px, transparent 1.4px) 0 0 / 14px 14px,
+    #f7f7f7;
+  box-shadow: inset 0 0 0 1px #e5e5e5;
+}
+.home-page .home-service-perks li {
+  border-color: #dedede;
+  color: #4a4a4a;
+}
+.home-page .home-service-uptime {
+  filter: none;
+}
+.home-page .process-body .process-you,
+.home-page .testimonial-avatar {
+  background: #f3f3f3;
+}
+.home-page .testimonial-author {
+  border-color: #e6e6e6;
+}
+.home-page .review-carousel-dots button::after {
+  background: #ccc;
+}
+.home-page .review-carousel-dots button[aria-pressed="true"]::after {
+  background: var(--home-accent);
+}
+.home-page .etalage-dots button[aria-pressed="true"]::after {
+  box-shadow: none !important;
+}
+.home-page .home-faq .faq-item {
+  border-color: #e3e3e3;
+  background: #fff;
+}
+.home-page .home-faq .faq-item.is-open {
+  border-color: var(--home-accent);
+  background: #fafafa;
+  box-shadow: 0 8px 24px -16px rgb(0 0 0 / 0.2);
+}
+.home-page .home-faq .faq-item h3 img {
+  border-color: #dedede;
+  background: #f5f5f5;
+}
+
+/* The hero flow keeps its timing and uses the same solid accent throughout. */
+.home-page .hero-flow::before {
+  background: radial-gradient(closest-side, rgb(129 0 18 / 0.4), transparent);
+}
+.home-page .hero-flow-orb {
+  filter: none !important;
+}
+.home-page .hero-flow-orb::before,
+.home-page .hero-flow-orb::after {
+  border-color: var(--home-accent);
+}
+.home-page .hero-flow-wire i {
+  background: var(--home-accent);
+  box-shadow: 0 0 16px rgb(129 0 18 / 0.6);
+}
+.home-page .hero-trust circle {
+  fill: var(--home-accent);
+  fill-opacity: 1;
+}
+.home-page .hero-trust path {
+  stroke: #fff;
+}
+.home-page .etalage-slot-badge:not(.is-live) > i {
+  background: var(--home-accent);
+  box-shadow: 0 0 10px rgb(129 0 18 / 0.5);
+}
+
+/* Scoped recolouring of the shared line icons; client imagery keeps its own colours. */
+.home-page [stroke="#E8334F" i],
+.home-page [stroke="#F24A63" i] {
+  stroke: var(--home-accent);
+}
+.home-page [fill="#E8334F" i],
+.home-page [fill="#F24A63" i] {
+  fill: var(--home-accent);
+}

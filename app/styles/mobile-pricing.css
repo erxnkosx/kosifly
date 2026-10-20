@@ -1,0 +1,1378 @@
+/* Mobiele optimalisatie van /prijzen (max-width: 760px). Alles is gescoped op .pricing-page.
+   Mobiele extra's (hero-voorstel, bolletjes, schakelaar, "toon alles", meelopend totaal) staan op desktop uit. */
+
+.pricing-page .pricing-swipe-dots,
+.custom-mobile,
+.pricing-page .plan-group-toggle,
+.pricing-page .comparison-more,
+.pricing-page .quote-mobile-bar {
+  display: none;
+}
+
+@media all /* was (max-width: 760px) */ {
+  .pricing-page {
+    --pp-card-border: #81001221;
+    --pp-card-shadow: 0 1px 2px #0000000a, 0 14px 32px #8100120f;
+    --pp-red: var(--brand-fill);
+    --pp-light-bg: linear-gradient(90deg, #c4c4c4 0%, #fff 30%, #fff 70%, #c4c4c4 100%);
+    --pp-dark-bg:
+      radial-gradient(110% 40% at 100% 0%, #8a0a1f59 0%, transparent 60%),
+      radial-gradient(90% 40% at 0% 75%, #5c000f73 0%, transparent 70%), #080304;
+    --pp-bar: 64px;
+  }
+
+  /* ---------- Hero: leesbaar voorbeeldvoorstel i.p.v. de geschaalde desktopscène ---------- */
+
+  /* ---------- Canvas, ankerbalk en ritme ---------- */
+  .pricing-page .pricing-canvas {
+    background: #070405;
+  }
+  .pricing-page .pricing-canvas > nav {
+    height: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #ffffff14;
+    background: #0b0607eb;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  .pricing-page .pricing-canvas > nav ul {
+    width: 100%;
+    height: auto;
+    gap: 8px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scroll-padding-inline: 20px;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 16px,
+      #000 calc(100% - 28px),
+      transparent
+    );
+    mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 28px), transparent);
+  }
+  .pricing-page .pricing-canvas > nav ul::-webkit-scrollbar {
+    display: none;
+  }
+  .pricing-page .pricing-canvas > nav a {
+    align-items: center;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid #ffffff1f;
+    background: #ffffff0d;
+    font: 600 14px/1 var(--font-inter);
+    color: #ffffffcc;
+    box-shadow: none;
+  }
+  .pricing-page .pricing-canvas > nav a[aria-current] {
+    border-color: #fff;
+    background: #fff;
+    color: #111;
+  }
+  /* Op mobiel toont de maandsectie één groep: markeer enkel de tab van die groep. */
+  .pricing-page:has(#maandpakketten:not([data-group="seo"]))
+    .pricing-canvas
+    > nav
+    li:nth-child(2)
+    a[aria-current],
+  .pricing-page:has(#maandpakketten[data-group="seo"])
+    .pricing-canvas
+    > nav
+    li:nth-child(3)
+    a[aria-current] {
+    border-color: #ffffff1f;
+    background: #ffffff0d;
+    color: #ffffffcc;
+  }
+  .pricing-page .pricing-canvas > nav li:last-child a {
+    border-color: transparent;
+    background: var(--pp-red);
+    color: #fff;
+    box-shadow: inset 0 1px 0 #ffffff40;
+  }
+
+  .pricing-page .pricing-canvas > section {
+    position: relative;
+    scroll-margin-top: var(--pp-bar);
+    padding: 72px 20px 64px;
+    overflow: clip visible;
+  }
+  .pricing-page
+    .pricing-canvas
+    > :is(#websites, #vergelijking, #maatwerk, #extras, #zo-werkt-het, #faq) {
+    background: var(--pp-light-bg) !important;
+  }
+  .pricing-page .pricing-canvas > :is(#maandpakketten, #bereken-je-prijs) {
+    background: var(--pp-dark-bg);
+  }
+  .pricing-page .pricing-canvas > :is(#maandpakketten, #bereken-je-prijs) > img {
+    display: none;
+  }
+  .pricing-page #websites {
+    z-index: 1;
+    border-radius: 28px 28px 0 0;
+  }
+  .pricing-page #vergelijking {
+    z-index: 2;
+  }
+  .pricing-page #maandpakketten {
+    z-index: 3;
+  }
+  .pricing-page #maatwerk {
+    z-index: 4;
+  }
+  .pricing-page #extras {
+    z-index: 5;
+  }
+  .pricing-page #bereken-je-prijs {
+    z-index: 6;
+  }
+  .pricing-page #zo-werkt-het {
+    z-index: 7;
+  }
+  .pricing-page #faq {
+    z-index: 8;
+    border-radius: 0 0 28px 28px;
+  }
+
+  /* Sheets: bij elke wissel licht/donker schuift de volgende sectie met ronde hoeken over de vorige. */
+  .pricing-page :is(#maandpakketten, #maatwerk, #bereken-je-prijs, #zo-werkt-het) {
+    margin-top: -28px;
+    border-radius: 28px 28px 0 0;
+    box-shadow: 0 -12px 32px #0000002e;
+  }
+  .pricing-page .pricing-canvas > :is(#vergelijking, #maandpakketten, #extras, #bereken-je-prijs) {
+    padding-bottom: 92px;
+  }
+  .pricing-page
+    .pricing-canvas
+    > :is(#maandpakketten, #maatwerk, #bereken-je-prijs, #zo-werkt-het) {
+    padding-top: 76px;
+  }
+
+  /* Twee lichte secties na elkaar: uitvagende lijn met het vleugeltje. */
+  .pricing-page :is(#vergelijking, #extras, #faq)::before,
+  .pricing-page :is(#vergelijking, #extras, #faq)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    pointer-events: none;
+    translate: -50% 0;
+  }
+  .pricing-page :is(#vergelijking, #extras, #faq)::before {
+    top: 0;
+    width: calc(100% - 40px);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #81001259 30%,
+      #81001259 calc(50% - 34px),
+      transparent calc(50% - 34px),
+      transparent calc(50% + 34px),
+      #81001259 calc(50% + 34px),
+      #81001259 70%,
+      transparent
+    );
+  }
+  .pricing-page :is(#vergelijking, #extras, #faq)::after {
+    top: -11px;
+    width: 42px;
+    height: 22px;
+    background: #810012;
+    -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
+    mask: url("/brand/wing.png") center / contain no-repeat;
+    opacity: 0.9;
+  }
+
+  /* ---------- Sectiekoppen: pilletje, Manrope-kop, accent volgens de achtergrond ---------- */
+  .pricing-page .pricing-section-heading {
+    align-items: center;
+    padding-top: 0;
+    text-align: center;
+  }
+  .pricing-page .pricing-section-heading > p:first-child,
+  .pricing-page #faq > div:first-child > p:first-child {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 7px 14px 7px 12px;
+    border: 1px solid #81001226;
+    border-radius: 999px;
+    background: #ffffffa6;
+    font: 700 0 / 1.2 var(--font-inter);
+    white-space: normal;
+    text-transform: uppercase;
+    color: #810012;
+    transform: none;
+    translate: none;
+  }
+  .pricing-page .pricing-section-heading > p:first-child::before,
+  .pricing-page #faq > div:first-child > p:first-child::before {
+    content: "";
+    flex-shrink: 0;
+    width: 18px;
+    height: 10px;
+    margin-right: 8px;
+    background: #810012;
+    -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
+    mask: url("/brand/wing.png") center / contain no-repeat;
+  }
+  .pricing-page .pricing-section-heading > p:first-child > span:not([aria-hidden]),
+  .pricing-page #faq > div:first-child > p:first-child > span:not([aria-hidden]) {
+    margin: 0;
+    font: inherit;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    line-height: 1.2;
+  }
+  .pricing-page .pricing-section-heading > p:first-child > [aria-hidden],
+  .pricing-page #faq > div:first-child > p:first-child > [aria-hidden] {
+    display: none;
+  }
+  .pricing-page .pricing-section-heading-dark > p:first-child {
+    border-color: #ffffff26;
+    background: #ffffff0d;
+    color: #e6e6e6;
+  }
+  .pricing-page .pricing-section-heading-dark > p:first-child::before {
+    background: linear-gradient(90deg, #a5a5a5, #fff);
+  }
+  .pricing-page .pricing-canvas h2 {
+    margin-top: 18px;
+    font: 800 clamp(29px, 8.6vw, 34px) / 1.14 var(--font-manrope);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .pricing-page .pricing-section-heading-light h2 > span,
+  .pricing-page #faq .pricing-faq-accent {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #810012;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 7px;
+    text-decoration-skip-ink: none;
+  }
+  .pricing-page .pricing-section-heading-dark h2 > span {
+    color: #fff;
+    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 2px;
+  }
+  .pricing-page .pricing-section-heading > p:not(:first-child) {
+    max-width: 34em;
+    margin-top: 14px;
+    font: 400 15.5px/1.6 var(--font-inter);
+    letter-spacing: 0;
+  }
+  .pricing-page .pricing-section-heading-light > p:not(:first-child) {
+    color: #5b5b5b;
+  }
+  .pricing-page .pricing-section-heading-dark > p:not(:first-child) {
+    color: #ffffffa6;
+  }
+
+  /* ---------- Swipe-rijen met bolletjes ---------- */
+  .pricing-page .pricing-canvas .pricing-swipe {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    width: auto;
+    max-width: none;
+    height: auto;
+    margin: 32px -20px 0;
+    padding: 6px 20px 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .pricing-page .pricing-swipe::-webkit-scrollbar {
+    display: none;
+  }
+  .pricing-page .pricing-canvas .pricing-swipe > * {
+    flex: 0 0 86%;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    scroll-snap-align: start;
+  }
+  .pricing-page .pricing-canvas .pricing-swipe-dots {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin-top: -4px;
+  }
+  .pricing-page .pricing-swipe-dots button {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 44px;
+    border: 0;
+    background: none;
+  }
+  .pricing-page .pricing-swipe-dots button::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 8px;
+    background: #81001240;
+    transition:
+      width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      background 0.3s;
+  }
+  .pricing-page .pricing-swipe-dots button[aria-pressed="true"]::after {
+    width: 22px;
+    background: #810012;
+  }
+  .pricing-page .pricing-swipe-dots-dark button::after {
+    background: #ffffff40;
+  }
+  .pricing-page .pricing-swipe-dots-dark button[aria-pressed="true"]::after {
+    background: #fff;
+  }
+  .pricing-page .pricing-swipe-dots button:focus-visible {
+    outline: 2px solid #810012;
+    outline-offset: -6px;
+    border-radius: 12px;
+  }
+
+  /* Gedeelde kleine labels: Inter i.p.v. Orbitron, minstens 12px. */
+  .pricing-page .pricing-canvas :is(.font-orbitron, .font-michroma) {
+    font-family: var(--font-inter);
+  }
+
+  /* ---------- Websites: drie pakketten als swipe-rij ---------- */
+  .pricing-page .pricing-package {
+    gap: 14px;
+    padding: 24px 22px 26px;
+    border-radius: 24px;
+    filter: none;
+  }
+  .pricing-page .pricing-package:not(.is-featured) {
+    border: 1px solid var(--pp-card-border);
+    box-shadow: var(--pp-card-shadow);
+  }
+  .pricing-page .pricing-package.is-featured {
+    box-shadow:
+      0 18px 40px #81001247,
+      inset 0 1px 0 #ffffff1f;
+  }
+  .pricing-page .pricing-package h3 {
+    font-size: 26px;
+    letter-spacing: -0.02em;
+  }
+  .pricing-page .pricing-package h3 + p {
+    font: 400 15px/1.55 var(--font-inter);
+  }
+  .pricing-page .pricing-package h3 + p + div > p:nth-child(2) {
+    font-size: 46px;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+  .pricing-page .pricing-package h3 + p + div > p:last-child {
+    margin-top: 2px;
+  }
+  .pricing-page .pricing-package :is(.font-orbitron) {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+  }
+  .pricing-page .pricing-package > .font-orbitron:not(.absolute) {
+    text-transform: none;
+  }
+  .pricing-page .pricing-package > a {
+    height: 50px;
+    font-size: 15px;
+  }
+  .pricing-page .pricing-package > p.font-orbitron {
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+  .pricing-page .pricing-package li span {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .pricing-page .pricing-canvas .pricing-package > .absolute {
+    position: static;
+    order: -1;
+    align-self: flex-start;
+    margin-bottom: -4px;
+    padding: 6px 10px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  /* ---------- Vergelijking: drie kolommen naast elkaar, kenmerk erboven, plakkende kop ---------- */
+  .pricing-page #vergelijking {
+    display: flex;
+    flex-direction: column;
+  }
+  .pricing-page #vergelijking .comparison-scroll-hint {
+    display: none;
+  }
+  .pricing-page .pricing-canvas #vergelijking > [role="region"] {
+    order: 1;
+    width: auto;
+    height: auto;
+    margin: 28px 0 0;
+    border: 1px solid var(--pp-card-border);
+    border-radius: 24px;
+    overflow: visible;
+    background: #fff;
+    filter: none;
+    box-shadow: var(--pp-card-shadow);
+  }
+  .pricing-page #vergelijking > [role="region"]::after,
+  .pricing-page #vergelijking > [role="region"] > div[aria-hidden] {
+    display: none;
+  }
+  .pricing-page #vergelijking table,
+  .pricing-page #vergelijking :is(thead, tbody, tfoot) {
+    display: block;
+    width: 100%;
+  }
+  .pricing-page #vergelijking colgroup {
+    display: none;
+  }
+  .pricing-page #vergelijking tr {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    height: auto;
+  }
+  .pricing-page #vergelijking :is(thead, tbody, tfoot) tr > :first-child {
+    position: static;
+    background: none;
+    box-shadow: none;
+  }
+  .pricing-page #vergelijking thead {
+    position: sticky;
+    top: var(--pp-bar);
+    z-index: 2;
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 24px 24px 0 0;
+    background: #fffffff2;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .pricing-page #vergelijking thead th:first-child {
+    display: none;
+  }
+  .pricing-page #vergelijking thead th {
+    padding: 32px 2px 12px;
+  }
+  .pricing-page #vergelijking thead th.is-featured {
+    border-radius: 0;
+    background: #f2d2d659;
+  }
+  .pricing-page #vergelijking thead th > span:not(.absolute) {
+    font-size: clamp(14.5px, 4.25vw, 16px);
+    letter-spacing: -0.01em;
+  }
+  .pricing-page #vergelijking thead th > span:not(.absolute) + span {
+    font-size: 13px;
+  }
+  .pricing-page #vergelijking thead th > span.absolute {
+    top: 9px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-transform: none;
+  }
+  .pricing-page #vergelijking tbody tr > th {
+    grid-column: 1 / -1;
+    height: auto;
+    padding: 12px 14px 2px;
+    box-shadow: inset 0 1px 0 #ebebeb;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #111;
+  }
+  .pricing-page #vergelijking tbody tr:first-child > th {
+    box-shadow: none;
+  }
+  .pricing-page #vergelijking tbody td {
+    padding: 6px 4px 12px;
+    box-shadow: none;
+  }
+  .pricing-page #vergelijking tbody td:nth-of-type(2),
+  .pricing-page #vergelijking tfoot td:nth-of-type(3) {
+    background: #f2d2d640;
+  }
+  .pricing-page #vergelijking tbody td > div {
+    flex-wrap: wrap;
+    gap: 2px 6px;
+    font-size: 13px;
+    line-height: 1.35;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .pricing-page #vergelijking tbody td img {
+    width: 20px;
+    height: 20px;
+  }
+  .pricing-page #vergelijking tbody td span {
+    font-size: 13px;
+  }
+  .pricing-page #vergelijking:not([data-expanded="true"]) tbody tr:nth-child(n + 7) {
+    display: none;
+  }
+  .pricing-page #vergelijking tfoot td {
+    padding: 14px 6px 6px;
+    box-shadow: inset 0 1px 0 #ebebeb;
+  }
+  .pricing-page #vergelijking tfoot td:first-child {
+    grid-column: 1 / -1;
+    order: 2;
+    padding: 4px 14px 16px;
+    box-shadow: none;
+    font-size: 12px;
+    text-align: center;
+  }
+  .pricing-page #vergelijking tfoot tr {
+    border-radius: 0 0 24px 24px;
+  }
+  .pricing-page #vergelijking tfoot a {
+    width: 100%;
+    min-height: 44px;
+    height: auto;
+    padding: 0;
+    font-size: 0;
+  }
+  .pricing-page #vergelijking tfoot a::before {
+    content: "Kies →";
+    font: 600 14px/1 var(--font-inter);
+  }
+  .pricing-page #vergelijking .comparison-more {
+    order: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    align-self: center;
+    width: auto;
+    min-height: 44px;
+    margin-top: 16px;
+    padding: 0 20px;
+    border: 1px solid #81001240;
+    border-radius: 999px;
+    background: #fff;
+    font: 600 14px/1 var(--font-inter);
+    color: #810012;
+  }
+
+  /* ---------- Maandpakketten: schakelaar + één swipe-rij ---------- */
+  .pricing-page #maandpakketten {
+    height: auto !important;
+    align-items: stretch;
+  }
+  .pricing-page #maandpakketten .plan-group-toggle {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 360px;
+    margin: 28px auto 0;
+    padding: 4px;
+    border: 1px solid #ffffff1f;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #ffffff12, #ffffff05);
+    box-shadow: inset 0 1px 0 #ffffff14;
+  }
+  .plan-group-toggle button {
+    position: relative;
+    z-index: 1;
+    min-height: 44px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    font: 600 14px/1.2 var(--font-inter);
+    color: #ffffffb3;
+    transition: color 0.3s;
+  }
+  .plan-group-toggle button[aria-pressed="true"] {
+    color: #111;
+  }
+  .plan-group-toggle button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+  .plan-group-toggle-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 6px 16px #0000004d;
+    transition: translate 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pricing-page #maandpakketten[data-group="seo"] .plan-group-toggle-thumb {
+    translate: 100% 0;
+  }
+  .pricing-page #maandpakketten:not([data-group="seo"]) .pricing-plan-group[data-group-id="seo"],
+  .pricing-page #maandpakketten[data-group="seo"] .pricing-plan-group[data-group-id="onderhoud"] {
+    display: none;
+  }
+  .pricing-page #maandpakketten .pricing-plan-groups {
+    width: auto;
+    margin-top: 16px;
+    gap: 0;
+  }
+  .pricing-page #maandpakketten .pricing-plan-group > [data-reveal] {
+    justify-content: center;
+    margin: 0;
+  }
+  .pricing-page #maandpakketten .pricing-plan-group > [data-reveal] > h3 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .pricing-page #maandpakketten .pricing-plan-group > [data-reveal] > p {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #ffffff99;
+  }
+  .pricing-page #maandpakketten .pricing-plan-group > [data-reveal] > p::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #33e673;
+  }
+  .pricing-page
+    #maandpakketten
+    .pricing-plan-group[data-group-id="seo"]
+    > [data-reveal]
+    > p::before {
+    background: #ffffff80;
+  }
+  .pricing-page #maandpakketten .pricing-swipe {
+    margin-top: 14px;
+  }
+  .pricing-page .pricing-plan {
+    gap: 12px;
+    padding: 24px 22px 26px;
+    filter: none;
+  }
+  .pricing-page .pricing-plan-light {
+    box-shadow: 0 18px 40px #00000059;
+  }
+  .pricing-page .pricing-plan-featured {
+    box-shadow:
+      0 18px 40px #a6122d59,
+      inset 0 1px 0 #ffffff33;
+  }
+  .pricing-page .pricing-plan-outline {
+    background: linear-gradient(180deg, #ffffff12, #ffffff05);
+  }
+  .pricing-page .pricing-plan h4 {
+    font-size: 24px;
+    letter-spacing: -0.02em;
+  }
+  .pricing-page .pricing-plan h4 + p {
+    font: 400 15px/1.5 var(--font-inter);
+  }
+  .pricing-page .pricing-plan h4 + p + p > span:first-child {
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+  .pricing-page .pricing-plan h4 + p + p > span:last-child {
+    font-size: 15px;
+  }
+  .pricing-page .pricing-plan > a {
+    height: auto;
+    min-height: 48px;
+    padding: 0 16px;
+    text-align: center;
+    white-space: normal;
+  }
+  .pricing-page .pricing-plan li span {
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .pricing-page .pricing-canvas .pricing-plan > .absolute:not(svg) {
+    position: absolute;
+    top: 26px;
+    right: 20px;
+    left: auto;
+    width: auto;
+    order: 0;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: none;
+  }
+
+  /* ---------- Maatwerk: twee aanbiedingen als swipe-rij ---------- */
+  .pricing-page .pricing-offer {
+    gap: 12px;
+    padding: 24px 22px 26px;
+    box-shadow:
+      0 18px 40px #81001247,
+      inset 0 1px 0 #ffffff1f;
+  }
+  .pricing-page .pricing-offer > span:first-child {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  .pricing-page .pricing-offer h3 {
+    font-size: 23px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .pricing-page .pricing-offer h3 + p {
+    font: 400 15px/1.5 var(--font-inter);
+  }
+  .pricing-page .pricing-offer > p.font-orbitron {
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+  .pricing-page .pricing-offer > p.font-geist {
+    font-size: clamp(22px, 6.6vw, 28px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .pricing-page .pricing-offer > p.font-geist + p {
+    margin-top: -4px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .pricing-page .pricing-canvas #maatwerk .pricing-offer > div {
+    gap: 6px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .pricing-page .pricing-offer > div > p:first-child {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ffffffb3;
+  }
+  .pricing-page .pricing-offer > div > div > p:first-child {
+    font-size: 16px;
+  }
+  .pricing-page .pricing-offer > div > div > p:last-child {
+    font-size: 17px;
+  }
+  .pricing-page .pricing-offer > div > p:last-child {
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+  .pricing-page .pricing-offer li span {
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .pricing-page .pricing-offer > a {
+    width: 100%;
+    min-height: 50px;
+    margin-top: auto;
+    padding: 0 18px;
+    text-align: center;
+  }
+
+  /* ---------- Extra's: compact raster van twee kolommen ---------- */
+  .pricing-page #extras > ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .pricing-page .pricing-canvas #extras > ul > li {
+    gap: 10px;
+    height: auto;
+    padding: 16px 14px;
+    border-radius: 18px;
+    border-color: var(--pp-card-border);
+    box-shadow: var(--pp-card-shadow);
+  }
+  .pricing-page #extras > ul > li > span:first-child {
+    width: 36px;
+    height: 36px;
+  }
+  .pricing-page #extras > ul h3 {
+    font-size: 15px;
+    line-height: 1.3;
+    hyphens: auto;
+  }
+  .pricing-page #extras > ul h3 + p {
+    flex-wrap: wrap;
+    gap: 2px 6px;
+    margin-top: auto;
+    white-space: normal;
+  }
+  .pricing-page #extras > ul h3 + p > span:first-child {
+    font-size: 17px;
+  }
+  .pricing-page #extras > ul h3 + p > span:last-child {
+    font-size: 12px;
+  }
+  .pricing-page .pricing-canvas #extras > div:last-child {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 10px;
+    margin-top: 14px;
+    padding: 18px 16px;
+    border-color: var(--pp-card-border);
+    border-radius: 20px;
+    box-shadow: var(--pp-card-shadow);
+  }
+  .pricing-page #extras > div:last-child > p {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+  .pricing-page #extras > div:last-child li span {
+    font-size: 13.5px;
+    white-space: normal;
+  }
+  .pricing-page #extras > div:last-child li {
+    align-items: flex-start;
+  }
+
+  /* ---------- Calculator ---------- */
+  .pricing-page #bereken-je-prijs > [data-reveal] {
+    width: auto;
+    max-width: none;
+    margin: 28px -8px 0;
+  }
+  .pricing-page .pricing-canvas #bereken-je-prijs > [data-reveal] > div {
+    gap: 8px;
+    padding: 8px;
+    border-radius: 26px;
+    box-shadow:
+      0 0 60px #99051459,
+      0 24px 50px #00000080;
+  }
+  .pricing-page .pricing-canvas #bereken-je-prijs > [data-reveal] > div > div {
+    gap: 30px;
+    padding: 22px 12px 12px;
+  }
+  .pricing-page #bereken-je-prijs legend {
+    margin-bottom: 14px;
+  }
+  .pricing-page #bereken-je-prijs legend > span {
+    gap: 4px 10px;
+  }
+  .pricing-page #bereken-je-prijs legend > span > span:first-child {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+  .pricing-page .pricing-canvas #bereken-je-prijs legend > span > span:nth-child(2) {
+    font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  .pricing-page
+    .pricing-canvas
+    #bereken-je-prijs
+    legend
+    > span
+    > span:last-child:not(:nth-child(2)) {
+    padding-left: 38px;
+    font-size: 13px;
+  }
+
+  /* Stap 1: chips naast elkaar. */
+  .pricing-page #bereken-je-prijs fieldset > div.flex-wrap {
+    gap: 8px;
+  }
+  .pricing-page .pricing-canvas #bereken-je-prijs fieldset > div.flex-wrap > label {
+    flex-basis: auto;
+    min-height: 44px;
+    padding-block: 0;
+    font-size: 14.5px;
+  }
+
+  /* Stap 2: pakketten als rijen, naam links en prijs rechts. */
+  .pricing-page .pricing-canvas #bereken-je-prijs fieldset > div.items-start:not(.flex-wrap) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .pricing-page
+    .pricing-canvas
+    #bereken-je-prijs
+    fieldset
+    > div.items-start:not(.flex-wrap)
+    > label {
+    flex-basis: auto;
+    min-height: 56px;
+    padding: 12px 16px;
+  }
+  .pricing-page #bereken-je-prijs fieldset > div.items-start:not(.flex-wrap) > label > span {
+    flex: 1;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .pricing-page
+    #bereken-je-prijs
+    fieldset
+    > div.items-start:not(.flex-wrap)
+    > label
+    > span
+    > span:last-child {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  /* Stap 3: extra's met prijs rechts; teller op een eigen regel. */
+  .pricing-page .pricing-canvas #bereken-je-prijs fieldset:has(.quote-extra) > div {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .pricing-page .pricing-canvas .quote-extra {
+    width: 100%;
+    height: auto;
+    min-height: 56px;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    padding: 6px 14px;
+  }
+  .pricing-page .pricing-canvas .quote-extra > label {
+    flex-wrap: nowrap;
+    min-height: 44px;
+  }
+  .pricing-page .pricing-canvas .quote-extra > label > span:last-child:not(:nth-of-type(2)) {
+    flex-basis: auto;
+    padding-left: 0;
+    margin-left: auto;
+  }
+  .pricing-page .pricing-canvas .quote-extra:has(.quote-stepper) > label {
+    flex-basis: 100%;
+  }
+  .pricing-page .pricing-canvas .quote-extra:has(.quote-stepper) {
+    padding-bottom: 12px;
+  }
+  .pricing-page .pricing-canvas .quote-extra .quote-stepper {
+    margin-left: 0;
+  }
+  .pricing-page .pricing-canvas .quote-extra .quote-stepper + span {
+    margin-left: auto;
+  }
+  .pricing-page .quote-extra .quote-stepper output {
+    min-width: 64px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .pricing-page .quote-extra .quote-step-button {
+    font-size: 18px;
+  }
+
+  /* Stap 4: één rij per groep, naam boven de prijs. */
+  .pricing-page .pricing-canvas #bereken-je-prijs fieldset fieldset > div {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+  .pricing-page .pricing-canvas #bereken-je-prijs fieldset fieldset label {
+    min-height: 54px;
+    padding: 8px 4px;
+  }
+  .pricing-page #bereken-je-prijs fieldset fieldset legend {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .quote-option-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  .quote-option-sep {
+    display: none;
+  }
+  .quote-option-price {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #6b6b6b;
+  }
+  .pricing-page #bereken-je-prijs fieldset fieldset label.text-brand .quote-option-price {
+    color: #810012;
+  }
+
+  /* Meelopend totaal. */
+  .pricing-page .pricing-canvas .quote-mobile-bar {
+    position: sticky;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: -10px -4px 0;
+    padding: 10px 10px 10px 16px;
+    border: 1px solid #ffffff1f;
+    border-radius: 20px;
+    background: #140a0cf2;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 16px 40px #00000073;
+    color: #fff;
+  }
+  .quote-mobile-bar-values {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    font-family: var(--font-inter);
+  }
+  .quote-mobile-bar-label {
+    font-size: 12px;
+    color: #ffffffa6;
+  }
+  .quote-mobile-bar-values strong {
+    font: 800 18px/1.2 var(--font-manrope);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .quote-mobile-bar-monthly {
+    font-size: 12.5px;
+    color: #ffffffb3;
+    white-space: nowrap;
+  }
+  .quote-mobile-bar-link {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--pp-red);
+    box-shadow:
+      inset 0 1px 0 #ffffff40,
+      0 6px 18px #a6122d66;
+    font: 700 14px/1 var(--font-inter);
+    color: #fff;
+  }
+
+  /* Prijsindicatie. */
+  .pricing-page .pricing-canvas #bereken-je-prijs aside {
+    gap: 12px;
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  .pricing-page #bereken-je-prijs aside h3 {
+    scroll-margin-top: calc(var(--pp-bar) + 24px);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+  .pricing-page .pricing-canvas #bereken-je-prijs aside output {
+    font-size: clamp(24px, 7.6vw, 30px);
+    letter-spacing: -0.03em;
+  }
+  .pricing-page #bereken-je-prijs aside dl {
+    gap: 10px;
+  }
+  .pricing-page #bereken-je-prijs .quote-price-row :is(dt, dd) {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .pricing-page #bereken-je-prijs .quote-price-row dt > span {
+    font-size: 12px;
+  }
+  .pricing-page #bereken-je-prijs aside > p:not(:last-child) {
+    font-size: 14px;
+  }
+  .pricing-page #bereken-je-prijs aside > a {
+    min-height: 52px;
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  .pricing-page #bereken-je-prijs aside > p:last-child {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Zo werkt het: verticale tijdlijn ---------- */
+  .pricing-page .pricing-canvas #zo-werkt-het {
+    align-items: stretch;
+  }
+  .pricing-page .pricing-canvas #zo-werkt-het > div:nth-child(2) {
+    width: auto;
+    margin-top: 32px;
+  }
+  .pricing-page .pricing-canvas #zo-werkt-het ol {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .pricing-page .pricing-canvas #zo-werkt-het ol > li {
+    position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 0 0 18px;
+  }
+  .pricing-page #zo-werkt-het ol > li::after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    bottom: 6px;
+    left: 20px;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(#81001259, #81001214);
+  }
+  .pricing-page #zo-werkt-het ol > li:last-child {
+    padding-bottom: 0;
+  }
+  .pricing-page #zo-werkt-het ol > li:last-child::after {
+    display: none;
+  }
+  .pricing-page #zo-werkt-het ol > li > span {
+    width: 42px;
+    height: 42px;
+    background: var(--pp-red);
+    box-shadow:
+      inset 0 1px 0 #ffffff40,
+      0 6px 16px #a6122d40;
+    font-size: 16px;
+  }
+  .pricing-page #zo-werkt-het ol > li > div {
+    gap: 8px;
+    padding: 18px;
+    border-color: var(--pp-card-border);
+    border-radius: 20px;
+    box-shadow: var(--pp-card-shadow);
+  }
+  .pricing-page #zo-werkt-het ol > li > div > span:first-child {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    white-space: normal;
+  }
+  .pricing-page #zo-werkt-het ol h3 {
+    font-size: 19px;
+    line-height: 1.25;
+  }
+  .pricing-page #zo-werkt-het ol h3 + p {
+    font: 400 15px/1.55 var(--font-inter);
+  }
+  .pricing-page #zo-werkt-het ol hr {
+    margin-top: 4px;
+  }
+  .pricing-page #zo-werkt-het ol > li > div > p:last-child {
+    align-items: baseline;
+  }
+  .pricing-page #zo-werkt-het ol > li > div > p:last-child > span:first-child {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  .pricing-page .pricing-canvas #zo-werkt-het > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: auto;
+    margin-top: 24px;
+    padding: 4px 18px;
+    border: 1px solid var(--pp-card-border);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: var(--pp-card-shadow);
+  }
+  .pricing-page .pricing-canvas #zo-werkt-het > ul > li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: auto;
+    padding: 13px 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font-size: 14px;
+    line-height: 1.45;
+    white-space: normal;
+  }
+  .pricing-page .pricing-canvas #zo-werkt-het > ul > li + li {
+    border-top: 1px solid #81001214;
+  }
+  .pricing-page #zo-werkt-het > ul > li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: #810012;
+  }
+
+  /* ---------- Veelgestelde vragen ---------- */
+  .pricing-page .pricing-canvas #faq {
+    gap: 28px;
+    min-height: 0;
+    padding: 72px 20px 64px;
+  }
+  .pricing-page #faq > div:first-child {
+    align-items: center;
+    margin: 0;
+    text-align: center;
+  }
+  .pricing-page #faq > div:first-child > p:first-child > span:not([aria-hidden]) {
+    margin: 0;
+  }
+  .pricing-page .pricing-canvas #faq h2 {
+    margin: 18px 0 0;
+    color: #111;
+  }
+  .pricing-page .pricing-canvas #faq > div:first-child > div {
+    display: none;
+  }
+  .pricing-page #faq > [data-reveal-group] > div {
+    border-bottom-color: var(--pp-card-border);
+  }
+  .pricing-page .pricing-canvas #faq h3 button {
+    gap: 14px;
+    min-height: 56px;
+    padding: 16px 0;
+    font: 700 16px/1.4 var(--font-manrope);
+    letter-spacing: -0.005em;
+  }
+  .pricing-page #faq h3 button img {
+    width: 20px;
+    height: 20px;
+  }
+  .pricing-page .pricing-canvas #faq [role="region"] p {
+    width: auto;
+    padding: 0 28px 18px 0;
+    font: 400 15px/1.6 var(--font-inter);
+    color: #5b5b5b;
+  }
+
+  /* ---------- Rustige scroll-reveal (alleen waar scroll-gedreven animatie bestaat) ---------- */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .pricing-page .pricing-section-heading,
+      .pricing-page #vergelijking > [role="region"],
+      .pricing-page #extras > ul > li,
+      .pricing-page #zo-werkt-het ol > li,
+      .pricing-page #faq > [data-reveal-group] > div {
+        animation: pp-rise linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 55%;
+      }
+      .pricing-page :is(#vergelijking, #extras, #faq)::before,
+      .pricing-page :is(#vergelijking, #extras, #faq)::after {
+        animation: pp-divider linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .pricing-page .pricing-canvas > nav a {
+    padding: 0 14px;
+    font-size: 13.5px;
+  }
+}
+
+@keyframes pp-rise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+}
+@keyframes pp-fade {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+}
+@keyframes pp-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes pp-divider {
+  from {
+    opacity: 0;
+    scale: 0.4 1;
+  }
+}
+
+/* Maatwerk op mobiel: prijsladder (zelfde opbouw als op de dienstpagina's) met een schakelaar. */
+@media all /* was (max-width: 760px) */ {
+  .pricing-page #maatwerk #maatwerk-track,
+  .pricing-page #maatwerk #maatwerk-track ~ .pricing-swipe-dots {
+    display: none !important;
+  }
+  .pricing-page #maatwerk .custom-mobile {
+    display: block;
+    margin-top: 28px;
+    padding: 0 20px;
+  }
+  .custom-mobile[data-active="web-apps"] [data-ladder="ai-automatisaties"],
+  .custom-mobile[data-active="ai-automatisaties"] [data-ladder="web-apps"] {
+    display: none;
+  }
+  .custom-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 22px;
+    padding: 4px;
+    border: 1px solid rgb(129 0 18 / 0.1);
+    border-radius: 999px;
+    background: #f4eff0;
+  }
+  .custom-toggle button {
+    min-height: 44px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    font: 600 14px/1.2 var(--font-inter);
+    color: #4a4a4a;
+    transition:
+      background 0.25s,
+      color 0.25s,
+      box-shadow 0.25s;
+  }
+  .custom-toggle button[aria-pressed="true"] {
+    background: #fff;
+    color: #810012;
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.06),
+      0 4px 12px rgb(129 0 18 / 0.14);
+  }
+  .custom-toggle button:focus-visible {
+    outline: 3px solid #810012;
+    outline-offset: 2px;
+  }
+}

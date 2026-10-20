@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 /** Gedeelde opbouw van alle etalages (Figma: ETALAGE) — 1920 x 1120: achtergrond, eyebrow, gloed en vloerschaduw. */
 export function Anchor({ x, y }: { x: number; y: number }) {
@@ -12,11 +14,41 @@ export function Anchor({ x, y }: { x: number; y: number }) {
       fill="none"
       aria-hidden
     >
-      <g style={{ filter: "drop-shadow(0 0 5px rgba(242,74,99,0.9))" }}>
+      <g style={{ filter: "drop-shadow(0 0 5px rgba(129,0,18,0.5))" }}>
         <circle cx="16" cy="16" r="6" fill="white" />
-        <circle cx="16" cy="16" r="4.5" stroke="#F24A63" strokeWidth="3" />
+        <circle cx="16" cy="16" r="4.5" stroke="var(--home-accent)" strokeWidth="3" />
       </g>
     </svg>
+  );
+}
+
+export type SlotAction = { label: string; href: string };
+
+/** Onderste balk van een etalage: label (case of voorbeeld) + hoofdknop + tekstlink. */
+export function Slot({
+  label,
+  live,
+  primary,
+  secondary,
+}: {
+  label: string;
+  live?: boolean;
+  primary: SlotAction;
+  secondary: SlotAction;
+}) {
+  return (
+    <div className="etalage-slot">
+      <span className={"etalage-slot-badge" + (live ? " is-live" : "")}>
+        <i aria-hidden="true" />
+        {label}
+      </span>
+      <Link href={primary.href} className="sbtn sbtn-light sbtn-lg">
+        {primary.label} <BtnArrow />
+      </Link>
+      <Link href={secondary.href} className="sbtn sbtn-outline-dark">
+        {secondary.label} <BtnArrow />
+      </Link>
+    </div>
   );
 }
 
@@ -38,14 +70,7 @@ export function Shell({
       }}
     >
       {mobile}
-      <p className="absolute left-[960px] top-[80px] h-[27px] w-[490px] -translate-x-1/2 whitespace-pre-wrap text-center font-manrope text-[20px] font-extrabold uppercase leading-[0] tracking-[1.98px] text-brand-soft [word-break:break-word]">
-        <span className="font-extralight leading-[16.5px] tracking-[-3.2px]">------------</span>
-        <span className="font-extralight leading-[16.5px]"> </span>
-        <span className="leading-[16.5px]"> </span>
-        <span className="leading-[16.5px] tracking-[5px]">DE ETALAGE</span>
-        <span className="font-extralight leading-[16.5px] tracking-[-3.2px]">------------</span>
-        <span className="font-extralight leading-[16.5px]"> </span>
-      </p>
+      <span className="etalage-eyebrow">DE ETALAGE</span>
       <svg
         className="absolute left-[300px] top-[170px]"
         width="1320"
@@ -68,7 +93,14 @@ export function Shell({
           </filter>
         </defs>
         <g filter={`url(#${id}-gl)`}>
-          <ellipse cx="660" cy="440" rx="500" ry="280" fill="#9E081A" fillOpacity="0.5" />
+          <ellipse
+            cx="660"
+            cy="440"
+            rx="500"
+            ry="280"
+            fill="var(--home-accent)"
+            fillOpacity="0.5"
+          />
         </g>
       </svg>
       <svg

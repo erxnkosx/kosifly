@@ -68,46 +68,6 @@ export const CheckCircle = ({ size = 18 }: { size?: number }) => (
     />
   </svg>
 );
-export const Chevron = ({ className }: { className?: string }) => (
-  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" className={className}>
-    <path
-      d="m8 10.5 4.5 4.5 4.5-4.5"
-      stroke="#fff"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-export const Instagram = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-    <rect x="3" y="3" width="18" height="18" rx="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none" />
-  </svg>
-);
-export const LinkedIn = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="#fff">
-    <path d="M3 3h18v18H3z" />
-    <path
-      d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"
-      stroke="#000"
-      strokeWidth="2"
-      strokeLinecap="round"
-      fill="none"
-    />
-  </svg>
-);
-export const Facebook = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="#fff">
-    <circle cx="12" cy="12" r="11" />
-    <path
-      d="M13.5 20v-6.2h2.1l.4-2.6h-2.5V9.6c0-.8.3-1.3 1.4-1.3H16V6.1c-.3 0-1.1-.1-2-.1-2 0-3.3 1.2-3.3 3.4v1.8H8.6v2.6h2.1V20z"
-      fill="#000"
-    />
-  </svg>
-);
-
 export const ShieldCheck = ({ className, size = 24 }: P) => (
   <svg {...base(size)} className={className}>
     <path d="M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6z" />

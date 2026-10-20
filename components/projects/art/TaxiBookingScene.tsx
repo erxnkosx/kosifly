@@ -1,5 +1,5 @@
 import { Artwork } from "@/components/ui/Artwork";
-const imgImage24 = "/figma/projects/4ebb5.png";
+const imgImage24 = "/figma/projects/4ebb5.webp";
 const imgGloed1 = "/figma/projects/7414f.svg";
 export function TaxiBookingScene() {
   return (

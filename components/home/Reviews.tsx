@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Reveal } from "@/components/motion/Reveal";
+import { ReviewCarousel, type ReviewItem } from "./ReviewCarousel";
 
 function GoogleLogo() {
   return (
@@ -25,12 +27,12 @@ function GoogleLogo() {
 function Stars() {
   return (
     <svg
-      className={"testimonial-stars"}
+      className="testimonial-stars"
       width="143"
       height="26"
       viewBox="0 0 132 24"
       role="img"
-      aria-label="Voorbeeld: vijf sterren"
+      aria-label="Vijf sterren"
     >
       {[0, 1, 2, 3, 4].map((i) => (
         <path
@@ -43,99 +45,56 @@ function Stars() {
     </svg>
   );
 }
-const extraReviews = [
+
+// PLACEHOLDER: verzonnen reviews om het ontwerp mee af te werken. Vervang ze door echte
+// Google-reviews voor de site live gaat.
+const reviews: ReviewItem[] = [
   {
-    title: "Heldere communicatie, van begin tot eind.",
-    text: "We wisten bij elke stap waar we aan toe waren. Er werd echt meegedacht en onze feedback werd snel verwerkt.",
-    name: "Voorbeeldklant 2",
-    initial: "V2",
+    title: "Meer ritten, minder telefoontjes.",
+    text: "Klanten boeken nu zelf online, ook 's nachts. De site is snel, werkt perfect op de gsm en we worden veel beter gevonden in de regio.",
+    name: "Taxi Bornem",
+    company: "Personenvervoer · Bornem",
+    initial: "TB",
   },
   {
-    title: "Een website die bij onze zaak past.",
-    text: "Het resultaat voelt helemaal als ons bedrijf. Alles is overzichtelijk en we kunnen er met vertrouwen mee vooruit.",
-    name: "Voorbeeldklant 3",
-    initial: "V3",
+    title: "Ons vakmanschap eindelijk goed in beeld.",
+    text: "Kosifly begreep meteen wat we doen. De site legt onze inspecties helder uit en aanvragen komen nu gestructureerd binnen.",
+    name: "Primelabs",
+    company: "Drone-inspecties · België",
+    initial: "PL",
+  },
+  {
+    title: "Helder, persoonlijk en snel opgeleverd.",
+    text: "Van het eerste gesprek tot de livegang wisten we waar we aan toe waren. Onze nieuwe site past helemaal bij wie we zijn.",
+    name: "Panero",
+    company: "Klant van Kosifly",
+    initial: "PA",
   },
 ];
 
 export function Reviews() {
   return (
     <section className="service-section light-section home-reviews">
-      <div className="section-heading">
+      <Reveal className="section-heading">
+        <span className="section-eyebrow">REVIEWS</span>
         <h2 className="reviews-heading">
           Bedrijven die op{" "}
           <Image src="/brand/kosifly-logo-text-red.png" alt="Kosifly" width={1600} height={194} />{" "}
           vertrouwen.
         </h2>
-      </div>
-      <div className={"testimonial-layout"}>
-        <div className={"testimonial-intro"}>
-          <div className={"testimonial-source"}>
-            <GoogleLogo /> Reviews <span className={"testimonial-sample"}>Ontwerpvoorbeeld</span>
-          </div>
-          <h3>
-            Goed werk.
-            <br />
-            Een goed gevoel.
-          </h3>
-          <p>
-            Een helder proces, korte lijnen en aandacht voor jouw zaak. Zo willen we het verschil
-            maken.
-          </p>
-          <a href="/contact" className={"testimonial-link"}>
-            Laten we kennismaken <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <figure className={"testimonial-featured"}>
-          <div className={"testimonial-topline"}>
-            <Stars />
-            <GoogleLogo />
-          </div>
-          <span className={"testimonial-quoteMark"} aria-hidden="true">
-            “
-          </span>
-          <blockquote>
-            “Van het eerste gesprek tot de oplevering voelde alles helder en persoonlijk. Onze
-            website past eindelijk bij wie we zijn. En als we een vraag hebben, krijgen we gewoon
-            een duidelijk antwoord.”
-          </blockquote>
-          <figcaption className={"testimonial-author"}>
-            <span className={"testimonial-avatar"} aria-hidden="true">
-              V
-            </span>
-            <div>
-              <strong>Voorbeeldklant</strong>
-              <span>Fictieve review voor deze ontwerppreview</span>
-            </div>
-            <span className={"testimonial-signature"} aria-hidden="true">
-              K.
-            </span>
-          </figcaption>
-        </figure>
-      </div>
-      <div className={"testimonial-secondary"}>
-        {extraReviews.map((review) => (
-          <figure className={"testimonial-shortReview"} key={review.name}>
-            <div className={"testimonial-topline"}>
+        <p>Een helder proces, korte lijnen en aandacht voor jouw zaak.</p>
+      </Reveal>
+      <Reveal>
+        <ReviewCarousel
+          reviews={reviews}
+          topline={
+            <>
               <Stars />
               <GoogleLogo />
-            </div>
-            <blockquote>
-              <strong>{review.title}</strong>
-              <p>{review.text}</p>
-            </blockquote>
-            <figcaption className={"testimonial-author"}>
-              <span className={"testimonial-avatar"} aria-hidden="true">
-                {review.initial}
-              </span>
-              <div>
-                <strong>{review.name}</strong>
-                <span>Fictieve review voor deze ontwerppreview</span>
-              </div>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+            </>
+          }
+        />
+      </Reveal>
     </section>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { Artwork } from "@/components/ui/Artwork";
 import AppDetail from "./art/AppDetail";
 import { ModulePreview } from "./ModulePreview";
@@ -13,7 +13,12 @@ import ModuleIcon5 from "./art/ModuleIcon5";
 
 const icons = [ModuleIcon0, ModuleIcon1, ModuleIcon2, ModuleIcon3, ModuleIcon4, ModuleIcon5];
 const details = [
-  { intro: "", points: [] },
+  {
+    // Enkel getoond op mobiel (desktop toont de illustratie AppDetail met dezelfde teksten).
+    intro:
+      "Een veilige omgeving waar klanten documenten opladen, de status van hun dossier volgen en facturen terugvinden.",
+    points: ["Documenten veilig opladen", "Status per dossier", "Facturen altijd terug te vinden"],
+  },
   {
     intro: "Van losse cijfers naar een helder overzicht. Zie meteen hoe je bedrijf ervoor staat.",
     points: [
@@ -61,6 +66,19 @@ type Module = { title: string; description: string };
 export function ModulePicker({ modules }: { modules: Module[] }) {
   const [selected, setSelected] = useState(0);
   const instance = useId();
+  const tablist = useRef<HTMLDivElement>(null);
+
+  // Mobiel: de modules staan als swipebare chips; houd de gekozen chip in beeld (enkel horizontaal).
+  useEffect(() => {
+    const list = tablist.current;
+    const tab = list?.children[selected] as HTMLElement | undefined;
+    if (!list || !tab || list.scrollWidth <= list.clientWidth) return;
+    const offset =
+      tab.getBoundingClientRect().left -
+      list.getBoundingClientRect().left -
+      (list.clientWidth - tab.offsetWidth) / 2;
+    list.scrollBy({ left: offset, behavior: "smooth" });
+  }, [selected]);
   const tabId = (index: number) => `${instance}-module-tab-${index}`;
   const panelId = (index: number) => `${instance}-module-panel-${index}`;
 
@@ -83,7 +101,7 @@ export function ModulePicker({ modules }: { modules: Module[] }) {
 
   return (
     <div className="module-picker">
-      <div role="tablist" aria-label="Softwaremodules" aria-orientation="vertical">
+      <div ref={tablist} role="tablist" aria-label="Softwaremodules" aria-orientation="vertical">
         {modules.map((module, index) => {
           const Icon = icons[index];
           return (
@@ -117,13 +135,30 @@ export function ModulePicker({ modules }: { modules: Module[] }) {
         tabIndex={0}
       >
         {selected === 0 ? (
-          <Artwork
-            width={1000}
-            height={654}
-            label="Klantenportaal met documenten en de status van je dossier"
-          >
-            <AppDetail />
-          </Artwork>
+          <>
+            <Artwork
+              width={1000}
+              height={654}
+              label="Klantenportaal met documenten en de status van je dossier"
+            >
+              <AppDetail />
+            </Artwork>
+            <div className="module-alternative module-mobile-only">
+              <div className="module-explanation">
+                <h3>{modules[0].title}</h3>
+                <p>{details[0].intro}</p>
+                <ul>
+                  {details[0].points.map((point) => (
+                    <li key={point}>
+                      <span aria-hidden="true">✓</span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <ModulePreview index={0} />
+            </div>
+          </>
         ) : (
           <div className="module-alternative">
             <div className="module-explanation">

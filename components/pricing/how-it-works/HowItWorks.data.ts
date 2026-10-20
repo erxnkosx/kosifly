@@ -22,7 +22,7 @@ export const STEPS: readonly StepData[] = [
   {
     duration: "40 % BIJ START",
     title: "We gaan van start",
-    text: "We plannen de kick-off. De andere helft betaal je pas bij de livegang.",
+    text: "We plannen de kick-off. De rest betaal je pas bij de livegang.",
     you: "betaalt de rest bij de livegang",
   },
 ];

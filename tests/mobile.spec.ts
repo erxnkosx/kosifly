@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { projects } from "../lib/projects";
 
 const routes = [
   "/",
@@ -9,7 +10,9 @@ const routes = [
   "/projecten",
   "/projecten/taxi-bornem",
   "/projecten/primelabs",
+  "/projecten/psc-open-huis",
   "/over-ons",
+  "/website-audit",
   "/privacy",
   "/algemene-voorwaarden",
   "/diensten/webdesign",
@@ -163,7 +166,7 @@ test("filters, all software tabs, accordions and touch sliders work", async ({ p
   await page.getByRole("button", { name: "AI & automatisaties", exact: true }).tap();
   await expect(page.locator(".project-empty")).toBeVisible();
   await page.getByRole("button", { name: "Alle projecten", exact: true }).tap();
-  await expect(page.locator(".project-card")).toHaveCount(2);
+  await expect(page.locator(".project-card")).toHaveCount(projects.length);
   await page.goto("/diensten/web-apps");
   for (const tab of await page.getByRole("tab").all()) {
     await tab.tap();

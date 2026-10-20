@@ -169,7 +169,8 @@ async function check(name, fn) {
     await mount(Navbar, { active: "Services" });
     const trigger = document.querySelector(".services-menu>button");
     await click(trigger);
-    assert.equal(document.querySelectorAll(".service-menu-items>a").length, 5);
+    assert.equal(document.querySelectorAll(".service-menu-items>a:not(.menu-all)").length, 5);
+    assert(document.querySelector('.service-menu-items>a.menu-all[href="/services"]'));
     assert(document.querySelector('a[href="/diensten/web-apps"]'));
     await act(() =>
       trigger.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true })),
@@ -211,11 +212,11 @@ async function check(name, fn) {
       assert.equal(document.querySelector("button[type=submit]").disabled, false);
     },
   );
-  await check("Homepage FAQ retains its eight questions and starts closed", async () => {
+  await check("Homepage FAQ has seven unique questions and starts closed", async () => {
     const { Faq } = require("../components/home/Faq.tsx");
     await mount(Faq);
     const buttons = document.querySelectorAll(".faq-item button");
-    assert.equal(buttons.length, 8);
+    assert.equal(buttons.length, 7);
     assert.equal(document.querySelectorAll(".faq-item button[aria-expanded=true]").length, 0);
     await click(buttons[0]);
     assert.match(document.querySelector(".faq-item.is-open .faq-answer").textContent, /vijf weken/);

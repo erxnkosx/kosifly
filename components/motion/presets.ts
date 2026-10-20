@@ -3,25 +3,20 @@ import type { Transition, Variants } from "framer-motion";
 /** Zachte "ease-out-expo"-curve, gedeeld door alle animaties zodat de site één beweging heeft. */
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
-export const REVEAL_DISTANCE = 12;
+export const REVEAL_DISTANCE = 24;
 
-export const REVEAL_TRANSITION: Transition = { duration: 0.28, ease: EASE };
+export const REVEAL_TRANSITION: Transition = { duration: 0.6, ease: EASE };
 
-export const STAGGER = 0.04;
+export const STAGGER = 0.08;
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: REVEAL_DISTANCE },
   show: { opacity: 1, y: 0, transition: REVEAL_TRANSITION },
 };
 
-export const fadeIn: Variants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.28, ease: EASE } },
-};
-
 export const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.94, y: REVEAL_DISTANCE },
-  show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.28, ease: EASE } },
+  show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 };
 
 /** Dezelfde varianten, maar met een vertraging op de `show`-overgang. */

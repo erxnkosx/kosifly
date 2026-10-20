@@ -1,5 +1,5 @@
 import { Artwork } from "@/components/ui/Artwork";
-const imgMockupPrimelabs = "/figma/projects/309ed.png";
+const imgMockupPrimelabs = "/figma/projects/309ed.webp";
 const imgGloed = "/figma/projects/ba1f3.svg";
 const imgEllipse2 = "/figma/projects/0d859.svg";
 export function PrimeCardScene() {

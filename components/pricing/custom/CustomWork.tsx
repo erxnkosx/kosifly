@@ -6,14 +6,17 @@ import {
   ORBITRON_LABEL,
   PillButton,
   SectionHeading,
+  SwipeDots,
 } from "../shared";
+import { PriceLadder } from "@/components/services/ServicePricing";
 import { OFFERS, type Offer } from "./CustomWork.data";
+import { CustomWorkToggle } from "./CustomWorkToggle";
 
 function OfferCard({ offer }: { offer: Offer }) {
   const { title, description, glyph, priceLabel, price, priceNote, entry, included, cta } = offer;
 
   return (
-    <article className="flex h-[689px] w-[764px] shrink-0 flex-col items-start gap-[18px] overflow-clip rounded-[24px] bg-[linear-gradient(145.927deg,var(--dark-card-gradient-stops))] p-[44px] shadow-[0_0_60px_rgba(130,0,18,0.45)]">
+    <article className="pricing-offer flex h-[689px] w-[764px] shrink-0 flex-col items-start gap-[18px] overflow-clip rounded-[24px] bg-[linear-gradient(145.927deg,var(--dark-card-gradient-stops))] p-[44px] shadow-[0_0_60px_rgba(130,0,18,0.45)]">
       <GradientIconTile glyph={glyph} glyphBox={24} className="size-[52px] rounded-[14px]" />
       <h3 className="whitespace-nowrap font-manrope text-[30px] font-extrabold leading-[normal] tracking-[-0.261px] text-white">
         {title}
@@ -46,7 +49,6 @@ function OfferCard({ offer }: { offer: Offer }) {
       <PillButton
         href={cta.href}
         tone="white"
-        splitArrow
         className="px-[26px] py-[15px] text-[15px] leading-[18px]"
       >
         {cta.label}
@@ -68,10 +70,28 @@ export function CustomWork() {
         }
         intro="Elk project is anders. Daarom krijg je hier een vaste prijs na een korte analyse, zodat je vooraf weet waar je aan toe bent."
       />
-      <div data-reveal-group className="mt-[70px] flex gap-[28px] pl-[182px]">
+      <div
+        id="maatwerk-track"
+        data-reveal-group
+        className="pricing-swipe mt-[70px] flex gap-[28px] pl-[182px]"
+      >
         {OFFERS.map((offer) => (
           <OfferCard key={offer.title} offer={offer} />
         ))}
+      </div>
+      <SwipeDots targetId="maatwerk-track" labels={OFFERS.map((offer) => offer.title)} />
+      {/* Mobiel: dezelfde prijsladder als op de dienstpagina's, met een schakelaar. */}
+      <div className="custom-mobile" id="maatwerk-mobile" data-active="web-apps">
+        <CustomWorkToggle targetId="maatwerk-mobile" />
+        <div className="custom-ladder" data-ladder="web-apps">
+          {/* Titel enkel zichtbaar wanneer beide ladders naast elkaar staan (desktop). */}
+          <h3 className="custom-ladder-title">Web apps &amp; maatwerksoftware</h3>
+          <PriceLadder slug="web-apps" />
+        </div>
+        <div className="custom-ladder" data-ladder="ai-automatisaties">
+          <h3 className="custom-ladder-title">AI &amp; automatisaties</h3>
+          <PriceLadder slug="ai-automatisaties" />
+        </div>
       </div>
     </LightSection>
   );

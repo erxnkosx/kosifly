@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/Badge";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { SwipeRow } from "@/components/about/SwipeRow";
 import {
   IconLayout,
   IconMapPin,
@@ -18,11 +19,13 @@ import {
 } from "@/components/about/Icons";
 import { services } from "@/lib/services";
 import { projects } from "@/lib/projects";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 export const metadata: Metadata = {
   title: "Over ons | Kosifly",
   description:
     "Een digitaal bureau voor KMO's in Puurs-Sint-Amands. Websites, lokale SEO, maatwerksoftware en automatisaties met een vaste prijs en één aanspreekpunt.",
+  alternates: { canonical: "/over-ons" },
 };
 const expertiseIcons = [IconLayout, IconMapPin, IconDashboard, IconSparkles, IconServer];
 const expertiseCopy = [
@@ -60,7 +63,8 @@ export default function AboutPage() {
     <>
       <Navbar active="About" />
       <main id="main-content">
-        <section className="portfolio-hero about-hero">
+        {/* Zelfde hero als /projecten (overview-hero): badge, kop, intro en één rij pillen. */}
+        <section className="portfolio-hero overview-hero">
           <HeroBackdrop />
           <div className="portfolio-hero-copy page-content">
             <Badge section="Over ons" page="Kosifly" />
@@ -74,41 +78,25 @@ export default function AboutPage() {
               <br className="desktop-break" /> we bouwen oplossingen die meetbaar bijdragen aan je
               resultaat.
             </p>
-            <div className="button-row">
-              <Link href="/contact" className="button primary">
-                Plan een kennismaking →
+            <nav className="project-filters" aria-label="Kennismaken of een dienst bekijken">
+              <Link href="/contact" className="is-primary">
+                Plan een kennismaking
               </Link>
-              <Link href="/services" className="portfolio-text-link">
-                Bekijk onze diensten
-              </Link>
-            </div>
-            <ul className="about-trust">
-              {[
-                "Vaste prijs vooraf",
-                "Antwoord binnen 24 uur",
-                "Eén vast aanspreekpunt",
-                "Gevestigd in Puurs-Sint-Amands",
-              ].map((item) => (
-                <li key={item}>
-                  <span aria-hidden="true">✓</span>
-                  {item}
-                </li>
+              {services.map((s) => (
+                <Link key={s.slug} href={`/diensten/${s.slug}`}>
+                  {s.short}
+                </Link>
               ))}
-            </ul>
-          </div>
-          <div className="about-service-strip page-content">
-            {services.map((s) => (
-              <Link key={s.slug} href={`/diensten/${s.slug}`}>
-                {s.short}
-              </Link>
-            ))}
+            </nav>
           </div>
         </section>
         <section className="portfolio-light page-section about-who">
           <div className="about-who-copy">
             <div>
               <span className="portfolio-eyebrow">WIE WE ZIJN</span>
-              <h2>Een digitaal bureau dat bouwt op resultaat.</h2>
+              <h2>
+                Een digitaal bureau dat bouwt op <span>resultaat</span>.
+              </h2>
             </div>
             <div>
               <p>
@@ -144,7 +132,7 @@ export default function AboutPage() {
               Vijf expertises, <span>één partner.</span>
             </h2>
           </div>
-          <div className="about-expertise-grid">
+          <SwipeRow className="about-expertise-grid" label="Onze expertises" itemLabel="expertise">
             {services.map((s, index) => {
               const Icon = expertiseIcons[index];
               return (
@@ -160,7 +148,7 @@ export default function AboutPage() {
                 </Link>
               );
             })}
-          </div>
+          </SwipeRow>
         </section>
         <section className="portfolio-light page-section about-principles">
           <div className="portfolio-heading">
@@ -191,13 +179,13 @@ export default function AboutPage() {
               Werk waar we <span>trots</span> op zijn.
             </h2>
           </div>
-          <div className="project-grid">
+          <SwipeRow className="project-grid" label="Projecten" itemLabel="project">
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
-          </div>
+          </SwipeRow>
           <Link href="/projecten" className="button primary">
-            Bekijk alle projecten →
+            Bekijk alle projecten <BtnArrow />
           </Link>
         </section>
       </main>

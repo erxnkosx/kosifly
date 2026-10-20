@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/icons";
 
 import { Artwork } from "@/components/ui/Artwork";
-const gradBtn = "linear-gradient(106.1443deg, rgb(232,51,79) 14.286%, rgb(126,12,30) 85.714%)";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+const accent = "var(--home-accent)";
 const Dot = () => (
   <span className="size-[7px] rounded-full bg-[#33e673] shadow-[0_0_8px_rgba(51,230,115,0.8)]" />
 );
@@ -126,7 +127,7 @@ function Visual2() {
             <span
               key={l}
               className="absolute w-[22px] rounded-[4px]"
-              style={{ left: l, height: h, top: t, background: i === 5 ? gradBtn : "#dbdbde" }}
+              style={{ left: l, height: h, top: t, background: i === 5 ? accent : "#dbdbde" }}
             />
           ))}
         </div>
@@ -147,13 +148,7 @@ function Visual3() {
             <div key={s.n} className="flex items-center">
               <div className="flex flex-col items-center gap-[10px]">
                 {s.ai ? (
-                  <span
-                    className="flex size-[68px] items-center justify-center rounded-[18px] shadow-[0_0_24px_rgba(242,74,99,0.6)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(135deg, rgb(232,51,79) 14.286%, rgb(126,12,30) 85.714%)",
-                    }}
-                  >
+                  <span className="home-service-ai flex size-[68px] items-center justify-center rounded-[18px]">
                     <SparklesIcon className="text-white" />
                   </span>
                 ) : (
@@ -178,14 +173,14 @@ function Visual4() {
     <Artwork width={430} height={132}>
       <div style={{ position: "absolute", left: -35, top: -251, width: 502, height: 440 }}>
         <svg
-          className="absolute left-[35px] top-[251px] size-[132px] [filter:drop-shadow(0_0_14px_rgba(232,51,79,0.3))]"
+          className="home-service-uptime absolute left-[35px] top-[251px] size-[132px]"
           viewBox="0 0 150 150"
           fill="none"
         >
           <circle cx="75" cy="75" r="60" stroke="rgba(17,17,17,0.08)" strokeWidth="12" />
           <path
             d="M75 15A60 60 0 1 1 69.8 15.2"
-            stroke="#E8334F"
+            stroke={accent}
             strokeWidth="12"
             strokeLinecap="round"
           />
@@ -216,6 +211,7 @@ const items = [
     body: "Op maat ontworpen, snel en gebouwd rond één duidelijke actie.",
     link: "Bekijk webdesign",
     slug: "webdesign",
+    perks: ["Ontwerp op maat", "Mobiel eerst", "Klaar voor Google"],
   },
   {
     no: "02",
@@ -224,6 +220,7 @@ const items = [
     body: "Een sterk Google-profiel, reviews in de kijker en een site die Google begrijpt.",
     link: "Bekijk lokale SEO",
     slug: "lokale-seo",
+    perks: ["Google-profiel", "Meer reviews", "Lokale zoekwoorden"],
   },
   {
     no: "03",
@@ -232,6 +229,7 @@ const items = [
     body: "Klantenportalen, boekingstools en dashboards op maat.",
     link: "Bekijk web apps",
     slug: "web-apps",
+    perks: ["Veilige login", "Koppelingen", "Groeit mee"],
   },
   {
     no: "04",
@@ -240,6 +238,7 @@ const items = [
     body: "Aanvragen, offertes en opvolging, automatisch geregeld.",
     link: "Bekijk automatisaties",
     slug: "ai-automatisaties",
+    perks: ["Offertes", "Opvolging", "Chatbots"],
   },
   {
     no: "05",
@@ -248,30 +247,43 @@ const items = [
     body: "Updates, back-ups en een maandrapport, zonder zorgen.",
     link: "Bekijk onderhoud",
     slug: "onderhoud-hosting",
+    perks: ["Updates", "Back-ups", "Maandrapport"],
   },
 ];
 const visuals = [Visual0, Visual1, Visual2, Visual3, Visual4];
 export function WatWeDoen() {
   return (
     <section className="service-section light-section home-services">
-      <div className="section-heading">
+      <Reveal className="section-heading">
         <span className="section-eyebrow">WAT WE DOEN</span>
         <h2>
           Alles wat je bedrijf <span>online</span> nodig heeft.
         </h2>
-      </div>
-      <div className="home-services-grid">
+        <p className="swipe-hint" aria-hidden="true">
+          Swipe voor alle diensten <span>→</span>
+        </p>
+      </Reveal>
+      <RevealGroup className="home-services-grid">
         {items.map((item, i) => {
           const Visual = visuals[i];
           return (
-            <article key={item.no} className={"home-service-card home-service-card-" + i}>
+            <RevealItem
+              as="article"
+              key={item.no}
+              className={"home-service-card home-service-card-" + i}
+            >
               <div className="home-service-copy">
                 <span>
                   {item.no} · {item.label}
                 </span>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
-                <a href={"/diensten/" + item.slug}>
+                <ul className="home-service-perks">
+                  {item.perks.map((perk) => (
+                    <li key={perk}>{perk}</li>
+                  ))}
+                </ul>
+                <a href={"/diensten/" + item.slug} className="sbtn sbtn-outline">
                   {item.link}
                   <ArrowRight size={16} />
                 </a>
@@ -279,10 +291,10 @@ export function WatWeDoen() {
               <div className="home-service-visual">
                 <Visual />
               </div>
-            </article>
+            </RevealItem>
           );
         })}
-      </div>
+      </RevealGroup>
     </section>
   );
 }

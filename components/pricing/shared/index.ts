@@ -8,4 +8,5 @@ export { LightSection } from "./LightSection";
 export { PillButton } from "./PillButton";
 export { PriceRow } from "./PriceRow";
 export { Accent, Eyebrow, SectionHeading } from "./SectionHeading";
+export { SwipeDots } from "./SwipeDots";
 export { LIGHT_CARD, ORBITRON_LABEL } from "./styles";

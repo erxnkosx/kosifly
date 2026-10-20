@@ -14,9 +14,11 @@ const routes = [
   "/projecten",
   "/projecten/taxi-bornem",
   "/projecten/primelabs",
+  "/projecten/psc-open-huis",
   "/over-ons",
   "/privacy",
   "/algemene-voorwaarden",
+  "/website-audit",
   ...Object.keys(design).map((slug) => "/diensten/" + slug),
 ];
 const pages = [];
@@ -40,7 +42,8 @@ for (const route of routes) {
   const text = normalize(document.querySelector("main").textContent);
   const slug = route.split("/").at(-1);
   if (design[slug]) {
-    assert.equal(document.querySelectorAll("main>section").length, 7, route + " complete sections");
+    // hero, verschil, aanbod, proces, etalage, prijzen, gerelateerde diensten, FAQ
+    assert.equal(document.querySelectorAll("main>section").length, 8, route + " complete sections");
     for (const item of design[slug].faq) {
       assert(text.includes(normalize(item.q)), item.q);
       assert(text.includes(normalize(item.a)), item.a);

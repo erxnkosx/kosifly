@@ -2,6 +2,7 @@ import { FaqIntro } from "@/components/FaqIntro";
 import { Artwork } from "@/components/ui/Artwork";
 import { ServiceFaq } from "@/components/services/Interactions";
 import { RegionMap } from "@/components/services/art/RegionMap";
+import { SITE } from "@/lib/site";
 
 const steps = [
   {
@@ -46,7 +47,7 @@ const questions = [
   },
   {
     q: "Kan ik ook meteen bellen?",
-    a: "Ja. Je bereikt ons op +32 (0)483 69 04 26, maandag tot zondag van 9 tot 18 uur.",
+    a: `Ja. Je bereikt ons op ${SITE.phone}, maandag tot zondag van 9 tot 18 uur.`,
   },
 ];
 
@@ -93,18 +94,18 @@ export function ContactDetails() {
           </h2>
           <dl>
             {[
-              ["REGIO", "Puurs-Sint-Amands, België"],
+              ["REGIO", `${SITE.locality}, ${SITE.country}`],
               ["OPENINGSUREN", "Maandag tot zondag, 9–18u"],
-              ["E-MAIL", "info@kosifly.com"],
-              ["TELEFOON", "+32 (0)483 69 04 26"],
+              ["E-MAIL", SITE.email],
+              ["TELEFOON", SITE.phone],
             ].map(([label, value]) => (
               <div key={label}>
                 <dt>{label}</dt>
                 <dd>
                   {label === "E-MAIL" ? (
-                    <a href="mailto:info@kosifly.com">{value}</a>
+                    <a href={`mailto:${SITE.email}`}>{value}</a>
                   ) : label === "TELEFOON" ? (
-                    <a href="tel:+32483690426">{value}</a>
+                    <a href={SITE.phoneHref}>{value}</a>
                   ) : (
                     value
                   )}
@@ -132,7 +133,7 @@ export function ContactDetails() {
           </div>
         </div>
       </section>
-      <section className="service-section light-section faq-section">
+      <section className="service-section light-section faq-section contact-faq">
         <FaqIntro />
         <ServiceFaq items={questions} />
       </section>

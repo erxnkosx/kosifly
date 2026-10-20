@@ -8,12 +8,8 @@ const imgGroup5 = `${assetPathPrefix}/4074b.svg`;
 
 function IconBarChart({ className }: { className?: string }) {
   return (
-    <div
-      className={className || "overflow-clip relative size-[24px]"}
-      data-node-id="231:257"
-      data-name="Icon / bar-chart"
-    >
-      <div className="absolute inset-[12.5%]" data-node-id="231:254" data-name="Group">
+    <div className={className || "overflow-clip relative size-[24px]"} data-name="Icon / bar-chart">
+      <div className="absolute inset-[12.5%]" data-name="Group">
         <div className="absolute inset-[-5.56%]">
           <img
             loading="lazy"
@@ -29,12 +25,8 @@ function IconBarChart({ className }: { className?: string }) {
 }
 function IconWorkflow({ className }: { className?: string }) {
   return (
-    <div
-      className={className || "overflow-clip relative size-[24px]"}
-      data-node-id="231:317"
-      data-name="Icon / workflow"
-    >
-      <div className="absolute inset-[12.5%]" data-node-id="231:313" data-name="Group">
+    <div className={className || "overflow-clip relative size-[24px]"} data-name="Icon / workflow">
+      <div className="absolute inset-[12.5%]" data-name="Group">
         <div className="absolute inset-[-5.56%]">
           <img
             loading="lazy"
@@ -50,16 +42,8 @@ function IconWorkflow({ className }: { className?: string }) {
 }
 function IconSend({ className }: { className?: string }) {
   return (
-    <div
-      className={className || "overflow-clip relative size-[24px]"}
-      data-node-id="231:311"
-      data-name="Icon / send"
-    >
-      <div
-        className="absolute inset-[10.42%_10.42%_10.42%_12.5%]"
-        data-node-id="231:308"
-        data-name="Group"
-      >
+    <div className={className || "overflow-clip relative size-[24px]"} data-name="Icon / send">
+      <div className="absolute inset-[10.42%_10.42%_10.42%_12.5%]" data-name="Group">
         <div className="absolute inset-[-5.26%_-5.41%]">
           <img
             loading="lazy"
@@ -75,16 +59,8 @@ function IconSend({ className }: { className?: string }) {
 }
 function IconSparkles({ className }: { className?: string }) {
   return (
-    <div
-      className={className || "overflow-clip relative size-[24px]"}
-      data-node-id="231:306"
-      data-name="Icon / sparkles"
-    >
-      <div
-        className="absolute inset-[14.58%_12.5%_16.67%_16.67%]"
-        data-node-id="231:303"
-        data-name="Group"
-      >
+    <div className={className || "overflow-clip relative size-[24px]"} data-name="Icon / sparkles">
+      <div className="absolute inset-[14.58%_12.5%_16.67%_16.67%]" data-name="Group">
         <div className="absolute inset-[-6.06%_-5.88%]">
           <img
             loading="lazy"
@@ -100,12 +76,8 @@ function IconSparkles({ className }: { className?: string }) {
 }
 function IconFileText({ className }: { className?: string }) {
   return (
-    <div
-      className={className || "overflow-clip relative size-[24px]"}
-      data-node-id="231:301"
-      data-name="Icon / file-text"
-    >
-      <div className="absolute inset-[10.42%_18.75%]" data-node-id="231:298" data-name="Group">
+    <div className={className || "overflow-clip relative size-[24px]"} data-name="Icon / file-text">
+      <div className="absolute inset-[10.42%_18.75%]" data-name="Group">
         <div className="absolute inset-[-5.26%_-6.67%]">
           <img
             loading="lazy"
@@ -123,14 +95,9 @@ function IconUserCheck({ className }: { className?: string }) {
   return (
     <div
       className={className || "overflow-clip relative size-[24px]"}
-      data-node-id="231:296"
       data-name="Icon / user-check"
     >
-      <div
-        className="absolute inset-[16.67%_8.33%_14.58%_8.33%]"
-        data-node-id="231:292"
-        data-name="Group"
-      >
+      <div className="absolute inset-[16.67%_8.33%_14.58%_8.33%]" data-name="Group">
         <div className="absolute inset-[-6.06%_-5%]">
           <img
             loading="lazy"
@@ -152,12 +119,10 @@ export default function AiFeatures() {
         <div className="feature-copy">
           <div
             className="content-stretch flex items-center justify-between relative shrink-0 w-full"
-            data-node-id="I232:1327;231:346"
             data-name="Top"
           >
             <div
               className="content-stretch flex items-center justify-center overflow-clip relative rounded-[14px] shadow-[0px_0px_22px_0px_rgba(232,51,79,0.45)] shrink-0 size-[56px]"
-              data-node-id="I232:1327;231:347"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, rgb(232, 51, 79) 14.286%, rgb(126, 12, 30) 85.714%)",
@@ -166,28 +131,18 @@ export default function AiFeatures() {
             >
               <IconUserCheck className="overflow-clip relative shrink-0 size-[24px]" />
             </div>
-            <p
-              className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap"
-              data-node-id="I232:1327;231:354"
-            >
+            <p className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap">
               0 1
             </p>
           </div>
           <div
             className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start overflow-clip relative shrink-0 w-full"
-            data-node-id="I232:1327;231:355"
             data-name="Inhoud"
           >
-            <p
-              className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full"
-              data-node-id="I232:1327;231:356"
-            >
+            <p className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full">
               Leadopvolging
             </p>
-            <p
-              className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full"
-              data-node-id="I232:1327;231:357"
-            >
+            <p className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full">
               Elke aanvraag komt meteen in je CRM, krijgt een persoonlijke bevestiging en een
               herinnering als niemand reageert.
             </p>
@@ -198,12 +153,10 @@ export default function AiFeatures() {
         <div className="feature-copy">
           <div
             className="content-stretch flex items-center justify-between relative shrink-0 w-full"
-            data-node-id="I232:1328;231:346"
             data-name="Top"
           >
             <div
               className="content-stretch flex items-center justify-center overflow-clip relative rounded-[14px] shadow-[0px_0px_22px_0px_rgba(232,51,79,0.45)] shrink-0 size-[56px]"
-              data-node-id="I232:1328;231:347"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, rgb(232, 51, 79) 14.286%, rgb(126, 12, 30) 85.714%)",
@@ -212,26 +165,16 @@ export default function AiFeatures() {
             >
               <IconFileText className="overflow-clip relative shrink-0 size-[24px]" />
             </div>
-            <p
-              className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap"
-              data-node-id="I232:1328;231:354"
-            >
+            <p className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap">
               0 2
             </p>
           </div>
           <div
             className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start overflow-clip relative shrink-0 w-full"
-            data-node-id="I232:1328;231:355"
             data-name="Inhoud"
           >
-            <p
-              className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full"
-              data-node-id="I232:1328;231:356"
-            >{`Offertes & facturen`}</p>
-            <p
-              className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full"
-              data-node-id="I232:1328;231:357"
-            >
+            <p className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full">{`Offertes & facturen`}</p>
+            <p className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full">
               Offertes en facturen die zichzelf opmaken op basis van een formulier of je planning.
               Jij keurt enkel nog goed.
             </p>
@@ -242,12 +185,10 @@ export default function AiFeatures() {
         <div className="feature-copy">
           <div
             className="content-stretch flex items-center justify-between relative shrink-0 w-full"
-            data-node-id="I232:1329;231:346"
             data-name="Top"
           >
             <div
               className="content-stretch flex items-center justify-center overflow-clip relative rounded-[14px] shadow-[0px_0px_22px_0px_rgba(232,51,79,0.45)] shrink-0 size-[56px]"
-              data-node-id="I232:1329;231:347"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, rgb(232, 51, 79) 14.286%, rgb(126, 12, 30) 85.714%)",
@@ -256,28 +197,18 @@ export default function AiFeatures() {
             >
               <IconSparkles className="overflow-clip relative shrink-0 size-[24px]" />
             </div>
-            <p
-              className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap"
-              data-node-id="I232:1329;231:354"
-            >
+            <p className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap">
               0 3
             </p>
           </div>
           <div
             className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start overflow-clip relative shrink-0 w-full"
-            data-node-id="I232:1329;231:355"
             data-name="Inhoud"
           >
-            <p
-              className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full"
-              data-node-id="I232:1329;231:356"
-            >
+            <p className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full">
               AI-assistent
             </p>
-            <p
-              className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full"
-              data-node-id="I232:1329;231:357"
-            >
+            <p className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full">
               Een chatbot die je diensten en prijzen kent, vragen beantwoordt en afspraken inplant.
               Ook om middernacht.
             </p>
@@ -288,12 +219,10 @@ export default function AiFeatures() {
         <div className="feature-copy">
           <div
             className="content-stretch flex items-center justify-between relative shrink-0 w-full"
-            data-node-id="I232:1330;231:346"
             data-name="Top"
           >
             <div
               className="content-stretch flex items-center justify-center overflow-clip relative rounded-[14px] shadow-[0px_0px_22px_0px_rgba(232,51,79,0.45)] shrink-0 size-[56px]"
-              data-node-id="I232:1330;231:347"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, rgb(232, 51, 79) 14.286%, rgb(126, 12, 30) 85.714%)",
@@ -302,28 +231,18 @@ export default function AiFeatures() {
             >
               <IconSend className="overflow-clip relative shrink-0 size-[24px]" />
             </div>
-            <p
-              className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap"
-              data-node-id="I232:1330;231:354"
-            >
+            <p className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap">
               0 4
             </p>
           </div>
           <div
             className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start overflow-clip relative shrink-0 w-full"
-            data-node-id="I232:1330;231:355"
             data-name="Inhoud"
           >
-            <p
-              className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full"
-              data-node-id="I232:1330;231:356"
-            >
+            <p className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full">
               E-mailflows
             </p>
-            <p
-              className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full"
-              data-node-id="I232:1330;231:357"
-            >
+            <p className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full">
               Automatische mails na een aanvraag, een offerte of een afgeronde klus. Persoonlijk en
               op het juiste moment.
             </p>
@@ -334,12 +253,10 @@ export default function AiFeatures() {
         <div className="feature-copy">
           <div
             className="content-stretch flex items-center justify-between relative shrink-0 w-full"
-            data-node-id="I232:1331;231:346"
             data-name="Top"
           >
             <div
               className="content-stretch flex items-center justify-center overflow-clip relative rounded-[14px] shadow-[0px_0px_22px_0px_rgba(232,51,79,0.45)] shrink-0 size-[56px]"
-              data-node-id="I232:1331;231:347"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, rgb(232, 51, 79) 14.286%, rgb(126, 12, 30) 85.714%)",
@@ -348,28 +265,18 @@ export default function AiFeatures() {
             >
               <IconWorkflow className="overflow-clip relative shrink-0 size-[24px]" />
             </div>
-            <p
-              className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap"
-              data-node-id="I232:1331;231:354"
-            >
+            <p className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap">
               0 5
             </p>
           </div>
           <div
             className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start overflow-clip relative shrink-0 w-full"
-            data-node-id="I232:1331;231:355"
             data-name="Inhoud"
           >
-            <p
-              className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full"
-              data-node-id="I232:1331;231:356"
-            >
+            <p className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full">
               Tools die samenwerken
             </p>
-            <p
-              className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full"
-              data-node-id="I232:1331;231:357"
-            >
+            <p className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full">
               Je formulieren, agenda, boekhouding en CRM wisselen zelf gegevens uit. Overtypen hoort
               bij het verleden.
             </p>
@@ -380,12 +287,10 @@ export default function AiFeatures() {
         <div className="feature-copy">
           <div
             className="content-stretch flex items-center justify-between relative shrink-0 w-full"
-            data-node-id="I232:1332;231:346"
             data-name="Top"
           >
             <div
               className="content-stretch flex items-center justify-center overflow-clip relative rounded-[14px] shadow-[0px_0px_22px_0px_rgba(232,51,79,0.45)] shrink-0 size-[56px]"
-              data-node-id="I232:1332;231:347"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, rgb(232, 51, 79) 14.286%, rgb(126, 12, 30) 85.714%)",
@@ -394,28 +299,18 @@ export default function AiFeatures() {
             >
               <IconBarChart className="overflow-clip relative shrink-0 size-[24px]" />
             </div>
-            <p
-              className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap"
-              data-node-id="I232:1332;231:354"
-            >
+            <p className="[word-break:break-word] font-manrope font-normal leading-[21px] relative shrink-0 text-[#aaa] text-[14px] tracking-[0.4312px] whitespace-nowrap">
               0 6
             </p>
           </div>
           <div
             className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start overflow-clip relative shrink-0 w-full"
-            data-node-id="I232:1332;231:355"
             data-name="Inhoud"
           >
-            <p
-              className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full"
-              data-node-id="I232:1332;231:356"
-            >
+            <p className="font-manrope font-extrabold leading-[34px] relative shrink-0 text-[#111] text-[26px] tracking-[-0.2262px] w-full">
               Live rapportage
             </p>
-            <p
-              className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full"
-              data-node-id="I232:1332;231:357"
-            >
+            <p className="font-manrope font-normal leading-[28px] relative shrink-0 text-[#6b6b6b] text-[19px] w-full">
               Een overzicht dat zichzelf bijwerkt: aanvragen, opvolging en omzet, zonder dat iemand
               een lijst bijhoudt.
             </p>

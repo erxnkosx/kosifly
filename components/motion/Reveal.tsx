@@ -9,6 +9,7 @@ const TAGS = {
   article: motion.article,
   header: motion.header,
   aside: motion.aside,
+  figure: motion.figure,
   ul: motion.ul,
   ol: motion.ol,
   li: motion.li,
@@ -54,7 +55,10 @@ export function RevealGroup({
       initial="hidden"
       {...(onMount
         ? { animate: "show" }
-        : { whileInView: "show", viewport: { once: true, amount: 0.2 } })}
+        : {
+            whileInView: "show",
+            viewport: { once: true, amount: 0.15, margin: "0px 0px -8% 0px" },
+          })}
       {...props}
     >
       {children}
@@ -94,7 +98,10 @@ export function Reveal({
       initial="hidden"
       {...(onMount
         ? { animate: "show" }
-        : { whileInView: "show", viewport: { once: true, amount: 0.2 } })}
+        : {
+            whileInView: "show",
+            viewport: { once: true, amount: 0.15, margin: "0px 0px -8% 0px" },
+          })}
       {...props}
     >
       {children}

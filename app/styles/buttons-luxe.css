@@ -1,0 +1,310 @@
+/*
+ * Knoppen "minimal luxe" voor de hele site (laadt als allerlaatste stylesheet).
+ * Eén vorm voor elke knop: ronde hoeken (28px, kleine knoppen 24px), een dunne pijl direct na het label
+ * en een subtiele schaduw. Vier kleuren:
+ *   rood  (hoofdactie)                 bordeaux verloop (--brand-fill) met een lichtrand (--brand-rim)
+ *   wit   (hoofdactie op donker)       wit vlak, donkere tekst
+ *   glas  (tweede actie op donker)     doorschijnend vlak met een dunne lichtrand
+ *   lijn  (tweede actie op licht)      wit vlak met een dunne grijze rand
+ * Overschrijft de vorm uit mobile-system.css, buttons.css en bordeaux.css; maten (hoogtes) blijven.
+ */
+
+:root {
+  --btn-r: 28px;
+  --btn-r-sm: 24px;
+  --btn-ink: #0b0b0d;
+  --btn-shadow-red:
+    inset 0 1px 0 rgb(255 255 255 / 0.12), 0 1px 1px rgb(0 0 0 / 0.4),
+    0 10px 28px -14px rgb(200 30 60 / 0.95);
+  --btn-shadow-red-hover:
+    inset 0 1px 0 rgb(255 255 255 / 0.16), 0 1px 1px rgb(0 0 0 / 0.4),
+    0 16px 34px -14px rgb(220 40 70 / 1);
+  --btn-arrow-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  --btn-arrow-up-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M9 7h8v8'/%3E%3C/svg%3E");
+  --btn-arrow-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14M6 13l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Alle regels hieronder staan binnen html:not(#kosifly-btn): die selector telt als een id en wint zo
+ * van de oudere, sterk gespecificeerde homepage-regels (html:has(main.home-page) …) in buttons.css en home-accent.css. */
+html:not(#kosifly-btn) {
+  /* ───────────── Vorm: elke knop ───────────── */
+  :is(
+    .button,
+    .sbtn,
+    .service-menu-items > .menu-all,
+    .site-header .mobile-toggle,
+    .mobile-cta-button,
+    .quote-mobile-bar-link,
+    .audit-cta,
+    .audit-submit,
+    .contact-form button[type="submit"],
+    .project-card-bottom > a,
+    .etalage-action-primary,
+    .etalage-action-secondary,
+    .projects-link,
+    .portfolio-text-link,
+    .pill-button,
+    .btn-outline
+  ) {
+    border-radius: var(--btn-r) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    transition:
+      transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.25s,
+      background-color 0.25s,
+      color 0.2s !important;
+  }
+  /* Kleinere knoppen (in kaarten, de navigatie en zwevende balken): iets minder rond. */
+  :is(
+    .sbtn-sm,
+    .site-header .nav-cta,
+    .site-header .mobile-toggle,
+    .mobile-cta-button,
+    .quote-mobile-bar-link,
+    .project-card-bottom > a
+  ) {
+    border-radius: var(--btn-r-sm) !important;
+  }
+
+  /* Label met pijl: de pijl staat direct achter het label, het geheel gecentreerd. */
+  :is(
+    .button,
+    .sbtn,
+    .service-menu-items > .menu-all,
+    .mobile-cta-button,
+    .quote-mobile-bar-link,
+    .audit-cta,
+    .audit-submit,
+    .contact-form button[type="submit"],
+    .project-card-bottom > a,
+    .etalage-action-primary,
+    .etalage-action-secondary,
+    .projects-link,
+    .portfolio-text-link,
+    .pill-button,
+    .btn-outline
+  ):has(> .btn-arrow, > .projects-link-arrow) {
+    justify-content: center !important;
+    gap: 10px !important;
+    padding-inline: 22px !important;
+  }
+  .service-menu-items > .menu-all:has(> .btn-arrow) {
+    justify-content: space-between !important;
+  }
+
+  /* De pijl zelf: een dun lijnicoon in de tekstkleur, geen rond vak meer. */
+  :is(
+      .button,
+      .sbtn,
+      .service-menu-items > .menu-all,
+      .mobile-cta-button,
+      .quote-mobile-bar-link,
+      .audit-cta,
+      .audit-submit,
+      .contact-form button[type="submit"],
+      .project-card-bottom > a,
+      .etalage-action-primary,
+      .etalage-action-secondary,
+      .projects-link,
+      .portfolio-text-link,
+      .pill-button,
+      .btn-outline
+    )
+    :is(.btn-arrow, .projects-link-arrow) {
+    display: inline-block !important;
+    flex-shrink: 0;
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: currentColor !important;
+    box-shadow: none !important;
+    color: inherit !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    -webkit-mask: var(--arrow, var(--btn-arrow-right)) center / contain no-repeat !important;
+    mask: var(--arrow, var(--btn-arrow-right)) center / contain no-repeat !important;
+    transition: translate 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+  /* Richting via een variabele, zodat de sterke selector hierboven ze niet overschrijft. */
+  :is(.btn-arrow, .projects-link-arrow)[data-dir="up-right"] {
+    --arrow: var(--btn-arrow-up-right);
+  }
+  :is(.btn-arrow, .projects-link-arrow)[data-dir="down"] {
+    --arrow: var(--btn-arrow-down);
+  }
+  /* Oude pijltekens die met ::before getekend werden, uitzetten. */
+  :is(.pill-button, .pricing-page #vergelijking tfoot a) .btn-arrow::before {
+    content: none !important;
+  }
+
+  /* ───────────── Rood: de hoofdactie ───────────── */
+  :is(
+    .button.primary,
+    .sbtn-primary,
+    .site-header .nav-cta,
+    .site-header .nav-menu-cta,
+    .service-menu-items > .menu-all,
+    .mobile-cta-button,
+    .quote-mobile-bar-link,
+    .audit-cta,
+    .audit-submit,
+    .contact-form button[type="submit"],
+    .project-card-bottom > a,
+    .pill-brand
+  ) {
+    /* De lichtrand (tweede laag) is alleen in de transparante rand van 1px zichtbaar; de onderste laag
+     * vult die rand met bordeaux, zodat een lichte achtergrond er niet door schijnt. */
+    border: 1px solid transparent !important;
+    background:
+      var(--brand-fill) padding-box,
+      var(--brand-rim) border-box,
+      var(--brand-fill) border-box !important;
+    color: #fff !important;
+    box-shadow: var(--btn-shadow-red) !important;
+  }
+
+  /* ───────────── Wit: hoofdactie op een donkere achtergrond ───────────── */
+  :is(.button.white, .sbtn-light, .etalage-action-primary, .pill-white) {
+    border: 0 !important;
+    background: #fff !important;
+    color: var(--btn-ink) !important;
+    box-shadow:
+      0 1px 1px rgb(0 0 0 / 0.2),
+      0 10px 28px -14px rgb(0 0 0 / 0.6) !important;
+  }
+
+  /* ───────────── Glas: tweede actie op een donkere achtergrond ───────────── */
+  :is(
+    .projects-link,
+    .portfolio-text-link,
+    .etalage-action-secondary,
+    .sbtn-outline-dark,
+    .site-footer .button.outline,
+    .site-header .mobile-toggle
+  ) {
+    border: 0 !important;
+    background: rgb(255 255 255 / 0.05) !important;
+    color: #fff !important;
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.15) !important;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  /* ───────────── Lijn: tweede actie op een lichte achtergrond ───────────── */
+  :is(.pill-outline, .btn-outline, .sbtn-outline) {
+    border: 0 !important;
+    background: #fff !important;
+    color: var(--btn-ink) !important;
+    box-shadow:
+      inset 0 0 0 1px #e4e4e7,
+      0 1px 2px rgb(0 0 0 / 0.05) !important;
+  }
+
+  /* ───────────── Interactie ───────────── */
+  @media (hover: hover) and (pointer: fine) {
+    :is(
+      .button,
+      .sbtn,
+      .service-menu-items > .menu-all,
+      .audit-cta,
+      .audit-submit,
+      .contact-form button[type="submit"],
+      .project-card-bottom > a,
+      .etalage-action-primary,
+      .etalage-action-secondary,
+      .projects-link,
+      .portfolio-text-link,
+      .pill-button,
+      .btn-outline
+    ):hover {
+      transform: translateY(-1px) !important;
+      filter: none !important;
+    }
+    :is(
+      .button.primary,
+      .sbtn-primary,
+      .site-header .nav-cta,
+      .site-header .nav-menu-cta,
+      .service-menu-items > .menu-all,
+      .audit-cta,
+      .audit-submit,
+      .contact-form button[type="submit"],
+      .project-card-bottom > a,
+      .pill-brand
+    ):hover {
+      box-shadow: var(--btn-shadow-red-hover) !important;
+    }
+    :is(.button.white, .sbtn-light, .etalage-action-primary, .pill-white):hover {
+      box-shadow:
+        0 1px 1px rgb(0 0 0 / 0.2),
+        0 16px 32px -14px rgb(0 0 0 / 0.7) !important;
+    }
+    :is(
+      .projects-link,
+      .portfolio-text-link,
+      .etalage-action-secondary,
+      .sbtn-outline-dark,
+      .site-footer .button.outline
+    ):hover {
+      background: rgb(255 255 255 / 0.09) !important;
+      box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.24) !important;
+    }
+    :is(.pill-outline, .btn-outline, .sbtn-outline):hover {
+      box-shadow:
+        inset 0 0 0 1px #d4d4d8,
+        0 6px 16px -10px rgb(0 0 0 / 0.25) !important;
+    }
+    :hover > :is(.btn-arrow, .projects-link-arrow) {
+      translate: 3px 0 !important;
+    }
+    :hover > :is(.btn-arrow, .projects-link-arrow)[data-dir="up-right"] {
+      translate: 2px -2px !important;
+    }
+    :hover > :is(.btn-arrow, .projects-link-arrow)[data-dir="down"] {
+      translate: 0 2px !important;
+    }
+  }
+  :is(
+    .button,
+    .sbtn,
+    .service-menu-items > .menu-all,
+    .mobile-cta-button,
+    .quote-mobile-bar-link,
+    .audit-cta,
+    .audit-submit,
+    .contact-form button[type="submit"],
+    .project-card-bottom > a,
+    .etalage-action-primary,
+    .etalage-action-secondary,
+    .projects-link,
+    .portfolio-text-link,
+    .pill-button,
+    .btn-outline
+  ):active {
+    transform: translateY(0) scale(0.98) !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :is(
+      .button,
+      .sbtn,
+      .audit-cta,
+      .audit-submit,
+      .project-card-bottom > a,
+      .etalage-action-primary,
+      .etalage-action-secondary,
+      .projects-link,
+      .portfolio-text-link,
+      .pill-button,
+      .btn-outline
+    ):is(:hover, :active) {
+      transform: none !important;
+    }
+    :hover > :is(.btn-arrow, .projects-link-arrow) {
+      translate: none !important;
+    }
+  }
+}

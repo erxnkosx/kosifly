@@ -2,7 +2,9 @@ import { Badge } from "@/components/ui/Badge";
 import { CheckCircle } from "@/components/ui/icons";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
+import { HeroFlow } from "./HeroFlow";
 import { HeroVisual } from "./HeroVisual";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 export function Hero() {
   return (
@@ -24,15 +26,12 @@ export function Hero() {
             Van een website die klanten oplevert tot automatisaties die je tijd besparen. Kosifly
             bouwt het, met een vaste prijs en één aanspreekpunt.
           </RevealItem>
-          <RevealItem className="button-row">
-            <a href="/contact" className="button primary">
-              Vraag je gratis website-audit →
+          <RevealItem className="sbtn-row hero-actions">
+            <a href="/website-audit" className="sbtn sbtn-primary sbtn-lg">
+              Vraag je gratis website-audit <BtnArrow />
             </a>
-            <a href="#projecten" className="projects-link">
-              <span className="projects-link-label">Bekijk ons werk</span>
-              <span className="projects-link-arrow" aria-hidden="true">
-                →
-              </span>
+            <a href="#projecten" className="sbtn sbtn-outline-dark sbtn-lg">
+              Bekijk ons werk
             </a>
           </RevealItem>
           <RevealItem as="ul" className="hero-trust">
@@ -47,6 +46,7 @@ export function Hero() {
         <div className="hero-art">
           <HeroVisual />
         </div>
+        <HeroFlow />
       </div>
     </section>
   );

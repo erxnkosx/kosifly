@@ -1,7 +1,8 @@
 import { Artwork } from "@/components/ui/Artwork";
-const imgImage14 = "/figma/projects/8aa05.png";
-const imgImage22 = "/figma/projects/4cd9a.png";
-export function TaxiHeroScene() {
+const imgImage14 = "/figma/projects/8aa05.webp";
+const imgImage22 = "/figma/projects/4cd9a.webp";
+/** `lazy`: onderaan de pagina (volgende case), zodat de beelden niet vooraf geladen worden. */
+export function TaxiHeroScene({ lazy = false }: { lazy?: boolean }) {
   return (
     <Artwork width={1180} height={752.294}>
       <div className="relative h-[752.294px]   w-[1180px]">
@@ -9,6 +10,7 @@ export function TaxiHeroScene() {
           <img
             alt=""
             className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
+            loading={lazy ? "lazy" : undefined}
             src={imgImage14}
           />
         </div>
@@ -16,6 +18,7 @@ export function TaxiHeroScene() {
           <img
             alt=""
             className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
+            loading={lazy ? "lazy" : undefined}
             src={imgImage22}
           />
         </div>

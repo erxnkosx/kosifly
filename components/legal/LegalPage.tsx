@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/Badge";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
+import { BtnArrow } from "@/components/ui/BtnArrow";
 
 export type LegalSection = { id: string; title: string; content: ReactNode };
 export function LegalPage({
@@ -40,6 +41,20 @@ export function LegalPage({
             <Link href="/contact">Neem contact op →</Link>
           </aside>
           <div className="legal-article">
+            {/* Alleen mobiel: inklapbare inhoudstafel i.p.v. de lange zijkolom. */}
+            <details className="legal-jump">
+              <summary>
+                <span>Op deze pagina</span>
+                <small>{sections.length} onderdelen</small>
+              </summary>
+              <nav aria-label={`Inhoud ${title} (mobiel)`}>
+                {sections.map((section) => (
+                  <a href={`#${section.id}`} key={section.id}>
+                    {section.title}
+                  </a>
+                ))}
+              </nav>
+            </details>
             <div className="legal-draft">
               <strong>Concept — nog te bevestigen</strong>
               <p>
@@ -54,6 +69,14 @@ export function LegalPage({
               </section>
             ))}
             <p className="legal-updated">Conceptversie · 5 oktober 2026</p>
+            {/* Alleen mobiel: de zijkolom (met contactlink) is daar verborgen. */}
+            <div className="legal-help">
+              <strong>Vraag over deze tekst?</strong>
+              <p>Mail of bel ons gerust, je krijgt binnen 24 uur antwoord.</p>
+              <Link href="/contact" className="button primary">
+                Neem contact op <BtnArrow />
+              </Link>
+            </div>
           </div>
         </section>
       </main>

@@ -21,7 +21,7 @@ export function ServiceChips({ selected, onToggle }: ServiceChipsProps) {
           return (
             <label
               key={service}
-              className={`relative flex cursor-pointer items-center rounded-[30px] font-inter text-[15px] font-semibold leading-[18px] transition-colors ${
+              className={`quote-chip relative flex cursor-pointer items-center rounded-[30px] font-inter text-[15px] font-semibold leading-[18px] transition-colors ${
                 on
                   ? "gap-[8px] bg-ink py-[11px] pl-[14px] pr-[18px] text-white"
                   : "border border-[#e0e0e0] bg-white px-[18px] py-[11px] text-ink hover:border-[#bfbfbf]"
