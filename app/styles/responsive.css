@@ -952,10 +952,6 @@
   .pricing-page .pricing-canvas > section {
     padding: 96px var(--edge) 96px !important;
   }
-  .pricing-page .pricing-canvas > nav ul {
-    justify-content: center;
-    padding-inline: var(--gutter) !important;
-  }
 
   /* Swipe-rijen (pakketten, maandkaarten): raster. */
   .pricing-page .pricing-canvas .pricing-swipe {

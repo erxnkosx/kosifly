@@ -17,86 +17,17 @@
     --pp-dark-bg:
       radial-gradient(110% 40% at 100% 0%, #8a0a1f59 0%, transparent 60%),
       radial-gradient(90% 40% at 0% 75%, #5c000f73 0%, transparent 70%), #080304;
-    --pp-bar: 64px;
   }
 
   /* ---------- Hero: leesbaar voorbeeldvoorstel i.p.v. de geschaalde desktopscène ---------- */
 
-  /* ---------- Canvas, ankerbalk en ritme ---------- */
+  /* ---------- Canvas en ritme ---------- */
   .pricing-page .pricing-canvas {
     background: #070405;
   }
-  .pricing-page .pricing-canvas > nav {
-    /* Schuift onder de zwevende navbar (--nav-offset, gezet door components/Navbar.tsx). */
-    top: var(--nav-offset, 0px);
-    transition: top 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-    height: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid #ffffff14;
-    background: #0b0607eb;
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-  }
-  .pricing-page .pricing-canvas > nav ul {
-    width: 100%;
-    height: auto;
-    gap: 8px;
-    padding: 0 20px;
-    overflow-x: auto;
-    scroll-padding-inline: 20px;
-    scrollbar-width: none;
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent,
-      #000 16px,
-      #000 calc(100% - 28px),
-      transparent
-    );
-    mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 28px), transparent);
-  }
-  .pricing-page .pricing-canvas > nav ul::-webkit-scrollbar {
-    display: none;
-  }
-  .pricing-page .pricing-canvas > nav a {
-    align-items: center;
-    min-height: 44px;
-    padding: 0 16px;
-    border: 1px solid #ffffff1f;
-    background: #ffffff0d;
-    font: 600 14px/1 var(--font-inter);
-    color: #ffffffcc;
-    box-shadow: none;
-  }
-  .pricing-page .pricing-canvas > nav a[aria-current] {
-    border-color: #fff;
-    background: #fff;
-    color: #111;
-  }
-  /* Op mobiel toont de maandsectie één groep: markeer enkel de tab van die groep. */
-  .pricing-page:has(#maandpakketten:not([data-group="seo"]))
-    .pricing-canvas
-    > nav
-    li:nth-child(2)
-    a[aria-current],
-  .pricing-page:has(#maandpakketten[data-group="seo"])
-    .pricing-canvas
-    > nav
-    li:nth-child(3)
-    a[aria-current] {
-    border-color: #ffffff1f;
-    background: #ffffff0d;
-    color: #ffffffcc;
-  }
-  .pricing-page .pricing-canvas > nav li:last-child a {
-    border-color: transparent;
-    background: var(--pp-red);
-    color: #fff;
-    box-shadow: inset 0 1px 0 #ffffff40;
-  }
-
   .pricing-page .pricing-canvas > section {
     position: relative;
-    scroll-margin-top: var(--pp-bar);
+    scroll-margin-top: var(--nav-offset, 0px);
     padding: 72px 20px 64px;
     overflow: clip visible;
   }
@@ -456,7 +387,7 @@
   }
   .pricing-page #vergelijking thead {
     position: sticky;
-    top: calc(var(--pp-bar) + var(--nav-offset, 0px));
+    top: var(--nav-offset, 0px);
     z-index: 2;
     border-bottom: 1px solid #ebebeb;
     border-radius: 24px 24px 0 0;
@@ -1033,13 +964,6 @@
         animation-range: entry 0% entry 40%;
       }
     }
-  }
-}
-
-@media (max-width: 360px) {
-  .pricing-page .pricing-canvas > nav a {
-    padding: 0 14px;
-    font-size: 13.5px;
   }
 }
 

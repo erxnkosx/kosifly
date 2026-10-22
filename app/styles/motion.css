@@ -5,7 +5,7 @@
  */
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Ankerlinks (#projecten, ankerbalk prijzen) scrollen vloeiend; Next.js zet dit uit bij paginawissels
+  /* Ankerlinks (#projecten) scrollen vloeiend; Next.js zet dit uit bij paginawissels
    * dankzij data-scroll-behavior="smooth" op <html>. */
   html {
     scroll-behavior: smooth;

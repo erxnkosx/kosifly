@@ -26,7 +26,7 @@ const SCROLL_STEP = 6;
  * - compact: bij omhoog scrollen komt hij terug als glazen balk.
  * Van compact naar vol (terug bovenaan) vervormt de balk vloeiend (CSS-transities op maat, glas en
  * afronding). Van vol naar compact gebeurt alleen terwijl hij verborgen is, dus onzichtbaar.
- * Zet --nav-offset op <html>, zodat sticky balken (bv. de ankerbalk op /prijzen) eronder schuiven.
+ * Zet --nav-offset op <html>, zodat sticky elementen (bv. de kop van de vergelijkingstabel op /prijzen) eronder schuiven.
  */
 function useFloatingNav(keepVisible: boolean) {
   const [compact, setCompact] = useState(false);

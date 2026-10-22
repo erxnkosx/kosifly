@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import {
-  AnchorBar,
   Comparison,
   CustomWork,
   Extras,
@@ -30,7 +29,6 @@ export default function PricingPage() {
       <main id="main-content" className="pricing-page">
         <PricingHero />
         <DesignCanvas>
-          <AnchorBar />
           <Websites />
           <Comparison />
           <MonthlyPlans />

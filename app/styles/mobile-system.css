@@ -237,11 +237,6 @@
   :is(.audit-goals button, .project-filters :is(button, a)):active {
     transform: scale(0.96);
   }
-  /* Schakelaars (één keuze): pil-spoor met een witte actieve pil. */
-  /* Ankerbalk op /prijzen: dezelfde pilvorm. */
-  .pricing-page .pricing-canvas > nav a {
-    border-radius: 999px !important;
-  }
 }
 
 @media all /* was (max-width: 760px) */ {
