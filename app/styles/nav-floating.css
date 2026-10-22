@@ -1,0 +1,110 @@
+/*
+ * Zwevende navbar (components/Navbar.tsx, useFloatingNav). De navbar staat altijd vast bovenaan het venster:
+ *   vol        bovenaan de pagina: de transparante navbar over de hero (maten uit de bestaande stylesheets)
+ *   compact    .is-compact: glazen balk, smaller en lager
+ *   verborgen  .is-hidden: buiten beeld geschoven
+ * Vol en compact verschillen alleen in waarden die vloeiend overgaan (padding, max-breedte, hoogte,
+ * achtergrond, afronding, schaduw, tekstkleur), zodat de balk bij terugkeer bovenaan onmerkbaar vervormt.
+ */
+:root {
+  --nav-morph: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header {
+  position: fixed !important;
+  inset: 0 0 auto !important;
+  z-index: 60;
+  padding: 0 0 0;
+  pointer-events: none;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    padding var(--nav-morph);
+}
+.site-header .nav-inner {
+  pointer-events: auto;
+  border-radius: 0;
+  background-color: rgb(12 7 9 / 0);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0),
+    0 18px 40px -18px rgb(0 0 0 / 0);
+  transition:
+    max-width var(--nav-morph),
+    min-height var(--nav-morph),
+    padding var(--nav-morph),
+    border-radius var(--nav-morph),
+    background-color var(--nav-morph),
+    box-shadow var(--nav-morph) !important;
+}
+/* Tekst en logo wisselen op lichte pagina's (/services) van donker naar wit: ook vloeiend. */
+.site-header :is(.site-logo, .nav-links > a:not(.button), .services-menu > button, .mobile-toggle) {
+  transition:
+    color var(--nav-morph),
+    filter var(--nav-morph);
+}
+.site-header .services-chevron {
+  transition:
+    border-color var(--nav-morph),
+    rotate 0.22s ease;
+}
+
+/* ───────────── Compact ───────────── */
+.site-header.is-compact {
+  padding: 10px clamp(10px, 2vw, 24px) 0;
+}
+.site-header.is-compact .nav-inner {
+  max-width: min(100%, var(--wrap, 1320px)) !important;
+  min-height: 60px !important;
+  margin-inline: auto !important;
+  padding: 8px 8px 8px 22px !important;
+  border-radius: 24px;
+  background-color: rgb(12 7 9 / 0.8);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.09),
+    0 18px 40px -18px rgb(0 0 0 / 0.75);
+}
+.site-header.is-compact .nav-cta {
+  --btn-h: 44px;
+}
+
+/* ───────────── Verborgen ───────────── */
+.site-header.is-hidden {
+  transform: translateY(calc(-100% - 16px));
+}
+/* Compact maken terwijl de balk verborgen is: zonder transities, dus onzichtbaar. */
+.site-header.is-instant,
+.site-header.is-instant * {
+  transition: none !important;
+}
+
+@media (max-width: 760px) {
+  .site-header.is-compact .nav-inner {
+    min-height: 56px !important;
+    padding: 6px 6px 6px 16px !important;
+    border-radius: 20px;
+  }
+  /* Menu onder de compacte balk: zelfde afronding en lichtrand, met een kleine tussenruimte. Dekkend:
+   * binnen de glazen balk werkt een tweede backdrop-filter niet, dus de pagina zou scherp doorschijnen. */
+  .site-header.is-compact .nav-links.mobile-open {
+    top: calc(100% + 8px) !important;
+    max-height: calc(100dvh - 96px);
+    overflow-y: auto;
+    border-radius: 20px;
+    background: #0e090b !important;
+    box-shadow:
+      inset 0 0 0 1px rgb(255 255 255 / 0.09),
+      0 24px 48px -20px rgb(0 0 0 / 0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: opacity 0.2s;
+  }
+  .site-header.is-hidden {
+    transform: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}

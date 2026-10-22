@@ -88,17 +88,12 @@
   .contact-section .contact-copy > h1 .text-accent-gradient {
     color: #fff;
     -webkit-text-fill-color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-background-clip: border-box;
     background-clip: border-box;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 2px;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .contact-section .contact-copy > h1 .text-accent-gradient {
-      animation: marker-draw 0.9s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
   }
   .legal-hero .portfolio-hero-copy > p,
   .contact-section .contact-copy > p {
@@ -226,7 +221,7 @@
   }
   .about-expertise .portfolio-heading h2 span {
     color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 2px;
@@ -542,182 +537,6 @@
     stroke: #fff;
   }
 
-  /* Formulier: witte kaart, 16px velden (geen iOS-zoom), duidelijke focus- en foutstaten. */
-  .contact-section .contact-form {
-    width: 100%;
-    gap: 20px;
-    padding: 22px 18px 24px !important;
-    border-radius: 24px;
-    box-shadow:
-      0 24px 60px #00000080,
-      0 0 0 1px #ffffff14;
-  }
-  .contact-form > div:has(> button[aria-pressed]) > button {
-    min-height: 48px;
-    padding: 8px 4px;
-    font-size: 13.5px;
-    letter-spacing: -0.015em;
-    line-height: 1.2;
-  }
-  .contact-form h2 {
-    font-size: 25px;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-  .contact-form label > span:first-child,
-  .contact-form span.font-semibold.text-ink.text-\[13px\] {
-    font-size: 14px;
-    color: #1d1d1d;
-  }
-  /* Stapnummers in de offerte. */
-  .contact-form .size-\[24px\].rounded-full {
-    width: 26px;
-    height: 26px;
-    background-image: linear-gradient(180deg, #b0122f, #810012);
-    font-size: 12px;
-  }
-  /* Maandelijkse keuzes passen op één rij. */
-  .contact-form .monthly-options .segmented-options {
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(0, 1fr);
-  }
-  .contact-form input:not([type="checkbox"]),
-  .contact-form textarea {
-    min-height: 52px;
-    border-color: #e3e3e3;
-    border-radius: 14px;
-    background: #f6f6f6;
-    font-size: 16px;
-    transition:
-      border-color 0.2s,
-      background 0.2s,
-      box-shadow 0.2s;
-  }
-  .contact-form textarea {
-    min-height: 120px;
-  }
-  .contact-form input:not([type="checkbox"]):focus,
-  .contact-form textarea:focus {
-    border-color: #810012;
-    background: #fff;
-    box-shadow: 0 0 0 4px #8100121f;
-  }
-  .contact-form input:not([type="checkbox"]):user-invalid,
-  .contact-form textarea:user-invalid {
-    border-color: #c4122e;
-    background: #fff7f8;
-    box-shadow: 0 0 0 4px #c4122e14;
-  }
-  .contact-form label:not(.contact-consent):has(> input:user-invalid)::after {
-    content: "Vul dit veld in.";
-    font: 500 13px/1.3 var(--font-inter);
-    color: #b0001c;
-  }
-  .contact-form label:not(.contact-consent):has(> input[type="email"]:user-invalid)::after {
-    content: "Vul een geldig e-mailadres in.";
-  }
-  .contact-form .contact-consent:has(input:user-invalid) > span:nth-of-type(1) {
-    border: 2px solid #c4122e;
-    background: #fff7f8;
-  }
-  .contact-form .contact-consent:has(input:user-invalid) > span:last-child {
-    color: #b0001c;
-  }
-
-  /* Keuzes: tikvlakken van 44px. */
-  .contact-form button[aria-pressed] {
-    min-height: 44px;
-  }
-  .contact-form .flex-wrap > button[aria-pressed] {
-    padding-block: 0;
-    font-size: 14px;
-  }
-  .contact-form .segmented-options button {
-    min-height: 44px;
-    font-size: 14px !important;
-  }
-  .contact-form .monthly-options .segmented-options button {
-    font-size: 13px !important;
-  }
-  .contact-form .package-options,
-  .contact-form .monthly-options {
-    flex-direction: column;
-  }
-  .contact-form .package-options > button {
-    flex: 1 1 auto;
-    min-height: 56px;
-  }
-  .contact-form .monthly-options > div {
-    flex: 1 1 auto;
-  }
-  .contact-form .monthly-options .font-inter.text-\[12px\] {
-    font-size: 13px;
-  }
-  .contact-form .package-options .text-\[12px\] {
-    font-size: 13px;
-  }
-
-  /* Prijsindicatie: rustige labels, bedragen die niet botsen. */
-  .contact-form .price-total {
-    gap: 14px 24px;
-  }
-  .contact-form .price-total > div:last-child {
-    align-items: flex-start;
-  }
-  .contact-form .price-total .font-geist {
-    font-size: 24px;
-  }
-  .contact-form .font-orbitron {
-    font: 700 12px/1.2 var(--font-inter);
-    letter-spacing: 0.14em;
-  }
-
-  /* Akkoord, verzendknop en status. */
-  .contact-form .contact-consent {
-    min-height: 48px;
-    align-items: center;
-  }
-  .contact-form .contact-consent > span:nth-of-type(1) {
-    width: 24px;
-    height: 24px;
-  }
-  .contact-form .contact-consent a {
-    padding-block: 12px;
-  }
-  .contact-section .contact-form button[type="submit"] {
-    min-height: 56px;
-    padding-block: 0;
-    background-image: linear-gradient(180deg, #b0122f 0%, #810012 100%);
-    box-shadow:
-      inset 0 1px 0 #ffffff40,
-      0 10px 30px #a6122d59;
-    font-size: 16px;
-  }
-  .contact-section .contact-form button[type="submit"]:disabled {
-    opacity: 0.7;
-  }
-  .contact-form .submission-status {
-    padding: 14px 16px;
-    border: 1px solid #1f7a3f40;
-    border-radius: 14px;
-    background: #f1faf4;
-    color: #17532c;
-    font-size: 14.5px;
-  }
-  .contact-form .submission-status:has(a) {
-    border-color: #c4122e40;
-    background: #fff5f6;
-    color: #7a0011;
-  }
-  .contact-form .submission-status a {
-    font-weight: 600;
-    color: #810012;
-  }
-  .contact-form .contact-context {
-    font-size: 14.5px;
-  }
-
   /* Sheets: hero → stappen (licht) → locatie (donker) → FAQ (licht, afgerond boven de footer). */
   .contact-next-steps,
   .contact-location,
@@ -873,7 +692,7 @@
   }
   .contact-location h2 > span {
     color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 2px;

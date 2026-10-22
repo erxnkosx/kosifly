@@ -1,4 +1,4 @@
-const DIRECTIONS: Record<string, string> = { "↗": "up-right", "↓": "down" };
+const DIRECTIONS: Record<string, string> = { "↗": "up-right", "↓": "down", "←": "left" };
 
 /**
  * Pijl achter een knoplabel. De vorm komt uit CSS (`app/styles/buttons-luxe.css`): een dun lijnicoon

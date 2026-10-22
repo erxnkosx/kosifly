@@ -4,7 +4,7 @@
     {
       "route": "/",
       "h1": "Websites, softwareen AI die je bedrijflaten groeien.",
-      "mainSections": 11,
+      "mainSections": 10,
       "status": "passed"
     },
     {
@@ -47,6 +47,30 @@
       "route": "/projecten/psc-open-huis",
       "h1": "Ledenbeheer en activiteiten,op één plek.",
       "mainSections": 5,
+      "status": "passed"
+    },
+    {
+      "route": "/projecten/zerain",
+      "h1": "Koffie en brunch,online net zo uitnodigend.",
+      "mainSections": 4,
+      "status": "passed"
+    },
+    {
+      "route": "/projecten/panero",
+      "h1": "Broodjes metsmaak, ook online.",
+      "mainSections": 4,
+      "status": "passed"
+    },
+    {
+      "route": "/projecten/futsalytix",
+      "h1": "Elke match,helder in beeld.",
+      "mainSections": 4,
+      "status": "passed"
+    },
+    {
+      "route": "/projecten/ay-gold",
+      "h1": "Van losse Excel-bestandennaar één platform.",
+      "mainSections": 4,
       "status": "passed"
     },
     {
@@ -104,7 +128,7 @@
       "status": "passed"
     }
   ],
-  "localAssets": 223,
+  "localAssets": 214,
   "knownMissingContent": [
     "Legal pages are drafts; official company details, retention and processing providers need confirmation",
     "Case request metrics and customer quotes are not supplied in Figma"

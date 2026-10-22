@@ -26,12 +26,6 @@
   }
 
   /* ───────────── Gekozen chip: veert kort op ───────────── */
-  :is(
-    .quote-chip:has(input:checked),
-    :is(.contact-chip, .audit-goals button, .project-filters button)[aria-pressed="true"]
-  ) {
-    animation: chip-pop 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-  }
 
   /* ───────────── FAQ: plus draait mee naar min ───────────── */
   .faq-item h3 button img {
@@ -39,6 +33,41 @@
   }
   .faq-item.is-open h3 button img {
     rotate: 180deg;
+  }
+}
+
+/* ───────────── Markeerstreep onder accentwoorden op donkere secties: tekent zich van links naar rechts ─────────────
+ * Zodra het woord in beeld komt (data-accent-in, gezet door components/motion/AccentReveal.tsx). De streep zelf
+ * (--marker-fill, 100% breed) staat per sectie in de pagina-stylesheets; hier enkel de beginstand en de overgang.
+ * Zonder JavaScript of bij verminderde beweging staat de streep er meteen. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  :is(
+    .home-hero h1 em,
+    .service-hero:not(.home-hero) h1 em,
+    .audit-hero h1 em,
+    .audit-request-copy h2 span,
+    .contact-section .contact-copy > h1 .text-accent-gradient,
+    .contact-location h2 > span,
+    .overview-hero h1 span,
+    .case-hero h1 span,
+    .case-results .portfolio-heading h2 span,
+    .project-invitation h2 > span,
+    .about-expertise .portfolio-heading h2 span,
+    .pricing-page .pricing-section-heading-dark h2 > span,
+    .service-page .showcase-section .section-heading h2 > span,
+    .etalage-mobile h2 .etalage-accent,
+    .home-page .etalage-slide .etalage-accent,
+    .site-footer .footer-invitation h2 span
+  ) {
+    transition: background-size 1s cubic-bezier(0.65, 0, 0.35, 1) var(--accent-delay, 0.1s);
+
+    &:not([data-accent-in]) {
+      background-size: 0% 30% !important;
+    }
+  }
+  /* De etalage gebruikt een iets lagere streep (26%). */
+  .home-page .etalage-slide .etalage-accent:not([data-accent-in]) {
+    background-size: 0% 26% !important;
   }
 }
 

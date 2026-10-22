@@ -1,11 +1,10 @@
-/* Homepage: maten van de .sbtn-knoppen, de header-/footerknoppen op de homepage, de schakelaar,
+/* Homepage: maten van de .sbtn-knoppen, de header-/footerknoppen op de homepage,
  * carrouselbediening en FAQ-rijen. Vorm, kleur, pijl en hover van alle knoppen staan in buttons-luxe.css.
  */
 :root {
   --sbtn-gradient: var(--brand-fill);
   --sbtn-pearl: linear-gradient(145deg, #fff 15%, #f7eef0 68%, #ead8df 100%);
   --sbtn-glass: linear-gradient(145deg, rgb(255 255 255 / 0.12), rgb(255 255 255 / 0.025));
-  --sbtn-shadow: var(--brand-glow);
   --sbtn-ring: #a6122d;
   --sbtn-ring-dark: #f8bccb;
 }
@@ -104,41 +103,6 @@ html:has(main.home-page) {
   }
 }
 
-/* Segmented control: inset pearl rail with a burgundy selected state. */
-.home-difference .verschil-switch {
-  padding: 4px;
-  border: 1px solid #e5d6dc;
-  border-radius: 999px;
-  background: linear-gradient(145deg, #f5edf0, #fff);
-  box-shadow:
-    inset 0 1px 3px rgb(82 16 38 / 0.06),
-    0 4px 16px rgb(82 16 38 / 0.04);
-}
-.home-difference .verschil-switch-thumb,
-.home-difference .verschil-toggle.is-on .verschil-switch-thumb {
-  top: 4px;
-  bottom: 4px;
-  border-radius: 999px;
-  background: var(--sbtn-gradient);
-  box-shadow: var(--sbtn-shadow);
-}
-.home-difference .verschil-switch button {
-  min-height: 44px;
-  border-radius: 999px;
-  font: 600 14px/1.2 var(--font-inter);
-  color: #70535d;
-  cursor: pointer;
-}
-.home-difference .verschil-switch button[aria-pressed="true"] {
-  color: #fff;
-}
-.home-difference .verschil-switch button img {
-  filter: brightness(0) saturate(100%) invert(20%) sepia(30%) saturate(1600%) hue-rotate(300deg);
-}
-.home-difference .verschil-switch button[aria-pressed="true"] img {
-  filter: brightness(0) invert(1);
-}
-
 /* Round carousel controls; the small indicators retain a full touch target. */
 .home-page .etalage-carousel .etalage-arrow {
   border: 1px solid rgb(255 255 255 / 0.25);
@@ -227,7 +191,7 @@ html:has(main.home-page) {
 .home-page .home-faq .faq-answer p {
   padding: 0 20px 20px;
 }
-.home-page :is(.verschil-switch, .review-carousel-dots, .faq-item) button:focus-visible {
+.home-page :is(.review-carousel-dots, .faq-item) button:focus-visible {
   outline: 2px solid var(--sbtn-ring);
   outline-offset: 3px;
 }
@@ -279,9 +243,7 @@ html:has(main.home-page) {
       .sbtn svg,
       .etalage-arrow,
       .etalage-dots button,
-      .review-carousel-dots button,
-      .verschil-switch-thumb,
-      .verschil-switch button
+      .review-carousel-dots button
     ),
   .home-page :is(.etalage-dots, .review-carousel-dots) button::after {
     transition: none !important;

@@ -35,16 +35,6 @@
   .service-menu-items small {
     overflow-wrap: anywhere;
   }
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 16px;
-  }
-  .contact-form button {
-    min-height: 44px;
-  }
-  .contact-form .flex.gap-\[16px\] {
-    flex-direction: column;
-  }
   .hero-line {
     white-space: normal;
   }
@@ -238,52 +228,6 @@
     font-size: 16px;
     line-height: 1.6;
     gap: 12px;
-  }
-  .pricing-canvas #bereken-je-prijs > div:last-child > div {
-    width: 100%;
-    flex-direction: column;
-  }
-  .pricing-canvas #bereken-je-prijs > div:last-child > div > div {
-    width: 100%;
-    padding: 20px 8px;
-  }
-  .pricing-canvas #bereken-je-prijs aside {
-    width: 100%;
-    padding: 24px;
-  }
-  .pricing-canvas #bereken-je-prijs aside output {
-    font-size: 32px;
-  }
-  .pricing-canvas #bereken-je-prijs fieldset {
-    min-width: 0;
-    width: 100%;
-  }
-  .pricing-canvas #bereken-je-prijs fieldset > div {
-    flex-wrap: wrap;
-  }
-  .pricing-canvas #bereken-je-prijs fieldset > div > label {
-    flex-basis: 100%;
-  }
-  .pricing-canvas #bereken-je-prijs fieldset fieldset > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .pricing-canvas #bereken-je-prijs fieldset fieldset label {
-    padding-inline: 8px;
-    text-align: center;
-    min-height: 44px;
-  }
-  .pricing-canvas #bereken-je-prijs fieldset > div > div.relative {
-    width: 100%;
-    height: auto;
-    min-height: 52px;
-    flex-wrap: wrap;
-  }
-  .pricing-canvas #bereken-je-prijs fieldset > div > div.relative > label {
-    flex-basis: 100%;
-  }
-  .pricing-canvas #bereken-je-prijs button {
-    min-height: 44px;
   }
   .pricing-canvas > nav {
     width: 100%;
@@ -562,42 +506,6 @@
     font-size: 9px;
     white-space: nowrap;
   }
-  .pricing-canvas #bereken-je-prijs legend {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-  .pricing-canvas #bereken-je-prijs legend > span {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .pricing-canvas #bereken-je-prijs legend > span > span:nth-child(2) {
-    font-size: 20px;
-  }
-  .pricing-canvas #bereken-je-prijs legend > span > span:last-child:not(:nth-child(2)) {
-    flex-basis: 100%;
-    padding-left: 38px;
-  }
-  .pricing-canvas .quote-extra > label {
-    flex-wrap: wrap;
-    min-height: 44px;
-  }
-  .pricing-canvas .quote-extra > label > span:nth-of-type(2) {
-    overflow-wrap: anywhere;
-  }
-  .pricing-canvas .quote-extra > label > span:last-child:not(:nth-of-type(2)) {
-    flex-basis: 100%;
-    padding-left: 34px;
-  }
-  .pricing-canvas .quote-step-button {
-    min-width: 44px;
-    min-height: 44px;
-    margin: 0;
-    padding: 0;
-  }
-  .pricing-canvas .quote-stepper {
-    padding: 0;
-    gap: 4px;
-  }
   .pricing-canvas .quote-price-row {
     align-items: flex-start;
     gap: 12px;
@@ -610,10 +518,6 @@
   .pricing-canvas .quote-price-row dd {
     flex-shrink: 0;
     white-space: nowrap;
-  }
-  .pricing-canvas #bereken-je-prijs aside a {
-    white-space: normal;
-    text-align: center;
   }
   .site-footer .footer-invitation h2 span {
     color: #ff607c;
@@ -721,32 +625,6 @@
   }
   .calculator-inputs output {
     white-space: nowrap;
-  }
-  .contact-form .contact-field-row {
-    flex-direction: column;
-  }
-  .contact-form .contact-field-row > label {
-    flex: auto;
-  }
-  .contact-form .contact-consent {
-    min-height: 48px;
-    position: relative;
-    align-items: flex-start;
-  }
-  .contact-consent input:focus-visible + span {
-    outline: 3px solid #e8334f;
-    outline-offset: 3px;
-  }
-  .contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-  .submission-status a {
-    display: inline-flex;
-    min-height: 44px;
-    align-items: center;
-    text-decoration: underline;
-    overflow-wrap: anywhere;
   }
   .receipt-heading > span,
   .receipt-line-title > span,

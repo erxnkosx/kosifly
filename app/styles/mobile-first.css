@@ -3,8 +3,6 @@
 
 .swipe-hint,
 .mobile-cta-bar,
-.verschil-toggle-wrap,
-.verschil-intro-mobile,
 .home-service-perks,
 .hero-flow,
 .footer-brand-mark {
@@ -174,10 +172,8 @@
   .home-services {
     z-index: 1;
   }
-  .home-services::before,
   .home-reviews::before,
   .home-faq::before,
-  .home-services::after,
   .home-reviews::after,
   .home-faq::after {
     content: "";
@@ -185,7 +181,6 @@
     left: 50%;
     pointer-events: none;
   }
-  .home-services::before,
   .home-reviews::before,
   .home-faq::before {
     top: 0;
@@ -204,7 +199,6 @@
       transparent
     );
   }
-  .home-services::after,
   .home-reviews::after,
   .home-faq::after {
     top: -11px;
@@ -218,9 +212,7 @@
   }
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-      .home-services::before,
       .home-faq::before,
-      .home-services::after,
       .home-faq::after {
         animation: divider-in linear both;
         animation-timeline: view();
@@ -297,7 +289,6 @@
   .home-hero {
     padding-bottom: var(--sheet-overlap);
   }
-  .home-difference,
   #projecten,
   .home-process {
     position: relative;
@@ -415,7 +406,7 @@
   .home-hero h1 em {
     font-style: normal;
     -webkit-text-fill-color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-background-clip: border-box;
     background-clip: border-box;
     padding: 0 2px;
@@ -834,9 +825,6 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .home-hero h1 em {
-      animation: marker-draw 0.9s 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
     .home-hero .hero-copy > .button-row .button::after {
       animation: button-shine 4.5s 1.6s ease-in-out infinite;
     }
@@ -946,29 +934,7 @@
     margin-top: auto;
     padding-top: 20px;
   }
-
-  .home-difference .section-heading h2 {
-    font-size: 30px;
-  }
-  .home-difference .section-heading {
-    margin-bottom: 24px;
-  }
-  .verschil-intro-mobile {
-    margin-top: 12px;
-    font-weight: 600;
-    color: #810012 !important;
-  }
   /* Verschil: schakelaar + één kaart die omklapt i.p.v. twee gestapelde kaarten. */
-  .home-difference .home-comparison-grid,
-  .verschil-intro-desktop {
-    display: none;
-  }
-  .verschil-intro-mobile {
-    display: block;
-  }
-  .verschil-toggle-wrap {
-    display: block;
-  }
   .verschil-switch {
     position: relative;
     display: grid;
@@ -1280,7 +1246,7 @@
   .etalage-mobile h2 .etalage-accent,
   .site-footer .footer-invitation h2 span {
     color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-background-clip: border-box;
     background-clip: border-box;
     -webkit-box-decoration-break: clone;
@@ -1364,7 +1330,6 @@
   }
 
   /* Accentregel: lichte secties krijgen een rode onderlijning (donkere secties de markeerstreep). */
-  .home-difference .highlight-title > span,
   .home-services .section-heading h2 > span,
   .home-process .section-heading h2 > span {
     background: none;
@@ -1590,7 +1555,7 @@
   .service-hero:not(.home-hero) h1 em {
     font-style: normal;
     -webkit-text-fill-color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-background-clip: border-box;
     background-clip: border-box;
     padding: 0 2px;
@@ -1681,11 +1646,6 @@
   }
 }
 
-@keyframes marker-draw {
-  from {
-    background-size: 0% 30%;
-  }
-}
 @keyframes button-shine {
   0%,
   70% {

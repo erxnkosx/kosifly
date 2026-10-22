@@ -474,42 +474,136 @@
   letter-spacing: 2px;
   color: #ffffff80;
 }
+/* Volgende case: compacte kaart met een klein beeld, de naam en een ronde pijlknop. */
 .next-case {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: stretch;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 32px);
+  max-width: 960px;
+  margin-inline: auto;
+  padding: 12px clamp(16px, 2vw, 28px) 12px 12px;
+  border: 1px solid #81001221;
+  border-radius: 26px;
   background: #fff;
-  border: 1px solid #8100122e;
-  border-radius: 28px;
-  box-shadow: 0 0 40px #82001238;
-  overflow: hidden;
   color: #111;
   text-decoration: none;
-}
-.next-case > div:first-child {
-  align-self: center;
-  padding: clamp(28px, 3.33vw, 64px);
-}
-.next-case p {
-  font-size: 18px;
-  color: #6b6b6b;
-  margin-top: 22px;
-}
-.next-case h2 {
-  font-family: var(--font-manrope);
-  font-size: clamp(28px, 2.3vw, 44px);
-  font-weight: 800;
-  line-height: 1.2;
-  margin: 20px 0 30px;
+  box-shadow:
+    0 1px 2px #0000000a,
+    0 18px 40px #8100121f;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s;
 }
 .next-case-scene {
-  display: flex;
-  align-items: center;
-  padding: 32px 64px;
+  display: grid;
+  place-items: center;
+  width: clamp(112px, 24vw, 260px);
+  aspect-ratio: 16 / 10;
+  padding: 6% 7%;
+  border-radius: 18px;
   background: linear-gradient(155deg, #000 14%, #970303 50%, #000 85%);
+  overflow: hidden;
 }
 .next-case-scene .artwork {
   overflow: visible;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.next-case-copy {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.next-case-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font: 700 12px/1.2 var(--font-inter);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #810012;
+}
+.next-case-kicker em {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #9a9a9a;
+}
+.next-case h2 {
+  margin: 0;
+  font: 800 clamp(22px, 2vw, 32px) / 1.1 var(--font-manrope);
+  letter-spacing: -0.03em;
+}
+.next-case p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font: 400 15px/1.45 var(--font-inter);
+  color: #6b6b6b;
+}
+.next-case-arrow {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--brand-fill);
+  box-shadow: var(--brand-rim-shadow);
+  color: #fff;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Lijnpijl uit de huisstijl (buttons-luxe.css). */
+.next-case-arrow::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: currentColor;
+  -webkit-mask: var(--btn-arrow-right) center / contain no-repeat;
+  mask: var(--btn-arrow-right) center / contain no-repeat;
+}
+.next-case:focus-visible {
+  outline: 3px solid rgb(129 0 18 / 0.4);
+  outline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .next-case:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 1px 2px #0000000a,
+      0 24px 50px #8100122e;
+  }
+  .next-case:hover .next-case-scene .artwork {
+    transform: scale(1.06) rotate(-1deg);
+  }
+  .next-case:hover .next-case-arrow {
+    transform: translateX(4px);
+  }
+}
+@media (max-width: 560px) {
+  .next-case {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 14px;
+    padding: 10px 14px 10px 10px;
+    border-radius: 22px;
+  }
+  .next-case-scene {
+    border-radius: 14px;
+  }
+  .next-case-kicker {
+    font-size: 11px;
+  }
+  .next-case h2 {
+    font-size: 20px;
+  }
+  .next-case p {
+    font-size: 13.5px;
+  }
+  .next-case-arrow {
+    display: none;
+  }
 }
 .about-facts {
   display: grid;
@@ -748,9 +842,6 @@
   .about-who-copy p {
     font-size: 18px;
   }
-  .next-case-scene {
-    padding: 32px;
-  }
 }
 @media all /* was (max-width: 760px) */ {
   .portfolio-hero-copy {
@@ -774,7 +865,6 @@
   .project-grid,
   .case-question,
   .about-who-copy,
-  .next-case,
   .legal-content {
     grid-template-columns: 1fr;
   }
@@ -843,9 +933,6 @@
     border-bottom: 0;
   }
   .case-result-note {
-    padding: 28px;
-  }
-  .next-case-scene {
     padding: 28px;
   }
   .about-facts {

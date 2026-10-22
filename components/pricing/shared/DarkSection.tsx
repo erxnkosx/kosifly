@@ -1,24 +1,14 @@
 import type { ComponentProps } from "react";
-
-type DarkSectionProps = ComponentProps<"section"> & {
-  /** Uit Figma geëxporteerde achtergrondafbeelding (gloed), over de volledige sectie uitgerekt. */
-  backdrop: { src: string; width: number; height: number };
-};
+import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
 
 /**
- * Sectie op de donkere achtergrond (#080304) met een gloedafbeelding eronder.
- * Inhoud die boven de afbeelding moet liggen, krijgt zelf `relative`.
+ * Donkere sectie met dezelfde achtergrond als de hero's (verloop, gloed, puntraster en lijnen).
+ * Inhoud die boven de achtergrond moet liggen, krijgt zelf `relative`.
  */
-export function DarkSection({ backdrop, className = "", children, ...props }: DarkSectionProps) {
+export function DarkSection({ className = "", children, ...props }: ComponentProps<"section">) {
   return (
-    <section {...props} className={`relative bg-[#080304] ${className}`}>
-      <img
-        src={backdrop.src}
-        width={backdrop.width}
-        height={backdrop.height}
-        alt=""
-        className="absolute inset-0 size-full max-w-none"
-      />
+    <section {...props} className={`hero-surface ${className}`}>
+      <HeroBackdrop />
       {children}
     </section>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { PLAN_GROUP_EVENT, type PlanGroupId } from "../monthly/PlanGroupToggle";
 import { withArrow } from "../shared";
+import { openPriceWizard } from "../wizard/PriceWizard";
 
 type Tab = {
   label: string;
@@ -122,7 +123,13 @@ export function AnchorBar() {
                 href={`#${target}`}
                 aria-label={cta ? label : undefined}
                 aria-current={isActive ? "location" : undefined}
-                onClick={(event) => scrollToSection(event, target, group)}
+                onClick={(event) => {
+                  // De rode knop opent de prijsberekenaar in stappen; zonder JavaScript springt hij naar de calculator.
+                  if (cta) {
+                    event.preventDefault();
+                    openPriceWizard();
+                  } else scrollToSection(event, target, group);
+                }}
                 className={`${TAB_STYLE} ${variant}`}
               >
                 {cta ? withArrow(label) : label}

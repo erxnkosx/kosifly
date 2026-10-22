@@ -14,10 +14,8 @@
     .button.primary,
     .button.white,
     .mobile-cta-button,
-    .quote-mobile-bar-link,
     .audit-cta,
     .audit-submit,
-    .contact-form button[type="submit"],
     .project-card-bottom > a,
     .etalage-action-primary,
     .etalage-action-secondary,
@@ -55,13 +53,12 @@
     .etalage-action-primary,
     .etalage-action-secondary,
     .pill-button,
-    .contact-form button[type="submit"],
     .audit-submit
   ) {
     --btn-h: 52px;
   }
   /* Knoppen in een zwevende balk: 48px. */
-  :where(.mobile-cta-button, .quote-mobile-bar-link) {
+  :where(.mobile-cta-button) {
     --btn-h: 48px;
     width: auto !important;
     flex-shrink: 0;
@@ -78,10 +75,8 @@
     .button.primary,
     .button.white,
     .mobile-cta-button,
-    .quote-mobile-bar-link,
     .audit-cta,
     .audit-submit,
-    .contact-form button[type="submit"],
     .project-card-bottom > a,
     .etalage-action-primary,
     .etalage-action-secondary,
@@ -96,10 +91,8 @@
       .button.primary,
       .button.white,
       .mobile-cta-button,
-      .quote-mobile-bar-link,
       .audit-cta,
       .audit-submit,
-      .contact-form button[type="submit"],
       .project-card-bottom > a,
       .etalage-action-primary,
       .etalage-action-secondary,
@@ -131,10 +124,8 @@
     .button.primary,
     .button.white,
     .mobile-cta-button,
-    .quote-mobile-bar-link,
     .audit-cta,
     .audit-submit,
-    .contact-form button[type="submit"],
     .project-card-bottom > a,
     .etalage-action-primary,
     .etalage-action-secondary,
@@ -150,7 +141,7 @@
     outline: 3px solid #810012 !important;
     outline-offset: 3px !important;
   }
-  :is(.audit-submit, .contact-form button[type="submit"]):disabled {
+  :is(.audit-submit):disabled {
     opacity: 0.6;
     transform: none;
     filter: none;
@@ -161,10 +152,8 @@
       .button.primary,
       .button.white,
       .mobile-cta-button,
-      .quote-mobile-bar-link,
       .audit-cta,
       .audit-submit,
-      .contact-form button[type="submit"],
       .project-card-bottom > a,
       .etalage-action-primary,
       .etalage-action-secondary,
@@ -211,7 +200,7 @@
 
   /* ───────────── Keuzechips en schakelaars ───────────── */
   /* Chips op licht: wit met fijne rand; gekozen = rood. */
-  :is(.contact-chip, .audit-goals button) {
+  :is(.audit-goals button) {
     min-height: 44px !important;
     padding: 0 16px !important;
     border: 1px solid rgb(129 0 18 / 0.16) !important;
@@ -225,7 +214,7 @@
       border-color 0.2s,
       transform 0.15s var(--btn-ease) !important;
   }
-  :is(.contact-chip, .audit-goals button)[aria-pressed="true"] {
+  :is(.audit-goals button)[aria-pressed="true"] {
     border-color: #810012 !important;
     background: #810012 !important;
     color: #fff !important;
@@ -245,33 +234,10 @@
     background: #fff !important;
     color: #810012 !important;
   }
-  :is(.contact-chip, .audit-goals button, .project-filters :is(button, a)):active {
+  :is(.audit-goals button, .project-filters :is(button, a)):active {
     transform: scale(0.96);
   }
   /* Schakelaars (één keuze): pil-spoor met een witte actieve pil. */
-  :is(.contact-tabs, .contact-form .segmented-options) {
-    padding: 4px !important;
-    border: 1px solid rgb(129 0 18 / 0.1) !important;
-    border-radius: 999px !important;
-    background: #f4eff0 !important;
-  }
-  :is(.contact-tabs, .contact-form .segmented-options) > button {
-    min-height: 44px !important;
-    border-radius: 999px !important;
-    font: 600 14px/1.2 var(--font-inter) !important;
-    color: #4a4a4a !important;
-    transition:
-      background 0.25s,
-      color 0.25s,
-      box-shadow 0.25s !important;
-  }
-  :is(.contact-tabs, .contact-form .segmented-options) > button[aria-pressed="true"] {
-    background: #fff !important;
-    color: #810012 !important;
-    box-shadow:
-      0 1px 2px rgb(0 0 0 / 0.06),
-      0 4px 12px rgb(129 0 18 / 0.14) !important;
-  }
   /* Ankerbalk op /prijzen: dezelfde pilvorm. */
   .pricing-page .pricing-canvas > nav a {
     border-radius: 999px !important;
@@ -336,7 +302,7 @@
     letter-spacing: -0.03em !important;
   }
   /* Kaarttitels: 24px */
-  :is(.project-card, .next-case) h2 {
+  .project-card h2 {
     font-size: 24px !important;
     line-height: 1.2 !important;
     letter-spacing: -0.02em !important;
@@ -344,23 +310,6 @@
 }
 
 @media all /* was (max-width: 760px) */ {
-  /* Calculatorchips (prijzen): zelfde chipstijl als elders; gekozen = rood. */
-  .quote-chip {
-    min-height: 44px !important;
-    padding: 0 16px !important;
-    border: 1px solid rgb(129 0 18 / 0.16) !important;
-    border-radius: 999px !important;
-    background: #fff !important;
-    color: #2b2b2b !important;
-    font: 600 14px/1.2 var(--font-inter) !important;
-  }
-  .quote-chip:has(input:checked) {
-    gap: 8px !important;
-    border-color: #810012 !important;
-    background: #810012 !important;
-    color: #fff !important;
-  }
-
   /* Zwevende balken: tekst links op één regel, zodat elke balk even hoog is. */
   .mobile-cta-bar > div {
     min-width: 0;
@@ -405,7 +354,7 @@
 
 /* Desktop: in flexknoppen zonder tussenruimte zorgt deze marge voor de spatie tussen label en pijl
    (label en pijl zijn aparte elementen). Op mobiel staat de pijl in een rond vak en geldt margin: 0. */
-:is(.pill-button, .audit-cta, .audit-submit, .contact-form button[type="submit"]) > .btn-arrow {
+:is(.pill-button, .audit-cta, .audit-submit) > .btn-arrow {
   margin-left: 0.3em;
 }
 
@@ -904,7 +853,7 @@
   }
   .project-invitation h2 > span {
     color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 2px;

@@ -1,0 +1,299 @@
+/*
+ * Contactformulier in stappen (components/contact/ContactForm.tsx): witte kaart in de contacthero, met dezelfde
+ * voortgang en keuzekaarten als de prijsberekenaar (choices.css) en knoppen uit buttons-luxe.css.
+ */
+.contact-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+  padding: clamp(22px, 2.4vw, 36px);
+  border-radius: 28px;
+  background: #fff;
+  color: #111;
+  box-shadow:
+    0 30px 70px rgb(0 0 0 / 0.45),
+    0 0 60px rgb(232 51 79 / 0.3);
+}
+
+/* ───────────── Kop ───────────── */
+.cf-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cf-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--brand-fill);
+  box-shadow: var(--brand-rim-shadow);
+  color: #fff;
+}
+.cf-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.cf-head h2 {
+  margin: 0 0 3px;
+  font: 800 clamp(22px, 1.6vw, 28px) / 1.15 var(--font-manrope);
+  letter-spacing: -0.02em;
+}
+.cf-head p {
+  margin: 0;
+  font: 500 13px/1.3 var(--font-inter);
+  color: #737373;
+}
+
+/* Wat uit een calculator is meegekomen */
+.contact-flow .contact-context a {
+  font-weight: 600;
+  color: #810012;
+  text-decoration: underline;
+}
+
+/* ───────────── Stap ───────────── */
+.cf-body h3 {
+  /* Krijgt de focus bij een stapwissel: niet onder de zwevende navbar laten schuiven. */
+  scroll-margin-top: calc(var(--nav-offset, 0px) + 24px);
+  margin: 4px 0 0;
+  font: 800 22px/1.2 var(--font-manrope);
+  letter-spacing: -0.02em;
+  outline: none;
+}
+.cf-hint {
+  margin: 6px 0 18px;
+  font: 400 15px/1.5 var(--font-inter);
+  color: #6b6b6b;
+}
+.cf-aside {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 16px 0 0;
+  font: 400 14px/1.4 var(--font-inter);
+  color: #6b6b6b;
+}
+.cf-aside a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #810012;
+}
+
+/* Gegevens */
+.cf-fields {
+  display: grid;
+  gap: 16px;
+}
+.cf-fields[hidden] {
+  display: none;
+}
+.cf-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.cf-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.cf-field > span {
+  font: 600 14px/1.2 var(--font-inter);
+  color: #1d1d1d;
+}
+.cf-field input,
+.cf-field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid #e3e3e3;
+  border-radius: 14px;
+  background: #f6f6f6;
+  font: 400 16px/1.4 var(--font-inter);
+  color: #111;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+.cf-field textarea {
+  min-height: 120px;
+  padding: 14px 16px;
+  resize: vertical;
+}
+.cf-field :is(input, textarea)::placeholder {
+  color: #9e9e9e;
+}
+.cf-field :is(input, textarea):focus {
+  border-color: #810012;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgb(129 0 18 / 0.12);
+}
+.cf-field :is(input, textarea):user-invalid {
+  border-color: #c4122e;
+  background: #fff7f8;
+  box-shadow: 0 0 0 4px rgb(196 18 46 / 0.08);
+}
+.cf-field:has(> input:user-invalid)::after {
+  content: "Vul dit veld in.";
+  font: 500 13px/1.3 var(--font-inter);
+  color: #b0001c;
+}
+.cf-field:has(> input[type="email"]:user-invalid)::after {
+  content: "Vul een geldig e-mailadres in.";
+}
+
+/* Akkoord met het privacybeleid: eigen vinkje, de echte checkbox is onzichtbaar. */
+.cf-consent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  cursor: pointer;
+}
+.cf-consent input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.cf-consent > span:first-of-type {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid #b8b8bf;
+  border-radius: 7px;
+  background: #fff;
+  color: transparent;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.cf-consent input:checked + span {
+  border-color: transparent;
+  background: var(--brand-fill);
+  box-shadow: var(--brand-rim-shadow);
+  color: #fff;
+}
+.cf-consent input:focus-visible + span {
+  outline: 3px solid rgb(129 0 18 / 0.35);
+  outline-offset: 3px;
+}
+.cf-consent input:user-invalid + span {
+  border: 2px solid #c4122e;
+  background: #fff7f8;
+}
+.cf-consent > span:last-child {
+  font: 400 14px/1.4 var(--font-inter);
+  color: #4d4d4d;
+}
+.cf-consent a {
+  padding-block: 12px;
+  text-decoration: underline;
+}
+
+/* ───────────── Voet ───────────── */
+.cf-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid #f0f0f0;
+}
+.cf-foot .sbtn {
+  width: auto !important;
+}
+.cf-foot .sbtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+.cf-foot .sbtn[aria-busy="true"] {
+  opacity: 0.7;
+}
+.cf-status {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid rgb(31 122 63 / 0.25);
+  border-radius: 14px;
+  background: #f1faf4;
+  font: 400 14.5px/1.5 var(--font-inter);
+  color: #17532c;
+}
+.cf-status:has(a) {
+  border-color: rgb(196 18 46 / 0.25);
+  background: #fff5f6;
+  color: #7a0011;
+}
+.cf-status p {
+  margin: 0;
+}
+.cf-status a {
+  font-weight: 600;
+  color: #810012;
+}
+.cf-privacy {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  font: 400 13px/1.5 var(--font-inter);
+  color: #737373;
+  text-align: center;
+}
+.cf-privacy svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ───────────── Beweging ───────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .cf-body,
+  .cf-fields:not([hidden]) {
+    animation: cf-step 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+@keyframes cf-step {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+/* ───────────── Mobiel ───────────── */
+@media (max-width: 760px) {
+  .contact-flow {
+    gap: 18px;
+    padding: 20px 18px 22px;
+    border-radius: 24px;
+    box-shadow:
+      0 24px 60px rgb(0 0 0 / 0.5),
+      0 0 0 1px rgb(255 255 255 / 0.08);
+  }
+  .cf-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+  .cf-body h3 {
+    font-size: 21px;
+  }
+  .cf-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
+import { PriceWizardLink } from "../wizard/PriceWizard";
 
 /** Hero van de prijzenpagina: zelfde opbouw en stijl als de hero van /projecten (overview-hero). */
 export function PricingHero() {
@@ -18,9 +19,7 @@ export function PricingHero() {
           <br className="desktop-break" /> of bereken in één minuut je eigen prijsindicatie.
         </p>
         <nav className="project-filters" aria-label="Prijs berekenen of een gesprek plannen">
-          <a href="#bereken-je-prijs" className="is-primary">
-            Bereken je prijs
-          </a>
+          <PriceWizardLink className="is-primary">Bereken je prijs</PriceWizardLink>
           <Link href="/contact">Plan een gesprek</Link>
         </nav>
       </div>

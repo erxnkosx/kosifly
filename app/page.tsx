@@ -9,11 +9,11 @@ import { Faq } from "@/components/home/Faq";
 import { Hero } from "@/components/home/Hero";
 import { MobileCtaBar } from "@/components/home/MobileCtaBar";
 import { Reviews } from "@/components/home/Reviews";
-import { Verschil } from "@/components/home/Verschil";
 import { WatWeDoen } from "@/components/home/WatWeDoen";
 import { Werkwijze } from "@/components/home/Werkwijze";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
 
 export const metadata = { alternates: { canonical: "/" } };
 
@@ -23,9 +23,9 @@ export default function Home() {
       <Navbar active="Home" />
       <main id="main-content" className="home-page">
         <Hero />
-        <Verschil />
         <WatWeDoen />
-        <div id="projecten" className="home-visual legacy-home">
+        <div id="projecten" className="home-visual legacy-home hero-surface">
+          <HeroBackdrop />
           <div className="legacy-canvas">
             <EtalageCarousel
               slides={[

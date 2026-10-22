@@ -6,7 +6,7 @@ import { projectSummaries } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Projecten | Kosifly",
   description:
-    "Bekijk ons werk voor Taxi Bornem, Primelabs en PSC Open Huis: websites en software gebouwd voor echte organisaties.",
+    "Bekijk ons werk voor Taxi Bornem, Zerain, Primelabs, Panero, Futsalytix, PSC Open Huis en Ay Gold: websites en software voor echte bedrijven.",
   alternates: { canonical: "/projecten" },
 };
 export default function ProjectsPage() {

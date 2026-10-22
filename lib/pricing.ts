@@ -40,11 +40,11 @@ export const SERVICES = [
   "Automatisatie",
 ] as const;
 
-const WEBSHOP_PRICE = 1900;
+export const WEBSHOP_PRICE = 1900;
 /** Lokale SEO-opstart; gratis als de website ook door Kosifly gebouwd wordt. */
 const SEO_SETUP_PRICE = 250;
 /** Vanaf-prijzen van maatwerk; een exact bedrag volgt pas na analyse. */
-const MAATWERK_FROM = { "Web app": 2500, Automatisatie: 1200 } as const;
+export const MAATWERK_FROM = { "Web app": 2500, Automatisatie: 1200 } as const;
 export const QUANTITY_LIMITS = { pages: 50, languages: 5 } as const;
 
 export type Service = (typeof SERVICES)[number];
@@ -76,7 +76,7 @@ export type QuoteLine = {
 };
 
 /** Hoeveel keer een extra verrekend wordt: aantal pagina's, aantal talen of 1. */
-export function extraQuantity(extra: Extra, q: QuoteInput) {
+function extraQuantity(extra: Extra, q: QuoteInput) {
   if ("perPage" in extra) return q.pages ?? findPackage(q.pkg).pages;
   if ("perLanguage" in extra) return q.languages ?? 1;
   return 1;

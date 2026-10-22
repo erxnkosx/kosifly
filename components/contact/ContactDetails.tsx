@@ -3,6 +3,7 @@ import { Artwork } from "@/components/ui/Artwork";
 import { ServiceFaq } from "@/components/services/Interactions";
 import { RegionMap } from "@/components/services/art/RegionMap";
 import { SITE } from "@/lib/site";
+import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
 
 const steps = [
   {
@@ -78,7 +79,8 @@ export function ContactDetails() {
           ))}
         </ol>
       </section>
-      <section className="service-section contact-location">
+      <section className="service-section contact-location hero-surface">
+        <HeroBackdrop />
         <Artwork
           width={700}
           height={595}

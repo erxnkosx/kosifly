@@ -8,12 +8,13 @@ import {
   Extras,
   HowItWorks,
   MonthlyPlans,
-  PriceCalculator,
   PricingFaq,
   PricingHero,
   Websites,
 } from "@/components/pricing";
 import { DesignCanvas } from "@/components/ui/DesignCanvas";
+import { PriceWizard } from "@/components/pricing/wizard/PriceWizard";
+import { PriceWizardTeaser } from "@/components/pricing/wizard/PriceWizardTeaser";
 
 export const metadata: Metadata = {
   title: "Prijzen | Websites, SEO, onderhoud en maatwerk | Kosifly",
@@ -35,10 +36,11 @@ export default function PricingPage() {
           <MonthlyPlans />
           <CustomWork />
           <Extras />
-          <PriceCalculator />
+          <PriceWizardTeaser />
           <HowItWorks />
           <PricingFaq />
         </DesignCanvas>
+        <PriceWizard />
       </main>
       <Footer />
     </>

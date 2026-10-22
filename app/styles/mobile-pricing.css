@@ -4,8 +4,7 @@
 .pricing-page .pricing-swipe-dots,
 .custom-mobile,
 .pricing-page .plan-group-toggle,
-.pricing-page .comparison-more,
-.pricing-page .quote-mobile-bar {
+.pricing-page .comparison-more {
   display: none;
 }
 
@@ -28,6 +27,9 @@
     background: #070405;
   }
   .pricing-page .pricing-canvas > nav {
+    /* Schuift onder de zwevende navbar (--nav-offset, gezet door components/Navbar.tsx). */
+    top: var(--nav-offset, 0px);
+    transition: top 0.38s cubic-bezier(0.22, 1, 0.36, 1);
     height: auto;
     padding: 10px 0;
     border-bottom: 1px solid #ffffff14;
@@ -258,7 +260,7 @@
   }
   .pricing-page .pricing-section-heading-dark h2 > span {
     color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 2px;
@@ -454,7 +456,7 @@
   }
   .pricing-page #vergelijking thead {
     position: sticky;
-    top: var(--pp-bar);
+    top: calc(var(--pp-bar) + var(--nav-offset, 0px));
     z-index: 2;
     border-bottom: 1px solid #ebebeb;
     border-radius: 24px 24px 0 0;
@@ -854,267 +856,6 @@
   }
   .pricing-page #extras > div:last-child li {
     align-items: flex-start;
-  }
-
-  /* ---------- Calculator ---------- */
-  .pricing-page #bereken-je-prijs > [data-reveal] {
-    width: auto;
-    max-width: none;
-    margin: 28px -8px 0;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs > [data-reveal] > div {
-    gap: 8px;
-    padding: 8px;
-    border-radius: 26px;
-    box-shadow:
-      0 0 60px #99051459,
-      0 24px 50px #00000080;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs > [data-reveal] > div > div {
-    gap: 30px;
-    padding: 22px 12px 12px;
-  }
-  .pricing-page #bereken-je-prijs legend {
-    margin-bottom: 14px;
-  }
-  .pricing-page #bereken-je-prijs legend > span {
-    gap: 4px 10px;
-  }
-  .pricing-page #bereken-je-prijs legend > span > span:first-child {
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs legend > span > span:nth-child(2) {
-    font-size: 19px;
-    letter-spacing: -0.01em;
-  }
-  .pricing-page
-    .pricing-canvas
-    #bereken-je-prijs
-    legend
-    > span
-    > span:last-child:not(:nth-child(2)) {
-    padding-left: 38px;
-    font-size: 13px;
-  }
-
-  /* Stap 1: chips naast elkaar. */
-  .pricing-page #bereken-je-prijs fieldset > div.flex-wrap {
-    gap: 8px;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs fieldset > div.flex-wrap > label {
-    flex-basis: auto;
-    min-height: 44px;
-    padding-block: 0;
-    font-size: 14.5px;
-  }
-
-  /* Stap 2: pakketten als rijen, naam links en prijs rechts. */
-  .pricing-page .pricing-canvas #bereken-je-prijs fieldset > div.items-start:not(.flex-wrap) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .pricing-page
-    .pricing-canvas
-    #bereken-je-prijs
-    fieldset
-    > div.items-start:not(.flex-wrap)
-    > label {
-    flex-basis: auto;
-    min-height: 56px;
-    padding: 12px 16px;
-  }
-  .pricing-page #bereken-je-prijs fieldset > div.items-start:not(.flex-wrap) > label > span {
-    flex: 1;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .pricing-page
-    #bereken-je-prijs
-    fieldset
-    > div.items-start:not(.flex-wrap)
-    > label
-    > span
-    > span:last-child {
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  /* Stap 3: extra's met prijs rechts; teller op een eigen regel. */
-  .pricing-page .pricing-canvas #bereken-je-prijs fieldset:has(.quote-extra) > div {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .pricing-page .pricing-canvas .quote-extra {
-    width: 100%;
-    height: auto;
-    min-height: 56px;
-    flex-wrap: wrap;
-    gap: 8px 10px;
-    padding: 6px 14px;
-  }
-  .pricing-page .pricing-canvas .quote-extra > label {
-    flex-wrap: nowrap;
-    min-height: 44px;
-  }
-  .pricing-page .pricing-canvas .quote-extra > label > span:last-child:not(:nth-of-type(2)) {
-    flex-basis: auto;
-    padding-left: 0;
-    margin-left: auto;
-  }
-  .pricing-page .pricing-canvas .quote-extra:has(.quote-stepper) > label {
-    flex-basis: 100%;
-  }
-  .pricing-page .pricing-canvas .quote-extra:has(.quote-stepper) {
-    padding-bottom: 12px;
-  }
-  .pricing-page .pricing-canvas .quote-extra .quote-stepper {
-    margin-left: 0;
-  }
-  .pricing-page .pricing-canvas .quote-extra .quote-stepper + span {
-    margin-left: auto;
-  }
-  .pricing-page .quote-extra .quote-stepper output {
-    min-width: 64px;
-    font-size: 14px;
-    text-align: center;
-  }
-  .pricing-page .quote-extra .quote-step-button {
-    font-size: 18px;
-  }
-
-  /* Stap 4: één rij per groep, naam boven de prijs. */
-  .pricing-page .pricing-canvas #bereken-je-prijs fieldset fieldset > div {
-    display: grid;
-    grid-template-columns: none;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: column;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs fieldset fieldset label {
-    min-height: 54px;
-    padding: 8px 4px;
-  }
-  .pricing-page #bereken-je-prijs fieldset fieldset legend {
-    margin-bottom: 8px;
-    font-size: 14px;
-  }
-  .quote-option-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    font-size: 14px;
-    line-height: 1.2;
-  }
-  .quote-option-sep {
-    display: none;
-  }
-  .quote-option-price {
-    font-size: 12.5px;
-    font-weight: 500;
-    color: #6b6b6b;
-  }
-  .pricing-page #bereken-je-prijs fieldset fieldset label.text-brand .quote-option-price {
-    color: #810012;
-  }
-
-  /* Meelopend totaal. */
-  .pricing-page .pricing-canvas .quote-mobile-bar {
-    position: sticky;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin: -10px -4px 0;
-    padding: 10px 10px 10px 16px;
-    border: 1px solid #ffffff1f;
-    border-radius: 20px;
-    background: #140a0cf2;
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 16px 40px #00000073;
-    color: #fff;
-  }
-  .quote-mobile-bar-values {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    font-family: var(--font-inter);
-  }
-  .quote-mobile-bar-label {
-    font-size: 12px;
-    color: #ffffffa6;
-  }
-  .quote-mobile-bar-values strong {
-    font: 800 18px/1.2 var(--font-manrope);
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-  }
-  .quote-mobile-bar-monthly {
-    font-size: 12.5px;
-    color: #ffffffb3;
-    white-space: nowrap;
-  }
-  .quote-mobile-bar-link {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    min-height: 44px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: var(--pp-red);
-    box-shadow:
-      inset 0 1px 0 #ffffff40,
-      0 6px 18px #a6122d66;
-    font: 700 14px/1 var(--font-inter);
-    color: #fff;
-  }
-
-  /* Prijsindicatie. */
-  .pricing-page .pricing-canvas #bereken-je-prijs aside {
-    gap: 12px;
-    padding: 24px 20px;
-    border-radius: 20px;
-  }
-  .pricing-page #bereken-je-prijs aside h3 {
-    scroll-margin-top: calc(var(--pp-bar) + 24px);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs aside output {
-    font-size: clamp(24px, 7.6vw, 30px);
-    letter-spacing: -0.03em;
-  }
-  .pricing-page #bereken-je-prijs aside dl {
-    gap: 10px;
-  }
-  .pricing-page #bereken-je-prijs .quote-price-row :is(dt, dd) {
-    font-size: 14px;
-    line-height: 1.35;
-  }
-  .pricing-page #bereken-je-prijs .quote-price-row dt > span {
-    font-size: 12px;
-  }
-  .pricing-page #bereken-je-prijs aside > p:not(:last-child) {
-    font-size: 14px;
-  }
-  .pricing-page #bereken-je-prijs aside > a {
-    min-height: 52px;
-    padding: 14px 16px;
-    font-size: 15px;
-  }
-  .pricing-page #bereken-je-prijs aside > p:last-child {
-    font-size: 12.5px;
-    line-height: 1.5;
   }
 
   /* ---------- Zo werkt het: verticale tijdlijn ---------- */

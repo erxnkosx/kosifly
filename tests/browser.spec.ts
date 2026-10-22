@@ -10,6 +10,10 @@ const routes = [
   "/projecten/taxi-bornem",
   "/projecten/primelabs",
   "/projecten/psc-open-huis",
+  "/projecten/zerain",
+  "/projecten/panero",
+  "/projecten/futsalytix",
+  "/projecten/ay-gold",
   "/over-ons",
   "/website-audit",
   "/privacy",
@@ -47,7 +51,7 @@ for (const viewport of viewports) {
         const h1Rect = h1.getBoundingClientRect();
         const clipped = Array.from(
           document.querySelectorAll<HTMLElement>(
-            ".hero-copy h1, .hero-copy>p, .section-heading, .feature-copy, .step-card, .faq-item h3 button, .home-service-copy, .contact-form",
+            ".hero-copy h1, .hero-copy>p, .section-heading, .feature-copy, .step-card, .faq-item h3 button, .home-service-copy, .contact-flow",
           ),
         )
           .filter((element) => element.scrollWidth > element.clientWidth + 2)
@@ -168,14 +172,20 @@ for (const width of [320, 360, 430, 768]) {
     }
     await page.goto("/prijzen");
     await expect(page.locator(".pricing-canvas")).toHaveCSS("zoom", "1");
-    const packages = page.locator('#bereken-je-prijs input[name="pakket"]');
+    // De sectie "Bereken je prijs" opent de prijsberekenaar meteen bij de gekozen dienst.
+    await page.locator("#bereken-je-prijs .pwt-banner-list button", { hasText: "Website" }).click();
+    const wizard = page.locator("dialog.price-wizard");
+    const packages = wizard.locator('input[name="pakket"]');
     await packages.last().locator("..").click();
     await expect(packages.last()).toBeChecked();
-    await expect(page.locator("#prijsindicatie-titel")).toBeVisible();
-    const summaryLink = page.locator("#bereken-je-prijs aside a");
-    await summaryLink.click();
+    for (let step = 0; step < 3; step++) await wizard.locator(".pw-foot .sbtn-primary").click();
+    await expect(wizard.locator(".pw-total").first()).toBeVisible();
+    await wizard.getByRole("link", { name: /Vraag deze offerte aan/ }).click();
     await expect(page).toHaveURL(/tab=offerte/);
-    await expect(page.getByRole("heading", { name: "Stel je offerte samen" })).toBeVisible();
+    await expect(page.locator(".contact-context")).toContainText(
+      "Je prijsindicatie is overgenomen",
+    );
+    await expect(page.getByRole("heading", { name: "Hoe bereiken we je?" })).toBeVisible();
   });
 }
 

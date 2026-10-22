@@ -11,6 +11,10 @@ const routes = [
   "/projecten/taxi-bornem",
   "/projecten/primelabs",
   "/projecten/psc-open-huis",
+  "/projecten/zerain",
+  "/projecten/panero",
+  "/projecten/futsalytix",
+  "/projecten/ay-gold",
   "/over-ons",
   "/website-audit",
   "/privacy",
@@ -110,19 +114,27 @@ test("mobile price controls, comparison scroll and quote handoff", async ({ page
     expect(bounds!.x).toBeGreaterThanOrEqual(0);
     expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(320);
   }
+  // De vergelijking toont de drie pakketten naast elkaar en past zonder horizontaal scrollen.
   const table = page.getByRole("region", { name: "Pakketten vergelijken" });
-  await table.evaluate((el) => (el.scrollLeft = el.scrollWidth));
-  await expect.poll(() => table.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
-  const calc = page.locator("#bereken-je-prijs");
-  const plus = calc.getByRole("button", { name: "Meer pagina's" });
+  expect(await table.evaluate((el) => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+  expect((await table.boundingBox())!.x + (await table.boundingBox())!.width).toBeLessThanOrEqual(
+    320,
+  );
+  await page.locator("#bereken-je-prijs .pwt-banner-list button", { hasText: "Website" }).tap();
+  const wizard = page.locator("dialog.price-wizard");
+  await wizard.locator('input[name="pakket"][value="groei"]').locator("..").tap();
+  await wizard.locator(".pw-foot .sbtn-primary").tap();
+  await wizard.locator(".choice label", { hasText: "Copywriting" }).tap();
+  const plus = wizard.getByRole("button", { name: "Meer pagina's" });
   const box = await plus.boundingBox();
   expect(box!.width).toBeGreaterThanOrEqual(44);
+  const pages = Number((await wizard.locator(".pw-stepper output").innerText()).split(" ")[0]);
   await plus.tap();
-  await expect(calc.getByText("1 pagina", { exact: true })).toBeVisible();
-  await calc.locator('input[name="pakket"][value="groei"]').locator("..").tap();
-  await calc.locator("aside a").tap();
+  await expect(wizard.locator(".pw-stepper output")).toHaveText(`${pages + 1} pagina's`);
+  for (let step = 0; step < 2; step++) await wizard.locator(".pw-foot .sbtn-primary").tap();
+  await wizard.getByRole("link", { name: /Vraag deze offerte aan/ }).tap();
   await expect(page).toHaveURL(/tab=offerte/);
-  await expect(page.getByRole("heading", { name: "Stel je offerte samen" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Hoe bereiken we je?" })).toBeVisible();
   const name = page.locator('input[name="naam"]');
   const email = page.locator('input[name="email"]');
   expect((await email.boundingBox())!.y).toBeGreaterThan((await name.boundingBox())!.y + 40);
@@ -134,13 +146,20 @@ test("contact sends the backend field names, handles server failure and allows r
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/contact");
+  await page.locator(".contact-flow .choice label", { hasText: "Website" }).tap();
+  await page.getByRole("button", { name: /Volgende/ }).tap();
+  await page.locator(".contact-flow .choice label", { hasText: "€ 2.500 – 5.000" }).tap();
+  await page.getByRole("button", { name: /Volgende/ }).tap();
   await page.locator('[name="naam"]').fill("Mobiele test");
   await page.locator('[name="email"]').fill("test@example.com");
   await page.locator('[name="bericht"]').fill("Een testaanvraag.");
-  await page.locator(".contact-consent").tap();
+  await page.locator(".cf-consent").tap();
   let attempts = 0;
   await page.route("**/api/contact", async (route) => {
-    expect(route.request().postDataJSON().name).toBe("Mobiele test");
+    const body = route.request().postDataJSON();
+    expect(body.name).toBe("Mobiele test");
+    expect(body.topics).toEqual(["Website"]);
+    expect(body.budget).toBe("2500-5000");
     attempts++;
     await route.fulfill(
       attempts === 1
@@ -148,14 +167,14 @@ test("contact sends the backend field names, handles server failure and allows r
         : { status: 200, json: { ok: true } },
     );
   });
-  await page.getByRole("button", { name: "Verstuur je aanvraag →" }).tap();
+  await page.getByRole("button", { name: /Verstuur je aanvraag/ }).tap();
   await expect(page.getByRole("status")).toContainText("Je aanvraag kon niet verstuurd worden");
   await expect(page.getByRole("status").getByRole("link")).toHaveAttribute(
     "href",
     "mailto:info@kosifly.com",
   );
   await expect(page.locator('[name="naam"]')).toHaveValue("Mobiele test");
-  await page.getByRole("button", { name: "Verstuur je aanvraag →" }).tap();
+  await page.getByRole("button", { name: /Verstuur je aanvraag/ }).tap();
   await expect(page.getByRole("status")).toContainText("Bedankt!");
   expect(attempts).toBe(2);
 });

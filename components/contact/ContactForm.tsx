@@ -1,191 +1,187 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { delayed, EASE, scaleIn } from "@/components/motion/presets";
-import { CheckSmall, LockIcon } from "@/components/ui/icons";
-import { Honeypot } from "@/components/ui/Honeypot";
-import { SITE } from "@/lib/site";
-import {
-  EXTRAS,
-  ONDERHOUD,
-  PACKAGES,
-  SEO,
-  SERVICES,
-  applyQuoteParams,
-  calcQuote,
-  extraQuantity,
-  fmt,
-  type QuoteInput,
-} from "@/lib/pricing";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { delayed, scaleIn } from "@/components/motion/presets";
 import { BtnArrow } from "@/components/ui/BtnArrow";
+import { ChoiceGroup, ChoiceOption, StepProgress } from "@/components/ui/Choice";
+import { Honeypot } from "@/components/ui/Honeypot";
+import { CheckSmall, LockIcon } from "@/components/ui/icons";
+import { SITE } from "@/lib/site";
+import { applyQuoteParams, calcQuote, fmt, type QuoteInput } from "@/lib/pricing";
 
-const label = "font-inter text-[13px] font-semibold leading-[normal] text-ink";
-const input =
-  "h-[52px] w-full rounded-[12px] border border-[#e6e6e6] bg-[#f6f6f6] px-[16px] font-inter text-[15px] text-ink outline-none placeholder:text-[#9e9e9e] focus:border-brand-soft focus:bg-white focus:shadow-[0_0_0_4px_rgba(232,51,79,0.18)]";
+/**
+ * Contactformulier in drie stappen, in de stijl van de prijsberekenaar: dienst kiezen, budget en timing
+ * (optioneel), gegevens. Komt de bezoeker uit de prijsberekenaar of de besparingscalculator, dan staan de
+ * keuzes al klaar en begint het formulier bij de gegevens.
+ */
+
+const TOPICS = [
+  { id: "Website", title: "Website", text: "Een nieuwe website, eventueel met webshop" },
+  {
+    id: "Web app",
+    title: "Software op maat",
+    text: "Een web app, klantenportaal of planningstool",
+  },
+  {
+    id: "Automatisatie",
+    title: "AI & automatisatie",
+    text: "Minder handwerk met AI en koppelingen",
+  },
+  { id: "Lokale SEO", title: "Lokale SEO", text: "Beter gevonden worden in je regio" },
+  { id: "Onderhoud", title: "Onderhoud & hosting", text: "Je site veilig en up-to-date" },
+  { id: "Weet ik nog niet", title: "Weet ik nog niet", text: "We denken graag met je mee" },
+];
+const BUDGETS = [
+  { id: "<2500", name: "< € 2.500" },
+  { id: "2500-5000", name: "€ 2.500 – 5.000" },
+  { id: "5000-10000", name: "€ 5.000 – 10.000" },
+  { id: ">10000", name: "> € 10.000" },
+  { id: "onbekend", name: "Weet ik nog niet" },
+];
+const PLANNING = [
+  "Zo snel mogelijk",
+  "Binnen 1 à 3 maanden",
+  "Later dit jaar",
+  "Ik oriënteer me nog",
+];
+
+const STEPS = [
+  { id: "dienst", title: "Waarmee kunnen we je helpen?", hint: "Meerdere keuzes mogelijk." },
+  {
+    id: "plannen",
+    title: "Wat heb je in gedachten?",
+    hint: "Optioneel, maar zo kunnen we je meteen gericht antwoorden.",
+  },
+  { id: "gegevens", title: "Hoe bereiken we je?", hint: "Je krijgt binnen 24 uur antwoord." },
+] as const;
+
+/** ?dienst= van de dienstpagina's en de prijsberekenaar. */
+const SERVICE_ALIASES: Record<string, string> = {
+  Webdesign: "Website",
+  "Web apps & maatwerk": "Web app",
+  "AI & automatisaties": "Automatisatie",
+  "Onderhoud & hosting": "Onderhoud",
+};
+/** Diensten uit een websiteberekening, vertaald naar de keuzes van stap 1. */
+const QUOTE_TOPICS: Record<string, string> = {
+  Website: "Website",
+  Webshop: "Website",
+  "Lokale SEO": "Lokale SEO",
+  "Onderhoud & hosting": "Onderhoud",
+};
+const QUOTE_KEYS = ["diensten", "pakket", "extras", "onderhoud", "seo", "paginas", "talen"];
+const QUOTE_BASE: QuoteInput = {
+  services: ["Website"],
+  pkg: "bedrijfssite",
+  extras: [],
+  onderhoud: "geen",
+  seo: "geen",
+  pages: 0,
+  languages: 0,
+};
+
+type Calculation = { aanvragen: number; minuten: number; uurtarief: number };
+
+function readCalculation(params: URLSearchParams): Calculation | null {
+  const [aanvragen, minuten, uurtarief] = ["aanvragen", "minuten", "uurtarief"].map((key) =>
+    Number(params.get(key)),
+  );
+  const within = (n: number, min: number, max: number) =>
+    Number.isInteger(n) && n >= min && n <= max;
+  return within(aanvragen, 1, 50) && within(minuten, 5, 60) && within(uurtarief, 20, 100)
+    ? { aanvragen, minuten, uurtarief }
+    : null;
+}
 
 function Field({
   name,
   text,
   type = "text",
   placeholder,
+  autoComplete,
+  required = false,
 }: {
   name: string;
   text: string;
   type?: string;
   placeholder?: string;
+  autoComplete?: string;
+  required?: boolean;
 }) {
   return (
-    <label className="flex min-w-0 flex-1 flex-col gap-[8px]">
-      <span className={label}>{text}</span>
+    <label className="cf-field">
+      <span>{text}</span>
       <input
         name={name}
         type={type}
-        autoComplete={
-          {
-            naam: "name",
-            bedrijf: "organization",
-            email: "email",
-            telefoon: "tel",
-            website: "url",
-          }[name]
-        }
-        required={name === "naam" || name === "email"}
+        autoComplete={autoComplete}
+        required={required}
         placeholder={placeholder}
-        className={input}
       />
     </label>
   );
 }
 
-function Chip({
-  on,
-  children,
-  onClick,
-}: {
-  on: boolean;
-  children: React.ReactNode;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={on}
-      className={`contact-chip flex items-center gap-[6px] rounded-[24px] py-[10px] pr-[16px] font-inter text-[14px] font-semibold leading-[normal] ${on ? "bg-ink pl-[12px] text-white" : "border border-[#e6e6e6] bg-white pl-[16px] text-ink"}`}
-    >
-      {on && <CheckSmall />}
-      {children}
-    </button>
-  );
-}
-
-/** Tabinhoud die zacht binnenkomt bij het wisselen van tab; de hoogte van het formulier verandert niet abrupt. */
-function TabBody({ children }: { children: ReactNode }) {
-  return (
-    <motion.div
-      className="flex flex-col gap-[22px]"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, ease: EASE }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function Segmented<T extends string>({
-  items,
-  value,
-  onChange,
-  py = 11,
-  size = 13,
-}: {
-  items: { id: T; name: string }[];
-  value: T;
-  onChange: (v: T) => void;
-  py?: number;
-  size?: number;
-}) {
-  return (
-    <div className="segmented-options flex gap-[4px] rounded-[14px] bg-[#f2f2f2] p-[4px]">
-      {items.map((i) => (
-        <button
-          key={i.id}
-          type="button"
-          onClick={() => onChange(i.id)}
-          aria-pressed={value === i.id}
-          style={{ paddingTop: py, paddingBottom: py, fontSize: size }}
-          className={`flex-1 rounded-[10px] font-inter leading-[normal] ${value === i.id ? "bg-white font-semibold text-brand shadow-[0_2px_8px_rgba(0,0,0,0.12)]" : "text-ink"}`}
-        >
-          {i.name}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 export function ContactForm() {
-  const [tab, setTab] = useState<"bericht" | "offerte">("bericht");
-  const [budget, setBudget] = useState("");
+  const [index, setIndex] = useState(0);
   const [topics, setTopics] = useState<string[]>([]);
-  const [q, setQ] = useState<QuoteInput>({
-    services: ["Website", "Lokale SEO", "Onderhoud & hosting"],
-    pkg: "bedrijfssite",
-    extras: ["copywriting"],
-    onderhoud: "plus",
-    seo: "lokaal",
-  });
+  const [budget, setBudget] = useState("");
+  const [planning, setPlanning] = useState("");
+  // Vooraf ingevuld bericht, bv. de antwoorden uit de prijsberekenaar (?bericht=…).
+  const [prefill, setPrefill] = useState("");
+  const [quote, setQuote] = useState<QuoteInput | null>(null);
+  /** Querystring van de berekening, om ze in de prijsberekenaar aan te passen. */
+  const [quoteQuery, setQuoteQuery] = useState("");
+  const [calculation, setCalculation] = useState<Calculation | null>(null);
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState("");
-  /** Querystring van de prijscalculator (zonder `tab`), of null als de bezoeker niet uit de calculator komt. */
-  const [calculatorQuery, setCalculatorQuery] = useState<string | null>(null);
-  const [calculation, setCalculation] = useState<{
-    aanvragen: number;
-    minuten: number;
-    uurtarief: number;
-  } | null>(null);
+  const title = useRef<HTMLHeadingElement>(null);
+  const moved = useRef(false);
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("tab") === "offerte") setTab("offerte");
-    setQ((current) => applyQuoteParams(current, params));
-    const quoteKeys = ["diensten", "pakket", "extras", "onderhoud", "seo", "paginas", "talen"];
-    if (quoteKeys.some((key) => params.has(key))) {
+    const chosen = new Set<string>();
+    const service = params.get("dienst");
+    if (service) chosen.add(SERVICE_ALIASES[service] ?? service);
+    let fromCalculator = false;
+    if (QUOTE_KEYS.some((key) => params.has(key))) {
+      const q = applyQuoteParams(QUOTE_BASE, params);
+      for (const s of q.services) if (QUOTE_TOPICS[s]) chosen.add(QUOTE_TOPICS[s]);
       const query = new URLSearchParams(params);
       query.delete("tab");
-      setCalculatorQuery(query.toString());
+      setQuote(q);
+      setQuoteQuery(query.toString());
+      fromCalculator = true;
     }
-    const service = params.get("dienst");
-    const aliases: Record<string, string> = {
-      Webdesign: "Website",
-      "Web apps & maatwerk": "Web app",
-      "AI & automatisaties": "Automatisatie",
-      "Onderhoud & hosting": "Onderhoud",
-    };
-    const topic = service ? aliases[service] || service : "";
-    if (["Website", "Lokale SEO", "Web app", "Automatisatie", "Onderhoud"].includes(topic))
-      setTopics([topic]);
-    const aanvragen = Number(params.get("aanvragen")),
-      minuten = Number(params.get("minuten")),
-      uurtarief = Number(params.get("uurtarief"));
-    if (
-      Number.isInteger(aanvragen) &&
-      aanvragen >= 1 &&
-      aanvragen <= 50 &&
-      Number.isInteger(minuten) &&
-      minuten >= 5 &&
-      minuten <= 60 &&
-      Number.isInteger(uurtarief) &&
-      uurtarief >= 20 &&
-      uurtarief <= 100
-    )
-      setCalculation({ aanvragen, minuten, uurtarief });
+    const message = (params.get("bericht") ?? "").slice(0, 2000);
+    const calc = readCalculation(params);
+    setPrefill(message);
+    setCalculation(calc);
+    setTopics(TOPICS.map((t) => t.id).filter((id) => chosen.has(id)));
+    // Wie al keuzes maakte in een calculator, hoeft ze niet opnieuw te maken.
+    if (fromCalculator || message || calc) setIndex(STEPS.length - 1);
   }, []);
-  const quote = useMemo(() => calcQuote(q), [q]);
-  const toggle = (arr: string[], v: string) =>
-    arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v];
+
+  // Na een stapwissel krijgt de titel de focus, zodat schermlezers de nieuwe vraag voorlezen.
+  useEffect(() => {
+    if (moved.current) title.current?.focus();
+  }, [index]);
+
+  const step = STEPS[index];
+  const last = index === STEPS.length - 1;
+  const result = quote ? calcQuote(quote) : null;
+  const go = (n: number) => {
+    moved.current = true;
+    setIndex(n);
+  };
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!last) {
+      if (topics.length) go(index + 1);
+      return;
+    }
     const data = Object.fromEntries(new FormData(e.currentTarget));
     setSaving(true);
     setStatus("");
@@ -196,17 +192,18 @@ export function ContactForm() {
         body: JSON.stringify({
           ...data,
           name: data.naam,
-          type: tab,
+          type: quote ? "offerte" : "bericht",
           topics,
           budget,
+          planning,
           calculation,
-          quote: tab === "offerte" ? { ...q, ...quote } : undefined,
+          quote: quote && result ? { ...quote, ...result } : undefined,
         }),
       });
-      const result = await response.json().catch(() => null);
+      const answer = await response.json().catch(() => null);
       if (!response.ok)
         throw new Error(
-          result?.error ||
+          answer?.error ||
             `Je aanvraag kon niet verstuurd worden. Probeer opnieuw of mail ${SITE.email}.`,
         );
       setStatus("Bedankt! Je aanvraag is verstuurd. We nemen contact met je op.");
@@ -227,334 +224,215 @@ export function ContactForm() {
       initial="hidden"
       animate="show"
       onSubmit={submit}
-      className="contact-form flex w-[760px] flex-col gap-[22px] rounded-[28px] bg-white p-[48px] shadow-[0_30px_70px_rgba(0,0,0,0.45),0_0_60px_rgba(232,51,79,0.3)]"
+      className="contact-flow"
+      aria-labelledby="cf-title"
     >
-      {calculation && (
+      <div className="cf-head">
+        <span className="cf-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path
+              d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17H6.5A2.5 2.5 0 0 1 4 14.5v-8z"
+              strokeLinejoin="round"
+            />
+            <path d="M8.5 9.5h7M8.5 12.5h4.5" strokeLinecap="round" />
+          </svg>
+        </span>
+        <div>
+          <h2 id="cf-title">Vertel ons over je project</h2>
+          <p>
+            Stap {index + 1} van {STEPS.length}
+          </p>
+        </div>
+      </div>
+      <StepProgress steps={STEPS.length} current={index} />
+
+      {(calculation || result || prefill) && (
         <div className="contact-context">
-          <strong>Je berekening is overgenomen</strong>
-          <br />
-          {calculation.aanvragen} aanvragen per week · {calculation.minuten} minuten per aanvraag ·
-          € {calculation.uurtarief}/uur
-          <br />
-          Ongeveer {Math.round((calculation.aanvragen * calculation.minuten) / 60)} uur per week aan
-          handwerk.
+          {result ? (
+            <>
+              <strong>Je prijsindicatie is overgenomen</strong>
+              <br />€ {fmt(result.once)} – € {fmt(result.high)} eenmalig
+              {result.monthly > 0 && ` · € ${fmt(result.monthly)} per maand`}
+              {" · "}
+              <a href={`/prijzen?${quoteQuery}#prijsberekenaar`}>Aanpassen</a>
+            </>
+          ) : calculation ? (
+            <>
+              <strong>Je berekening is overgenomen</strong>
+              <br />
+              {calculation.aanvragen} aanvragen per week · {calculation.minuten} minuten per
+              aanvraag · € {calculation.uurtarief}/uur
+              <br />
+              Ongeveer {Math.round((calculation.aanvragen * calculation.minuten) / 60)} uur per week
+              aan handwerk.
+            </>
+          ) : (
+            <strong>Je antwoorden uit de prijsberekenaar staan in je bericht.</strong>
+          )}
         </div>
       )}
-      {/* tabbladen */}
-      <div className="contact-tabs flex gap-[4px] rounded-[14px] bg-[#f2f2f2] p-[4px]">
-        {(
-          [
-            ["bericht", "Kort bericht"],
-            ["offerte", "Offerte samenstellen"],
-          ] as const
-        ).map(([id, text]) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => setTab(id)}
-            aria-pressed={tab === id}
-            className={`flex-1 rounded-[10px] py-[13px] font-inter text-[15px] leading-[normal] ${tab === id ? "bg-white font-semibold text-brand shadow-[0_2px_8px_rgba(0,0,0,0.12)]" : "text-ink"}`}
-          >
-            {text}
-          </button>
-        ))}
+
+      <div className="cf-body" key={step.id}>
+        <h3 ref={title} tabIndex={-1}>
+          {step.title}
+        </h3>
+        <p className="cf-hint">{step.hint}</p>
+
+        {step.id === "dienst" && (
+          <>
+            <div className="choice-grid">
+              {TOPICS.map((t) => (
+                <ChoiceOption
+                  key={t.id}
+                  type="checkbox"
+                  name="dienst"
+                  value={t.id}
+                  checked={topics.includes(t.id)}
+                  onChange={() =>
+                    setTopics((list) =>
+                      list.includes(t.id) ? list.filter((id) => id !== t.id) : [...list, t.id],
+                    )
+                  }
+                  title={t.title}
+                  text={t.text}
+                />
+              ))}
+            </div>
+            <p className="cf-aside">
+              Eerst je prijs weten?{" "}
+              <Link href="/prijzen#prijsberekenaar">
+                Bereken hem in één minuut <BtnArrow />
+              </Link>
+            </p>
+          </>
+        )}
+
+        {step.id === "plannen" && (
+          <div className="choice-groups">
+            <ChoiceGroup label="Budget" layout="grid">
+              {BUDGETS.map((b) => (
+                <ChoiceOption
+                  key={b.id}
+                  type="radio"
+                  name="budget"
+                  value={b.id}
+                  checked={budget === b.id}
+                  onChange={() => setBudget(b.id)}
+                  title={b.name}
+                />
+              ))}
+            </ChoiceGroup>
+            <ChoiceGroup label="Wanneer wil je starten?" layout="grid">
+              {PLANNING.map((p) => (
+                <ChoiceOption
+                  key={p}
+                  type="radio"
+                  name="planning"
+                  value={p}
+                  checked={planning === p}
+                  onChange={() => setPlanning(p)}
+                  title={p}
+                />
+              ))}
+            </ChoiceGroup>
+          </div>
+        )}
       </div>
 
-      <div className="flex flex-col gap-[6px]">
-        <h2 className="font-manrope text-[30px] font-extrabold leading-[normal] tracking-[-0.0087em] text-ink">
-          {tab === "bericht" ? "Vertel ons over je project" : "Stel je offerte samen"}
-        </h2>
-        <p className="font-inter text-[15px] leading-[normal] text-grey">
-          {tab === "bericht"
-            ? "Je krijgt binnen 24 uur antwoord."
-            : "Kies wat je nodig hebt en zie meteen je prijsindicatie."}
-        </p>
+      {/* Altijd in het formulier (verborgen tot de laatste stap), zodat ingevulde gegevens blijven staan. */}
+      <div className="cf-fields" hidden={!last}>
+        <div className="cf-row">
+          <Field name="naam" text="Naam *" placeholder="Je naam" autoComplete="name" required />
+          <Field
+            name="email"
+            type="email"
+            text="E-mail *"
+            placeholder="jij@bedrijf.be"
+            autoComplete="email"
+            required
+          />
+        </div>
+        <div className="cf-row">
+          <Field
+            name="bedrijf"
+            text="Bedrijf"
+            placeholder="Optioneel"
+            autoComplete="organization"
+          />
+          <Field
+            name="telefoon"
+            type="tel"
+            text="Telefoon"
+            placeholder="Optioneel"
+            autoComplete="tel"
+          />
+        </div>
+        <label className="cf-field">
+          <span>Je bericht</span>
+          <textarea
+            key={prefill ? "prefill" : "leeg"}
+            name="bericht"
+            defaultValue={prefill}
+            placeholder="Vertel kort wat je wil bereiken…"
+          />
+        </label>
+        <label className="cf-consent">
+          <input type="checkbox" required aria-label="Ik ga akkoord met het privacybeleid" />
+          <span aria-hidden="true">
+            <CheckSmall />
+          </span>
+          <span>
+            Ik ga akkoord met het <a href="/privacy">privacybeleid</a>.
+          </span>
+        </label>
       </div>
-
-      {tab === "bericht" ? (
-        <TabBody key="bericht">
-          <div className="contact-field-row flex gap-[16px]">
-            <Field name="naam" text="Naam *" placeholder="Je naam" />
-            <Field name="bedrijf" text="Bedrijf" placeholder="Je bedrijf" />
-          </div>
-          <div className="contact-field-row flex gap-[16px]">
-            <Field name="email" type="email" text="E-mail *" placeholder="jij@bedrijf.be" />
-            <Field name="telefoon" type="tel" text="Telefoon" placeholder="Optioneel" />
-          </div>
-          <div className="flex flex-col gap-[10px]">
-            <span className={label}>Waarmee kunnen we helpen?</span>
-            <div className="flex flex-wrap gap-[8px]">
-              {[
-                "Website",
-                "Lokale SEO",
-                "Web app",
-                "Automatisatie",
-                "Onderhoud",
-                "Weet ik nog niet",
-              ].map((t) => (
-                <Chip key={t} on={topics.includes(t)} onClick={() => setTopics(toggle(topics, t))}>
-                  {t}
-                </Chip>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-[10px]">
-            <span className={label}>Budget (optioneel)</span>
-            <Segmented
-              value={budget}
-              onChange={setBudget}
-              items={[
-                { id: "<2500", name: "< € 2.500" },
-                { id: "2500-5000", name: "€ 2.500 – 5.000" },
-                { id: "5000-10000", name: "€ 5.000 – 10.000" },
-                { id: ">10000", name: "> € 10.000" },
-              ]}
-            />
-          </div>
-          <label className="flex flex-col gap-[8px]">
-            <span className={label}>Je bericht</span>
-            <textarea
-              name="bericht"
-              placeholder="Vertel kort wat je wil bereiken…"
-              className="h-[120px] w-full resize-none rounded-[12px] border border-[#e6e6e6] bg-[#f6f6f6] px-[16px] py-[16px] font-inter text-[15px] text-ink outline-none placeholder:text-[#9e9e9e] focus:border-brand-soft focus:bg-white focus:shadow-[0_0_0_4px_rgba(232,51,79,0.18)]"
-            />
-          </label>
-        </TabBody>
-      ) : (
-        <TabBody key="offerte">
-          {calculatorQuery !== null && (
-            <div className="calculator-notice flex items-center gap-[10px] rounded-[12px] bg-[#fff0f2] px-[14px] py-[11px]">
-              <span className="flex size-[20px] items-center justify-center rounded-full bg-brand text-white">
-                <CheckSmall size={12} />
-              </span>
-              <span className="flex-1 font-inter text-[14px] font-medium leading-[normal] text-brand">
-                Je keuzes uit de prijscalculator zijn overgenomen.
-              </span>
-              <a
-                href={`/prijzen?${calculatorQuery}#bereken-je-prijs`}
-                className="font-inter text-[14px] font-semibold text-brand underline"
-              >
-                Aanpassen
-              </a>
-            </div>
-          )}
-
-          <Step n={1} title="Wat heb je nodig?">
-            <div className="flex flex-wrap gap-[8px]">
-              {SERVICES.map((s) => (
-                <Chip
-                  key={s}
-                  on={q.services.includes(s)}
-                  onClick={() => setQ({ ...q, services: toggle(q.services, s) })}
-                >
-                  {s}
-                </Chip>
-              ))}
-            </div>
-          </Step>
-
-          <Step n={2} title="Welk websitepakket?">
-            <div className="package-options flex gap-[8px]">
-              {PACKAGES.map((p) => {
-                const on = q.pkg === p.id;
-                return (
-                  <button
-                    key={p.id}
-                    type="button"
-                    onClick={() => setQ({ ...q, pkg: p.id })}
-                    className={`flex flex-1 items-center gap-[10px] rounded-[14px] p-[14px] text-left ${on ? "border-2 border-brand bg-[#fff0f2]" : "border border-[#e6e6e6] bg-white"}`}
-                  >
-                    <span
-                      className={`size-[18px] shrink-0 rounded-full ${on ? "border-[5.5px] border-brand" : "border-[1.5px] border-[#bfbfbf]"}`}
-                    />
-                    <span className="flex flex-col">
-                      <span className="font-inter text-[14px] font-semibold leading-[normal] text-ink">
-                        {p.name}
-                      </span>
-                      <span className="font-inter text-[12px] leading-[normal] text-grey">
-                        € {fmt(p.price)}
-                      </span>
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </Step>
-
-          <Step n={3} title="Extra's">
-            <div className="flex flex-wrap gap-[8px]">
-              {EXTRAS.map((e) => (
-                <Chip
-                  key={e.id}
-                  on={q.extras.includes(e.id)}
-                  onClick={() => setQ({ ...q, extras: toggle(q.extras, e.id) })}
-                >
-                  {"perPage" in e && e.perPage
-                    ? `${e.name} · ${extraQuantity(e, q)} pagina's · € ${fmt(e.unit * extraQuantity(e, q))}`
-                    : `${e.name} · € ${fmt(e.unit)}`}
-                </Chip>
-              ))}
-            </div>
-          </Step>
-
-          <Step n={4} title="Maandelijks">
-            <div className="monthly-options flex gap-[10px]">
-              <div className="flex flex-1 flex-col gap-[6px]">
-                <span className="font-inter text-[12px] font-medium text-grey">
-                  Onderhoud & hosting
-                </span>
-                <Segmented
-                  py={9}
-                  size={12}
-                  value={q.onderhoud}
-                  onChange={(v) => setQ({ ...q, onderhoud: v })}
-                  items={[...ONDERHOUD]}
-                />
-              </div>
-              <div className="flex flex-1 flex-col gap-[6px]">
-                <span className="font-inter text-[12px] font-medium text-grey">Lokale SEO</span>
-                <Segmented
-                  py={9}
-                  size={12}
-                  value={q.seo}
-                  onChange={(v) => setQ({ ...q, seo: v })}
-                  items={[...SEO]}
-                />
-              </div>
-            </div>
-          </Step>
-
-          {/* live prijsindicatie */}
-          <div
-            className="flex flex-col gap-[14px] rounded-[18px] px-[26px] py-[24px]"
-            style={{
-              backgroundImage: "linear-gradient(135deg, #000 0%, rgb(151,3,3) 50%, #000 100%)",
-            }}
-          >
-            <span className="font-orbitron text-[10px] font-medium leading-[normal] tracking-[0.22em] text-white/70">
-              JE PRIJSINDICATIE
-            </span>
-            <div className="price-total flex justify-between">
-              <div className="flex flex-col gap-[2px]">
-                <span className="font-inter text-[13px] font-medium text-white/70">Eenmalig</span>
-                <span className="font-geist text-[32px] font-extrabold leading-[normal] tracking-[-0.03em] text-white">
-                  {quote.hasMaatwerk
-                    ? "Prijs na analyse"
-                    : quote.once
-                      ? `€ ${fmt(quote.once)} – € ${fmt(quote.high)}`
-                      : "—"}
-                </span>
-              </div>
-              <div className="flex flex-col items-end gap-[2px]">
-                <span className="font-inter text-[13px] font-medium text-white/70">Per maand</span>
-                <span className="font-geist text-[32px] font-extrabold leading-[normal] tracking-[-0.03em] text-white">
-                  {quote.monthly ? `€ ${fmt(quote.monthly)}` : "—"}
-                </span>
-              </div>
-            </div>
-            <span className="font-inter text-[13px] leading-[normal] text-white/70">
-              {[
-                quote.hasSite && quote.pkg.name,
-                q.extras.includes("copywriting") && quote.hasSite && "Copywriting",
-                q.services.includes("Onderhoud & hosting") &&
-                  `Onderhoud ${ONDERHOUD.find((o) => o.id === q.onderhoud)?.name}`,
-                q.services.includes("Lokale SEO") &&
-                  `Lokale SEO ${SEO.find((s) => s.id === q.seo)?.name}`,
-              ]
-                .filter(Boolean)
-                .join(" · ")}
-              {quote.delivery ? `  ·  levering in ongeveer ${quote.delivery}` : ""}
-            </span>
-          </div>
-
-          <div className="contact-field-row flex gap-[14px]">
-            <Field name="naam" text="Naam *" placeholder="Je naam" />
-            <Field name="email" type="email" text="E-mail *" placeholder="jij@bedrijf.be" />
-          </div>
-          <div className="contact-field-row flex gap-[14px]">
-            <Field name="bedrijf" text="Bedrijf" placeholder="Je bedrijf" />
-            <Field name="telefoon" type="tel" text="Telefoon" placeholder="Optioneel" />
-          </div>
-          <label className="flex flex-col gap-[7px]">
-            <span className={label}>Nog iets dat we moeten weten?</span>
-            <textarea
-              name="bericht"
-              placeholder="Optioneel"
-              className="h-[84px] w-full resize-none rounded-[12px] border border-[#e6e6e6] bg-[#f6f6f6] px-[16px] py-[14px] font-inter text-[15px] text-ink outline-none placeholder:text-[#9e9e9e]"
-            />
-          </label>
-        </TabBody>
-      )}
-
-      <label className="contact-consent flex items-center gap-[10px]">
-        <input
-          type="checkbox"
-          required
-          className="peer sr-only"
-          aria-label="Ik ga akkoord met het privacybeleid"
-        />
-        <span className="flex size-[22px] shrink-0 items-center justify-center rounded-[6px] border border-[#bfbfbf] text-white peer-checked:border-brand peer-checked:bg-brand">
-          <CheckSmall />
-        </span>
-        <span className="font-inter text-[14px] leading-[normal] text-[#4d4d4d]">
-          Ik ga akkoord met het{" "}
-          <a href="/privacy" className="underline">
-            privacybeleid
-          </a>
-          .
-        </span>
-      </label>
 
       <Honeypot />
 
-      <button
-        type="submit"
-        disabled={saving}
-        aria-busy={saving}
-        className="flex w-full items-center justify-center rounded-[40px] bg-accent-gradient py-[19px] font-inter text-[17px] font-semibold leading-[normal] text-white shadow-[0_8px_24px_rgba(232,51,79,0.45)]"
-      >
-        {saving ? (
-          "Even versturen…"
-        ) : tab === "bericht" ? (
-          <>
-            Verstuur je aanvraag <BtnArrow />
-          </>
+      <div className="cf-foot">
+        <button
+          type="button"
+          className="sbtn sbtn-outline"
+          aria-label="Vorige"
+          disabled={index === 0}
+          onClick={() => go(index - 1)}
+        >
+          <BtnArrow glyph="←" /> <span className="step-back-label">Vorige</span>
+        </button>
+        {last ? (
+          <button type="submit" className="sbtn sbtn-primary" disabled={saving} aria-busy={saving}>
+            {saving ? (
+              "Even versturen…"
+            ) : (
+              <>
+                Verstuur je aanvraag <BtnArrow />
+              </>
+            )}
+          </button>
         ) : (
-          <>
-            Vraag je offerte aan <BtnArrow />
-          </>
+          <button
+            type="button"
+            className="sbtn sbtn-primary"
+            disabled={index === 0 && topics.length === 0}
+            onClick={() => go(index + 1)}
+          >
+            Volgende <BtnArrow />
+          </button>
         )}
-      </button>
+      </div>
+
       {status && (
-        <div className="submission-status" role="status">
+        <div className="cf-status" role="status">
           <p>{status}</p>
           {!status.startsWith("Bedankt!") && (
             <a href={`mailto:${SITE.email}`}>Mail naar {SITE.email} →</a>
           )}
         </div>
       )}
-      <p className="flex items-center justify-center gap-[8px] font-inter text-[13px] leading-[normal] text-grey">
+      <p className="cf-privacy">
         <LockIcon />
-        {tab === "bericht"
-          ? "Je gegevens blijven bij ons. We gebruiken ze enkel om je te antwoorden."
-          : "Indicatie excl. btw. Je vaste prijs krijg je na een kort gesprek."}
+        Je gegevens blijven bij ons. We gebruiken ze enkel om je te antwoorden.
       </p>
     </motion.form>
-  );
-}
-
-function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
-  return (
-    <div className="flex flex-col gap-[10px]">
-      <div className="flex items-center gap-[10px]">
-        <span className="flex size-[24px] items-center justify-center rounded-full bg-accent-gradient font-inter text-[11px] font-bold text-white">
-          {n}
-        </span>
-        <span className="font-inter text-[15px] font-semibold leading-[normal] text-ink">
-          {title}
-        </span>
-      </div>
-      {children}
-    </div>
   );
 }

@@ -10,7 +10,7 @@ import {
   SectionHeading,
   SwipeDots,
 } from "../shared";
-import { calculatorHref } from "../calculator/calculatorHref";
+import { calculatorHref } from "../wizard/calculatorHref";
 import { WEBSITE_PACKAGES, type WebsitePackage } from "./Websites.data";
 
 const TONES = {

@@ -1555,7 +1555,7 @@
   }
   .service-page .showcase-section .section-heading h2 > span {
     color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 2px;

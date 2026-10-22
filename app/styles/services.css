@@ -1371,24 +1371,11 @@ section[id] {
   flex-wrap: wrap;
   white-space: normal;
 }
-.contact-form {
-  width: 100% !important;
-  padding: clamp(24px, 2.5vw, 48px) !important;
-  min-width: 0;
-}
 .contact-section h1 ~ div a {
   width: 100%;
 }
 .contact-section h1 ~ div {
   width: 100%;
-}
-.contact-form .submission-status {
-  padding: 14px;
-  border: 1px solid #810012;
-  border-radius: 12px;
-  color: #810012;
-  font-size: 14px;
-  line-height: 1.5;
 }
 .contact-context {
   padding: 14px;
@@ -1575,9 +1562,6 @@ section[id] {
   .contact-section > div:last-child {
     padding-inline: 5%;
     gap: 4%;
-  }
-  .contact-form {
-    padding: 24px !important;
   }
   .contact-section h1 {
     font-size: 48px;
@@ -2107,24 +2091,6 @@ section[id] {
     gap: 14px;
     font-size: 11px;
   }
-  .contact-form {
-    padding: 24px !important;
-  }
-  .contact-form > div > label {
-    min-width: 0;
-  }
-  .contact-form > div:has(> label) {
-    flex-wrap: wrap;
-  }
-  .contact-form > div:has(> label) > label {
-    min-width: 100%;
-  }
-  .contact-form > div > button {
-    white-space: normal;
-  }
-  .contact-form .font-geist {
-    font-size: 24px;
-  }
   .legacy-home .site-header {
     display: none;
   }
@@ -2189,10 +2155,6 @@ section[id] {
 .footer-social svg {
   width: 30px;
   height: 30px;
-}
-.contact-form input.peer:focus-visible + span {
-  outline: 3px solid #e8334f;
-  outline-offset: 4px;
 }
 @media all /* was (max-width: 1000px) */ {
   .footer-columns {

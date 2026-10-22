@@ -15,6 +15,10 @@ const routes = [
   "/projecten/taxi-bornem",
   "/projecten/primelabs",
   "/projecten/psc-open-huis",
+  "/projecten/zerain",
+  "/projecten/panero",
+  "/projecten/futsalytix",
+  "/projecten/ay-gold",
   "/over-ons",
   "/privacy",
   "/algemene-voorwaarden",
@@ -113,25 +117,32 @@ const added = routes.slice(9);
     }
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto("http://127.0.0.1:3000/projecten");
-    assert.equal(await page.locator(".project-card").count(), 3);
+    assert.equal(await page.locator(".project-card").count(), 7);
     await page.getByRole("button", { name: "Lokale SEO", exact: true }).click();
     assert.equal(await page.locator(".project-card").count(), 1);
     assert.match(await page.locator(".project-card").innerText(), /Taxi Bornem/);
     await page.getByRole("button", { name: "Web apps", exact: true }).click();
-    assert.equal(await page.locator(".project-card").count(), 1);
-    assert.match(await page.locator(".project-card").innerText(), /PSC Open Huis/);
+    assert.equal(await page.locator(".project-card").count(), 2);
+    assert.match(await page.locator(".project-grid").innerText(), /PSC Open Huis[\s\S]*Ay Gold/);
     await page.getByRole("button", { name: "AI & automatisaties", exact: true }).click();
     assert.equal(await page.locator(".project-card").count(), 0);
     assert(await page.locator(".project-empty").isVisible());
     await page.getByRole("button", { name: "Alle projecten", exact: true }).click();
     await page.getByRole("link", { name: "Bekijk de case van Taxi Bornem" }).click();
     await page.waitForURL("**/projecten/taxi-bornem");
-    await page.locator(".next-case").click();
-    await page.waitForURL("**/projecten/primelabs");
-    await page.locator(".next-case").click();
-    await page.waitForURL("**/projecten/psc-open-huis");
-    await page.locator(".next-case").click();
-    await page.waitForURL("**/projecten/taxi-bornem");
+    // "Volgende case" loopt in een kring door alle cases, in de volgorde van lib/projects.ts.
+    for (const slug of [
+      "zerain",
+      "primelabs",
+      "panero",
+      "futsalytix",
+      "psc-open-huis",
+      "ay-gold",
+      "taxi-bornem",
+    ]) {
+      await page.locator(".next-case").click();
+      await page.waitForURL(`**/projecten/${slug}`);
+    }
     const invalid = await page.goto("http://127.0.0.1:3000/projecten/bestaat-niet");
     assert.equal(invalid.status(), 404);
     for (const route of ["/privacy", "/algemene-voorwaarden"]) {

@@ -3,11 +3,13 @@ import Link from "next/link";
 import { services } from "@/lib/services";
 import { SITE } from "@/lib/site";
 import { BtnArrow } from "@/components/ui/BtnArrow";
+import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
 
 /** Shared footer from Figma node 232:455. */
 export function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer hero-surface">
+      <HeroBackdrop />
       <div className="footer-inner">
         <div className="footer-invitation">
           <span className="tiny-label">KLAAR OM TE GROEIEN?</span>

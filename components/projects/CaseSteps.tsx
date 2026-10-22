@@ -2,11 +2,12 @@
 
 import { Children, useEffect, useRef, useState, type ReactNode } from "react";
 
-const MOBILE = "(max-width: 760px)";
+// Zelfde grens als de CSS: onder 1100px zijn de stappen een swiperij (responsive.css).
+const MOBILE = "(max-width: 1099px)";
 
 /**
- * De drie gebouwde onderdelen van een case. Desktop: gewone stapel (ongewijzigd).
- * Mobiel: swipebare kaarten met een rij stap-knoppen die meeloopt met het swipen;
+ * De gebouwde onderdelen van een case. Vanaf 1100px: raster naast elkaar.
+ * Smaller: swipebare kaarten met een rij stap-knoppen die meeloopt met het swipen;
  * kaarten buiten beeld zijn inert zodat focus en voorlezen bij de zichtbare stap blijven.
  */
 export function CaseSteps({ labels, children }: { labels: string[]; children: ReactNode }) {

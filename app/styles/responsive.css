@@ -86,8 +86,7 @@
 
   /* Vaste mobiele actiebalken: enkel op telefoons. */
   .mobile-cta-bar,
-  .service-cta-bar,
-  .quote-mobile-bar {
+  .service-cta-bar {
     display: none !important;
   }
 }
@@ -401,12 +400,6 @@
 
 /* Homepage: secties onder de hero */
 @media (min-width: 761px) {
-  /* Het verschil: schakelaar + kaart in een leesbare breedte. */
-  .home-difference .verschil-toggle {
-    max-width: 680px;
-    margin-inline: auto;
-  }
-
   /* Diensten: raster in plaats van swipe. */
   .home-services .swipe-hint {
     display: none !important;
@@ -989,12 +982,8 @@
     gap: 16px !important;
   }
 
-  /* Maatwerk, calculator, FAQ: leesbare kolom. */
+  /* Maatwerk, FAQ: leesbare kolom. */
   .pricing-page #maatwerk .custom-mobile {
-    max-width: 760px;
-    margin-inline: auto !important;
-  }
-  .pricing-page #bereken-je-prijs > [data-reveal] {
     max-width: 760px;
     margin-inline: auto !important;
   }
@@ -1027,23 +1016,6 @@
   .pricing-page #maatwerk .custom-mobile .price-actions {
     display: grid !important;
   }
-
-  /* Calculator: keuzes links, prijsindicatie rechts (blijft in beeld). */
-  .pricing-page #bereken-je-prijs > [data-reveal] {
-    max-width: none;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs > [data-reveal] > div {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) 400px;
-    align-items: start;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs aside {
-    position: sticky;
-    top: 96px;
-    display: flex !important;
-    width: auto !important;
-    padding: 32px 28px !important;
-  }
 }
 
 /* Prijzen: details */
@@ -1067,13 +1039,6 @@
     background: #810012;
     -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
     mask: url("/brand/wing.png") center / contain no-repeat;
-  }
-  /* Calculator: gelijke witte rand rondom. */
-  .pricing-page .pricing-canvas #bereken-je-prijs > [data-reveal] > div {
-    padding: 10px !important;
-  }
-  .pricing-page .pricing-canvas #bereken-je-prijs > [data-reveal] > div > div {
-    padding: 28px 28px 20px !important;
   }
   /* Zo werkt het: drie stappen naast elkaar met een verbindingslijn. */
   .pricing-page .pricing-canvas #zo-werkt-het ol {
@@ -1224,6 +1189,10 @@
     padding: 0 !important;
     overflow: visible !important;
   }
+  /* Compacte cases hebben twee stappen (desktop en mobiel): twee brede kolommen. */
+  .case-build .case-steps-track:has(> :nth-child(2):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .case-build .case-steps-track > * {
     flex: none !important;
     width: auto !important;
@@ -1298,13 +1267,6 @@
   .contact-section > div:last-child {
     padding-inline: var(--edge) !important;
   }
-  .contact-section .contact-form {
-    padding: 28px !important;
-  }
-  .contact-section .contact-form button[type="submit"] {
-    width: auto !important;
-    min-width: 280px;
-  }
 }
 @media (min-width: 1100px) {
   .contact-section > div:last-child {
@@ -1322,12 +1284,6 @@
   }
   .contact-section .contact-copy h1 {
     font-size: clamp(48px, 4.4vw, 64px) !important;
-  }
-  .contact-section .contact-form {
-    margin: 0 !important;
-  }
-  .contact-section .contact-form button[type="submit"] {
-    width: 100% !important;
   }
 
   /* Locatie: kaart en gegevens naast elkaar. */
@@ -1502,8 +1458,11 @@
   }
 }
 
-/* ═════════════════════════ Hero-achtergrond (Figma 232:1228), alle hero's en schermen ═════════════════════════ */
-:is(.service-hero, .portfolio-hero) {
+/* ═════════════════════════ Hero-achtergrond (Figma 232:1228), alle hero's en schermen ═════════════════════════
+ * .hero-surface: dezelfde achtergrond op de andere donkere secties (etalage, footer met CTA, donkere
+ * blokken op contact, prijzen, cases, over ons, audit en diensten). Zet er <HeroBackdrop /> als eerste kind in.
+ */
+:is(.service-hero, .portfolio-hero, .hero-surface) {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -1512,7 +1471,7 @@
 :is(.service-hero, .portfolio-hero)::before {
   content: none !important;
 }
-:is(.service-hero, .portfolio-hero) > .hero-backdrop {
+:is(.service-hero, .portfolio-hero, .hero-surface) > .hero-backdrop {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -1526,6 +1485,15 @@
   background:
     linear-gradient(rgb(4 0 27 / 0.11), rgb(4 0 27 / 0.11)),
     linear-gradient(66.13deg, #000 0%, #000 30%, #47000a 50%, #000 75%, #000 100%);
+}
+/* clip i.p.v. hidden: knipt de achtergrond af zonder scrollcontainer te worden, zodat sticky inhoud
+ * (bv. de tekst naast het auditformulier) aan het venster blijft hangen. */
+.hero-surface {
+  overflow: clip;
+}
+/* Etalage-slides hebben een eigen (inline) verloop; in een hero-surface toont de gedeelde achtergrond. */
+.hero-surface .etalage-slide {
+  background-image: none !important;
 }
 .hero-backdrop-canvas {
   position: absolute;
@@ -1755,7 +1723,7 @@
   }
   .home-page .etalage-slide .etalage-accent {
     color: #fff !important;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 86% / 100% 26% no-repeat;
+    background: var(--marker-fill) 0 86% / 100% 26% no-repeat;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 4px;

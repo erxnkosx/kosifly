@@ -10,13 +10,13 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
       <div
         className="project-card-scene"
         role="img"
-        aria-label={`${project.name}: ontwerp op laptop en telefoon`}
+        aria-label={`${project.name}: het opgeleverde ontwerp`}
       >
         <Scene />
       </div>
       <div className="project-card-body">
         <p className="project-location">
-          {project.name} · {project.place}
+          {project.name} · {project.place ?? project.sector}
         </p>
         <h2>
           <Link href={`/projecten/${project.slug}`}>{project.title}</Link>

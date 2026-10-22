@@ -103,16 +103,10 @@
   .case-hero h1 span {
     color: #fff;
     -webkit-text-fill-color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-background-clip: border-box;
     background-clip: border-box;
     padding: 0 2px;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .overview-hero h1 span,
-    .case-hero h1 span {
-      animation: marker-draw 0.9s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
   }
   .overview-hero .portfolio-hero-copy > p,
   .case-hero .portfolio-hero-copy > p {
@@ -287,6 +281,8 @@
   }
   .case-next {
     z-index: 3;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
   /* Laatste lichte sectie sluit af met afgeronde onderhoeken boven de footer. */
   .projects-overview,
@@ -331,8 +327,7 @@
   }
 
   /* Sectienamen: pilletje met vleugeltje, Inter i.p.v. Orbitron. */
-  .case-question .portfolio-eyebrow,
-  .case-next .portfolio-eyebrow {
+  .case-question .portfolio-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -345,7 +340,6 @@
     letter-spacing: 0.14em;
   }
   .case-question .portfolio-eyebrow::before,
-  .case-next .portfolio-eyebrow::before,
   .case-results .section-eyebrow::before,
   .project-invitation .tiny-label::before {
     content: "";
@@ -397,7 +391,7 @@
   }
   .case-results .portfolio-heading h2 span {
     color: #fff;
-    background: linear-gradient(90deg, #a6122d, #d11a3a) 0 88% / 100% 30% no-repeat;
+    background: var(--marker-fill) 0 88% / 100% 30% no-repeat;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0 2px;
@@ -795,46 +789,6 @@
     font: 600 12px/1.2 var(--font-inter);
     letter-spacing: 0.12em;
     color: #ffffff80;
-  }
-
-  /* ───────── Case: volgende case als grote, tikbare kaart ───────── */
-  .case-next .next-case {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #81001221;
-    border-radius: 24px;
-    box-shadow:
-      0 1px 2px #0000000a,
-      0 18px 40px #81001226;
-  }
-  .case-next .next-case-scene {
-    order: -1;
-    padding: 24px 20px 20px;
-  }
-  .case-next .next-case > div:first-child {
-    padding: 22px 20px 20px;
-  }
-  .case-next .next-case p {
-    margin-top: 14px;
-    font: 600 13px/1.3 var(--font-inter);
-    letter-spacing: 0.02em;
-    color: #810012;
-  }
-  .case-next .next-case h2 {
-    margin: 8px 0 20px;
-    font-size: 26px;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-  .case-next .next-case .button {
-    justify-content: center;
-    width: 100%;
-    min-height: 54px;
-    font-size: 15px;
-    background: linear-gradient(180deg, #b0122f 0%, #810012 100%);
-    box-shadow:
-      inset 0 1px 0 #ffffff40,
-      0 10px 24px #a6122d40;
   }
 
   /* Rustige scroll-reveal voor kaarten (enkel waar de browser het ondersteunt). */

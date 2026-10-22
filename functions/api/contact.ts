@@ -24,6 +24,7 @@ const TEXT_FIELDS: Record<string, number> = {
   bericht: 5_000,
   type: 20,
   budget: 20,
+  planning: 40,
 };
 /** Gestructureerde velden uit de calculators; ze vallen binnen MAX_BODY_BYTES. */
 const OBJECT_FIELDS = ["quote", "calculation"];

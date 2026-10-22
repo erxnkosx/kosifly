@@ -1,5 +1,5 @@
 import { fmt, ONDERHOUD, type SeoId } from "@/lib/pricing";
-import { calculatorHref } from "../calculator/calculatorHref";
+import { calculatorHref } from "../wizard/calculatorHref";
 
 /**
  * Inhoud van de maandkaarten. De onderhoudsplannen lezen hun prijs uit `lib/pricing.ts`; de SEO-bedragen hieronder

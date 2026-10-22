@@ -199,7 +199,8 @@ export default function WebsiteAudit() {
           </RevealGroup>
         </section>
 
-        <section id="audit-aanvragen" className="audit-request">
+        <section id="audit-aanvragen" className="audit-request hero-surface">
+          <HeroBackdrop />
           <div className="audit-request-grid">
             <Reveal className="audit-request-copy">
               <span className="section-eyebrow">GRATIS AUDIT</span>

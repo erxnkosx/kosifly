@@ -30,7 +30,7 @@ export function ProjectsOverview({ items }: { items: readonly ProjectSummary[] }
             <span>echte</span> bedrijven.
           </h1>
           <p>
-            Van een taxidienst in Bornem tot een specialist in drone-inspecties:
+            Van een taxidienst in Bornem tot maatwerksoftware voor een juwelier:
             <br className="desktop-break" /> zo helpen we KMO&apos;s online groeien.
           </p>
           <div className="project-filters" role="group" aria-label="Filter projecten op dienst">
@@ -76,7 +76,8 @@ export function ProjectsOverview({ items }: { items: readonly ProjectSummary[] }
             </Link>
           </div>
         )}
-        <div className="project-invitation">
+        <div className="project-invitation hero-surface">
+          <HeroBackdrop />
           <div>
             <span className="tiny-label">VOLGENDE CASE</span>
             <h2>
@@ -91,7 +92,7 @@ export function ProjectsOverview({ items }: { items: readonly ProjectSummary[] }
             <Link href="/contact" className="button white">
               Plan een gesprek <BtnArrow />
             </Link>
-            <Link href="/prijzen" className="portfolio-text-link">
+            <Link href="/prijzen#prijsberekenaar" className="portfolio-text-link">
               Bereken je prijs <BtnArrow />
             </Link>
           </div>

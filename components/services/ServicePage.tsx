@@ -313,7 +313,8 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             </span>
           </div>
         </section>
-        <section id="etalage" className="service-section showcase-section">
+        <section id="etalage" className="service-section showcase-section hero-surface">
+          <HeroBackdrop />
           <div className="section-heading">
             <span className="section-eyebrow">DE ETALAGE</span>
             <h2>

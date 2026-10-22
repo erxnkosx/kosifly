@@ -1,5 +1,4 @@
 export { AnchorBar } from "./anchor-bar/AnchorBar";
-export { PriceCalculator } from "./calculator/PriceCalculator";
 export { Comparison } from "./comparison/Comparison";
 export { CustomWork } from "./custom/CustomWork";
 export { Extras } from "./extras/Extras";

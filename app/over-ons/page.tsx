@@ -125,7 +125,8 @@ export default function AboutPage() {
             ))}
           </dl>
         </section>
-        <section className="about-expertise page-section">
+        <section className="about-expertise page-section hero-surface">
+          <HeroBackdrop />
           <div className="portfolio-heading">
             <span className="section-eyebrow">ONZE EXPERTISE</span>
             <h2>

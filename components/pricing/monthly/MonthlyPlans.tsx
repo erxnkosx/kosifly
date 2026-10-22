@@ -39,7 +39,6 @@ export function MonthlyPlans() {
     <DarkSection
       id="maandpakketten"
       aria-labelledby="maandpakketten-kop"
-      backdrop={{ src: "/figma/pricing/monthly/5098d.svg", width: 1920, height: 1714 }}
       className="flex h-[1714px] w-[1920px] flex-col items-center overflow-hidden leading-[normal]"
     >
       <SectionHeading

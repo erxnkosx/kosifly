@@ -1,9 +1,14 @@
 export type Project = {
   slug: string;
   name: string;
-  /** Korte plaatsnaam op de projectkaart. */
-  place: string;
-  region: string;
+  /**
+   * "compact": case met alleen wat in het opgeleverde ontwerp zichtbaar is (geen resultaten of cijfers).
+   * De casepagina toont dan "Het project" en "In beeld" in plaats van vraag, aanpak en resultaat.
+   */
+  kind?: "compact";
+  /** Korte plaatsnaam op de projectkaart; zonder plaats toont de kaart de sector. */
+  place?: string;
+  region?: string;
   sector: string;
   title: string;
   /** Titel bovenaan de casepagina: eerste regel, accentwoord en de rest. */
@@ -23,15 +28,15 @@ export type Project = {
   situation: string;
   approach: string;
   steps: { label: string; title: string; description: string; points: string[] }[];
-  /** `note`: kleine regel onder het label, bv. wanneer een meting nog volgt. */
-  metrics: { value: string; label: string; note?: string }[];
+  /** `note`: kleine regel onder het label, bv. wanneer een meting nog volgt. Zonder metingen: geen resultaatsectie. */
+  metrics?: { value: string; label: string; note?: string }[];
   /** Slotzin van Kosifly onder het resultaat. */
-  conclusion: string;
+  conclusion?: string;
 };
 
 export type ProjectSummary = Pick<
   Project,
-  "slug" | "name" | "place" | "title" | "summary" | "tags" | "categories" | "note"
+  "slug" | "name" | "place" | "sector" | "title" | "summary" | "tags" | "categories" | "note"
 >;
 
 /** Copy and service attribution from the published case designs in Figma. */
@@ -98,6 +103,51 @@ export const projects: readonly Project[] = [
     conclusion: "Een snelle, heldere website met een duidelijke weg naar een ritaanvraag.",
   },
   {
+    slug: "zerain",
+    name: "Zerain",
+    kind: "compact",
+    place: "Rotterdam",
+    region: "Rotterdam · Alexandrium",
+    sector: "Koffiebar & brunch",
+    title: "Koffie en brunch, online net zo uitnodigend.",
+    headline: { lead: "Koffie en brunch,", accent: "online", rest: " net zo uitnodigend." },
+    summary:
+      "Een website voor een specialty coffee bar in Alexandrium, Rotterdam: sfeer, menu en de route naar de zaak in één oogopslag.",
+    intro:
+      "Een website voor Zerain, specialty coffee & kitchen in winkelcentrum Alexandrium in Rotterdam. Het menu, de sfeer van de zaak en de route staan altijd binnen handbereik.",
+    tags: ["Webdesign", "Mobiel ontwerp", "Menu & route"],
+    categories: ["webdesign"],
+    note: "Horeca · Rotterdam",
+    link: { href: "https://www.zerain.nl", label: "Bezoek de site", external: true },
+    highlight: { label: "Project", value: "Website ontwerp" },
+    question: "Een koffiebar waar je al zin in krijgt voor je binnenstapt.",
+    questionAccent: "zin in krijgt",
+    situation:
+      "Zerain is een specialty coffee & kitchen in het hart van winkelcentrum Alexandrium in Rotterdam. Je kan er vanaf 07:00 terecht voor koffie, matcha en brunch: voor een snelle espresso tussen het winkelen door of een lange brunch met vrienden.",
+    approach:
+      "We ontwierpen een website die de sfeer van de zaak overbrengt: warme tinten, grote sfeerbeelden en een klassieke letter. Het menu, de route en Instagram staan altijd binnen één klik, op de computer en op de gsm.",
+    steps: [
+      {
+        label: "01 · DESKTOP",
+        title: "Sfeer, menu en route meteen in beeld.",
+        description:
+          "De homepage opent met een sfeerbeeld en de kern: koffie, matcha en brunch in Alexandrium. Met één klik bekijk je het menu of plan je je route.",
+        points: [
+          "Menu en route plannen in de hero",
+          "Navigatie naar menu, over ons, vacatures en bezoek",
+          "Instagram rechtstreeks gelinkt",
+        ],
+      },
+      {
+        label: "02 · MOBIEL",
+        title: "Even landen, ook op de gsm.",
+        description:
+          "Op de gsm vertelt de site het verhaal van de plek: bordeaux fauteuils, licht eiken hout en de geur van vers gezette koffie, met beelden van de zaak.",
+        points: ["Ontworpen voor de gsm", "Sfeerbeelden van de zaak", "Rustige, leesbare opbouw"],
+      },
+    ],
+  },
+  {
     slug: "primelabs",
     name: "Primelabs",
     place: "België",
@@ -157,6 +207,98 @@ export const projects: readonly Project[] = [
       { value: "—", label: "inspectieaanvragen per maand", note: "Metingen volgen" },
     ],
     conclusion: "Een snelle, heldere website met een duidelijke weg naar een inspectieaanvraag.",
+  },
+  {
+    slug: "panero",
+    name: "Panero",
+    kind: "compact",
+    sector: "Broodjes & take-away",
+    title: "Tijd voor iets lekkers, ook online.",
+    headline: { lead: "Broodjes met", accent: "smaak", rest: ", ook online." },
+    summary:
+      "Een website voor PANERO: broodjes, gerechten en desserts, met een menu per categorie en take-away binnen één tik.",
+    intro:
+      "Een website voor PANERO, voor een goed broodje, iets warms of een zoete pauze. Met een overzichtelijk menu en take-away vooraan.",
+    tags: ["Webdesign", "Online menu", "Take-away"],
+    categories: ["webdesign"],
+    note: "Broodjes & take-away",
+    link: { href: "https://www.panero.be", label: "Bezoek de site", external: true },
+    highlight: { label: "Project", value: "Website ontwerp" },
+    question: "Een menu waar je meteen trek van krijgt.",
+    questionAccent: "trek",
+    situation:
+      "PANERO serveert broodjes, warme gerechten en desserts, om ter plaatse te eten of mee te nemen. Een goed broodje, iets warms of een zoete pauze: voor elk moment iets lekkers.",
+    approach:
+      "We ontwierpen een website in een eigen, warme huisstijl: diep groen, crème en een elegante letter, met grote beelden van de producten. Het menu en take-away staan centraal, op de computer en op de gsm.",
+    steps: [
+      {
+        label: "01 · DESKTOP",
+        title: "Meteen zin in iets lekkers.",
+        description:
+          "De homepage zet de producten en de verpakking in de verf en leidt je in één klik naar het menu of naar take-away.",
+        points: [
+          "Menu en take-away in de hero",
+          "Grote productbeelden",
+          "Knop ‘Kom langs’ altijd in beeld",
+        ],
+      },
+      {
+        label: "02 · MOBIEL",
+        title: "Het menu, per categorie.",
+        description:
+          "Op de gsm kies je tussen broodjes, warm, zoet en dranken, en zie je per categorie wat er op de kaart staat.",
+        points: ["Filter per categorie", "Leesbare kaart op de gsm", "Voor hier of onderweg"],
+      },
+    ],
+  },
+  {
+    slug: "futsalytix",
+    name: "Futsalytix",
+    kind: "compact",
+    place: "België",
+    region: "België",
+    sector: "Sporttechnologie",
+    title: "Een nieuwe app voor zaalvoetbal, in één oogopslag uitgelegd.",
+    headline: { lead: "Elke match,", accent: "helder", rest: " in beeld." },
+    summary:
+      "Een website voor Futsalytix, de app die je zaalvoetbalmatch filmt en er highlights, statistieken en een live scorebord van maakt.",
+    intro:
+      "Futsalytix filmt je zaalvoetbalmatch en maakt er highlights, statistieken en een live scorebord van. Wij ontwierpen de website die de app uitlegt, voor spelers én voor zaaluitbaters.",
+    tags: ["Webdesign", "Meertalig", "App-landingspagina"],
+    categories: ["webdesign"],
+    note: "Sporttechnologie · België",
+    link: { href: "https://www.futsalytix.be", label: "Bezoek de site", external: true },
+    highlight: { label: "Talen", value: "NL · FR · EN" },
+    question: "Een nieuwe app die je in één oogopslag snapt.",
+    questionAccent: "in één oogopslag",
+    situation:
+      "Futsalytix is nieuw in België en gemaakt voor zaalvoetbal: genummerd hesje aan, spelen maar. De app filmt de match en maakt highlights, statistieken en een live scorebord, gratis voor spelers.",
+    approach:
+      "We ontwierpen een website die de app meteen laat zien: een live speelveld, topsnelheid en de laatste wedstrijden. Spelers downloaden de app, zaaluitbaters krijgen een eigen ingang, en alles is er in het Nederlands, Frans en Engels.",
+    steps: [
+      {
+        label: "01 · DESKTOP",
+        title: "De app in actie, op de homepage.",
+        description:
+          "Een live speelveld, de topsnelheid en een goalmelding laten zien wat Futsalytix doet, nog voor je iets leest.",
+        points: [
+          "Download de app vanuit de hero",
+          "Aparte ingang voor zaaluitbaters",
+          "Beschikbaar in NL, FR en EN",
+        ],
+      },
+      {
+        label: "02 · MOBIEL",
+        title: "Ook op de gsm, net zo duidelijk.",
+        description:
+          "Op de gsm zie je live tracking en je topsnelheid, met één duidelijke knop om een account te maken.",
+        points: [
+          "Live tracking en topsnelheid",
+          "Account maken in één tik",
+          "Sportieve, eigen huisstijl",
+        ],
+      },
+    ],
   },
   {
     slug: "psc-open-huis",
@@ -225,14 +367,62 @@ export const projects: readonly Project[] = [
     conclusion:
       "Eén app voor leden, activiteiten en inschrijvingen, in de eigen huisstijl van PSC Open Huis.",
   },
+  {
+    slug: "ay-gold",
+    name: "Ay Gold",
+    kind: "compact",
+    sector: "Juwelier",
+    title: "Bestellingen en betalingen in één overzicht.",
+    headline: { lead: "Van losse Excel-bestanden", accent: "naar één platform", rest: "." },
+    summary:
+      "Maatwerksoftware voor juwelier Ay Gold: bestellingen per categorie, betalingen en voorschotten, herinneringen en klanten in één overzicht.",
+    intro:
+      "Maatwerksoftware voor juwelier Ay Gold. Elke bestelling, betaling en afhaling staat in één overzicht, in plaats van in losse Excel-bestanden.",
+    tags: ["Software op maat", "Bestelbeheer", "Betalingsopvolging"],
+    categories: ["web-apps"],
+    note: "Juwelier · Maatwerksoftware",
+    link: { href: "/contact?dienst=Web%20apps%20%26%20maatwerk", label: "Bespreek jouw project" },
+    highlight: { label: "Project", value: "Maatwerksoftware" },
+    question: "Elke bestelling en elke betaling op één plek.",
+    questionAccent: "op één plek",
+    situation:
+      "Ay Gold is een juwelier met bestellingen in vier categorieën: Bilezik, Ziynet, Fantasy Ürünler en sets. Per bestelling moet duidelijk zijn of ze klaar is, afgehaald en betaald.",
+    approach:
+      "We bouwden software op maat rond hun manier van werken: een overzicht met de stand van alle bestellingen, openstaande betalingen en voorschotten, en per categorie snel een nieuwe bestelling.",
+    steps: [
+      {
+        label: "01 · OVERZICHT",
+        title: "Alles wat openstaat, in één oogopslag.",
+        description:
+          "Het overzicht toont welke bestellingen nog niet afgehaald zijn, welke betalingen nog openstaan en wat met een voorschot is betaald.",
+        points: [
+          "Openstaande betalingen en voorschotten",
+          "Afgeleverd en geannuleerd apart geteld",
+          "Zoeken op klant, telefoon of bonnummer",
+        ],
+      },
+      {
+        label: "02 · CATEGORIEËN",
+        title: "Per categorie een nieuwe bestelling.",
+        description:
+          "Voor elke categorie zie je meteen hoeveel bestellingen openstaan en wat de laatste bon was, met één knop voor een nieuwe bestelling.",
+        points: [
+          "Bilezik, Ziynet, Fantasy Ürünler en sets",
+          "Laatste bon per categorie",
+          "Herinneringen en klantenbestand",
+        ],
+      },
+    ],
+  },
 ];
 
 /** Only card data crosses the client boundary of the project filter. */
 export const projectSummaries: readonly ProjectSummary[] = projects.map(
-  ({ slug, name, place, title, summary, tags, categories, note }) => ({
+  ({ slug, name, place, sector, title, summary, tags, categories, note }) => ({
     slug,
     name,
     place,
+    sector,
     title,
     summary,
     tags,

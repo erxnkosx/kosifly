@@ -39,6 +39,11 @@ import "./styles/home-accent.css";
 import "./styles/bordeaux.css";
 import "./styles/motion.css";
 import "./styles/buttons-luxe.css";
+import "./styles/nav-floating.css";
+import "./styles/choices.css";
+import "./styles/contact-flow.css";
+import "./styles/price-wizard.css";
+import { AccentReveal } from "@/components/motion/AccentReveal";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { SITE } from "@/lib/site";
 
@@ -89,6 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Naar de inhoud
         </a>
         <MotionProvider>{children}</MotionProvider>
+        <AccentReveal />
       </body>
     </html>
   );

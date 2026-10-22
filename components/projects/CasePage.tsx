@@ -10,9 +10,12 @@ export function CasePage({ project }: { project: Project }) {
   const scenes = caseScenes[project.slug];
   const HeroScene = scenes.hero;
   // Volgende case in een kring: de laatste verwijst terug naar de eerste.
-  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const nextIndex = (projects.indexOf(project) + 1) % projects.length;
+  const next = projects[nextIndex];
   const NextScene = caseScenes[next.slug].hero;
   const { link } = project;
+  // Compacte case: alleen wat in het opgeleverde ontwerp zichtbaar is, zonder vraag en resultaten.
+  const compact = project.kind === "compact";
   return (
     <>
       <section className="portfolio-hero case-hero">
@@ -33,12 +36,14 @@ export function CasePage({ project }: { project: Project }) {
               ["Regio", project.region],
               ["Diensten", project.tags.join(" · ")],
               [project.highlight.label, project.highlight.value],
-            ].map(([label, value]) => (
-              <div key={label} className={label === "Status" ? "case-meta-status" : undefined}>
-                <dt>{label}</dt>
-                <dd>{value}</dd>
-              </div>
-            ))}
+            ]
+              .filter(([, value]) => value)
+              .map(([label, value]) => (
+                <div key={label} className={label === "Status" ? "case-meta-status" : undefined}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
           </dl>
           <div className="button-row">
             {link.external ? (
@@ -64,14 +69,14 @@ export function CasePage({ project }: { project: Project }) {
         <div
           className="case-hero-art page-content"
           role="img"
-          aria-label={`${project.name}: ontwerp op desktop en mobiel`}
+          aria-label={`${project.name}: het opgeleverde ontwerp`}
         >
           <HeroScene />
         </div>
       </section>
       <section className="portfolio-light page-section case-question">
         <div>
-          <span className="portfolio-eyebrow">DE VRAAG</span>
+          <span className="portfolio-eyebrow">{compact ? "HET PROJECT" : "DE VRAAG"}</span>
           <h2>
             {(() => {
               const at = project.question.indexOf(project.questionAccent);
@@ -87,18 +92,26 @@ export function CasePage({ project }: { project: Project }) {
           </h2>
         </div>
         <div>
-          <span className="portfolio-eyebrow">DE SITUATIE</span>
+          <span className="portfolio-eyebrow">
+            {compact ? `OVER ${project.name.toUpperCase()}` : "DE SITUATIE"}
+          </span>
           <p>{project.situation}</p>
-          <span className="portfolio-eyebrow">ONZE AANPAK</span>
+          <span className="portfolio-eyebrow">{compact ? "WAT WE DEDEN" : "ONZE AANPAK"}</span>
           <p>{project.approach}</p>
         </div>
       </section>
       <section className="portfolio-light page-section case-build">
         <div className="portfolio-heading">
-          <span className="section-eyebrow">WAT WE BOUWDEN</span>
-          <h2>
-            Drie onderdelen die het <span>verschil</span> maken.
-          </h2>
+          <span className="section-eyebrow">{compact ? "IN BEELD" : "WAT WE BOUWDEN"}</span>
+          {compact ? (
+            <h2>
+              Zo ziet het <span>eruit</span>.
+            </h2>
+          ) : (
+            <h2>
+              Drie onderdelen die het <span>verschil</span> maken.
+            </h2>
+          )}
         </div>
         <CaseSteps
           labels={project.steps.map((step) => {
@@ -131,47 +144,52 @@ export function CasePage({ project }: { project: Project }) {
           })}
         </CaseSteps>
       </section>
-      <section className="case-results page-section">
-        <div className="portfolio-heading">
-          <span className="section-eyebrow">HET RESULTAAT</span>
-          <h2>
-            Wat het <span>opleverde.</span>
-          </h2>
-        </div>
-        <dl className="case-metrics">
-          {project.metrics.map((metric) => (
-            <div key={metric.label} className={metric.note ? "is-pending" : undefined}>
-              <dt>{metric.value}</dt>
-              <dd>
-                {metric.label}
-                {metric.note && <small>{metric.note}</small>}
-              </dd>
-            </div>
-          ))}
-        </dl>
-        <div className="case-result-note">
-          <span className="portfolio-quote-mark" aria-hidden="true">
-            “
-          </span>
-          <p>{project.conclusion}</p>
-          <span>KOSIFLY · {project.name}</span>
-        </div>
-      </section>
-      <section className="portfolio-light page-section case-next">
-        <Link href={`/projecten/${next.slug}`} className="next-case">
-          <div>
-            <span className="portfolio-eyebrow">VOLGENDE CASE</span>
-            <p>
-              {next.name} · {next.sector}
-            </p>
-            <h2>{next.title}</h2>
-            <span className="button primary">
-              Bekijk de case <BtnArrow />
-            </span>
+      {project.metrics?.length ? (
+        <section className="case-results page-section hero-surface">
+          <HeroBackdrop />
+          <div className="portfolio-heading">
+            <span className="section-eyebrow">HET RESULTAAT</span>
+            <h2>
+              Wat het <span>opleverde.</span>
+            </h2>
           </div>
+          <dl className="case-metrics">
+            {project.metrics.map((metric) => (
+              <div key={metric.label} className={metric.note ? "is-pending" : undefined}>
+                <dt>{metric.value}</dt>
+                <dd>
+                  {metric.label}
+                  {metric.note && <small>{metric.note}</small>}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="case-result-note">
+            <span className="portfolio-quote-mark" aria-hidden="true">
+              “
+            </span>
+            <p>{project.conclusion}</p>
+            <span>KOSIFLY · {project.name}</span>
+          </div>
+        </section>
+      ) : null}
+      <section className="portfolio-light page-section case-next" aria-label="Volgende case">
+        <Link href={`/projecten/${next.slug}`} className="next-case">
           <div className="next-case-scene">
             <NextScene lazy />
           </div>
+          <div className="next-case-copy">
+            <span className="next-case-kicker">
+              Volgende case
+              <em>
+                {String(nextIndex + 1).padStart(2, "0")} /{" "}
+                {String(projects.length).padStart(2, "0")}
+              </em>
+            </span>
+            <h2>{next.name}</h2>
+            <p>{next.title}</p>
+          </div>
+          <span className="next-case-arrow" aria-hidden="true" />
         </Link>
       </section>
     </>

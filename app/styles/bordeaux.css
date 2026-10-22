@@ -6,8 +6,6 @@
 
 /* ───────────── Gekozen keuzes en schakelaars ───────────── */
 :is(
-  .quote-chip:has(input:checked),
-  :is(.contact-chip, .audit-goals button)[aria-pressed="true"],
   .case-steps-nav button[aria-pressed="true"],
   .module-picker [role="tab"][aria-selected="true"],
   .website-comparison-switch button[aria-pressed="true"]
@@ -33,7 +31,6 @@
   .etalage-mobile li > span,
   .sms-points li > span,
   .contact-next-steps .your-step > span,
-  .contact-form .size-\[24px\].rounded-full,
   [data-name="Icoon-tegel"],
   [data-name="Nummer"],
   .service-menu-items [data-name="Icoon"]
@@ -57,30 +54,17 @@
   box-shadow: var(--brand-rim-shadow) !important;
 }
 
-/* "Met Kosifly" op de homepage. */
-.home-page .verschil-toggle.is-on .verschil-card {
-  background: var(--brand-fill);
-  box-shadow:
-    var(--brand-rim-shadow),
-    0 14px 32px rgb(0 0 0 / 0.12);
-}
-
 /* ───────────── Accentwoord in koppen op lichte secties ─────────────
  * Geen onderlijning meer: het woord zelf krijgt een robijnrood verloop (--accent-text-fill).
  * Donkere secties houden hun rode markeerstreep (het verloop is daar te donker om te lezen).
- * Terwijl de kop in beeld schuift, veegt een zachte inktlaag weg en kleurt het woord bordeaux
- * (--accent-fill 0% → 115%: de 15% zachte rand valt op het einde volledig buiten het woord);
- * zonder scroll-animaties of bij verminderde beweging staat het meteen volledig in kleur.
+ * Zodra het woord in beeld komt (data-accent-in, gezet door components/motion/AccentReveal.tsx), veegt een
+ * zachte inktlaag weg en kleurt het woord bordeaux (--accent-fill 0% → 115%: de 15% zachte rand valt op
+ * het einde volledig buiten het woord). Zonder JavaScript of bij verminderde beweging staat het meteen in kleur.
  */
 @property --accent-fill {
   syntax: "<percentage>";
   inherits: false;
   initial-value: 115%;
-}
-@keyframes accent-fill {
-  from {
-    --accent-fill: 0%;
-  }
 }
 :is(
   .light-section .section-heading :is(h1, h2) > span:not(.highlight-title),
@@ -108,11 +92,11 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      animation: accent-fill linear both;
-      animation-timeline: view();
-      animation-range: entry 100% cover 38%;
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    transition: --accent-fill 1.2s cubic-bezier(0.65, 0, 0.35, 1) var(--accent-delay, 0.1s);
+
+    &:not([data-accent-in]) {
+      --accent-fill: 0%;
     }
   }
 }

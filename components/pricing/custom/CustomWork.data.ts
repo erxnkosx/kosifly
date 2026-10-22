@@ -1,4 +1,4 @@
-import { calculatorHref } from "../calculator/calculatorHref";
+import { calculatorHref } from "../wizard/calculatorHref";
 import type { Glyph } from "../shared";
 
 export type Offer = {
@@ -54,6 +54,6 @@ export const OFFERS: readonly Offer[] = [
       "Eerst parallel getest met echte data",
       "30 dagen nazorg",
     ],
-    cta: { label: "Bereken wat het oplevert", href: calculatorHref() },
+    cta: { label: "Bereken wat het oplevert", href: calculatorHref({ dienst: "ai" }) },
   },
 ];

@@ -58,6 +58,9 @@ body {
   /* Accentwoorden in koppen op lichte secties ("diep robijn"): helderder dan --brand-fill, dat als tekst
    * bijna zwart begint. Van links naar rechts, zodat het verloop over het woord loopt. */
   --accent-text-fill: linear-gradient(90deg, #6b0b1b 0%, #a3122e 100%);
+
+  /* Markeerstreep achter een accentwoord in koppen op donkere achtergrond (hero's, etalage, CTA). */
+  --marker-fill: linear-gradient(90deg, #a6122d, #d11a3a);
 }
 
 @utility bg-accent-gradient {

@@ -1,18 +1,7 @@
-import { QUANTITY_LIMITS, applyQuoteParams, findPackage, type QuoteInput } from "@/lib/pricing";
+import { QUANTITY_LIMITS, findPackage, type QuoteInput } from "@/lib/pricing";
 
 const DEFAULT_ONDERHOUD = "plus";
 const DEFAULT_SEO = "lokaal";
-
-/** Standaardstaat uit het Figma-ontwerp. */
-export const DEFAULT_QUOTE: QuoteInput = {
-  services: ["Website", "Lokale SEO", "Onderhoud & hosting"],
-  pkg: "bedrijfssite",
-  extras: ["boeking"],
-  onderhoud: DEFAULT_ONDERHOUD,
-  seo: DEFAULT_SEO,
-  pages: 0,
-  languages: 0,
-};
 
 const clamp = (n: number, max: number) => Math.min(Math.max(n, 0), max);
 const withItem = (items: string[], item: string, on: boolean) =>
@@ -30,9 +19,6 @@ export function normalizeQuote(q: QuoteInput): QuoteInput {
   const extras = withItem(withItem(q.extras, "copywriting", pages > 0), "taal", languages > 0);
   return { ...q, services, extras, pages, languages };
 }
-
-export const presetFromParams = (params: { get(name: string): string | null }) =>
-  normalizeQuote(applyQuoteParams(DEFAULT_QUOTE, params));
 
 export function toggleService(q: QuoteInput, service: string): QuoteInput {
   if (service === "Lokale SEO")

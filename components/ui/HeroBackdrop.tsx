@@ -125,7 +125,9 @@ export function HeroBackdrop() {
     const art = canvas.current;
     if (!box || !art) return;
     const fit = () => {
-      const { width, height } = box.getBoundingClientRect();
+      // Layoutmaat, niet getBoundingClientRect: binnen een geschaald canvas (prijzenpagina) telt de eigen maat.
+      const width = box.offsetWidth;
+      const height = box.offsetHeight;
       const scale =
         width >= 1100
           ? Math.max(width / CANVAS.width, height / CANVAS.height)

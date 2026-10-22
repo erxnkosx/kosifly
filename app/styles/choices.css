@@ -1,0 +1,182 @@
+/*
+ * Gedeelde stappen-UI van de prijsberekenaar (PriceWizard.tsx) en het contactformulier (ContactForm.tsx):
+ * voortgangsbalkjes in het merkverloop en keuzekaarten (components/ui/Choice.tsx) met radio of checkbox.
+ */
+
+/* Voortgang */
+.step-progress {
+  display: flex;
+  gap: 6px;
+}
+.step-progress span {
+  flex: 1;
+  height: 5px;
+  border-radius: 5px;
+  background: #ededed;
+  transition: background-color 0.35s;
+}
+.step-progress span.is-done {
+  background: var(--marker-fill);
+}
+
+/* Lijsten en groepen */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.choice-list {
+  display: grid;
+  gap: 10px;
+}
+.choice-groups {
+  display: grid;
+  gap: 22px;
+}
+.choice-groups fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.choice-groups legend {
+  margin-bottom: 10px;
+  font: 700 14px/1.2 var(--font-inter);
+  color: #111;
+}
+
+/* Keuzekaart */
+.choice {
+  border: 1px solid #e4e4e7;
+  border-radius: 16px;
+  background: #fff;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+.choice:hover {
+  border-color: #c9c9cf;
+}
+.choice.is-on {
+  border-color: #810012;
+  background: #fff5f7;
+  box-shadow: 0 0 0 1px #810012;
+}
+.choice:has(input:focus-visible) {
+  outline: 3px solid rgb(129 0 18 / 0.35);
+  outline-offset: 2px;
+}
+.choice label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 16px;
+  cursor: pointer;
+}
+.choice input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.choice-mark {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #b8b8bf;
+  background: #fff;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.choice-mark-radio {
+  border-radius: 50%;
+}
+.choice-mark-checkbox {
+  border-radius: 6px;
+}
+.is-on .choice-mark {
+  border-color: transparent;
+  background: var(--brand-fill);
+  box-shadow: var(--brand-rim-shadow);
+}
+.is-on .choice-mark-radio::after {
+  content: "";
+  position: absolute;
+  inset: 5.5px;
+  border-radius: 50%;
+  background: #fff;
+}
+.is-on .choice-mark-checkbox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 10.5l3 3 6-7'/%3E%3C/svg%3E")
+    center / 16px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 10.5l3 3 6-7'/%3E%3C/svg%3E")
+    center / 16px no-repeat;
+}
+.choice-text {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 3px;
+}
+.choice-text strong {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font: 600 15px/1.3 var(--font-inter);
+  color: #111;
+}
+.choice-text em {
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: var(--brand-fill);
+  box-shadow: var(--brand-rim-shadow);
+  font: 600 11px/1.2 var(--font-inter);
+  font-style: normal;
+  color: #fff;
+}
+.choice-text small {
+  font: 400 13px/1.45 var(--font-inter);
+  color: #6b6b6b;
+}
+.choice-price {
+  flex-shrink: 0;
+  font: 600 14px/1.3 var(--font-inter);
+  color: #810012;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .choice-grid {
+    grid-template-columns: 1fr;
+  }
+  .choice label {
+    padding: 13px 14px;
+  }
+}
+
+/* Voet met Vorige en de hoofdknop: op smalle schermen vult de hoofdknop de rij, Vorige wordt een pijl. */
+@media (max-width: 760px) {
+  :is(.pw-foot, .cf-foot) .sbtn {
+    min-width: 0;
+    padding-inline: 18px !important;
+  }
+  :is(.pw-foot, .cf-foot) .sbtn-primary {
+    flex: 1;
+    justify-content: center;
+  }
+}
+@media (max-width: 400px) {
+  .step-back-label {
+    display: none;
+  }
+}

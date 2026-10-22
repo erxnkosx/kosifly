@@ -13,6 +13,76 @@ import NavIcon3 from "./services/art/NavIcon3";
 import NavIcon4 from "./services/art/NavIcon4";
 import { BtnArrow } from "@/components/ui/BtnArrow";
 const icons = [NavIcon0, NavIcon1, NavIcon2, NavIcon3, NavIcon4];
+
+/** Binnen deze afstand (px) van de top is de navbar de volle, transparante balk van de hero. */
+const TOP_ZONE = 80;
+/** Minimale scrollstap (px) voordat de richting telt, zodat kleine trillingen de balk niet laten flikkeren. */
+const SCROLL_STEP = 6;
+
+/**
+ * Zwevende navbar. De navbar staat altijd vast bovenaan het venster en heeft drie toestanden:
+ * - vol: bovenaan de pagina, de transparante navbar over de hero;
+ * - verborgen: bij naar beneden scrollen schuift hij weg, zodat hij het lezen niet stoort;
+ * - compact: bij omhoog scrollen komt hij terug als glazen balk.
+ * Van compact naar vol (terug bovenaan) vervormt de balk vloeiend (CSS-transities op maat, glas en
+ * afronding). Van vol naar compact gebeurt alleen terwijl hij verborgen is, dus onzichtbaar.
+ * Zet --nav-offset op <html>, zodat sticky balken (bv. de ankerbalk op /prijzen) eronder schuiven.
+ */
+function useFloatingNav(keepVisible: boolean) {
+  const [compact, setCompact] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  // Eén frame zonder transities: compact maken terwijl de balk verborgen is, daarna pas inschuiven.
+  const [instant, setInstant] = useState(false);
+  const isCompact = useRef(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let frame = 0;
+    const showCompact = () => {
+      if (isCompact.current) return setHidden(false);
+      isCompact.current = true;
+      setInstant(true);
+      setCompact(true);
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          setInstant(false);
+          setHidden(false);
+        }),
+      );
+    };
+    const update = () => {
+      frame = 0;
+      const y = window.scrollY;
+      const delta = y - lastY;
+      if (y <= TOP_ZONE) {
+        isCompact.current = false;
+        setCompact(false);
+        setHidden(false);
+        lastY = y;
+        return;
+      }
+      if (Math.abs(delta) < SCROLL_STEP) return;
+      lastY = y;
+      if (delta > 0) setHidden(true);
+      else showCompact();
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    // Pagina geladen halverwege (vernieuwen, anker): meteen de compacte balk.
+    if (window.scrollY > TOP_ZONE) {
+      isCompact.current = true;
+      setCompact(true);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+  const visible = !hidden || keepVisible;
+  return { compact, hidden: !visible, instant, visible };
+}
+
 export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark" | "light" }) {
   const [open, setOpen] = useState(false),
     [mobile, setMobile] = useState(false);
@@ -20,6 +90,20 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
     trigger = useRef<HTMLButtonElement>(null),
     mobileTrigger = useRef<HTMLButtonElement>(null),
     pathname = usePathname();
+  const [focused, setFocused] = useState(false);
+  const nav = useFloatingNav(open || mobile || focused);
+  // Hoogte van de zichtbare zwevende balk, voor sticky elementen eronder.
+  useEffect(() => {
+    // offsetHeight: de rusthoogte, niet de positie halverwege de inschuifanimatie.
+    const offset = nav.visible && nav.compact && ref.current ? ref.current.offsetHeight + 8 : 0;
+    document.documentElement.style.setProperty("--nav-offset", `${offset}px`);
+  }, [nav.visible, nav.compact]);
+  useEffect(
+    () => () => {
+      document.documentElement.style.removeProperty("--nav-offset");
+    },
+    [],
+  );
   useEffect(() => {
     setOpen(false);
     setMobile(false);
@@ -47,7 +131,20 @@ export function Navbar({ active, tone = "dark" }: { active: string; tone?: "dark
   return (
     <header
       ref={ref}
-      className={`site-header site-header-${tone}`}
+      className={[
+        "site-header",
+        // Compact altijd donker glas, ook op pagina's met een lichte navbar bovenaan.
+        `site-header-${nav.compact ? "dark" : tone}`,
+        nav.compact && "is-compact",
+        nav.hidden && "is-hidden",
+        nav.instant && "is-instant",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      onFocus={() => setFocused(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocused(false);
+      }}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
           setOpen(false);
