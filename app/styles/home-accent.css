@@ -32,7 +32,6 @@ html:has(main.home-page) {
 .home-page .home-service-uptime {
   filter: none;
 }
-.home-page .process-body .process-you,
 .home-page .testimonial-avatar {
   background: #f3f3f3;
 }
@@ -47,19 +46,6 @@ html:has(main.home-page) {
 }
 .home-page .etalage-dots button[aria-pressed="true"]::after {
   box-shadow: none !important;
-}
-.home-page .home-faq .faq-item {
-  border-color: #e3e3e3;
-  background: #fff;
-}
-.home-page .home-faq .faq-item.is-open {
-  border-color: var(--home-accent);
-  background: #fafafa;
-  box-shadow: 0 8px 24px -16px rgb(0 0 0 / 0.2);
-}
-.home-page .home-faq .faq-item h3 img {
-  border-color: #dedede;
-  background: #f5f5f5;
 }
 
 /* The hero flow keeps its timing and uses the same solid accent throughout. */

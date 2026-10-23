@@ -3,7 +3,6 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const routes = [
   "/",
-  "/services",
   "/prijzen",
   "/contact",
   "/diensten/webdesign",

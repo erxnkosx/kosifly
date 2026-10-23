@@ -15,7 +15,7 @@
   @supports (animation-timeline: view()) {
     :is(
       .process-step,
-      .service-page .process-steps > li,
+      :is(.service-page, .home-page) .process-steps > li,
       .contact-next-steps .process-steps li
     )::after {
       transform-origin: 0 0;

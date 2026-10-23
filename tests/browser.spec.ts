@@ -2,7 +2,6 @@ import { test, expect } from "@playwright/test";
 
 const routes = [
   "/",
-  "/services",
   "/contact",
   "/contact?tab=offerte",
   "/prijzen",
@@ -111,8 +110,13 @@ test("menu fits laptop and mobile screens", async ({ page }) => {
   for (const width of [390, 768, 1024, 1280, 1366, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/diensten/webdesign");
-    if (width <= 760) await page.locator(".mobile-toggle").click();
-    await page.locator(".services-menu>button").click();
+    if (width < 1100) {
+      await page.locator(".mobile-toggle").click();
+      await page.locator(".services-menu>button").click();
+    } else {
+      await page.locator(".services-menu>button").focus();
+      await page.keyboard.press("Enter");
+    }
     const menu = page.locator(".services-dropdown");
     await expect(menu).toBeVisible();
     const box = await menu.boundingBox();

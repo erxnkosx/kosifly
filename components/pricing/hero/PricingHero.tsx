@@ -9,7 +9,7 @@ export function PricingHero() {
     <section id="hero" aria-labelledby="hero-title" className="portfolio-hero overview-hero">
       <HeroBackdrop />
       <div className="portfolio-hero-copy page-content">
-        <Badge section="Prijzen" page="Alle diensten" />
+        <Badge section="Prijzen" page="Tarieven" />
         {/* Geen vaste <br>: text-wrap: balance verdeelt de kop gelijk over 2 (desktop) of 3 regels (mobiel). */}
         <h1 id="hero-title" style={{ textWrap: "balance" }}>
           Een vaste prijs, vooraf en zonder <span>verrassingen</span>.

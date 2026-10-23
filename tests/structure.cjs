@@ -8,7 +8,6 @@ const design = require("../data/services-design.json");
 const normalize = (text) => text.replace(/\s+/g, " ").trim();
 const routes = [
   "/",
-  "/services",
   "/contact",
   "/prijzen",
   "/projecten",

@@ -24,7 +24,7 @@ export function ServiceCtaBar({
   const [scrollingDown, setScrollingDown] = useState(false);
 
   useEffect(() => {
-    const hero = document.querySelector(".service-hero, .services-index .section-heading");
+    const hero = document.querySelector(".service-hero");
     const footer = document.querySelector(".site-footer");
     if (!hero || !footer) return;
     const state = { heroVisible: true, footerVisible: false };

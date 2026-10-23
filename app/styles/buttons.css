@@ -76,16 +76,11 @@ html:has(main.home-page) {
     padding-inline: 26px !important;
     font-size: 15px !important;
   }
-  & .site-header .nav-links.mobile-open > .nav-menu-cta,
-  & .site-header .service-menu-items > .menu-all {
+  & .site-header .nav-links.mobile-open > .nav-menu-cta {
     width: 100% !important;
   }
   & .site-header .nav-links.mobile-open > .nav-menu-cta {
     margin-top: 8px;
-  }
-  & .site-header .service-menu-items > .menu-all {
-    justify-content: space-between !important;
-    margin-bottom: 6px;
   }
   & .site-header .mobile-toggle {
     min-height: 44px !important;
@@ -159,38 +154,6 @@ html:has(main.home-page) {
   background: var(--sbtn-gradient);
 }
 
-/* FAQ rows stay easy to scan, with a soft open state and circular icons. */
-.home-page .home-faq .faq-item {
-  margin-bottom: 10px;
-  border: 1px solid #e9dfe3;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #fff, #fcf9fa);
-}
-.home-page .home-faq .faq-item.is-open {
-  border-color: #d9b5c1;
-  background: linear-gradient(135deg, #fff, #f9edf1);
-  box-shadow: 0 8px 24px -16px rgb(118 13 42 / 0.25);
-}
-.home-page .home-faq .faq-item h3 button {
-  align-items: center;
-  min-height: 64px;
-  padding: 16px 20px !important;
-  border-radius: 22px;
-  cursor: pointer;
-}
-.home-page .home-faq .faq-item h3 img {
-  box-sizing: content-box;
-  width: 16px;
-  height: 16px;
-  margin: 0;
-  padding: 10px;
-  border: 1px solid #e6d1d9;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #fff, #f3e4e9);
-}
-.home-page .home-faq .faq-answer p {
-  padding: 0 20px 20px;
-}
 .home-page :is(.review-carousel-dots, .faq-item) button:focus-visible {
   outline: 2px solid var(--sbtn-ring);
   outline-offset: 3px;
@@ -224,12 +187,6 @@ html:has(main.home-page) {
   }
   .home-page .etalage-dots button {
     width: 36px;
-  }
-  .home-page .home-faq .faq-item h3 button {
-    padding-inline: 16px !important;
-  }
-  .home-page .home-faq .faq-answer p {
-    padding-inline: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

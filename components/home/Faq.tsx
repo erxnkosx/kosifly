@@ -23,7 +23,7 @@ export function Faq() {
   return (
     <section className="service-section light-section faq-section home-faq">
       <FaqIntro />
-      <ServiceFaq items={questions.map((q, i) => ({ q, a: answers[i] }))} initialOpen={null} />
+      <ServiceFaq items={questions.map((q, i) => ({ q, a: answers[i] }))} />
     </section>
   );
 }

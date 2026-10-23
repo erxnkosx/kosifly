@@ -5,8 +5,7 @@
 .smd,
 .sms,
 .svc-dots,
-.module-mobile-only,
-.svc-index-extra {
+.module-mobile-only {
   display: none;
 }
 
@@ -19,8 +18,8 @@
     margin-bottom: 32px;
   }
   .service-page .section-heading h2,
-  .service-page .process-intro h2,
-  .service-page .faq-intro h2 {
+  :is(.service-page, .home-page) .process-intro h2,
+  :is(.service-page, .home-page) .faq-intro h2 {
     font: 800 30px/1.18 var(--font-manrope);
     letter-spacing: -0.03em;
     font-style: normal;
@@ -38,7 +37,7 @@
   /* Accentwoord op licht: rode onderlijning i.p.v. roze tekst. */
   .service-page .light-section .section-heading h2 > span:not(.highlight-title),
   .service-page .light-section .highlight-title > span,
-  .service-page .process-emphasis {
+  :is(.service-page, .home-page) .process-emphasis {
     background: none;
     color: inherit !important;
     text-decoration: underline;
@@ -152,11 +151,9 @@
         animation-range: entry 0% entry 40%;
       }
       .service-page main > section:not(.service-hero) .section-heading,
-      .service-page .process-intro,
-      .service-page .faq-intro,
-      .service-page .process-steps > li,
-      .services-index .section-heading,
-      .services-index .related-card {
+      :is(.service-page, .home-page) .process-intro,
+      :is(.service-page, .home-page) .faq-intro,
+      :is(.service-page, .home-page) .process-steps > li {
         animation: svc-rise linear both;
         animation-timeline: view();
         animation-range: entry 5% entry 45%;
@@ -1184,8 +1181,7 @@
   }
 
   /* Bolletjes onder een swipebare rij. */
-  .service-page .svc-dots:not([hidden]),
-  .services-index .svc-dots:not([hidden]) {
+  .service-page .svc-dots:not([hidden]) {
     display: flex;
     justify-content: center;
   }
@@ -1405,25 +1401,25 @@
   .service-page .line-label {
     margin-inline: auto;
   }
-  .service-page .process-intro {
+  :is(.service-page, .home-page) .process-intro {
     text-align: center;
   }
-  .service-page .process-intro h2 {
+  :is(.service-page, .home-page) .process-intro h2 {
     margin: 0;
   }
-  .service-page .process-intro > p {
+  :is(.service-page, .home-page) .process-intro > p {
     margin-top: 14px;
     font: 400 16px/1.6 var(--font-inter);
     color: #5b5b5b;
   }
-  .service-page .process-steps {
+  :is(.service-page, .home-page) .process-steps {
     display: block;
     margin-top: 36px;
   }
-  .service-page .process-steps::before {
+  :is(.service-page, .home-page) .process-steps::before {
     display: none;
   }
-  .service-page .process-steps > li {
+  :is(.service-page, .home-page) .process-steps > li {
     position: relative;
     display: grid;
     grid-template-columns: 42px minmax(0, 1fr);
@@ -1431,7 +1427,7 @@
     gap: 16px;
     padding-bottom: 26px;
   }
-  .service-page .process-steps > li::after {
+  :is(.service-page, .home-page) .process-steps > li::after {
     content: "";
     position: absolute;
     top: 50px;
@@ -1440,13 +1436,13 @@
     width: 1px;
     background: linear-gradient(#81001255, #81001214);
   }
-  .service-page .process-steps > li:last-child {
+  :is(.service-page, .home-page) .process-steps > li:last-child {
     padding-bottom: 0;
   }
-  .service-page .process-steps > li:last-child::after {
+  :is(.service-page, .home-page) .process-steps > li:last-child::after {
     display: none;
   }
-  .service-page .step-number {
+  :is(.service-page, .home-page) .step-number {
     width: 42px;
     height: 42px;
     border: 0;
@@ -1456,7 +1452,7 @@
       0 6px 16px #a6122d40;
     font: 700 16px/1 var(--font-manrope);
   }
-  .service-page .step-card {
+  :is(.service-page, .home-page) .step-card {
     gap: 0;
     min-height: 0;
     padding: 2px 0 0;
@@ -1465,11 +1461,11 @@
     background: none;
     box-shadow: none;
   }
-  .service-page .step-card:hover {
+  :is(.service-page, .home-page) .step-card:hover {
     transform: none;
     box-shadow: none;
   }
-  .service-page .step-duration {
+  :is(.service-page, .home-page) .step-duration {
     padding: 0;
     border-radius: 0;
     background: none;
@@ -1477,17 +1473,17 @@
     letter-spacing: 0.14em;
     color: #810012;
   }
-  .service-page .step-card h3 {
+  :is(.service-page, .home-page) .step-card h3 {
     margin-top: 6px;
     font: 800 19px/1.25 var(--font-manrope);
     color: #111;
   }
-  .service-page .step-card > p {
+  :is(.service-page, .home-page) .step-card > p {
     margin-top: 6px;
     font: 400 15px/1.55 var(--font-inter);
     color: #5b5b5b;
   }
-  .service-page .your-step {
+  :is(.service-page, .home-page) .your-step {
     display: block;
     width: fit-content;
     margin-top: 10px;
@@ -1498,7 +1494,7 @@
     font: 400 14px/1.45 var(--font-inter);
     color: #4a3a3e;
   }
-  .service-page .your-step > span {
+  :is(.service-page, .home-page) .your-step > span {
     display: inline-block;
     margin-right: 5px;
     font: 700 14px/1.45 var(--font-inter);
@@ -1506,10 +1502,10 @@
     text-transform: lowercase;
     color: #810012;
   }
-  .service-page .your-step > span::first-letter {
+  :is(.service-page, .home-page) .your-step > span::first-letter {
     text-transform: uppercase;
   }
-  .service-page .process-end {
+  :is(.service-page, .home-page) .process-end {
     align-items: stretch;
     gap: 16px;
     margin-top: 32px;
@@ -1519,11 +1515,11 @@
     background: #fff;
     box-shadow: 0 14px 32px #8100120f;
   }
-  .service-page .process-end p {
+  :is(.service-page, .home-page) .process-end p {
     font: 400 15px/1.55 var(--font-inter);
     color: #4a4a4a;
   }
-  .service-page .process-end .live-badge {
+  :is(.service-page, .home-page) .process-end .live-badge {
     align-self: flex-start;
     padding: 9px 14px;
     border: 1px solid #81001226;
@@ -1534,7 +1530,7 @@
     white-space: normal;
     color: #810012;
   }
-  .service-page .process-end .live-badge > img {
+  :is(.service-page, .home-page) .process-end .live-badge > img {
     filter: drop-shadow(0 0 4px #33e673);
   }
 
@@ -1693,137 +1689,45 @@
   }
 
   /* ---------- FAQ ---------- */
-  .service-page .faq-section {
+  :is(.service-page, .home-page) .faq-section {
     gap: 28px;
   }
-  .service-page .faq-intro h2 {
+  :is(.service-page, .home-page) .faq-intro h2 {
     max-width: none;
     margin-top: 18px;
   }
-  .service-page .faq-intro h2 br {
+  :is(.service-page, .home-page) .faq-intro h2 br {
     display: none;
   }
-  .service-page .faq-contact {
+  :is(.service-page, .home-page) .faq-contact {
     display: none;
   }
-  .service-page .faq-item h3 button {
+  :is(.service-page, .home-page) .faq-item h3 button {
     min-height: 56px;
     padding: 18px 0;
     font: 600 16px/1.4 var(--font-manrope);
     letter-spacing: -0.005em;
   }
-  .service-page .faq-answer p {
+  :is(.service-page, .home-page) .faq-answer p {
     font: 400 15.5px/1.6 var(--font-inter);
     color: #555;
   }
 
   /* Vaste actieknop: titel op één regel, knop iets compacter. */
-  .service-page .mobile-cta-bar > div,
-  .services-index-page .mobile-cta-bar > div {
+  .service-page .mobile-cta-bar > div {
     min-width: 0;
   }
-  .service-page .mobile-cta-bar strong,
-  .services-index-page .mobile-cta-bar strong {
+  .service-page .mobile-cta-bar strong {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .service-page .mobile-cta-button,
-  .services-index-page .mobile-cta-button {
+  .service-page .mobile-cta-button {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
     padding: 0 14px;
     font-size: 13.5px;
-  }
-
-  /* ---------- /services (overzicht) ---------- */
-  .services-index {
-    padding: calc(var(--nav-height, 72px) + 32px) 20px 72px;
-  }
-  .services-index .section-heading {
-    margin-bottom: 32px;
-  }
-  .services-index h1 {
-    font: 800 36px/1.08 var(--font-manrope);
-    letter-spacing: -0.035em;
-  }
-  .services-index h1 > span {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: #810012;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 7px;
-    text-decoration-skip-ink: none;
-  }
-  .services-index .section-heading p {
-    margin-top: 16px;
-    font: 400 16px/1.6 var(--font-inter);
-    color: #5b5b5b;
-  }
-  .services-index .related-grid {
-    gap: 14px;
-  }
-  .services-index .related-card {
-    gap: 0;
-    padding: 20px 20px 8px;
-    border: 1px solid #81001221;
-    border-radius: 22px;
-    box-shadow:
-      0 1px 2px #0000000a,
-      0 14px 32px #8100120f;
-  }
-  .services-index .svc-index-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-  .services-index .svc-index-top > :first-child {
-    width: 44px;
-    height: 44px;
-  }
-  .services-index .svc-index-top > span {
-    font: 600 13px/1 var(--font-manrope);
-    letter-spacing: 0.1em;
-    color: #aaa;
-  }
-  .services-index .related-card h2 {
-    margin-top: 16px;
-    font: 800 22px/1.2 var(--font-manrope);
-    letter-spacing: -0.02em;
-  }
-  .services-index .related-card p {
-    margin-top: 6px;
-    font: 400 15px/1.5 var(--font-inter);
-    color: #5b5b5b;
-  }
-  .services-index .svc-index-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: 14px;
-    padding: 6px 11px;
-    border: 1px solid #81001224;
-    border-radius: 999px;
-    background: #8100120a;
-    font: 600 12.5px/1.2 var(--font-inter);
-    color: #810012;
-  }
-  .services-index .svc-index-badge::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #1f9d55;
-  }
-  .services-index .related-card > strong {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    margin-top: 10px;
-    padding-top: 0;
-    font: 650 15px/1 var(--font-inter);
   }
 }
 

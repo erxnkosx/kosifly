@@ -419,7 +419,7 @@
   }
 
   /* Proces: accent enkel op de kern. */
-  .service-page .process-emphasis {
+  :is(.service-page, .home-page) .process-emphasis {
     text-decoration-thickness: 4px;
   }
 
@@ -717,35 +717,35 @@
 
 /* Proces (dienstpagina's): zelfde koprytme als andere secties, stappen als kaarten met vaste binnenruimte. */
 @media all /* was (max-width: 760px) */ {
-  .service-page .process-intro > .line-label {
+  :is(.service-page, .home-page) .process-intro > .line-label {
     margin-bottom: 18px;
   }
-  .service-page .process-intro h2 {
+  :is(.service-page, .home-page) .process-intro h2 {
     text-wrap: balance;
   }
-  .service-page .process-intro > p {
+  :is(.service-page, .home-page) .process-intro > p {
     max-width: 330px;
     margin-inline: auto;
   }
-  .service-page .process-steps {
+  :is(.service-page, .home-page) .process-steps {
     margin-top: 32px;
   }
-  .service-page .process-steps > li {
+  :is(.service-page, .home-page) .process-steps > li {
     grid-template-columns: 40px minmax(0, 1fr);
     gap: 12px;
     padding-bottom: 12px;
   }
-  .service-page .process-steps > li::after {
+  :is(.service-page, .home-page) .process-steps > li::after {
     top: 58px;
     bottom: -2px;
     left: 20px;
   }
-  .service-page .step-number {
+  :is(.service-page, .home-page) .step-number {
     width: 40px;
     height: 40px;
     margin-top: 16px;
   }
-  .service-page .step-card {
+  :is(.service-page, .home-page) .step-card {
     padding: 18px 18px 16px;
     border: 1px solid #81001221;
     border-radius: 18px;
@@ -754,53 +754,25 @@
       0 1px 2px #0000000a,
       0 10px 24px #8100120d;
   }
-  .service-page .step-card:hover {
+  :is(.service-page, .home-page) .step-card:hover {
     box-shadow:
       0 1px 2px #0000000a,
       0 10px 24px #8100120d;
   }
-  .service-page .step-card h3 {
+  :is(.service-page, .home-page) .step-card h3 {
     margin-top: 8px;
   }
-  .service-page .your-step {
+  :is(.service-page, .home-page) .your-step {
     margin-top: 12px;
   }
-  .service-page .process-end {
+  :is(.service-page, .home-page) .process-end {
     margin-top: 24px;
     padding: 22px;
   }
 }
 
 /* ───────────── Mobiel menu ───────────── */
-.service-menu-items > .menu-all {
-  display: none;
-}
 @media all /* was (max-width: 760px) */ {
-  /* "Alle diensten bekijken": link naar het overzicht, bovenaan het uitgeklapte Diensten-menu. */
-  .service-menu-items > .menu-all {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 48px;
-    margin-bottom: 4px;
-    padding: 0 6px 0 14px !important;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #c0152f, #8f0018) !important;
-    box-shadow: 0 8px 18px #a6122d40;
-    font: 650 14px/1 var(--font-inter);
-    color: #fff !important;
-  }
-  .service-menu-items > .menu-all .btn-arrow {
-    display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #fff;
-    font: 600 16px/1 var(--font-inter);
-    color: #810012;
-  }
-
   /* Lichte (zilveren) navbar: het menu klapt open in dezelfde zilveren stijl. */
   .site-header-light:has(.nav-links.mobile-open) {
     background: linear-gradient(90deg, #c4c4c4 0%, #fff 30%, #fff 70%, #c4c4c4 100%);

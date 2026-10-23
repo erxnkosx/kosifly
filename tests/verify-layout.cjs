@@ -9,7 +9,6 @@ const fs = require("node:fs");
   for (const width of [320, 390, 768, 1024, 1280, 1440, 1920, 2560])
     for (const route of [
       "/",
-      "/services",
       "/contact",
       "/diensten/webdesign",
       "/diensten/lokale-seo",

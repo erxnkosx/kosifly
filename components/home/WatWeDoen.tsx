@@ -253,14 +253,14 @@ const items = [
 const visuals = [Visual0, Visual1, Visual2, Visual3, Visual4];
 export function WatWeDoen() {
   return (
-    <section className="service-section light-section home-services">
+    <section id="diensten" className="service-section light-section home-services">
       <Reveal className="section-heading">
         <span className="section-eyebrow">WAT WE DOEN</span>
         <h2>
           Alles wat je bedrijf <span>online</span> nodig heeft.
         </h2>
         <p className="swipe-hint" aria-hidden="true">
-          Swipe voor alle diensten <span>→</span>
+          Swipe om meer te ontdekken <span>→</span>
         </p>
       </Reveal>
       <RevealGroup className="home-services-grid">

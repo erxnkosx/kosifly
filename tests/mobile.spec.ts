@@ -3,7 +3,6 @@ import { projects } from "../lib/projects";
 
 const routes = [
   "/",
-  "/services",
   "/contact",
   "/contact?tab=offerte",
   "/prijzen",
@@ -213,7 +212,7 @@ test("filters, all software tabs, accordions and touch sliders work", async ({ p
 
 test("navigation remains reachable on short screens and after rotation", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 568 });
-  await page.goto("/services");
+  await page.goto("/prijzen");
   const toggle = page.locator(".mobile-toggle");
   await toggle.tap();
   await page.locator(".services-menu > button").tap();

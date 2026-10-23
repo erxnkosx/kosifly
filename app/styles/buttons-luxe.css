@@ -85,9 +85,6 @@ html:not(#kosifly-btn) {
     gap: 10px !important;
     padding-inline: 22px !important;
   }
-  .service-menu-items > .menu-all:has(> .btn-arrow) {
-    justify-content: space-between !important;
-  }
 
   /* De pijl zelf: een dun lijnicoon in de tekstkleur, geen rond vak meer. */
   :is(

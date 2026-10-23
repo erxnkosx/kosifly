@@ -12,7 +12,6 @@ const assert = require("node:assert/strict");
   });
   const routes = [
     "/",
-    "/services",
     "/contact",
     "/diensten/webdesign",
     "/diensten/lokale-seo",

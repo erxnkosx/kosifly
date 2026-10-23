@@ -70,7 +70,6 @@ export function Footer() {
           <div>
             <h3>Navigatie</h3>
             <Link href="/">Home</Link>
-            <Link href="/services">Diensten</Link>
             <Link href="/projecten">Projecten</Link>
             <Link href="/prijzen">Prijzen</Link>
             <Link href="/over-ons">Over ons</Link>

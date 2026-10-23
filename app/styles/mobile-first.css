@@ -50,11 +50,6 @@
   font: 700 16px/1 var(--font-manrope);
   color: #fff;
 }
-.process-week {
-  font: 700 11px/1 var(--font-inter);
-  letter-spacing: 0.14em;
-  color: #810012;
-}
 .process-body h3 {
   margin-top: 8px;
   font: 800 clamp(18px, 1.15vw, 22px)/1.25 var(--font-manrope);
@@ -64,17 +59,6 @@
   margin-top: 8px;
   font: 400 15px/1.55 var(--font-inter);
   color: #5b5b5b;
-}
-.process-body .process-you {
-  margin-top: 12px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  background: #81001210;
-  font-size: 13.5px;
-  color: #4a3a3e;
-}
-.process-you strong {
-  color: #810012;
 }
 
 /* Reviews (alle schermen): gelijke kaarten; rij van drie op desktop. */
@@ -1106,9 +1090,6 @@
   .process-body h3 {
     margin-top: 6px;
   }
-  .process-body .process-you {
-    margin-top: 8px;
-  }
   /* Reviews op mobiel: swipebare kaarten met bolletjes. */
   .home-reviews .section-heading {
     margin-bottom: 28px;
@@ -1330,8 +1311,7 @@
   }
 
   /* Accentregel: lichte secties krijgen een rode onderlijning (donkere secties de markeerstreep). */
-  .home-services .section-heading h2 > span,
-  .home-process .section-heading h2 > span {
+  .home-services .section-heading h2 > span {
     background: none;
     color: inherit !important;
     text-decoration: underline;
@@ -1343,20 +1323,6 @@
   .faq-intro u {
     text-decoration-thickness: 4px;
     text-underline-offset: 7px;
-  }
-
-  /* FAQ: leesbaar lettertype voor vragen, compacter; contactblok staat al in de footer. */
-  .home-faq .faq-item h3 button {
-    padding: 18px 0;
-    font: 600 16px/1.4 var(--font-manrope);
-    letter-spacing: -0.005em;
-  }
-  .home-faq .faq-contact {
-    display: none;
-  }
-  .home-faq .faq-intro h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
   }
 
   /* Footer: één CTA-knop, belblok met enkel het nummer, geen lege socials. */

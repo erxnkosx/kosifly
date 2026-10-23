@@ -404,10 +404,6 @@ html {
   font-size: clamp(16px, 1.04vw, 20px);
   line-height: 1.6;
 }
-.services-index {
-  padding-top: calc(var(--nav-height) + clamp(50px, 5vw, 96px));
-  min-height: 80svh;
-}
 .footer-columns {
   font-size: clamp(12px, 0.94vw, 18px);
 }

@@ -39,7 +39,7 @@ import "./styles/home-accent.css";
 import "./styles/bordeaux.css";
 import "./styles/motion.css";
 import "./styles/buttons-luxe.css";
-import "./styles/nav-floating.css";
+import "./styles/navigation.css";
 import "./styles/choices.css";
 import "./styles/devices.css";
 import "./styles/contact-flow.css";

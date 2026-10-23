@@ -6,6 +6,7 @@ import design from "@/data/services-design.json";
 import { services, serviceHref, type ServiceSlug } from "@/lib/services";
 import { Artwork } from "@/components/ui/Artwork";
 import { BeforeAfter, ModulePicker, SavingsCalculator, ServiceFaq } from "./Interactions";
+import { ProcessSection } from "./ProcessSection";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { scaleIn } from "@/components/motion/presets";
 import { HeroBackdrop } from "@/components/ui/HeroBackdrop";
@@ -114,7 +115,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <RevealGroup className="hero-copy" onMount delay={0.1}>
               <RevealItem className="service-breadcrumb">
                 <img src="/figma/ce9df.svg" width="24" height="24" alt="" />
-                <Link href="/services">Services</Link>
+                <Link href="/#diensten">Diensten</Link>
                 <span>/</span>
                 <span>{service.label}</span>
               </RevealItem>
@@ -273,38 +274,14 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             )}
           </div>
         </section>
-        <section className="service-section light-section process-section">
-          <div className="process-intro">
-            <span className="line-label">HET PROCES</span>
-            <h2>
-              <ProcessHeading text={d.process.heading} suffix={processSuffixes[index]} />
-            </h2>
-            <p>{d.process.description}</p>
-          </div>
-          <ol className="process-steps">
-            {d.process.steps.map((s) => (
-              <li key={s.nummer}>
-                <span className="step-number">{s.nummer}</span>
-                <div className="step-card">
-                  <span className="step-duration">{s.duur}</span>
-                  <h3>{s.titel}</h3>
-                  <p>{s.tekst}</p>
-                  <div className="your-step">
-                    <span>JIJ</span>
-                    {s.jij}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <div className="process-end">
-            <p>{d.process.note}</p>
-            <span className="live-badge">
-              <img src="/figma/63c5c.svg" width="8" height="8" alt="" />
-              {d.process.badge}
-            </span>
-          </div>
-        </section>
+        <ProcessSection
+          label="HET PROCES"
+          heading={<ProcessHeading text={d.process.heading} suffix={processSuffixes[index]} />}
+          description={d.process.description}
+          steps={d.process.steps}
+          note={d.process.note}
+          badge={d.process.badge}
+        />
         <section id="etalage" className="service-section showcase-section hero-surface">
           <HeroBackdrop />
           <div className="section-heading">

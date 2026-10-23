@@ -1,0 +1,15 @@
+KOSIFLY — INSTAGRAMTEMPLATES
+6 bewerkbare masters, 1080 × 1350 (4:5).
+
+Bron: de actuele lokale website, app/globals.css en public/brand.
+Primair #810012. Donkere achtergrond #050505. Tekst #111111 / #FFFFFF.
+Bordeaux verloop #450A13 → #7E0C1E. Accentmarkering #A6122D → #D11A3A.
+Typografie: Geist (koppen), Manrope (kaartkoppen), Inter (tekst), Orbitron (labels).
+Logo: originele vleugel + origineel woordmerk uit de site.
+
+Dupliceer een pagina vóór je de tekst verandert. Houd 72 px vrije marge aan.
+De abstracte interfaces zijn voorbeelden, geen klantresultaten.
+Exporteer één pagina als PNG voor een losse post; meerdere voor een carrousel.
+
+Canva definitieve set: https://www.canva.com/d/eNVV_loqui6n0Y9
+Lichte posts: origineel wit logo op een donker merkvlak, zonder afhankelijkheid van CSS-filters.

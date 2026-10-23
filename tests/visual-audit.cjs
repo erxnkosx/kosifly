@@ -135,7 +135,7 @@ const normalize = (text) => text.replace(/-->/g, "→").replace(/\s+/g, "").trim
         assert.equal(await tabs.nth(0).evaluate((e) => e === document.activeElement), true);
       }
     }
-    for (const route of ["/", "/services", "/contact"]) {
+    for (const route of ["/", "/contact"]) {
       await page.goto("http://127.0.0.1:3000" + route);
       await page.evaluate(async () => {
         await document.fonts.ready;

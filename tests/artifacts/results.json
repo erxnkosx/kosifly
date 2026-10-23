@@ -26,7 +26,7 @@
       "passed": true
     },
     {
-      "name": "Homepage FAQ has seven unique questions and starts closed",
+      "name": "Homepage FAQ has seven unique questions and opens the first, like the other pages",
       "passed": true
     },
     {

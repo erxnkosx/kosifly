@@ -8,12 +8,6 @@
       "status": "passed"
     },
     {
-      "route": "/services",
-      "h1": "Alles om je bedrijfte laten groeien.",
-      "mainSections": 0,
-      "status": "passed"
-    },
-    {
       "route": "/contact",
       "h1": "Laten wekennismaken.",
       "mainSections": 4,
