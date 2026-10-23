@@ -5,7 +5,6 @@ import { Footer } from "@/components/Footer";
 import design from "@/data/services-design.json";
 import { services, serviceHref, type ServiceSlug } from "@/lib/services";
 import { Artwork } from "@/components/ui/Artwork";
-import { ShowcaseLinks } from "./ShowcaseLinks";
 import { BeforeAfter, ModulePicker, SavingsCalculator, ServiceFaq } from "./Interactions";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import { scaleIn } from "@/components/motion/presets";
@@ -29,11 +28,6 @@ import WebFeatures from "./art/WebFeatures";
 import AiFeatures from "./art/AiFeatures";
 import SeoResults from "./art/SeoResults";
 import Receipt from "./art/Receipt";
-import Showcase0 from "./art/Showcase0";
-import Showcase1 from "./art/Showcase1";
-import Showcase2 from "./art/Showcase2";
-import Showcase3 from "./art/Showcase3";
-import Showcase4 from "./art/Showcase4";
 import RelatedIcon0_0 from "./art/RelatedIcon0_0";
 import RelatedIcon0_1 from "./art/RelatedIcon0_1";
 import RelatedIcon0_2 from "./art/RelatedIcon0_2";
@@ -57,8 +51,7 @@ const relatedIcons = [
   [RelatedIcon3_0, RelatedIcon3_1, RelatedIcon3_2],
   [RelatedIcon4_0, RelatedIcon4_1, RelatedIcon4_2],
 ];
-const heroes = [Hero0, Hero1, Hero2, Hero3, Hero4],
-  showcases = [Showcase0, Showcase1, Showcase2, Showcase3, Showcase4];
+const heroes = [Hero0, Hero1, Hero2, Hero3, Hero4];
 const processSuffixes = [
   "live gaat.",
   "wanneer gebeurt.",
@@ -96,8 +89,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
   const index = services.findIndex((s) => s.slug === slug),
     service = services[index],
     d = design[slug],
-    Hero = heroes[index],
-    Showcase = showcases[index];
+    Hero = heroes[index];
   const featureWord = ["verkopen", "eerste keuze", "bedrijf werkt", "automatiseren", "denken"][
     index
   ];
@@ -322,10 +314,6 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             </h2>
             <p>{d.showcase.description}</p>
           </div>
-          <Artwork width={1920} height={650} label={d.showcase.description}>
-            <Showcase />
-          </Artwork>
-          <ShowcaseLinks slug={slug} />
           <MobileShowcase slug={slug} />
         </section>
         <ServicePricing slug={slug} />

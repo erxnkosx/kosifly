@@ -48,7 +48,7 @@ const SERVICES: { track: Track; title: string; price: string; icon: ReactNode }[
   },
 ];
 
-const FACTS = ["4 korte stappen", "Klaar in 1 minuut", "Vrijblijvend"];
+const FACTS = ["Enkele korte vragen", "Klaar in 1 minuut", "Vrijblijvend"];
 
 function StartButton() {
   return (
@@ -74,7 +74,7 @@ function Banner() {
     <div className="pwt-banner">
       <div className="pwt-banner-copy">
         <span className="pwt-banner-kicker">Nieuw</span>
-        <h3>Je prijs in vier vragen.</h3>
+        <h3>Je prijs in een paar vragen.</h3>
         <p>
           Kies je dienst en beantwoord een paar korte vragen. Voor een website zie je meteen je
           prijs; voor software en AI krijg je de vanaf-prijs en bereiden we je voorstel voor.

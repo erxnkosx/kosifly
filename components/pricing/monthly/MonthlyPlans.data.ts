@@ -1,4 +1,4 @@
-import { fmt, ONDERHOUD, type SeoId } from "@/lib/pricing";
+import { fmt, ONDERHOUD, SOFTWARE_DATA_GB, SOFTWARE_ONDERHOUD, type SeoId } from "@/lib/pricing";
 import { calculatorHref } from "../wizard/calculatorHref";
 
 /**
@@ -76,6 +76,62 @@ export const MAINTENANCE_PLANS: readonly Plan[] = ONDERHOUD.flatMap(({ id, name,
           price: euro(price),
           unit: "/ maand",
           cta: { label: `Kies ${name}`, href: calculatorHref({ onderhoud: id }) },
+        },
+      ],
+);
+
+/** Hosting & onderhoud voor software op maat (sectie Maatwerk): prijzen uit SOFTWARE_ONDERHOUD in lib/pricing.ts. */
+const SOFTWARE_DETAILS = {
+  basis: {
+    tagline: "Voor software die gewoon veilig moet draaien.",
+    note: "excl. btw · per app",
+    tone: "light",
+    features: [
+      `Hosting in de EU, tot ${SOFTWARE_DATA_GB} GB data`,
+      "Dagelijkse back-ups, extern bewaard",
+      "Beveiligingsupdates en monitoring",
+      "Bugfixes in je software",
+      "Antwoord binnen 2 werkdagen",
+    ],
+  },
+  plus: {
+    tagline: "Voor software waar je team elke dag mee werkt.",
+    note: "excl. btw · per app",
+    tone: "featured",
+    popular: true,
+    features: [
+      "Alles van Basis",
+      "1 uur aanpassingen per maand",
+      "Koppelingen gecontroleerd",
+      "Antwoord binnen 1 werkdag",
+      "Maandrapport",
+    ],
+  },
+  partner: {
+    tagline: "Voor software waar je bedrijf op draait.",
+    note: "excl. btw · per app",
+    tone: "light",
+    features: [
+      "Alles van Plus",
+      "3 uur aanpassingen per maand",
+      "Antwoord dezelfde werkdag",
+      "Prestaties opgevolgd",
+      "Kwartaalgesprek",
+    ],
+  },
+} satisfies Record<string, PlanDetails>;
+
+export const SOFTWARE_PLANS: readonly Plan[] = SOFTWARE_ONDERHOUD.flatMap(({ id, name, price }) =>
+  id === "geen"
+    ? []
+    : [
+        {
+          ...SOFTWARE_DETAILS[id],
+          id: `software-${id}`,
+          name,
+          price: euro(price),
+          unit: "/ maand",
+          cta: { label: `Kies ${name}`, href: calculatorHref({ dienst: "software", hosting: id }) },
         },
       ],
 );

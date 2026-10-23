@@ -811,33 +811,6 @@ section[id] {
   margin-top: 16px;
   letter-spacing: 0;
 }
-.showcase-section > .artwork {
-  max-width: 1920px;
-  margin: auto;
-}
-.showcase-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 30px;
-}
-.showcase-links .live-badge {
-  background: #ffffff0f;
-  border: 1px solid #ffffff33;
-  box-shadow: none;
-}
-.showcase-links > .button {
-  font-size: 16px;
-  min-height: 48px;
-}
-.showcase-links > a:last-child {
-  font-size: 16px;
-  color: #fffc;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
 .related-section .section-heading {
   margin-bottom: clamp(36px, 3.125vw, 60px);
 }
@@ -1841,30 +1814,6 @@ section[id] {
   }
   .showcase-section .section-heading {
     padding-inline: 24px;
-  }
-  .showcase-section > .artwork {
-    width: 160%;
-    margin-left: -30%;
-    max-width: none;
-  }
-  .showcase-section .artwork-canvas > [class] > div > [data-name^="Aanwijzer"],
-  .showcase-section [data-name="Aanwijslijnen"],
-  .showcase-section [data-name^="Ankerpunt"] {
-    visibility: hidden;
-  }
-  .showcase-links {
-    gap: 16px;
-    margin: 20px 24px 0;
-  }
-  .showcase-links .live-badge {
-    font-size: 8px;
-    letter-spacing: 0.12em;
-  }
-  .showcase-links > .button {
-    font-size: 13px;
-  }
-  .showcase-links > a:last-child {
-    font-size: 13px;
   }
   .related-grid {
     grid-template-columns: 1fr;

@@ -32,9 +32,6 @@
 .showcase-section .section-heading {
   padding-inline: 0;
 }
-.showcase-links {
-  margin-inline: 0;
-}
 
 /* Fixed-size illustration canvases scale inside the same content edges. */
 .home-visual.legacy-home {

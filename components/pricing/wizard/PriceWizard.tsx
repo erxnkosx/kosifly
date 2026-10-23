@@ -17,6 +17,8 @@ import {
   ONDERHOUD,
   QUANTITY_LIMITS,
   SEO,
+  SOFTWARE_DATA_GB,
+  SOFTWARE_ONDERHOUD,
   WEBSHOP_PRICE,
   applyQuoteParams,
   calcQuote,
@@ -73,7 +75,7 @@ const TRACKS = [
 
 const STEPS = {
   website: ["dienst", "pakket", "extras", "opvolging", "resultaat"],
-  software: ["dienst", "soort", "gebruik", "koppelingen", "resultaat"],
+  software: ["dienst", "soort", "gebruik", "koppelingen", "hosting", "resultaat"],
   ai: ["dienst", "taken", "handwerk", "tools", "resultaat"],
 } as const;
 type StepId = (typeof STEPS)[Track][number];
@@ -89,6 +91,10 @@ const STEP_TITLES: Record<StepId, { title: string; hint: string }> = {
   soort: { title: "Wat voor software heb je nodig?", hint: "Meerdere keuzes mogelijk." },
   gebruik: { title: "Wie gaat ermee werken?", hint: "Zo weten we wat de software moet kunnen." },
   koppelingen: { title: "Moet het koppelen met andere tools?", hint: "Optioneel." },
+  hosting: {
+    title: "Wie host en onderhoudt de software?",
+    hint: `Per app en per maand, excl. btw. Hosting in de EU tot ${SOFTWARE_DATA_GB} GB data.`,
+  },
   taken: { title: "Wat wil je automatiseren?", hint: "Meerdere keuzes mogelijk." },
   handwerk: {
     title: "Hoeveel handwerk is het nu?",
@@ -177,7 +183,17 @@ const SOFTWARE_START = {
   audience: "",
   device: "Op de computer en de gsm",
   links: [] as string[],
+  hosting: "",
 };
+
+/** Uitleg bij de hostingpakketten voor software (prijzen in SOFTWARE_ONDERHOUD, lib/pricing.ts). */
+const HOSTING_TEXT: Record<string, string> = {
+  basis: "Hosting, back-ups, beveiliging en bugfixes",
+  plus: "Plus 1 uur aanpassingen per maand, antwoord binnen 1 werkdag",
+  partner: "Plus 3 uur aanpassingen per maand, antwoord dezelfde werkdag",
+  geen: "Jij beheert de server, back-ups en updates; wij helpen per uur",
+};
+const hostingPlan = (id: string) => SOFTWARE_ONDERHOUD.find((plan) => plan.id === id);
 const AI_START = {
   tasks: [] as string[],
   requests: 12,
@@ -186,13 +202,21 @@ const AI_START = {
   tools: [] as string[],
 };
 
-/** Dienst en websitekeuzes uit een link; zonder dienst begint de berekenaar bij stap 1. */
-function startFrom({ track, params }: WizardStart): { track: Track | null; quote: QuoteInput } {
-  if (!params) return { track: track ?? null, quote: WEBSITE_START };
+/**
+ * Dienst en keuzes uit een link: websitekeuzes (QUOTE_PARAMS) of een hostingpakket bij software
+ * (?dienst=software&hosting=plus). Zonder dienst begint de berekenaar bij stap 1.
+ */
+function startFrom({ track, params }: WizardStart): {
+  track: Track | null;
+  quote: QuoteInput;
+  hosting: string;
+} {
+  if (!params) return { track: track ?? null, quote: WEBSITE_START, hosting: "" };
   const dienst = params.get("dienst");
   if (!track && (dienst === "website" || dienst === "software" || dienst === "ai")) track = dienst;
+  const hosting = hostingPlan(params.get("hosting") ?? "")?.id ?? "";
   if (!QUOTE_PARAMS.some((name) => params.has(name)))
-    return { track: track ?? null, quote: WEBSITE_START };
+    return { track: track ?? null, quote: WEBSITE_START, hosting };
   const quote = normalizeQuote(applyQuoteParams(WEBSITE_START, params));
   const services = quote.services.filter((s) => WEBSITE_SERVICES.includes(s));
   return {
@@ -201,6 +225,7 @@ function startFrom({ track, params }: WizardStart): { track: Track | null; quote
       ...quote,
       services: services.includes("Website") ? services : ["Website", ...services],
     },
+    hosting: "",
   };
 }
 
@@ -267,7 +292,7 @@ export function PriceWizard() {
   const [software, setSoftware] = useState(SOFTWARE_START);
   const [ai, setAi] = useState(AI_START);
 
-  // Zolang er nog geen dienst gekozen is, telt het venster vier stappen (elke dienst heeft er vier).
+  // Zolang er nog geen dienst gekozen is, telt het venster de stappen van een website.
   const steps: readonly StepId[] = STEPS[track ?? "website"];
   const step = steps[index];
   const inputSteps = steps.length - 1;
@@ -283,7 +308,7 @@ export function PriceWizard() {
     setTrack(from.track);
     setIndex(from.track ? 1 : 0);
     setQuote(from.quote);
-    setSoftware(SOFTWARE_START);
+    setSoftware({ ...SOFTWARE_START, hosting: from.hosting });
     setAi(AI_START);
     el.showModal();
     document.documentElement.classList.add("pw-lock");
@@ -328,15 +353,23 @@ export function PriceWizard() {
     (step === "dienst" && track !== null) ||
     (step === "soort" && software.types.length > 0) ||
     (step === "gebruik" && software.audience !== "") ||
+    (step === "hosting" && software.hosting !== "") ||
     (step === "taken" && ai.tasks.length > 0) ||
-    !["dienst", "soort", "gebruik", "taken"].includes(step);
+    !["dienst", "soort", "gebruik", "hosting", "taken"].includes(step);
 
+  const hosting = hostingPlan(software.hosting);
+  const hostingLabel = !hosting
+    ? ""
+    : hosting.price
+      ? `${hosting.name} (€ ${fmt(hosting.price)} per maand)`
+      : "Zelf hosten";
   // Antwoorden bij software en AI als bericht voor het contactformulier.
   const softwareRows: [string, string][] = [
     ["Soort software", software.types.join(", ")],
     ["Gebruikers", software.audience],
     ["Gebruik", software.device],
     ["Koppelingen", software.links.join(", ")],
+    ["Hosting & onderhoud", hostingLabel],
   ];
   const aiRows: [string, string][] = [
     ["Automatiseren", ai.tasks.join(", ")],
@@ -588,6 +621,25 @@ export function PriceWizard() {
             </div>
           )}
 
+          {step === "hosting" && (
+            <div className="choice-list">
+              {SOFTWARE_ONDERHOUD.map((plan) => (
+                <ChoiceOption
+                  key={plan.id}
+                  type="radio"
+                  name="hosting"
+                  value={plan.id}
+                  checked={software.hosting === plan.id}
+                  onChange={() => setSoftware((s) => ({ ...s, hosting: plan.id }))}
+                  title={plan.price ? plan.name : "Ik host zelf"}
+                  badge={plan.id === "plus" ? "Meest gekozen" : undefined}
+                  text={HOSTING_TEXT[plan.id]}
+                  price={plan.price ? `€ ${fmt(plan.price)} / maand` : undefined}
+                />
+              ))}
+            </div>
+          )}
+
           {/* ───────── AI & automatisatie ───────── */}
           {step === "taken" && (
             <div className="choice-grid">
@@ -705,6 +757,15 @@ export function PriceWizard() {
                   </small>
                 </strong>
               </div>
+              {track === "software" && hosting && hosting.price > 0 && (
+                <div className="pw-total">
+                  <span>Per maand</span>
+                  <strong>
+                    € {fmt(hosting.price)}
+                    <small>Hosting &amp; onderhoud {hosting.name}</small>
+                  </strong>
+                </div>
+              )}
               {track === "ai" && (
                 <div className="pw-total">
                   <span>Handwerk nu</span>

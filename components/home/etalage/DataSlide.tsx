@@ -1,7 +1,14 @@
-import type { ComponentType } from "react";
+import {
+  aiVisual,
+  CASE_H,
+  CASE_W,
+  pscVisual,
+  reportVisual,
+  seoVisual,
+  type CaseVisual,
+} from "@/components/cases/CaseVisuals";
 import { DataMobileSlide } from "./MobileSlide";
 import { Fig, type FigNode } from "../Fig";
-import { PSC_POINTS, PscVisual } from "./PscVisual";
 import { Anchor, Shell, Slot, type SlotAction } from "./Shell";
 
 export type EtalageData = {
@@ -24,29 +31,17 @@ const LINKS: Record<string, [primary: string, secondary: string]> = {
   "project-5": [dienst("Onderhoud & hosting"), "/prijzen#onderhoud"],
 };
 
-type SlideOverride = {
-  /** Echte screenshot in het witte kader (afbeeldingsnaam uit IMAGES in Fig.tsx). */
-  screenshot?: string;
-  /** Eigen beeld in plaats van de Figma-lagen; tekent op de plek en in de maat van data.beeld. */
-  visual?: ComponentType;
-  /** Punten op het beeld (t.o.v. linksboven van data.beeld) waar de uitlegkaders naar wijzen. */
-  points?: number[][];
+/**
+ * Beeld per etalage: de Canva-toestellen uit components/cases/CaseVisuals.tsx in plaats van de Figma-lagen,
+ * altijd in hetzelfde vak tussen de uitlegkaders (x 500–1420). De lijnen wijzen naar de punten van het beeld.
+ */
+const VISUALS: Record<string, CaseVisual> = {
+  "project-2": seoVisual,
+  "project-3": pscVisual,
+  "project-4": aiVisual,
+  "project-5": reportVisual,
 };
-
-/** Etalages waarvan het beeld afwijkt van de Figma-export. */
-const OVERRIDES: Record<string, SlideOverride> = {
-  // Uitsnede 20 canvas-px van de linkerrand (0,661 canvas-px per bronpixel): zoekbalk, titel, profielfoto, sterrenlabel.
-  "project-2": {
-    screenshot: "Google-resultaat",
-    points: [
-      [20.4, 38.3],
-      [13.1, 175.2],
-      [633.2, 207.6],
-      [790, 517.8],
-    ],
-  },
-  "project-3": { visual: PscVisual, points: PSC_POINTS },
-};
+export const VISUAL_BOX = { x: 500, y: 320, w: CASE_W, h: CASE_H };
 
 /** Midden van het bolletje t.o.v. de ankercoördinaat (zie Anchor in Shell.tsx). */
 const ANCHOR_CENTER = 6;
@@ -65,19 +60,27 @@ function retarget(line: FigNode, [ax, ay]: number[]): FigNode {
   return { ...line, x, y, w, h, vb: `0 0 ${w} ${h}`, v: line.v.replace(/d="[^"]*"/, `d="${d}"`) };
 }
 
-function withOverride(data: EtalageData, { screenshot, points }: SlideOverride): EtalageData {
-  let { beeld } = data;
-  const [card, ...rest] = beeld.k2 ?? [];
-  if (screenshot && card) {
-    const shot: FigNode = { t: "F", x: 0, y: 0, w: card.w, h: card.h, f: ["IMG"], n: screenshot };
-    beeld = { ...beeld, k2: [{ ...card, k2: [shot] }, ...rest] };
-  }
-  if (!points) return { ...data, beeld };
+/** Vervangt titel en tekst van een uitlegkader (de tweede en derde tekstlaag), met de stijl van de eerste segmenten. */
+function retext(call: FigNode, [title, body]: [string, string]): FigNode {
+  let n = 0;
+  const walk = (node: FigNode): FigNode => {
+    if (node.t === "T") {
+      const value = [null, title, body][n++];
+      return value && node.s?.[0] ? { ...node, s: [[value, ...node.s[0].slice(1)]] } : node;
+    }
+    return node.k2 ? { ...node, k2: node.k2.map(walk) } : node;
+  };
+  return walk(call);
+}
+
+function withVisual(data: EtalageData, { points, calls = {} }: CaseVisual): EtalageData {
+  const beeld = { ...data.beeld, ...VISUAL_BOX };
   const anch = points.map(([x, y]) => [beeld.x + x - ANCHOR_CENTER, beeld.y + y - ANCHOR_CENTER]);
   return {
     ...data,
     beeld,
     anch,
+    call: data.call.map((call, i) => (calls[i] ? retext(call, calls[i]) : call)),
     // De lijnen staan in dezelfde volgorde als de ankers.
     lijnen: {
       ...data.lijnen,
@@ -122,11 +125,11 @@ const sentenceCase = (value: string) =>
     )
     .join(" · ");
 
-/** Etalage 2 t/m 5: gerenderd uit de Figma-lagen (data/etalage-N.json), met de afwijkingen uit OVERRIDES. */
+/** Etalage 2 t/m 5: tekst en uitlegkaders uit de Figma-lagen (data/etalage-N.json), beeld uit VISUALS. */
 export function DataSlide({ data: source, id }: { data: EtalageData; id: string }) {
-  const override = OVERRIDES[id];
-  const data = override ? withOverride(source, override) : source;
-  const Visual = override?.visual;
+  const visual = VISUALS[id];
+  const data = visual ? withVisual(source, visual) : source;
+  const Visual = visual?.Visual;
   const { beeld } = data;
   // Slot = [label, primaire knop, tekstlink] in Figma; hier als echte knoppen.
   const [badge, primaryNode, secondaryNode] = data.slot.k2 ?? [];
@@ -145,6 +148,8 @@ export function DataSlide({ data: source, id }: { data: EtalageData; id: string 
         <div
           className="absolute"
           style={{ left: beeld.x, top: beeld.y, width: beeld.w, height: beeld.h }}
+          role="img"
+          aria-label={text(data.intro)}
         >
           <Visual />
         </div>

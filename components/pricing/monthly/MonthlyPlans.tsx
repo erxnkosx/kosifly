@@ -18,9 +18,8 @@ function PlanGroup({
   return (
     <div className="pricing-plan-group" data-group-id={id}>
       <div data-reveal className="mb-[27px] flex items-center justify-between">
-        <h3 className="font-orbitron text-[13px] font-medium tracking-[2.86px] text-white">
-          {title}
-        </h3>
+        {/* Alleen voor schermlezers: de schakelaar en de notitie maken de groep al zichtbaar duidelijk. */}
+        <h3 className="sr-only">{title}</h3>
         <p className="font-inter text-[15px] leading-[18px] text-white/60">{note}</p>
       </div>
       <div id={trackId} data-reveal-group className="pricing-swipe flex gap-[28px]">

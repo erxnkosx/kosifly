@@ -1,10 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
 import type { ServiceSlug } from "@/lib/services";
+import {
+  aiVisual,
+  CaseArtwork,
+  crewVisual,
+  reportVisual,
+  seoVisual,
+  websiteVisual,
+  type CaseVisual,
+} from "@/components/cases/CaseVisuals";
 import { RevealGroup, RevealItem } from "@/components/motion/Reveal";
-import { mobileIcon as icon } from "./MobileHero";
-import { showcaseExamples } from "./ShowcaseLinks";
 import { BtnArrow } from "@/components/ui/BtnArrow";
 
 /*
@@ -12,6 +17,54 @@ import { BtnArrow } from "@/components/ui/BtnArrow";
  * onleesbaar wordt; hier staat dezelfde inhoud als één leesbare visual met de vier toelichtingen
  * eronder. Alle teksten en voorbeeldcijfers komen uit de desktop-etalage. Enkel zichtbaar op mobiel.
  */
+
+/** Label en knoppen van de etalage per dienst. */
+const showcaseExamples: Record<
+  ServiceSlug,
+  {
+    label: string;
+    action: string;
+    href: string;
+    secondary: string;
+    secondaryHref: string;
+  }
+> = {
+  webdesign: {
+    label: "CASE · TAXI BORNEM · LIVE",
+    action: "Bekijk de case",
+    href: "/projecten/taxi-bornem",
+    secondary: "Alle projecten",
+    secondaryHref: "/projecten",
+  },
+  "lokale-seo": {
+    label: "CASE · TAXI BORNEM · LIVE",
+    action: "Bekijk de case",
+    href: "/projecten/taxi-bornem",
+    secondary: "Alle projecten",
+    secondaryHref: "/projecten",
+  },
+  "web-apps": {
+    label: "VOORBEELDPROJECT · AANNEMER",
+    action: "Bespreek jouw idee",
+    href: "/contact?dienst=Web%20apps%20%26%20maatwerk",
+    secondary: "Alle projecten",
+    secondaryHref: "/projecten",
+  },
+  "ai-automatisaties": {
+    label: "VOORBEELDPROJECT · INSTALLATEUR",
+    action: "Bespreek jouw idee",
+    href: "/contact?dienst=Automatisatie",
+    secondary: "Alle projecten",
+    secondaryHref: "/projecten",
+  },
+  "onderhoud-hosting": {
+    label: "VOORBEELD · MAANDRAPPORT",
+    action: "Vraag een voorbeeldrapport",
+    href: "/contact?dienst=Onderhoud",
+    secondary: "Bekijk de pakketten",
+    secondaryHref: "/contact?tab=offerte&dienst=Onderhoud",
+  },
+};
 
 const points: Record<ServiceSlug, { title: string; text: string }[]> = {
   webdesign: [
@@ -46,233 +99,16 @@ const points: Record<ServiceSlug, { title: string; text: string }[]> = {
   ],
 };
 
-function Phone() {
-  return (
-    <div className="sms-phone">
-      <Image
-        src="/images/etalage-phone.webp"
-        alt=""
-        width={258}
-        height={560}
-        sizes="(max-width: 760px) 240px, 1px"
-      />
-    </div>
-  );
-}
-
-function GoogleProfile() {
-  return (
-    <div className="sms-google">
-      <div className="sms-google-bar">
-        {icon.search}
-        <span>taxi bornem</span>
-      </div>
-      <div className="sms-google-tabs" aria-hidden="true">
-        <b>Alles</b>
-        <span>Maps</span>
-        <span>Afbeeldingen</span>
-        <span>Nieuws</span>
-      </div>
-      <div className="sms-google-profile">
-        <Image
-          src="/images/taxi-foto.jpg"
-          alt=""
-          width={535}
-          height={399}
-          sizes="(max-width: 760px) 92vw, 1px"
-        />
-        <div className="sms-google-body">
-          <strong>Taxi Bornem</strong>
-          <span className="sms-google-rating">
-            4,9 <i aria-hidden="true">★★★★★</i> 50+ Google-reviews
-          </span>
-          <small>Taxidienst in Bornem</small>
-          <div className="sms-google-actions">
-            <span>Website</span>
-            <span>{icon.route} Route</span>
-            <span>{icon.phone} Bellen</span>
-          </div>
-          <dl>
-            <div>
-              <dt>Open</dt>
-              <dd>24 uur per dag, 7 dagen per week</dd>
-            </div>
-            <div>
-              <dt>Regio</dt>
-              <dd>Bornem en omgeving</dd>
-            </div>
-            <div>
-              <dt>Boeken</dt>
-              <dd>Online of via WhatsApp</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CrewApp() {
-  return (
-    <div className="sms-device">
-      <div className="sms-device-status" aria-hidden="true">
-        <span>7:42</span>
-        <i />
-      </div>
-      <div className="sms-crew">
-        <strong className="sms-crew-hello">Goedemorgen, Wout</strong>
-        <small>Woensdag 15 oktober</small>
-        <div className="sms-crew-job">
-          <span className="sms-tag">Volgende klus</span>
-          <strong>Keuken Maes</strong>
-          <span>Kerkstraat 12, Bornem</span>
-          <span className="sms-crew-time">08:00 – 16:30</span>
-          <div className="sms-crew-actions">
-            <span>{icon.route} Navigeer</span>
-            <span>{icon.phone} Bel klant</span>
-          </div>
-        </div>
-        <div className="sms-crew-material">
-          <span className="sms-tag">Materiaal</span>
-          <ul>
-            <li>12 dozen tegels</li>
-            <li>Voegsel grijs</li>
-            <li>Silicone wit</li>
-          </ul>
-        </div>
-        <span className="sms-crew-photo">+ Foto van de werf</span>
-      </div>
-    </div>
-  );
-}
-
-function Quote() {
-  return (
-    <div className="sms-quote">
-      <div className="sms-request">
-        <span className="sms-tag">Nieuwe aanvraag · via je website</span>
-        <p>
-          Hallo, we zoeken een <mark>warmtepomp</mark> voor onze woning van <mark>160 m²</mark> in{" "}
-          <mark>Mechelen</mark>. Kunnen jullie eens <mark>langskomen</mark>?
-        </p>
-        <small>Lien Vermeulen · Mechelen</small>
-      </div>
-      <div className="sms-extract">
-        <span className="sms-tag">
-          <span className="sms-spark">{icon.sparkle}</span> AI haalde eruit
-        </span>
-        <dl>
-          <div>
-            <dt>Toestel</dt>
-            <dd>Warmtepomp</dd>
-          </div>
-          <div>
-            <dt>Woning</dt>
-            <dd>160 m²</dd>
-          </div>
-          <div>
-            <dt>Gemeente</dt>
-            <dd>Mechelen</dd>
-          </div>
-          <div>
-            <dt>Volgende stap</dt>
-            <dd>Plaatsbezoek</dd>
-          </div>
-        </dl>
-      </div>
-      <div className="sms-offer">
-        <div className="sms-offer-head">
-          <strong>Offerte OF-2026-118</strong>
-          <small>AI-voorstel · klaar om te controleren</small>
-        </div>
-        <ul>
-          <li>
-            <span>Lucht-water warmtepomp 8 kW</span>
-            <b>€ 9.450</b>
-          </li>
-          <li>
-            <span>Plaatsing en inbedrijfstelling</span>
-            <b>€ 1.850</b>
-          </li>
-          <li>
-            <span>Plaatsbezoek</span>
-            <b>gratis</b>
-          </li>
-        </ul>
-        <div className="sms-offer-total">
-          <span>Totaal excl. btw</span>
-          <strong>€ 11.300</strong>
-        </div>
-        <span className="sms-offer-cta">Goedkeuren en versturen</span>
-      </div>
-    </div>
-  );
-}
-
-const reportDone = [
-  "3 updates getest en geïnstalleerd",
-  "Beveiligingsscan: alles in orde",
-  "Openingsuren aangepast op vraag",
-  "Afbeeldingen geoptimaliseerd",
-];
-
-function Report() {
-  return (
-    <div className="sms-report">
-      <div className="sms-report-head">
-        <span>
-          <strong>Maandrapport</strong>
-          <small>November 2026 · jouwbedrijf.be</small>
-        </span>
-        <span className="sms-report-logo" aria-hidden="true">
-          KOSIFLY
-        </span>
-      </div>
-      <dl className="sms-report-stats">
-        <div>
-          <dt>Uptime</dt>
-          <dd>99,98 %</dd>
-        </div>
-        <div>
-          <dt>Laadtijd</dt>
-          <dd>0,9 s</dd>
-        </div>
-        <div>
-          <dt>Back-ups</dt>
-          <dd>30/30</dd>
-        </div>
-      </dl>
-      <p className="sms-report-title">Wat we deden</p>
-      <ul className="sms-report-done">
-        {reportDone.map((x) => (
-          <li key={x}>{x}</li>
-        ))}
-      </ul>
-      <div className="sms-report-visitors">
-        <span>
-          <small>Bezoekers</small>
-          <strong>+12 % t.o.v. oktober</strong>
-        </span>
-        <span className="sms-bars" aria-hidden="true">
-          {[42, 55, 48, 63, 58, 72, 80].map((h, n) => (
-            <i key={n} style={{ height: h + "%" }} />
-          ))}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-const visuals: Record<ServiceSlug, () => ReactNode> = {
-  webdesign: Phone,
-  "lokale-seo": GoogleProfile,
-  "web-apps": CrewApp,
-  "ai-automatisaties": Quote,
-  "onderhoud-hosting": Report,
+/** Beeld per dienst: de Canva-toestellen uit components/cases/CaseVisuals.tsx (zoals in de etalage op de homepage). */
+const visuals: Record<ServiceSlug, CaseVisual> = {
+  webdesign: websiteVisual,
+  "lokale-seo": seoVisual,
+  "web-apps": crewVisual,
+  "ai-automatisaties": aiVisual,
+  "onderhoud-hosting": reportVisual,
 };
 
 export function MobileShowcase({ slug }: { slug: ServiceSlug }) {
-  const Visual = visuals[slug];
   const example = showcaseExamples[slug];
   return (
     <div className="sms">
@@ -281,7 +117,7 @@ export function MobileShowcase({ slug }: { slug: ServiceSlug }) {
         {example.label}
       </span>
       <div className={"sms-visual sms-visual-" + slug}>
-        <Visual />
+        <CaseArtwork visual={visuals[slug]} label={example.label} />
       </div>
       <RevealGroup as="ol" className="sms-points" stagger={0.08}>
         {points[slug].map((p, n) => (

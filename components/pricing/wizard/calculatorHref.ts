@@ -1,8 +1,16 @@
-type CalculatorPreset = { pakket?: string; onderhoud?: string; seo?: string; dienst?: "ai" };
+type CalculatorPreset = {
+  pakket?: string;
+  onderhoud?: string;
+  seo?: string;
+  /** Meteen bij een dienst beginnen (zie startFrom in PriceWizard.tsx). */
+  dienst?: "software" | "ai";
+  /** Hosting & onderhoud bij software op maat. */
+  hosting?: string;
+};
 
 /**
  * Link die de prijsberekenaar opent, eventueel met een voorgeselecteerd pakket, onderhouds- of SEO-plan
- * (zie `applyQuoteParams`) of meteen bij AI & automatisatie.
+ * (zie `applyQuoteParams`), of meteen bij software op maat (met een hostingpakket) of AI & automatisatie.
  */
 export function calculatorHref(preset: CalculatorPreset = {}) {
   const params = new URLSearchParams();

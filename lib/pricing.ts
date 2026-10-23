@@ -45,6 +45,19 @@ export const WEBSHOP_PRICE = 1900;
 const SEO_SETUP_PRICE = 250;
 /** Vanaf-prijzen van maatwerk; een exact bedrag volgt pas na analyse. */
 export const MAATWERK_FROM = { "Web app": 2500, Automatisatie: 1200 } as const;
+/**
+ * Hosting & onderhoud voor software op maat, per app en per maand: het dubbele van het websiteonderhoud
+ * (ONDERHOUD), afgerond op de 9, met dezelfde inbegrepen uren. Hosting in de EU tot SOFTWARE_DATA_GB,
+ * daarboven aan kostprijs. "geen": de klant host zelf.
+ */
+export const SOFTWARE_ONDERHOUD = [
+  { id: "geen", name: "Zelf hosten", price: 0 },
+  { id: "basis", name: "Basis", price: 79 },
+  { id: "plus", name: "Plus", price: 159 },
+  { id: "partner", name: "Partner", price: 299 },
+] as const;
+export const SOFTWARE_DATA_GB = 10;
+export type SoftwareHostingId = (typeof SOFTWARE_ONDERHOUD)[number]["id"];
 export const QUANTITY_LIMITS = { pages: 50, languages: 5 } as const;
 
 export type Service = (typeof SERVICES)[number];

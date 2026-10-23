@@ -41,6 +41,7 @@ import "./styles/motion.css";
 import "./styles/buttons-luxe.css";
 import "./styles/nav-floating.css";
 import "./styles/choices.css";
+import "./styles/devices.css";
 import "./styles/contact-flow.css";
 import "./styles/price-wizard.css";
 import { AccentReveal } from "@/components/motion/AccentReveal";

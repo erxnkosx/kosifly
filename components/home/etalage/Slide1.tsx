@@ -1,7 +1,9 @@
+import { CaseArtwork, websiteVisual } from "@/components/cases/CaseVisuals";
+import { VISUAL_BOX } from "./DataSlide";
 import { MobileSlide } from "./MobileSlide";
 import { Anchor, Shell, Slot } from "./Shell";
 
-/** Etalage 1 (Taxi Bornem): mockup-beelden `image 14` en `image 22` komen uit public/images (export uit Figma). */
+/** Etalage 1 (Taxi Bornem): de Canva-mockups van laptop en gsm, met de uitleg links en rechts. */
 const callouts = [
   {
     n: 1,
@@ -26,12 +28,20 @@ const callouts = [
   },
   { n: 4, x: 1490, y: 622, t: "WhatsApp met één tik", d: "Voor wie liever een berichtje stuurt." },
 ];
-const anchors = [
-  [736.73, 461.02],
-  [693.82, 546.19],
-  [1264.72, 482],
-  [1264.72, 619.2],
-];
+/** Midden van het bolletje t.o.v. de ankercoördinaat (zie Anchor in Shell.tsx). */
+const ANCHOR_CENTER = 6;
+const anchors = websiteVisual.points.map(([x, y]) => [
+  VISUAL_BOX.x + x - ANCHOR_CENTER,
+  VISUAL_BOX.y + y - ANCHOR_CENTER,
+]);
+/** Lijn vanaf het uitlegkader (links eindigt het op x 430, rechts begint het op x 1490) naar het anker. */
+const lines = callouts.map((c, i) => {
+  const [ax, ay] = anchors[i].map((v) => v + ANCHOR_CENTER);
+  const left = c.x < 960;
+  const [sx, kx] = left ? [430, 464] : [1490, 1456];
+  const y = c.y < 500 ? 400 : 660;
+  return `M${sx} ${y}H${kx}L${ax.toFixed(1)} ${ay.toFixed(1)}`;
+});
 
 export function Slide1() {
   return (
@@ -45,15 +55,7 @@ export function Slide1() {
             </>
           }
           intro="Taxi Bornem, gebouwd door Kosifly. Dit zit erin."
-          visual={
-            <img
-              src="/images/etalage-laptop.webp"
-              width={716}
-              height={533}
-              alt="Taxi Bornem op laptop"
-              loading="lazy"
-            />
-          }
+          visual={<CaseArtwork visual={websiteVisual} label="Taxi Bornem op laptop en gsm" />}
           points={callouts.map((c) => ({ title: c.t, text: c.d }))}
           primary={{ label: "Bekijk de case", href: "/projecten/taxi-bornem" }}
         />
@@ -68,22 +70,13 @@ export function Slide1() {
         Taxi Bornem, gebouwd door Kosifly. Dit zit erin.
       </p>
 
-      <div className="absolute left-[521px] top-[320px] h-[560px] w-[878.38px]">
-        <div
-          className="absolute left-0 top-[13.96px] h-[532.3px] w-[715.3px] bg-[length:100%_100%] bg-no-repeat"
-          style={{
-            backgroundImage: "url(/images/etalage-laptop.webp)",
-            filter: "drop-shadow(0 0 109px rgba(0,0,0,0.3))",
-          }}
-          role="img"
-          aria-label="Taxi Bornem op laptop"
-        />
-        <div
-          className="absolute left-[621.06px] top-0 h-[560px] w-[257.321px] bg-[length:100%_100%] bg-no-repeat"
-          style={{ backgroundImage: "url(/images/etalage-phone.webp)" }}
-          role="img"
-          aria-label="Taxi Bornem op gsm"
-        />
+      <div
+        className="absolute"
+        style={{ left: VISUAL_BOX.x, top: VISUAL_BOX.y, width: VISUAL_BOX.w, height: VISUAL_BOX.h }}
+        role="img"
+        aria-label="Taxi Bornem op laptop en gsm"
+      >
+        <websiteVisual.Visual />
       </div>
 
       <svg
@@ -94,12 +87,7 @@ export function Slide1() {
         fill="none"
         aria-hidden
       >
-        {[
-          "M430 400H464L742.7 467",
-          "M430 660H464L699.8 552.2",
-          "M1490 400H1456L1270.7 488",
-          "M1490 660H1456L1270.7 625.2",
-        ].map((d) => (
+        {lines.map((d) => (
           <path
             key={d}
             d={d}

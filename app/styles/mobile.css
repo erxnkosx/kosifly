@@ -337,7 +337,8 @@
   .etalage-mobile h2 > span {
     color: #f24a63;
   }
-  .etalage-mobile p {
+  .etalage-mobile > p,
+  .etalage-mobile > ol p {
     font: 400 16px/1.6 var(--font-inter);
     color: #ffffffc7;
   }
@@ -353,14 +354,14 @@
     width: 100%;
     height: auto;
   }
-  .etalage-mobile ol {
+  .etalage-mobile > ol {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
     width: 100%;
     max-width: 780px;
   }
-  .etalage-mobile li {
+  .etalage-mobile > ol > li {
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -369,7 +370,7 @@
     background: #0005;
     padding: 16px;
   }
-  .etalage-mobile li > span {
+  .etalage-mobile > ol > li > span {
     display: grid;
     place-items: center;
     flex-shrink: 0;
@@ -379,11 +380,11 @@
     background: #a6122d;
     font-size: 13px;
   }
-  .etalage-mobile h3 {
+  .etalage-mobile > ol h3 {
     font: 700 16px/1.4 var(--font-inter);
     margin-bottom: 6px;
   }
-  .etalage-mobile li p {
+  .etalage-mobile > ol > li p {
     font-size: 14px;
   }
   .etalage-mobile .button-row {
@@ -556,7 +557,6 @@
   .home-service-copy a,
   .portfolio-text-link,
   .faq-contact a,
-  .showcase-links > a:last-child,
   .legal-toc a,
   .contact-location a {
     min-height: 44px;
@@ -624,7 +624,7 @@
   }
 }
 @media (max-width: 480px) {
-  .etalage-mobile ol {
+  .etalage-mobile > ol {
     grid-template-columns: 1fr;
   }
   .site-footer .footer-contact,

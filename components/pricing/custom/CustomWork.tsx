@@ -9,6 +9,9 @@ import {
   SwipeDots,
 } from "../shared";
 import { PriceLadder } from "@/components/services/ServicePricing";
+import { SOFTWARE_DATA_GB } from "@/lib/pricing";
+import { SOFTWARE_PLANS } from "../monthly/MonthlyPlans.data";
+import { PlanCard } from "../monthly/PlanCard";
 import { OFFERS, type Offer } from "./CustomWork.data";
 import { CustomWorkToggle } from "./CustomWorkToggle";
 
@@ -57,7 +60,7 @@ function OfferCard({ offer }: { offer: Offer }) {
   );
 }
 
-/** Sectie "Maatwerk" (1920 x 1189): web apps en AI, elk met een vaste instapprijs. */
+/** Sectie "Maatwerk": web apps en AI, elk met een vaste instapprijs, en hosting & onderhoud voor software. */
 export function CustomWork() {
   return (
     <LightSection id="maatwerk" height={1189} className="overflow-clip">
@@ -92,6 +95,25 @@ export function CustomWork() {
           <h3 className="custom-ladder-title">AI &amp; automatisaties</h3>
           <PriceLadder slug="ai-automatisaties" />
         </div>
+      </div>
+      {/* Hosting & onderhoud voor software: dezelfde kaarten als het websiteonderhoud bij de maandpakketten. */}
+      <div className="software-plans">
+        <div data-reveal className="software-plans-head">
+          <h3>Hosting &amp; onderhoud voor software</h3>
+          <p>
+            Per app en per maand, excl. btw. Hosting in de EU tot {SOFTWARE_DATA_GB} GB data,
+            daarboven aan kostprijs. Host je liever zelf, dan helpen we je per uur.
+          </p>
+        </div>
+        <div id="software-plans-track" data-reveal-group className="pricing-swipe flex gap-[28px]">
+          {SOFTWARE_PLANS.map((plan) => (
+            <PlanCard key={plan.id} plan={plan} />
+          ))}
+        </div>
+        <SwipeDots
+          targetId="software-plans-track"
+          labels={SOFTWARE_PLANS.map((plan) => plan.name)}
+        />
       </div>
     </LightSection>
   );

@@ -317,14 +317,14 @@
   .etalage-mobile {
     padding: 56px 20px 8px;
   }
-  .etalage-mobile ol {
+  .etalage-mobile > ol {
     gap: 10px;
   }
   .etalage-mobile h2 > span {
     color: inherit;
   }
 
-  .etalage-mobile li {
+  .etalage-mobile > ol > li {
     padding: 14px 16px;
   }
   .home-faq {
@@ -1214,7 +1214,7 @@
   }
 
   /* Etalage: drie punten per dia is genoeg. */
-  .etalage-mobile li:nth-child(n + 4) {
+  .etalage-mobile > ol > li:nth-child(n + 4) {
     display: none;
   }
 

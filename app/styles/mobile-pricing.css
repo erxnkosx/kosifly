@@ -22,8 +22,15 @@
   /* ---------- Hero: leesbaar voorbeeldvoorstel i.p.v. de geschaalde desktopscène ---------- */
 
   /* ---------- Canvas en ritme ---------- */
+  /* Zoals op /projecten en /over-ons schuift de eerste sectie 28px over de hero (die daar ruimte voor laat);
+   * de bovenste 28px van het canvas blijven doorzichtig, zodat de hero achter de afgeronde hoeken zichtbaar is. */
+  .pricing-page > :has(> .pricing-canvas) {
+    position: relative;
+    z-index: 1;
+    margin-top: calc(var(--sheet-overlap) * -1);
+  }
   .pricing-page .pricing-canvas {
-    background: #070405;
+    background: linear-gradient(transparent var(--sheet-overlap), #070405 var(--sheet-overlap));
   }
   .pricing-page .pricing-canvas > section {
     position: relative;
@@ -569,14 +576,6 @@
     justify-content: center;
     margin: 0;
   }
-  .pricing-page #maandpakketten .pricing-plan-group > [data-reveal] > h3 {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
   .pricing-page #maandpakketten .pricing-plan-group > [data-reveal] > p {
     display: inline-flex;
     align-items: center;
@@ -988,6 +987,46 @@
   from {
     opacity: 0;
     scale: 0.4 1;
+  }
+}
+
+/* Maatwerk: hosting & onderhoud voor software, onder de prijsladders (kaarten zoals bij de maandpakketten). */
+.pricing-page #maatwerk .software-plans {
+  margin-top: 64px;
+  padding: 0 20px;
+}
+.pricing-page #maatwerk .software-plans-head {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.pricing-page #maatwerk .software-plans-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 800 26px/1.2 var(--font-manrope);
+  letter-spacing: -0.02em;
+  color: #111;
+}
+.pricing-page #maatwerk .software-plans-head h3::before {
+  content: "";
+  flex-shrink: 0;
+  width: 22px;
+  height: 12px;
+  background: #810012;
+  -webkit-mask: url("/brand/wing.png") center / contain no-repeat;
+  mask: url("/brand/wing.png") center / contain no-repeat;
+}
+.pricing-page #maatwerk .software-plans-head p {
+  max-width: 640px;
+  font: 400 15px/1.55 var(--font-inter);
+  color: #555;
+}
+@media (max-width: 760px) {
+  .pricing-page #maatwerk .software-plans-head h3 {
+    flex-direction: column;
+    gap: 8px;
   }
 }
 
