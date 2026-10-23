@@ -866,6 +866,28 @@
   .service-pricing .price-footnote {
     max-width: 680px !important;
   }
+  .service-pricing .price-group-head {
+    justify-items: center;
+    text-align: center;
+  }
+  .service-pricing .price-group-head p {
+    max-width: 640px;
+  }
+  .service-pricing .price-group-more {
+    margin-inline: auto;
+  }
+  .service-pricing .price-compare {
+    max-width: 880px !important;
+    padding: 30px 34px 10px;
+  }
+  .service-pricing .price-compare th,
+  .service-pricing .price-compare td {
+    padding: 14px 10px;
+    font-size: 15px;
+  }
+  .service-pricing .price-compare thead th {
+    font-size: 14px;
+  }
 }
 @media (min-width: 761px) {
   /* Geen Figma-bentoplaatsing meer: elke kaart neemt één vak, in de volgorde van de inhoud. */

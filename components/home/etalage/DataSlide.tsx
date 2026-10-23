@@ -28,7 +28,7 @@ const LINKS: Record<string, [primary: string, secondary: string]> = {
   "project-2": ["/projecten/taxi-bornem", "/projecten"],
   "project-3": ["/projecten/psc-open-huis", "/projecten"],
   "project-4": [dienst("AI & automatisaties"), "/projecten"],
-  "project-5": [dienst("Onderhoud & hosting"), "/prijzen#onderhoud"],
+  "project-5": [dienst("Onderhoud & hosting"), "/prijzen#maandpakketten"],
 };
 
 /**

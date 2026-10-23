@@ -93,7 +93,7 @@ const STEP_TITLES: Record<StepId, { title: string; hint: string }> = {
   koppelingen: { title: "Moet het koppelen met andere tools?", hint: "Optioneel." },
   hosting: {
     title: "Wie host en onderhoudt de software?",
-    hint: `Per app en per maand, excl. btw. Hosting in de EU tot ${SOFTWARE_DATA_GB} GB data.`,
+    hint: `Software-onderhoud, per app en per maand, excl. btw. Hosting in de EU tot ${SOFTWARE_DATA_GB} GB data.`,
   },
   taken: { title: "Wat wil je automatiseren?", hint: "Meerdere keuzes mogelijk." },
   handwerk: {
@@ -369,7 +369,7 @@ export function PriceWizard() {
     ["Gebruikers", software.audience],
     ["Gebruik", software.device],
     ["Koppelingen", software.links.join(", ")],
-    ["Hosting & onderhoud", hostingLabel],
+    ["Software-onderhoud", hostingLabel],
   ];
   const aiRows: [string, string][] = [
     ["Automatiseren", ai.tasks.join(", ")],
@@ -538,7 +538,12 @@ export function PriceWizard() {
             <div className="choice-groups">
               {(
                 [
-                  ["onderhoud", "Onderhoud & hosting", ONDERHOUD, "Ik regel het zelf"],
+                  [
+                    "onderhoud",
+                    "Onderhoud & hosting voor je website",
+                    ONDERHOUD,
+                    "Ik regel het zelf",
+                  ],
                   ["seo", "Lokale SEO", SEO, "Niet nodig"],
                 ] as const
               ).map(([field, label, plans, none]) => (
@@ -762,7 +767,7 @@ export function PriceWizard() {
                   <span>Per maand</span>
                   <strong>
                     € {fmt(hosting.price)}
-                    <small>Hosting &amp; onderhoud {hosting.name}</small>
+                    <small>Software-onderhoud {hosting.name}</small>
                   </strong>
                 </div>
               )}

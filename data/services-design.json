@@ -427,11 +427,11 @@
     "faq": [
       {
         "q": "Wat kost onderhoud en hosting?",
-        "a": "Je betaalt één vast bedrag per maand: € 39 (Basis), € 79 (Plus) of € 149 (Partner), exclusief btw. Updates, back-ups, monitoring en kleine aanpassingen zitten erin."
+        "a": "Voor een website betaal je één vast bedrag per maand: € 39 (Basis), € 79 (Plus) of € 149 (Partner). Voor software op maat zijn er aparte pakketten: € 79, € 159 of € 299 per app per maand, omdat er een database, gebruikers en koppelingen mee draaien. Alle prijzen zijn exclusief btw."
       },
       {
         "q": "Wat zit er precies in het onderhoud?",
-        "a": "Snelle hosting met SSL, wekelijkse updates en controles, dagelijkse back-ups, 24/7 monitoring, kleine aanpassingen op vraag en een maandrapport."
+        "a": "Bij een website: snelle hosting met SSL, updates en controles, dagelijkse back-ups, monitoring, kleine aanpassingen op vraag en een maandrapport. Bij software op maat komen daar beveiligingsupdates, bugfixes en het opvolgen van je koppelingen bij."
       },
       {
         "q": "Kan ik overstappen met een bestaande site?",
@@ -489,7 +489,7 @@
       },
       {
         "title": "Onderhoud & hosting",
-        "description": "Updates, back-ups en monitoring voor je platform."
+        "description": "Software-onderhoud: hosting, back-ups en bugfixes voor je platform."
       },
       {
         "title": "Webdesign & development",
@@ -566,7 +566,7 @@
       },
       {
         "q": "Wat gebeurt er na de livegang?",
-        "a": "Je team krijgt een training en je krijgt 30 dagen nazorg. Daarna kies je voor onderhoud en doorontwikkeling, zodat je software meegroeit."
+        "a": "Je team krijgt een training en je krijgt 30 dagen nazorg. Daarna kies je een pakket voor software-onderhoud, met hosting, back-ups en bugfixes. Nieuwe functies plannen we in wanneer je software moet meegroeien."
       },
       {
         "q": "Kunnen we klein starten en uitbreiden?",

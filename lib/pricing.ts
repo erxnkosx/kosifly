@@ -138,7 +138,7 @@ export function calcQuote(q: QuoteInput) {
   if (maintenance && maintenance.price > 0)
     monthlyLines.push({
       kind: "maandelijks",
-      label: `Onderhoud ${maintenance.name}`,
+      label: `Website-onderhoud ${maintenance.name}`,
       price: maintenance.price,
     });
   if (seoPlan && seoPlan.price > 0)

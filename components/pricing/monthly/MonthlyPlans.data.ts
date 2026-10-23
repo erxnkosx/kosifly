@@ -19,6 +19,8 @@ export type Plan = {
   features: readonly string[];
   tone: PlanTone;
   popular?: boolean;
+  /** Soort pakket boven de naam, zodat website- en softwarepakketten niet door elkaar lopen. */
+  kind?: string;
 };
 
 type PlanDetails = Pick<Plan, "tagline" | "note" | "features" | "tone" | "popular">;
@@ -28,7 +30,7 @@ const euro = (amount: number) => `€ ${fmt(amount)}`;
 const MAINTENANCE_DETAILS = {
   basis: {
     tagline: "Voor kleine sites die gewoon veilig moeten draaien.",
-    note: "excl. btw",
+    note: "excl. btw · per website",
     tone: "light",
     features: [
       "Snelle hosting met SSL",
@@ -40,7 +42,7 @@ const MAINTENANCE_DETAILS = {
   },
   plus: {
     tagline: "Voor KMO's die hun site zorgeloos willen laten groeien.",
-    note: "excl. btw",
+    note: "excl. btw · per website",
     tone: "featured",
     popular: true,
     features: [
@@ -53,7 +55,7 @@ const MAINTENANCE_DETAILS = {
   },
   partner: {
     tagline: "Voor bedrijven waar de site elke dag moet presteren.",
-    note: "excl. btw",
+    note: "excl. btw · per website",
     tone: "light",
     features: [
       "Alles van Plus",
@@ -73,6 +75,7 @@ export const MAINTENANCE_PLANS: readonly Plan[] = ONDERHOUD.flatMap(({ id, name,
           ...MAINTENANCE_DETAILS[id],
           id,
           name,
+          kind: "Voor websites",
           price: euro(price),
           unit: "/ maand",
           cta: { label: `Kies ${name}`, href: calculatorHref({ onderhoud: id }) },
@@ -129,6 +132,7 @@ export const SOFTWARE_PLANS: readonly Plan[] = SOFTWARE_ONDERHOUD.flatMap(({ id,
           ...SOFTWARE_DETAILS[id],
           id: `software-${id}`,
           name,
+          kind: "Voor software op maat",
           price: euro(price),
           unit: "/ maand",
           cta: { label: `Kies ${name}`, href: calculatorHref({ dienst: "software", hosting: id }) },

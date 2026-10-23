@@ -2,10 +2,15 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { OFFERS } from "@/components/pricing/custom/CustomWork.data";
 import { EXTRAS } from "@/components/pricing/extras/Extras.data";
-import { MAINTENANCE_PLANS, SEO_PLANS } from "@/components/pricing/monthly/MonthlyPlans.data";
+import {
+  MAINTENANCE_PLANS,
+  SEO_PLANS,
+  SOFTWARE_PLANS,
+  type Plan,
+} from "@/components/pricing/monthly/MonthlyPlans.data";
 import { WEBSITE_PACKAGES } from "@/components/pricing/websites/Websites.data";
 import { BtnArrow } from "@/components/ui/BtnArrow";
-import { fmt } from "@/lib/pricing";
+import { fmt, ONDERHOUD, SOFTWARE_DATA_GB, SOFTWARE_ONDERHOUD } from "@/lib/pricing";
 import type { ServiceSlug } from "@/lib/services";
 
 /*
@@ -31,12 +36,21 @@ type Step = {
 };
 type Addon = { title: string; price: string; unit: string };
 type Action = { label: string; href: string };
+/** Pakketten met een eigen kop, zodat website- en software-onderhoud apart staan. */
+type TierGroup = { kicker: string; title: string; note: string; tiers: Tier[]; more?: Action };
+type Compare = {
+  title: string;
+  intro: string;
+  rows: [label: string, website: string, software: string][];
+};
 type Model = {
   heading: ReactNode;
   intro: string;
   tiers?: Tier[];
   oneOff?: Tier;
   steps?: Step[];
+  groups?: TierGroup[];
+  compare?: Compare;
   addons?: Addon[];
   footnote: string;
   primary: Action;
@@ -57,6 +71,26 @@ const offer = (title: string) => {
 const split = (value: string) => value.split(" · ");
 const sentence = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
 const dienst = (name: string) => "/contact?dienst=" + encodeURIComponent(name);
+const planTiers = (plans: readonly Plan[], unit: string): Tier[] =>
+  plans.map((p) => ({ name: p.name, meta: p.tagline, price: p.price, unit, featured: p.popular }));
+/** Laagste maandprijs van een reeks onderhoudspakketten ("geen" telt niet mee). */
+const lowest = (plans: readonly { price: number }[]) =>
+  `€ ${fmt(Math.min(...plans.map((p) => p.price).filter((price) => price > 0)))}`;
+
+const WEBSITE_GROUP: TierGroup = {
+  kicker: "Voor websites",
+  title: "Website-onderhoud",
+  note: "Hosting, updates, back-ups en monitoring voor je site. Per website, per maand.",
+  tiers: planTiers(MAINTENANCE_PLANS, "per maand"),
+  more: { label: "Alle details", href: "/prijzen#maandpakketten" },
+};
+const SOFTWARE_GROUP: TierGroup = {
+  kicker: "Voor software op maat",
+  title: "Software-onderhoud",
+  note: `Voor web apps en platformen met een database, logins en koppelingen. Per app, met hosting in de EU tot ${SOFTWARE_DATA_GB} GB data.`,
+  tiers: planTiers(SOFTWARE_PLANS, "per app · per maand"),
+  more: { label: "Alle details", href: "/prijzen#software-hosting" },
+};
 
 function model(slug: ServiceSlug): Model {
   switch (slug) {
@@ -108,7 +142,7 @@ function model(slug: ServiceSlug): Model {
         },
         footnote: "Alle prijzen excl. btw. Maandpakketten betaal je per maand.",
         primary: { label: "Plan je gratis SEO-check", href: dienst("Lokale SEO") },
-        secondary: { label: "Alle prijzen", href: "/prijzen#seo" },
+        secondary: { label: "Alle prijzen", href: "/prijzen#maandpakketten" },
       };
     }
     case "web-apps": {
@@ -139,8 +173,20 @@ function model(slug: ServiceSlug): Model {
             featured: true,
           },
         ],
+        groups: [
+          {
+            ...SOFTWARE_GROUP,
+            kicker: "Na de oplevering · per maand",
+            title: "Onderhoud & hosting voor je software",
+            more: {
+              label: "Verschil met website-onderhoud",
+              href: "/diensten/onderhoud-hosting#prijs",
+            },
+          },
+        ],
         addons: [extra("API- of CRM-koppeling op maat")],
-        footnote: "Alle prijzen excl. btw. De bouw krijgt een vaste prijs in het functioneel plan.",
+        footnote:
+          "Alle prijzen excl. btw. De bouw krijgt een vaste prijs in het functioneel plan, het onderhoud betaal je per maand.",
         primary: { label: o.cta.label, href: dienst("Web apps & maatwerk") },
         secondary: { label: "Alle prijzen", href: "/prijzen#maatwerk" },
       };
@@ -186,17 +232,27 @@ function model(slug: ServiceSlug): Model {
           </>
         ),
         intro:
-          "Updates, back-ups, monitoring en kleine aanpassingen zitten erin. Je kiest het pakket dat bij je site past.",
-        tiers: MAINTENANCE_PLANS.map((p) => ({
-          name: p.name,
-          meta: p.tagline,
-          price: p.price,
-          unit: p.unit.replace("/ ", "per "),
-          featured: p.popular,
-        })),
+          "Een website onderhouden is iets anders dan software op maat. Daarom zijn er twee soorten pakketten, elk met een vaste prijs per maand.",
+        groups: [WEBSITE_GROUP, SOFTWARE_GROUP],
+        compare: {
+          title: "Welk onderhoud heb je nodig?",
+          intro:
+            "Software heeft een database, gebruikers en koppelingen die elke dag moeten werken. Daar is meer opvolging voor nodig dan voor een website.",
+          rows: [
+            ["Voor", "Je website", "Je web app of platform"],
+            ["Hosting", "Snelle hosting met SSL", `In de EU, tot ${SOFTWARE_DATA_GB} GB data`],
+            ["Back-ups", "Dagelijks", "Dagelijks, extern bewaard"],
+            ["Opvolging", "Updates en uptime", "Beveiliging, bugfixes en koppelingen"],
+            [
+              "Prijs",
+              `Vanaf ${lowest(ONDERHOUD)} per maand`,
+              `Vanaf ${lowest(SOFTWARE_ONDERHOUD)} per app per maand`,
+            ],
+          ],
+        },
         footnote: "Alle prijzen excl. btw. Je betaalt per maand.",
-        primary: { label: "Kies je pakket", href: "/prijzen#onderhoud" },
-        secondary: { label: "Plan een gesprek", href: dienst("Onderhoud & hosting") },
+        primary: { label: "Plan een gesprek", href: dienst("Onderhoud & hosting") },
+        secondary: { label: "Alle prijzen", href: "/prijzen#maandpakketten" },
       };
   }
 }
@@ -259,6 +315,51 @@ function PricingBody({ m }: { m: Model }) {
         </ol>
       )}
 
+      {m.groups?.map((g) => (
+        <div key={g.title} className="price-group">
+          <div className="price-group-head">
+            <span className="price-group-kicker">{g.kicker}</span>
+            <h3>{g.title}</h3>
+            <p>{g.note}</p>
+          </div>
+          <ul className="price-tiers">
+            {g.tiers.map((t) => (
+              <TierRow key={t.name} tier={t} />
+            ))}
+          </ul>
+          {g.more && (
+            <Link href={g.more.href} className="price-group-more">
+              {g.more.label} <span aria-hidden="true">→</span>
+            </Link>
+          )}
+        </div>
+      ))}
+
+      {m.compare && (
+        <div className="price-compare">
+          <h3>{m.compare.title}</h3>
+          <p>{m.compare.intro}</p>
+          <table>
+            <thead>
+              <tr>
+                <td />
+                <th scope="col">Website-onderhoud</th>
+                <th scope="col">Software-onderhoud</th>
+              </tr>
+            </thead>
+            <tbody>
+              {m.compare.rows.map(([label, website, software]) => (
+                <tr key={label}>
+                  <th scope="row">{label}</th>
+                  <td>{website}</td>
+                  <td>{software}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
       {m.addons && (
         <div className="price-addons">
           <span>Optioneel</span>
@@ -303,12 +404,15 @@ export function ServicePricing({ slug }: { slug: ServiceSlug }) {
   );
 }
 
-/** Dezelfde prijsladder zonder sectiekop, voor de maatwerksectie op /prijzen. */
+/**
+ * Dezelfde prijsladder zonder sectiekop, voor de maatwerksectie op /prijzen. Zonder de onderhoudspakketten:
+ * die staan op /prijzen al onder de ladders (#software-hosting).
+ */
 export function PriceLadder({ slug }: { slug: "web-apps" | "ai-automatisaties" }) {
   const m = model(slug);
   const secondary =
     slug === "web-apps"
       ? { label: "Meer over web apps", href: "/diensten/web-apps" }
       : { label: "Meer over AI & automatisaties", href: "/diensten/ai-automatisaties" };
-  return <PricingBody m={{ ...m, secondary }} />;
+  return <PricingBody m={{ ...m, groups: undefined, secondary }} />;
 }

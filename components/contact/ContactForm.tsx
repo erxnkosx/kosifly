@@ -29,7 +29,7 @@ const TOPICS = [
     text: "Minder handwerk met AI en koppelingen",
   },
   { id: "Lokale SEO", title: "Lokale SEO", text: "Beter gevonden worden in je regio" },
-  { id: "Onderhoud", title: "Onderhoud & hosting", text: "Je site veilig en up-to-date" },
+  { id: "Onderhoud", title: "Onderhoud & hosting", text: "Voor je website of software" },
   { id: "Weet ik nog niet", title: "Weet ik nog niet", text: "We denken graag met je mee" },
 ];
 const BUDGETS = [

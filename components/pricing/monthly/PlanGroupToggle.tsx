@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export type PlanGroupId = "onderhoud" | "seo";
 
 const OPTIONS: readonly { id: PlanGroupId; label: string }[] = [
-  { id: "onderhoud", label: "Onderhoud & hosting" },
+  { id: "onderhoud", label: "Website-onderhoud" },
   { id: "seo", label: "Lokale SEO" },
 ];
 

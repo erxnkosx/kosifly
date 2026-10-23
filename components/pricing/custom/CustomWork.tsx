@@ -96,14 +96,19 @@ export function CustomWork() {
           <PriceLadder slug="ai-automatisaties" />
         </div>
       </div>
-      {/* Hosting & onderhoud voor software: dezelfde kaarten als het websiteonderhoud bij de maandpakketten. */}
-      <div className="software-plans">
+      {/* Onderhoud & hosting voor software: eigen pakketten, los van het website-onderhoud bij de maandpakketten. */}
+      <div className="software-plans" id="software-hosting">
         <div data-reveal className="software-plans-head">
-          <h3>Hosting &amp; onderhoud voor software</h3>
+          <span className="software-plans-kicker">Software-onderhoud</span>
+          <h3>Onderhoud &amp; hosting voor software op maat</h3>
           <p>
-            Per app en per maand, excl. btw. Hosting in de EU tot {SOFTWARE_DATA_GB} GB data,
-            daarboven aan kostprijs. Host je liever zelf, dan helpen we je per uur.
+            Voor de web apps en platformen die we voor je bouwen, met een database, logins en
+            koppelingen. Per app en per maand, excl. btw. Hosting in de EU tot {SOFTWARE_DATA_GB} GB
+            data, daarboven aan kostprijs. Host je liever zelf, dan helpen we je per uur.
           </p>
+          <a href="#maandpakketten" className="software-plans-switch">
+            Gewoon een website? Bekijk het website-onderhoud <span aria-hidden="true">→</span>
+          </a>
         </div>
         <div id="software-plans-track" data-reveal-group className="pricing-swipe flex gap-[28px]">
           {SOFTWARE_PLANS.map((plan) => (

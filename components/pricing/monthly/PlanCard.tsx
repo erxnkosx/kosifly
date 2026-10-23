@@ -2,6 +2,7 @@ import { CheckList, MostChosen, PillButton } from "../shared";
 import type { Plan, PlanTone } from "./MonthlyPlans.data";
 
 const ON_DARK = {
+  kind: "text-[#ffc2cc]",
   name: "text-white",
   tagline: "text-white/80",
   price: "text-white",
@@ -17,6 +18,7 @@ const ON_DARK = {
 const TONES = {
   light: {
     card: "bg-white drop-shadow-[0_20px_25px_rgba(0,0,0,0.35)]",
+    kind: "text-[#810012]",
     name: "text-ink",
     tagline: "text-grey",
     price: "text-ink",
@@ -67,6 +69,13 @@ export function PlanCard({ plan }: { plan: Plan }) {
     <article
       className={`pricing-plan pricing-plan-${plan.tone} relative flex w-[500px] flex-col gap-[18px] rounded-[24px] p-[36px] leading-[normal] ${tone.card}`}
     >
+      {plan.kind && (
+        <p
+          className={`pricing-plan-kind font-inter text-[12px] font-bold uppercase leading-[16px] tracking-[0.12em] ${tone.kind}`}
+        >
+          {plan.kind}
+        </p>
+      )}
       <h4 className={`font-manrope text-[28px] font-extrabold tracking-[-0.2436px] ${tone.name}`}>
         {plan.name}
       </h4>

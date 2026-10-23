@@ -2222,6 +2222,110 @@
     gap: 10px;
     margin-top: 22px;
   }
+
+  /* Website- en software-onderhoud: elk een eigen groep pakketten met een kop */
+  .price-ladder + .price-group,
+  .price-group + .price-group {
+    margin-top: 44px;
+  }
+  .price-group + .price-group {
+    padding-top: 40px;
+    border-top: 1px solid #81001214;
+  }
+  .price-group-head {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .price-group-kicker {
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #f8f1f2;
+    font: 700 11px/1.2 var(--font-inter);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #810012;
+  }
+  .price-group-head h3 {
+    margin-top: 6px;
+    font: 800 22px/1.2 var(--font-manrope);
+    letter-spacing: -0.02em;
+    color: #111;
+  }
+  .price-group-head p {
+    font: 400 14.5px/1.55 var(--font-inter);
+    color: #5b5b5b;
+  }
+  .price-group-more {
+    display: flex;
+    gap: 6px;
+    width: fit-content;
+    margin-top: 16px;
+    font: 600 14px/1.3 var(--font-inter);
+    text-decoration: underline;
+    text-decoration-color: #81001259;
+    text-underline-offset: 4px;
+    color: #810012;
+  }
+  .price-group-more:hover {
+    text-decoration-color: #810012;
+  }
+
+  /* Vergelijking website- en software-onderhoud */
+  .price-compare {
+    margin-top: 44px;
+    padding: 22px 18px 6px;
+    border: 1px solid #81001221;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow:
+      0 1px 2px #0000000a,
+      0 12px 28px #8100120f;
+  }
+  .price-compare h3 {
+    font: 800 20px/1.25 var(--font-manrope);
+    color: #111;
+  }
+  .price-compare > p {
+    margin-top: 8px;
+    font: 400 14px/1.55 var(--font-inter);
+    color: #5b5b5b;
+  }
+  .price-compare table {
+    width: 100%;
+    margin-top: 14px;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  .price-compare th,
+  .price-compare td {
+    padding: 12px 6px;
+    font: 400 13.5px/1.4 var(--font-inter);
+    text-align: left;
+    vertical-align: top;
+    color: #333;
+  }
+  .price-compare thead td,
+  .price-compare tbody th {
+    width: 26%;
+    padding-left: 0;
+  }
+  .price-compare thead th {
+    font: 700 12.5px/1.3 var(--font-inter);
+    color: #810012;
+  }
+  .price-compare tbody tr {
+    border-top: 1px solid #81001214;
+  }
+  .price-compare tbody th {
+    font-weight: 600;
+    color: #111;
+  }
+  .price-compare tbody tr:last-child td {
+    font-weight: 700;
+    color: #810012;
+  }
 }
 
 /* ---------- Webdesign: "Onder de motorkap" (rondleiding door een voorbeeldsite, enkel mobiel) ---------- */
